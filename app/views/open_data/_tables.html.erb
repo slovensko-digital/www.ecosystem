@@ -1,0 +1,18 @@
+<div class="table-responsive">
+  <table class="table table-condensed table-hover">
+    <thead>
+    <tr>
+      <th>Názov tabuľky</th>
+      <th>Popis</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% tables.each do |table| %>
+        <tr>
+          <td class="col-md-3"><code><%= link_to "#{table.schemaname}.#{table.tablename}", "##{table.schemaname}.#{table.tablename}" %></code></td>
+          <td class="col-md-9"><%= docs [table.schemaname, :tables, table.tablename, :description] %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

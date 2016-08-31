@@ -1,0 +1,80 @@
+<h4>Získanie údajov zmluvy</h4>
+<p class="docs-endpoint"><code>GET <%= api_data_crz_contract_url(id: ':id', host: api_host) %></code></p>
+<h5>Parametre</h5>
+<table class="table table-bordered table-nonfluid">
+  <thead>
+  <tr>
+    <th>Názov</th>
+    <th>Typ</th>
+    <th>Popis</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><code>id</code></td>
+    <td><code>integer</code></td>
+    <td>Identifikátor zmluvy</td>
+  </tr>
+  </tbody>
+</table>
+<h5>Odpoveď</h5>
+<p><%= link_to 'Popis atribútov', open_data_path(anchor: 'crz.contracts'), class: 'btn btn-default btn-sm' %></p>
+<pre class="pre-scrollable"><code class="language-json">{
+  "id": 2142424,
+  "contract_identifier": "3232/PK/2015",
+  "contracting_authority_name": "Centrum vedecko-technických informácií SR",
+  "contracting_authority_formatted_address": "Lamačská cesta 8/A, P.O. Box 458, 814 99  Bratislava",
+  "contracting_authority_cin": "00151882",
+  "supplier_name": "Anext a.s.",
+  "supplier_formatted_address": " Hurbanovo nám. 3, 811 06 Bratislava",
+  "supplier_cin": "44536445",
+  "subject": "Zmluva o dielo",
+  "subject_description": null,
+  "signed_on": "2015-11-06",
+  "effective_from": "2015-11-07",
+  "effective_to": "2015-11-30",
+  "effective_note": null,
+  "contract_price_amount": "9655920.0",
+  "contract_price_total_amount": "9655920.0",
+  "note": null,
+  "published_at": "2015-11-06T17:58:31.000000Z",
+  "changed_at": "2015-11-06T17:42:32.000000Z",
+  "change_note": null,
+  "status_id": 2,
+  "type_id": 1,
+  "kind_id": 1,
+  "internal_id": 5674,
+  "internal_note": null,
+  "confirmation_status_id": 2,
+  "confirmation_file_name": null,
+  "confirmed_on": null,
+  "source_id": 1,
+  "description": null,
+  "reference": null,
+  "created_at": "2016-07-08T20:20:34.977478Z",
+  "updated_at": "2016-07-08T20:20:34.977478Z",
+  "department": {
+    "id": 114497,
+    "name": "Ministerstvo školstva, vedy, výskumu a športu SR",
+    "created_at": "2016-08-09T09:44:31.206487Z",
+    "updated_at": "2016-08-09T09:44:31.206487Z"
+  },
+  "attachments": [
+    {
+      "id": 2142427,
+      "contract_id": 2142424,
+      "title": " 3232/PK/2015",
+      "file_name": "2142427_dokument1.pdf",
+      "file_size": 634261,
+      "scan_file_name": null,
+      "scan_file_size": null,
+      "changed_at": "2015-11-06T17:58:22.000000Z",
+      "created_at": "2016-07-08T20:20:35.007034Z",
+      "updated_at": "2016-07-08T20:20:35.007034Z"
+    }
+  ]
+}</code></pre>
+
+<h4>Získanie zmenených zmlúv od daného času</h4>
+<p class="docs-endpoint"><code>GET <%= sync_api_data_crz_contracts_url(host: api_host) %></code></p>
+<p>Zmenené záznamy od určeného času je možné získať pomocou <%= link_to 'synchronizačného API', '#sync-api' %>. </p>
