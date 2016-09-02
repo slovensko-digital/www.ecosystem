@@ -30,9 +30,19 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'bootstrap-sass'
+gem 'newrelic_rpm'
+gem 'rollbar'
+
+gem 'redis-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'pry'
+  gem 'dotenv-rails'
+
+  gem 'rack-mini-profiler'
 end
 
 group :development do
@@ -44,5 +54,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+group :staging, :production do
+  gem 'rails_12factor'
+end
+

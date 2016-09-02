@@ -1,0 +1,290 @@
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+<%= javascript_include_tag ENV.fetch('AUTOFORM_JAVASCRIPT_URL') %>
+
+<div class="container autoform">
+  <h1><strong>Autoform</strong></h1>
+  <p class="lead">Automatické vypĺňanie kontaktných a fakturačných údajov o právnických osobách. <br><em>Vždy aktuálne údaje, rýchle a bez chýb.</em></p>
+
+  <hr>
+
+  <h2>Ukážkové použitie</h2>
+  <p class="lead"><em>Začnite písať názov právnickej osoby alebo zadajte IČO.</em> Zvyšok sa doplní automaticky.</p>
+  <%= form_tag '#', data: {'slovensko-digital-autoform': ENV.fetch('AUTOFORM_ACCESS_TOKEN') } do %>
+      <section>
+        <div class="row">
+          <div class="col-md-5 col-md-pad">
+            <%= label_tag :name, 'Názov' %>
+            <%= text_field_tag :name, nil, class: 'form-control input-lg', data: {'slovensko-digital-autoform': 'name'} %>
+            <p class="help-block">Napríklad: Slovensko.Digital, Martinus</p>
+          </div>
+          <div class="col-md-2 col-md-offset-1 col-md-pad">
+            <%= label_tag :cin, 'IČO' %>
+            <%= text_field_tag :cin, nil, class: 'form-control input-lg', data: {'slovensko-digital-autoform': 'cin'} %>
+            <p class="help-block">Napríklad: 36421928</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="row">
+          <div class="col-md-5 col-md-pad">
+            <%= label_tag :formatted_address, 'Adresa' %>
+            <%= text_field_tag :formatted_address, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'formatted-address'} %>
+          </div>
+          <div class="col-md-2 col-md-offset-1 col-md-pad">
+            <%= label_tag :tin, 'DIČ' %>
+            <%= text_field_tag :tin, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'tin'} %>
+          </div>
+          <div class="col-md-2 col-md-pad">
+            <%= label_tag :vatin, 'IČ-DPH' %>
+            <%= text_field_tag :vatin, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'vatin'} %>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="row">
+          <div class="col-md-3 col-md-pad">
+            <%= label_tag :registration_number, 'Ulica' %>
+            <%= text_field_tag :registration_number, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'street'} %>
+          </div>
+
+          <div class="col-md-1 col-md-pad">
+            <%= label_tag :registration_number, 'Súpisné&nbsp;č.'.html_safe %>
+            <%= text_field_tag :registration_number, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'reg-number'} %>
+          </div>
+
+          <div class="col-md-1 col-md-pad">
+            <%= label_tag :registration_number, 'Orient.&nbsp;č.'.html_safe %>
+            <%= text_field_tag :registration_number, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'building-number'} %>
+          </div>
+
+          <div class="col-md-3 col-md-offset-1 col-md-pad">
+            <%= label_tag :registration_office, 'Registrátor' %>
+            <%= text_field_tag :registration_office, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'registration-office'} %>
+          </div>
+
+          <div class="col-md-2 col-md-pad">
+            <%= label_tag :registration_number, 'Registračné číslo' %>
+            <%= text_field_tag :registration_number, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'registration-number'} %>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="row">
+          <div class="col-md-1 col-md-pad">
+            <%= label_tag :postal_code, 'PSČ' %>
+            <%= text_field_tag :postal_code, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'postal-code'} %>
+          </div>
+
+          <div class="col-md-3 col-md-pad">
+            <%= label_tag :municipality, 'Obec' %>
+            <%= text_field_tag :municipality, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'municipality'} %>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="row">
+          <div class="col-md-2 col-md-pad">
+            <%= label_tag :country, 'Krajina' %>
+            <%= text_field_tag :country, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'country'} %>
+          </div>
+        </div>
+      </section>
+  <% end %>
+
+  <section>
+    <h2>Registrácia</h2>
+    <p class="lead">Jednoduchá registrácia, <em>až 256 vyhľadávaní mesačne <strong>pre kohokoľvek</strong></em>. Viac vyhľadávaní po dohode.</p>
+
+    <div id="autoform-error" style="display: none;">
+      <%= render 'services/share/flash_message', {type: :alert, message: 'Niektoré údaje ste nezadali správne. Opravte ich prosím a skúste znova.'} %>
+    </div>
+    <div id="autoform-form-sent" style="display: none;">
+      <%= render 'services/share/flash_message', {type: :notice, message: 'Žiadosť o registráciu bola odoslaná na schválenie. Ďakujeme za Váš záujem a budeme Vás kontaktovať.'} %>
+    </div>
+
+    <div id="autoform_flash"></div>
+    <div class="row" id="autoform_client_form_wrapper">
+      <iframe name="form-result" style="display: none;"></iframe>
+      <%= form_tag 'https://docs.google.com/forms/d/1TpYNJfBQVGt4lmKP-wrXGkok2bo-Y6mzpmeUsJTnRis/formResponse', target: 'form-result', id: 'autoform-form' do %>
+        <div class="col-md-3 col-md-pad">
+          <div class="form-group">
+            <%= label_tag 'entry.204431983', 'Email', class: 'control-label' %>
+            <%= email_field_tag 'entry.204431983', nil, class: 'form-control input-lg', id: 'autoform-email' %>
+          </div>
+        </div>
+        <div class="col-md-3 col-md-pad">
+          <div class="form-group">
+            <%= label_tag 'entry.1349114640', 'Doména', class: 'control-label' %>
+            <%= text_field_tag 'entry.1349114640', nil, class: 'form-control input-lg', id: 'autoform-domain' %>
+            <p class="help-block">Napríklad: www.websupport.sk</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-md-pad">
+          <%= label_tag :a, '&nbsp'.html_safe %> <br>
+          <%= button_tag id: 'submit_to_autoform', class: 'btn btn-default btn-lg btn-strong' do %>
+            <strong>Zaregistrovať</strong>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </section>
+
+  <section id="integracny-manual">
+    <h2>Integračný manuál</h2>
+    <p class="lead">Jednoduchá integrácia na zopár riadkov HTML kódu.</p>
+    <h4>Ukážka integrácie</h4>
+    <pre class="language-markup"><code class="highlight">&lt;script src=&quot;https://code.jquery.com/jquery-1.10.2.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://code.jquery.com/ui/1.11.4/jquery-ui.js&quot;&gt;&lt;/script&gt;
+<%=h "<script async src=\"#{ENV.fetch('AUTOFORM_JAVASCRIPT_URL')}\"></script>" %></code>
+
+<code class="highlight">&lt;form data-slovensko-digital-autoform=&quot;SEM_API_KĽÚČ&quot; action=&quot;...&quot;&gt;</code><code>
+  &lt;p&gt;
+    &lt;label for=&quot;name&quot;&gt;N&aacute;zov&lt;/label&gt;&lt;br&gt;
+    </code><code class="highlight">&lt;input type=&quot;text&quot; name=&quot;name&quot; <strong>data-slovensko-digital-autoform=&quot;name&quot;</strong>/&gt;</code><code>
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;label for=&quot;cin&quot;&gt;I&#268;O&lt;/label&gt;&lt;br&gt;
+    </code><code class="highlight">&lt;input type=&quot;text&quot; name=&quot;cin&quot; <strong>data-slovensko-digital-autoform=&quot;cin&quot;</strong>/&gt;</code><code>
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;label for=&quot;formatted_address&quot;&gt;Adresa&lt;/label&gt;&lt;br&gt;
+    </code><code class="highlight">&lt;input type=&quot;text&quot; name=&quot;formatted_address&quot; <strong>data-slovensko-digital-autoform=&quot;formatted-address&quot;</strong>/&gt;</code><code>
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;label for=&quot;tin&quot;&gt;DI&#268;&lt;/label&gt;&lt;br&gt;
+    </code><code class="highlight">&lt;input type=&quot;text&quot; name=&quot;tin&quot; <strong>data-slovensko-digital-autoform=&quot;tin&quot;</strong>/&gt;</code><code>
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;label for=&quot;vatin&quot;&gt;I&#268;-DPH&lt;/label&gt;&lt;br&gt;
+    </code><code class="highlight">&lt;input type=&quot;text&quot; name=&quot;vatin&quot; <strong>data-slovensko-digital-autoform=&quot;vatin&quot;</strong>/&gt;</code><code>
+  &lt;/p&gt;
+&lt;/form&gt;</code></pre>
+    <h4>Postup integrácie</h4>
+    <ol>
+      <li><p>Pre integráciu do HTML formulára je potrebné použiť knižnice jQuery, jQuery UI a Autoform.</p></li>
+      <li><p>Element <code>&lt;form&gt;</code> je potrebné označiť atribútom <code>data-slovensko-digital-autoform</code> s API klúčom udeleným pri registrácii. </p></li>
+      <li><p>Následne stačí jednotlivé prvky formulára označiť atribútmi <code>data-slovensko-digital-autoform</code> určujúcimi typ údajov. </p>
+        <div class="table-responsive">
+          <table class="table table-bordered table-nonfluid">
+            <thead>
+            <tr>
+              <th>Hodnota atribútu</th>
+              <th>Význam</th>
+              <th>Ukážka hodnoty</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><code>name</code></td>
+              <td>Názov subjektu</td>
+              <td><code>"Websupport, s.r.o."</code></td>
+            </tr>
+            <tr>
+              <td><code>cin</code></td>
+              <td>IČO</td>
+              <td><code>"36 421 928"</code></td>
+            </tr>
+            <tr>
+              <td><code>formatted-address</code></td>
+              <td>Naformátovaná adresa</td>
+              <td><code>"Staré Grunty 12, 841 04 Bratislava"</code></td>
+            </tr>
+            <tr>
+              <td><code>street</code></td>
+              <td>Ulica</td>
+              <td><code>"Staré Grunty"</code></td>
+            </tr>
+            <tr>
+              <td><code>building-number</code></td>
+              <td>Orientačné číslo</td>
+              <td><code>"12"</code></td>
+            </tr>
+            <tr>
+              <td><code>reg-number</code></td>
+              <td>Súpisné číslo</td>
+              <td><code>null</code></td>
+            </tr>
+            <tr>
+              <td><code>postal-code</code></td>
+              <td>PSČ</td>
+              <td><code>"841 04"</code></td>
+            </tr>
+            <tr>
+              <td><code>municipality</code></td>
+              <td>Obec</td>
+              <td><code>"Bratislava"</code></td>
+            </tr>
+            <tr>
+              <td><code>country</code></td>
+              <td>Krajina</td>
+              <td><code>"Slovenská republika"</code></td>
+            </tr>
+            <tr>
+              <td><code>tin</code></td>
+              <td>DIČ</td>
+              <td><code>2021869234</code></td>
+            </tr>
+            <tr>
+              <td><code>vatin</code></td>
+              <td>IČ-DPH</td>
+              <td><code>"SK2021869234"</code></td>
+            </tr>
+            <tr>
+              <td><code>vatin-paragraph</code></td>
+              <td>DPH podľa paragrafu</td>
+              <td><code>"§4"</code></td>
+            </tr>
+            <tr>
+              <td><code>registration-office</code></td>
+              <td>Registrátor</td>
+              <td><code>"Okresný súd Bratislava I"</code></td>
+            </tr>
+            <tr>
+              <td><code>registration-number</code></td>
+              <td>Registračné číslo</td>
+              <td><code>"Sro/63270/B"</code></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </li>
+      <li>Pridajte CSS štýly pre jQuery autocomplete. Toto sú ukážkové štýly, ktoré vidíte na tejto stránke.
+        <pre class="pre-scrollable"><code class="language-css">.ui-autocomplete {
+  width: inherit;
+  position: absolute;
+  z-index: 1000;
+  padding: 0;
+  list-style: none;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.ui-autocomplete &gt; li {
+  padding: 6px 12px;
+  cursor: pointer;
+  cursor: hand;
+  transition: background-color ease-in-out 0.15s;
+}
+
+.ui-autocomplete &gt; li.terminated {
+  text-decoration: line-through;
+}
+
+.ui-autocomplete &gt; li.ui-state-focus {
+  background-color: rgb(238, 238, 238);
+}
+
+.ui-helper-hidden-accessible {
+  display: none;
+}</code></pre></li>
+    </ol>
+  </section>
+</div>

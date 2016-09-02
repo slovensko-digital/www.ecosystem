@@ -1,0 +1,72 @@
+<% cache 'open_data_docs' do %>
+  <div class="container">
+    <h1><strong>Otvorené dáta</strong></h1>
+
+    <div class="anchors">
+      <h2>Úvod</h2>
+      <p class="lead"><%= link_to 'Slovensko.Digital', 'https://slovensko.digital/' %> poskytuje verejnosti bezplatný prístup k štruktúrovaným dátam vybraných zdrojov. Dáta je možné stiahnuť ako SQL dumpy z relačnej databázy alebo priamo využívať <%= link_to 'REST', open_api_path %> a <%= link_to 'SQL API', services_datahub_index_path %>. V prípade záujmu o ďalšie dáta nás <%= mail_to 'kontakt@slovensko.digital', 'kontaktujte' %>.</p>
+
+      <h2>Dokumentácia</h2>
+      <p>Popis štruktúry tabuliek pre datasety z <%= link_to 'centrálneho registra zmlúv', '#crz' %>, <%= link_to 'registra právnických osôb', '#rpo' %>, <%= link_to 'vestníka verejného obstarávania', '#vvo' %>, <%= link_to 'obchodného vestníka', '#ov' %> a <%= link_to 'registra účtovných závierok', '#ruz' %> nájdete v tejto dokumentácii.</p>
+
+      <h3>Aktualizácia</h3>
+      <p>SQL dumpy sú vytvárané raz týždenne v nedeľu od 4:00. Dáta prístupné cez API sú aktualizované priebežne.</p>
+
+      <h3 id="rpo">Register právnických osôb <span class="label label-warning">BETA</span></h3>
+      <p>Register právnických osôb je jedným z klúčových referenčných registrov vo verejnej správe. Obsahuje informácie o právnických osobách z viacerých zdrojových registrov (napr. obchodný register, živnostenský register, register občianskych združení&hellip;)</p>
+      <p class="btn-row">
+        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/rpo.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>rpo.sql.gz.torrent</strong></a>
+        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/rpo.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> rpo.sql.gz</a>
+        <%= link_to 'API', open_api_path(anchor: :rpo), class: 'btn btn-default' %>
+      </p>
+      <% tables = PgCatalog::PgTable.find_by_schema(:rpo) %>
+      <%= render partial: 'tables', object: tables %>
+      <%= render partial: 'table', collection: tables %>
+
+      <h3 id="crz">Centrálny register zmlúv <span class="label label-warning">BETA</span></h3>
+      <p>Centrálny register zmlúv je jedným z najdôležitejších registrov z hľadiska transparetnosti narábania s verejnými zdrojmi. Obsahuje metadáta zmlúv a odkazy na zmluvy samotné.</p>
+      <p class="btn-row">
+        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/crz.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>crz.sql.gz.torrent</strong></a>
+        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/crz.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> crz.sql.gz</a>
+        <%= link_to 'API', open_api_path(anchor: :crz), class: 'btn btn-default' %>
+      </p>
+      <% tables = PgCatalog::PgTable.find_by_schema(:crz) %>
+      <%= render partial: 'tables', object: tables %>
+      <%= render partial: 'table', collection: tables %>
+
+      <h3 id="vvo">Vestník verejného obstarávania <span class="label label-danger">ALFA</span></h3>
+      <p>Vestník verejného obstarávania je zdrojom dát o pripravovaných, prebiehajúcich ako aj ukončených verejných obstarávaní. Obsahuje oznámenia o verejných obstarávaniach.</p>
+      <p class="btn-row">
+        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/rpo.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>vvo.sql.gz.torrent</strong></a>
+        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/rpo.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> vvo.sql.gz</a>
+        <%= link_to 'API', open_api_path(anchor: :vvo), class: 'btn btn-default' %>
+      </p>
+      <% tables = PgCatalog::PgTable.find_by_schema(:vvo) %>
+      <%= render partial: 'tables', object: tables %>
+      <%= render partial: 'table', collection: tables %>
+
+      <h3 id="ov">Obchodný vestník <span class="label label-danger">ALFA</span></h3>
+      <p>Obchodný vestník obsahuje údaje o zmenách právnických osôb. Poskytované sú kompletné dáta pochádzajúce zo zdroja. Aktuálne sú do štrukturovanej podoby spracované iba niektoré z nich (vestník obchodného registra, konkurzy, likvidácie, reštrukturalizácie a zníženie základného imania).</p>
+      <p class="btn-row">
+        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/ov.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>ov.sql.gz.torrent</strong></a>
+        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/ov.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> ov.sql.gz</a>
+        <%= link_to 'API', open_api_path(anchor: :ov), class: 'btn btn-default' %>
+      </p>
+
+      <% tables = PgCatalog::PgTable.find_by_schema(:ov) %>
+      <%= render partial: 'tables', object: tables %>
+      <%= render partial: 'table', collection: tables %>
+
+      <h3 id="ruz">Register účtovných závierok <span class="label label-danger">ALFA</span></h3>
+      <p>Register účtovných závierok obsahuje dôležité informácie o hospodárení firiem na Slovensku. Momentálne poskytujeme len zoznam účtovných jednotiek a číselníky.</p>
+      <p class="btn-row">
+        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/ruz.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>ruz.sql.gz.torrent</strong></a>
+        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/ruz.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> ruz.sql.gz</a>
+        <%= link_to 'API', open_api_path(anchor: :ruz), class: 'btn btn-default' %>
+      </p>
+      <% tables = PgCatalog::PgTable.find_by_schema(:ruz) %>
+      <%= render partial: 'tables', object: tables %>
+      <%= render partial: 'table', collection: tables %>
+    </div>
+  </div>
+<% end %>

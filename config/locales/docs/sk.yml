@@ -1,0 +1,1103 @@
+sk:
+  docs:
+    timestamp_columns: &timestamp_columns
+      created_at:
+        description: Čas vzniku záznamu
+        note_html: Systémový stĺpec. Nepochádza zo zdroja.
+      updated_at:
+        description: Čas poslednej zmeny záznamu
+        note_html: Systémový stĺpec. Nepochádza zo zdroja.
+    effective_range_columns: &effective_range_columns
+      effective_from:
+        description: Dátum začiatku platnosti záznamu
+      effective_to:
+        description: Dátum konca platnosti záznamu
+    person_columns: &person_columns
+      full_name:
+        description: Plné meno
+        note_html: Používa sa pokiaľ ide o právnickú osobu.
+      person_formatted_name:
+        description: Plné formátované meno - fyzická osoba
+      person_given_name:
+        description: Rodné meno
+      person_family_name:
+        description: Priezvisko
+      person_given_family_name:
+        description:
+        note_html: Význam neznámy.
+      person_prefixes:
+        description: Tituly pred menom
+      person_postfixes:
+        description: Tituly za menom
+    address_columns: &address_columns
+      address_formatted:
+        description: Formátovaná adresa
+        note_html: Uvádza sa len ak nie je adresa v štruktúrovanej podobe.
+      address_street:
+        description: Ulica
+      address_reg_number:
+        description: Súpisné číslo stavby
+      address_building_number:
+        description: Orientačné číslo stavby
+      address_postal_code:
+        description: Poštové smerové číslo
+      address_municipality:
+        description: Obec
+      address_country:
+        description: Krajina
+
+    crz:
+      tables:
+        departments:
+          description: Rezorty
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Hodnota zodpovedá identifikátoru v zdroji.
+            name:
+              description: Názov
+              note_html: Napríklad <code>Úrad podpredsedu vlády SR pre investície a&nbsp;informatizáciu</code>.
+            <<: *timestamp_columns
+        attachments:
+          description: Prílohy k zmluvám
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Hodnota zodpovedá identifikátoru v zdroji.
+            contract_id:
+              description: Identifikátor zmluvy
+            title:
+              description: Názov prílohy
+            scan_file_name:
+              description: Názov súboru prílohy (sken)
+            file_name:
+              description: Názov súboru prílohy
+            file_size:
+              description: Veľkosť súboru prílohy
+            scan_file_size:
+              description: Veľkosť súboru prílohy (sken)
+            changed_at:
+              description: Čas poslednej zmeny záznamu
+              note_html: Čas zmeny v zdrojovom registri.
+            <<: *timestamp_columns
+        contracts:
+          description: Zmluvy
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Hodnota zodpovedá identifikátoru v zdroji.
+            contract_identifier:
+              description: Názov zmluvy
+            contracting_authority_name:
+              description: Názov objednávateľa
+            contracting_authority_formatted_address:
+              description: Adresa objednávateľa
+            contracting_authority_cin:
+              description: IČO objednávateľa
+            supplier_name:
+              description: Názov dodávateľa
+            supplier_formatted_address:
+              description: Adresa dodávateľa
+            supplier_cin:
+              description: IČO dodávateľa
+            subject:
+              description: Predmet zmluvy
+            subject_description:
+              description: Popis predmetu zmluvy
+            signed_on:
+              description: Dátum podpisu zmluvy
+            effective_from:
+              description: Dátum začiatku účinnosti zmluvy
+            effective_to:
+              description: Dátum konca účinnosti zmluvy
+            effective_note:
+              description: Poznámka k účinnosti zmluvy
+            contract_price_amount:
+              description: Zmluvne dohodnutá suma
+            contract_price_total_amount:
+              description: Celková suma vrátane dodatkov
+            note:
+              description: Poznámka
+            department_id:
+              description: Identifikátor rezortu
+            published_at:
+              description: Čas zverejnenia zmluvy
+            changed_at:
+              description: Čas poslednej zmeny záznamu
+              note_html: Čas zmeny v zdrojovom registri.
+            change_note:
+              description: Poznámka k zmene
+            status_id:
+              description: Stav zmluvy
+              note_html: <code>1</code> = rozpracovaná, <code>2</code> = zverejnená, <code>3</code> = doplnená, <code>4</code> = zrušená, <code>5</code> = stiahnutá
+            type_id:
+              description: Typ zmluvy
+              note_html: <code>1</code> = zmluva/dodatok, <code>2</code> = informácia o zmluve
+            kind_id:
+              description: Druh zmluvy
+              note_html: <code>0</code> = zmluva, <code>1</code> = zmluva, <code>2</code> = dodatok. Údaj v tomto stĺpci je nespoľahlivý, najmä dodatky sú v zdroji označované nesprávne.
+            internal_id:
+              description: Interný identifikátor
+              note_html: Interný identifikátor zmluvy v systéme osoby, ktorá zmluvu zverejnila.
+            internal_note:
+              description: Interná poznámka
+              note_html: Interná poznámka podpory CRZ
+            confirmation_status_id:
+              description: Stav žiadosti o vydanie potvrdenia
+              note_html: <code>1</code> = nežiadané, <code>2</code> = žiadané, <code>3</code> = generované, <code>4</code> = odoslané elektronicky, <code>5</code> = odoslané poštou.
+            confirmation_file_name:
+              description: Názov súboru potvrdenia
+              note_html: Potvrdenie sa nachádza na adrese <code>http://www.crz.gov.sk/index.php?ID=603&amp;doc=<strong>&lt;confirmation_file_name&gt;</strong>&amp;potv=1</code>.
+            confirmed_on:
+              description: Dátum potvrdenia
+            source_id:
+              description: Identifikátor vytvorenia zmluvy
+              note_html: <code>1</code> = web rozhranie, <code>2</code> = XML import, <code>3</code> = XML robot.
+            description:
+              description: Popis zmluvy
+            reference:
+              description: Referencia zmluvy
+              note_html: Najčastejšie referencia dodatku na zmluvu. Neštruktúrované dáta bez záruk integrity.
+            <<: *timestamp_columns
+
+    vvo:
+      tables:
+        bulletin_issues:
+          description: Vydania vestníka
+          columns:
+            id:
+              description: Identifikátor
+            year:
+              description: Rok vydania
+            number:
+              description: Číslo vydania
+            published_on:
+              description: Dátum uverejnenia
+            source_url:
+              description: URL zdroja dát
+            <<: *timestamp_columns
+        contracting_authorities:
+          description: Objednávatelia
+          columns:
+            id:
+              description: Identifikátor
+            name:
+              description: Názov
+            <<: *timestamp_columns
+        contracts:
+          description: Zákazky
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Hodnota zodpovedá identifikátoru v zdroji.
+            <<: *timestamp_columns
+        notice_suppliers:
+          description: Dodávatelia
+          columns:
+            id:
+              description: Identifikátor
+            notice_id:
+              description: Identifikátor oznámenia
+            name:
+              description: Názov
+            cin:
+              description: IČO
+            <<: *timestamp_columns
+        notice_types:
+          description: Typy oznámenia
+          columns:
+            id:
+              description: Identifikátor
+            code:
+              description: Kód typu
+              note_html: Napríklad <code>DES</code>.
+            name:
+              description: Názov
+              note_html: Napríklad <code>oznámenie o dobrovoľnej transparentnosti EX-ANTE (služby)</code>.
+            cin:
+              description: IČO
+            <<: *timestamp_columns
+
+        notices:
+          description: Oznámenia
+          columns:
+            id:
+              description: Identifikátor
+            title:
+              description: Názov
+            contracting_authority_name:
+              description: Názov objednávateľa
+            contracting_authority_cin:
+              description: IČO objednávateľa
+            estimated_value_amount:
+              description: Suma predbežnej hodnoty zákazky
+            estimated_value_currency:
+              description: Mena predbežnej hodnoty zákazky
+            contracting_authority_id:
+              description: Identifikátor objednávateľa
+            procedure_type_id:
+              description: Identifikátor druhu postupu
+            contract_id:
+              description: Identifikátor zákazky
+            e_auction:
+              description: Príznak elektronickej aukcie
+            raw_notice_id:
+              description: Identifikátor neštruktúrovaného oznámenia
+            bulletin_issue_id:
+              description: Identifikátor vydania
+            notice_type_id:
+              description: Identifikator typu oznamu
+            <<: *timestamp_columns
+
+        procedure_types:
+          description: Druhy postupu
+          columns:
+            id:
+              description: Identifikátor
+            title:
+              description: Názov
+              note_html: Napríklad <code>Verejná súťaž</code>.
+            code:
+              description: Kód
+            category:
+              description: Kategória druhu postupu
+              note_html: Napríklad <code>DRUH_POSTUPU_F15_24</code>.
+            body:
+              description: Obsah oznámenia
+            <<: *timestamp_columns
+
+        raw_notices:
+          description: Neštruktúrované oznámenia
+          columns:
+            id:
+              description: Identifikátor
+            bulletin_issue_id:
+              description: Identifikátor vydania vestníka
+            number:
+              description: Poradové číslo oznámenia
+              note_html: Nepochádza zo zdroja.
+            notice_type_id:
+              description: Identifikátor typu oznámenia
+            body:
+              description: Obsah oznámenia
+            <<: *timestamp_columns
+
+
+    rpo:
+      tables:
+        esa2010_codes:
+          description: Číselník ESA2010 klasifikácií
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Hodnota zodpovedá identifikátoru v zdroji.
+            name:
+              description: Názov klasifikácie
+              note_html: Napríklad <code>Nefinančné korporácie pod zahraničnou kontrolou</code>.
+            <<: *timestamp_columns
+        legal_forms:
+          description: Číselník právnych foriem právnických osôb
+          columns:
+            id:
+              description: Identifikátor
+            name:
+              description: Názov právnej formy
+              note_html: Napriklad <code>Spoločnosť s ručením obmedzeným</code>.
+            <<: *timestamp_columns
+        main_activity_codes:
+          description: Čísleník hlavných ekonomických činností právnických osôb
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Hodnota zodpovedá identifikátoru v zdroji.
+            name:
+              description: Názov klasifikácie
+              note_html: Napríklad <code>Počítačové programovanie</code>.
+            <<: *timestamp_columns
+        organization_address_entries:
+          description: Sídla právnických osôb
+          columns:
+            id:
+              description: Identifikátor
+            organization_id:
+              description: Identifikátor právnickej osoby
+            formatted_address:
+              description: Formátovaná adresa
+              note_html: Uvádza sa len ak nie je adresa v štruktúrovanej podobe.
+            street:
+              description: Ulica
+            reg_number:
+              description: Súpisné číslo stavby
+            building_number:
+              description: Orientačné číslo stavby
+            postal_code:
+              description: Poštové smerové číslo
+            municipality:
+              description: Obec
+            country:
+              description: Krajina
+            <<: *timestamp_columns
+            <<: *effective_range_columns
+        organization_alternate_name_entries:
+          description: Alternatívne názvy právnických osôb
+          columns:
+            id:
+              description: Identifikátor
+            organization_id:
+              description: Identifikátor právnickej osoby
+            name:
+              description: Alternatívny názov
+            <<: *timestamp_columns
+            <<: *effective_range_columns
+        organization_authorization_entries:
+          description: Oprávnenia konať v mene právnických osôb
+          columns:
+            id:
+              description: Identifikátor
+            organization_id:
+              description: Identifikátor právnickej osoby
+            body:
+              description: Text oprávnenia
+              note_html: Napríklad <code>V mene spoločnosti koná konateľ.</code>
+            <<: *timestamp_columns
+            <<: *effective_range_columns
+        organization_deposit_entries:
+          description: Vklady právnických osôb
+          columns:
+            id:
+              description: Identifikátor
+            organization_id:
+              description: Identifikátor právnickej osoby
+            full_name:
+              description: Plné meno vkladateľa
+              note_html: Používa sa pokiaľ je vkladateľom právnická osoba.
+            person_formatted_name:
+              description: Plné formátované meno vkladateľa - fyzická osoba
+            person_given_name:
+              description: Rodné meno
+            person_family_name:
+              description: Priezvisko
+            person_given_family_name:
+              description:
+              note_html: Význam neznámy.
+            person_prefixes:
+              description: Tituly pred menom
+            person_postfixes:
+              description: Tituly za menom
+            deposit_amount:
+              description: Výška vkladu
+            deposit_currency:
+              description: Mena vkladu
+            deposit_type:
+              description: Typ vkladu
+              note_html: Napríklad <code>(peňažný vklad)</code>.
+            <<: *timestamp_columns
+            <<: *effective_range_columns
+        organization_economic_activity_entries:
+          description: Predmety činností právnických osôb
+          columns:
+            id:
+              description: Identifikátor
+            organization_id:
+              description: Identifikátor právnickej osoby
+            description:
+              description: Popis predmetu činnosti
+            suspended_from:
+              description: Začiatok pozastavania činnosti
+            suspended_to:
+              description: Koniec pozastavenia činnosti
+            <<: *timestamp_columns
+            <<: *effective_range_columns
+        organization_equity_entries:
+          description: Základné imania právnických osôb
+          columns:
+            id:
+              description: Identifikátor
+            organization_id:
+              description: Identifikátor právnickej osoby
+            investment_amount:
+              description: Výška podielu
+            investment_currency:
+              description: Mena podielu
+            paid_amount:
+              description: Splatená výška podielu
+            paid_currency:
+              description: Mena splateného podielu
+            approved_amount:
+              description: Schválená výška podielu
+            approved_currency:
+              description: Mena schválenej výšky podielu
+            <<: *timestamp_columns
+            <<: *effective_range_columns
+        organization_identifier_entries:
+          description: Identifikačné čísla (IČO) právnických osôb
+          columns:
+            id:
+              description: Identifikátor
+            organization_id:
+              description: Identifikátor právnickej osoby
+            ipo:
+              description: Identifikátor právnickej osoby (IPO)
+              note_html: Napríklad <code>50158635</code>.
+            <<: *timestamp_columns
+            <<: *effective_range_columns
+        organization_legal_form_entries:
+          description: Právne formy právnických osôb
+          columns:
+            id:
+              description: Identifikátor
+            organization_id:
+              description: Identifikátor právnickej osoby
+            legal_form_id:
+              description: Identifikátor právnej formy
+            <<: *timestamp_columns
+            <<: *effective_range_columns
+        organization_legal_status_entries:
+          description: Právne stavy právnických osôb
+          columns:
+            id:
+              description: Identifikátor
+            organization_id:
+              description: Identifikátor právnickej osoby
+            body:
+              description: Popis právneho stavu
+              note_html: Napríklad <code>V konkurze</code>.
+            <<: *timestamp_columns
+            <<: *effective_range_columns
+        organization_name_entries:
+          description: Názvy právnických osôb
+          columns:
+            id:
+              description: Identifikátor
+            organization_id:
+              description: Identifikátor právnickej osoby
+            name:
+              description: Názov právnickej osoby
+            <<: *timestamp_columns
+            <<: *effective_range_columns
+        organization_other_legal_fact_entries:
+          description: Iné právne skutočnosti právnických osôb
+          columns:
+            id:
+              description: Identifikátor
+            organization_id:
+              description: Identifikátor právnickej osoby
+            body:
+              description: Popis právnej skutočnosti
+              note_html: Napríklad <code>Rozhodnutie jediného spoločníka zo dňa 17.02.2009.</code>.
+            <<: *timestamp_columns
+            <<: *effective_range_columns
+        organization_predecessor_entries:
+          description: Predchodcovia právnických osôb
+          columns:
+            id:
+              description: Identifikátor
+            organization_id:
+              description: Identifikátor právnickej osoby
+            ico:
+              description: Identifikátor právnickej osoby predchodcu
+            full_name:
+              description: Plné meno predchodcu
+            <<: *address_columns
+            established_on:
+              description: Dátum vzniku právnickej osoby
+            terminated_on:
+              description: Dátum zániku právnickej osoby
+            <<: *timestamp_columns
+        organization_share_entries:
+          description: Akcie právnických osôb
+          columns:
+            id:
+              description: Identifikátor
+            organization_id:
+              description: Identifikátor právnickej osoby
+            share_type_id:
+              description: Identifikátor podoby akcie
+            share_form_id:
+              description: Identifikátor formy akcie
+            share_price:
+              description: Cena akcie
+            share_currency:
+              description: Mena akcie
+            share_amount:
+              description: Počet akcií
+            share_transfer:
+              description: Popis prevoditeľnosti akcií
+            <<: *timestamp_columns
+            <<: *effective_range_columns
+        organization_stakeholder_entries:
+          description: Zainteresované osoby právnických osôb
+          columns:
+            id:
+              description: Identifikátor
+            organization_id:
+              description: Identifikátor právnickej osoby
+            stakeholder_type_id:
+              description: Identifikátor typu zainteresovanej osoby
+            address_effective_from:
+              description: Dátum začiatku platnosti záznamu adresy
+            address_effective_to:
+              description: Dátum konca platnosti záznamu adresy
+            ico:
+              description: Identifikátor právnickej osoby
+            stakeholder_organization_id:
+              note_html: Význam neznámy.
+            <<: *person_columns
+            <<: *address_columns
+            <<: *timestamp_columns
+            <<: *effective_range_columns
+
+        organization_statutory_entries:
+          description: Štatutárne orgány právnických osôb
+          columns:
+            id:
+              description: Identifikátor
+            organization_id:
+              description: Identifikátor právnickej osoby
+            stakeholder_type_id:
+              description: Identifikátor typu zainteresovanej osoby
+            ico:
+              description: Identifikátor právnickej osoby
+            <<: *person_columns
+            <<: *address_columns
+            <<: *timestamp_columns
+            <<: *effective_range_columns
+        organization_successor_entries:
+          description: Následníci právnických osôb
+          columns:
+            id:
+              description: Identifikátor
+            organization_id:
+              description: Identifikátor právnickej osoby
+            ico:
+              description: Identifikátor právnickej osoby následníka
+            full_name:
+              description: Plné meno následníka
+            <<: *address_columns
+            established_on:
+              description: Dátum vzniku právnickej osoby
+            terminated_on:
+              description: Dátum zániku právnickej osoby
+            <<: *timestamp_columns
+        share_forms:
+          description: Číselník druhov akcií
+          columns:
+            id:
+              description: Identifikátor
+            name:
+              description: Názov druhu akcie
+              note_html: Napríklad <code>Akcia na doručiteľa</code>.
+            <<: *timestamp_columns
+        share_types:
+          description: Číselník podôb akcií
+          columns:
+            id:
+              description: Identifikátor
+            name:
+              description: Názov podoby akcie
+              note_html: Napríklad <code>Zamestnanecká akcia</code>.
+            <<: *timestamp_columns
+        stakeholder_types:
+          description: Číselník typov zainteresovaných osôb
+          columns:
+            id:
+              description: Identifikátor
+            name:
+              description: Názov typu zainteresovanej osoby
+              note_html: Napríklad <code>Správca reštrukturalizačného konania</code>.
+            <<: *timestamp_columns
+        organizations:
+          description: Zoznam právnických osôb
+          long_description_html: <p>Hlavná tabuľka právnických osôb.</p>
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Hodnota zodpovedá identifikátoru v zdroji.
+            established_on:
+              description: Dátum vzniku právnickej osoby
+            terminated_on:
+              description: Dátum zániku právnickej osoby
+            actualized_at:
+              description: Čas poslednej aktualizácie
+            has_organization_unit:
+              description: Príznak existencie organizačných jednotiek
+            has_operations:
+              description: Príznak existencie prevádzkární
+            statistical_codes_actualized_on:
+              description: Dátum aktualizácie štatistických kódov
+            main_activity_code_id:
+              description: Identifikátor hlavného kódu činnosti
+            esa2010_code_id:
+              description: Identifikátor ESA2010 kódu
+            source_register:
+              description: Názov zdrojového registra
+              note_html: V zdroji existuje veľa právnických osôb s hodnotou <code>NULL</code>. Sú to pravdepodobne pomocné záznamy používané pre prepojenia právnických osôb. Nie sú však nijako normalizované a vzniká veľké množstvo duplicít, ktoré je možné ignorovať.
+            registration_office:
+              description: Registrátor
+            registration_number:
+              description: Registračné číslo
+            main_organization_id:
+              description: Identifikátor nadradenej právnickej osoby
+              note_html: Vyplnené len pre organizačné zložky alebo prevádzkárne, inak <code>NULL</code>.
+            <<: *timestamp_columns
+            deleted_at:
+              description: Čas zmazania právnickej osoby.
+              note_html: Systémový stĺpec. Nepochádza zo zdroja.
+
+    ov:
+      tables:
+        bulletin_issues:
+          description: Zoznam vydaní obchodného vestníka
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            year:
+              description: Rok vydania vydania
+            number:
+              description: Poradové číslo vydania vestníka
+              note_html: Pri novom roku čísla začínajú od 1.
+            published_at:
+              description: Dátum uzverejnenia vydania
+              note_html: Zdroj neobsahuje presný čas. Zverejňuje sa iba dátum.
+            <<: *timestamp_columns
+
+        raw_issues:
+          description: Zoznam všetkých podaní v neštrukturovanej forme, tak ako ich poskytuje obchodný vestník
+          long_description_html: Obchodný vestník poskytuje údaje vo vydaniach. Vydanie je tvorené súbormi. Táto tabuľka obsahuje všetky súbory z vydania v neštrukturovanej forme.
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            bulletin_issue_id:
+              description: Identifikátor vydania
+            file_name:
+              description: Názov súboru
+              note_html: Jediný identifikátor, podľa ktorého je možné identifikovať typ podania.
+            content:
+              description: Obsah súboru
+              note_html: V prípade ak sa jedná o xml súbor, celý obsah súboru sa náchadza v tomto stĺpci. Pre iné typy dokumentov (PDF, ...) je hodnota v stĺpci <cpde>NULL</code>.
+            <<: *timestamp_columns
+
+        or_podanie_issues:
+          description: Podania na obchodný register
+          long_description_html: Obsahuje štrukturovane spracované údaje podaní <code>OV_OR_PODANIE-v-1</code>, <code>OV_OR_PODANIE_ZBL-v-1</code> a <code>OV_OR_PODANIE_ZBL_ZOZNAM-v-1</code>
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            bulletin_issue_id:
+              description: Identifikátor vydania
+            raw_issue_id:
+              description: Identifikátor neštrukturovanej verzie podania
+            br_mark:
+              description: OR značka
+            br_court_code:
+              description: Kód súdu
+            br_court_name:
+              description: Celý názov súdu
+            kind_code:
+              description: Kód typu podania
+            kind_name:
+              description: Názov typu podania
+            cin:
+              description: IČO
+              note_html: Nachádza sa iba v podaniach, kde bolo IČO uvedené a bolo v správnom formáte. V opačnom prípade je hodnota <code>NULL</code>.
+            registration_date:
+              description: Deň zápisu spoločnosti do OR
+            corporate_body_name:
+              description: Názov právnickej / fyzickej osoby
+            br_section:
+              description: Oddiel v obchodnom registri
+              note_html: Sro, Sa, ...
+            br_insertion:
+              description: Vložka číslo v OR
+            text:
+              description: Text podania
+            address_line:
+              description: Kompletná adresa spoločnosti
+            street:
+              description: Ulica spoločnosti
+            postal_code:
+              description: PSČ spoločnosti
+            city:
+              description: Mesto
+            <<: *timestamp_columns
+
+        or_podanie_issue_documents:
+          description: Zoznam listín vkladaných spoločnosťou do zoznamu listín
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            or_podanie_issue_id:
+              description: Identifikátor podania OR
+            name:
+              description: Názov listiny
+            delivery_date:
+              description: Dátum doručenia
+            ruz_deposit_date:
+              description: Dátum uloženia v RÚZ (register účtovných závierok)
+            <<: *timestamp_columns
+
+        konkurz_restrukturalizacia_issues:
+          description: Návrhy na konkurz, reštrukturalizáciu a oznámenia o zrušení bez likvidácie
+          long_description_html: Obsahuje štrukturovane spracované údaje podaní <code>OV_KONKURZY_A_RESTRUKT-v-1</code> a <code>OV_OZNAMENIE_ZACATIE_KONANIA_O_ZRUS_BEZ_LIKV-v-1</code>
+
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Pochádza zo zdroja.
+            bulletin_issue_id:
+              description: Identifikátor vydania
+            raw_issue_id:
+              description: Identifikátor neštrukturovanej verzie podania
+            court_name:
+              description: Názov súdu
+            ics:
+              description: ICS
+            file_reference:
+              description: Spisová značka
+            released_by:
+              description: Meno autora
+            releaser_position:
+              description: Funkcia autora
+            sent_by:
+              description: Odosielateľ
+            released_date:
+              description: Dátum vydania
+            debtor_id:
+              description: Identifikátor dlžníka
+              note_html: V prípade konania bez likvidácie sa dlžník neuvádza.
+            kind:
+              description: Druh podania
+            heading:
+              description: Hlavička
+            decision:
+              description: Rozhodnutie
+            advice:
+              description: Poučenie
+            announcement:
+              description: Oznam
+            <<: *timestamp_columns
+
+        konkurz_restrukturalizacia_actors:
+          description: Dlžníci a navrhovatelia podaní na konkurz, reštrukturalizáciu a likvidáciu
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            corporate_body_name:
+              description: Názov spoločnosti / osoby
+            cin:
+              description: IČO
+            street:
+              description: Ulica
+            building_number:
+              description: Orientačné číslo stavby
+            city:
+              description: Mesto
+            country:
+              description: Krajina
+            postal_code:
+              description: PSČ
+            <<: *timestamp_columns
+
+        konkurz_restrukturalizacia_proposings:
+          description: Systémová tabuľka spájajúca návrhovateľov s konkrétnym podaním
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            issue_id:
+              description: Identifikátor podania
+            actor_id:
+              description: Identifikátor navrhovateľa podania
+            <<: *timestamp_columns
+
+        konkurz_vyrovnanie_issues:
+          description: Konkurzné konania
+          long_description_html: Obsahuje štrukturovane spracované podania <code>OB_B_KONKURZY_A_VYROVNANIA-v-1</code>
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            bulletin_issue_id:
+              description: Identifikátor vydania
+            raw_issue_id:
+              description: Identifikátor neštrukturovanej verzie podania
+            court_code:
+              description: Kód súdu
+            court_name:
+              description: Celý názov súdu
+            file_reference:
+              description: Spisová značka
+            corporate_body_name:
+              description: Názov právnickej osoby
+            cin:
+              description: IČO
+              note_html: V prípade nesprávneho formátu je hodnota <code>NULL</code>.
+            street:
+              description: Ulica
+            building_number:
+              description: Orientačné číslo stavby
+            city:
+              description: Mesto
+            country:
+              description: Krajina
+            postal_code:
+              description: PSČ
+            kind_code:
+              description: Kód typu zverejnenia
+            kind_name:
+              description: Názov typu zverejnenia
+            announcement:
+              description: Text zverejnenia
+            <<: *timestamp_columns
+
+        likvidator_issues:
+          description: Oznámenia likvidátorov spoločností a iných subjektov
+          long_description_html: Obsahuje štrukturovane spracované údaje podaní <code>OV_LIKVIDATOR-v-1</code>
+
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            bulletin_issue_id:
+              description: Identifikátor vydania
+            raw_issue_id:
+              description: Identifikátor neštrukturovanej verzie podania
+            legal_form_code:
+              description: Kód právnej formy
+            legal_form_name:
+              description: Názov právnej formy
+            corporate_body_name:
+              description: Názov právnickej osoby
+            cin:
+              description: IČO
+            sid:
+              description: SID
+            street:
+              description: Ulica
+            building_number:
+              description: Orientačné číslo stavby
+            city:
+              description: Mesto
+            country:
+              description: Krajina
+            postal_code:
+              description: PSČ
+            in_business_register:
+              description: Príznak evidovania spoločnosti v Obchodnom registri
+            br_section:
+              description: Oddiel v OR
+            br_insertion:
+              description: Vložka číslo v OR
+            br_court_code:
+              description: Kód súdu
+            br_court_name:
+              description: Celý názov súdu
+            other_registrar_name:
+              description: Registrátor
+              note_html: Vypĺňané v prípade ak spoločnosť nie je v OR. Môže obsahovať registrátora prípadne názov registra.
+            other_registration_number:
+              description: Registračné čílo
+              note_html: Vypĺňané napríklad pre občianske združenia.
+            debtee_legal_form_code:
+              description: Kód právnej formy veriteľa
+            debtee_legal_form_name:
+              description: Názov právnej formy veriteľa
+            decision_based_on:
+              description: Rozhodnutie na základe
+            decision_date:
+              description: Dátum rozhodnutia
+            claim_term:
+              description: Lehota na pohľadávky
+            liquidation_start_date:
+              description: Dátum začiatku likvidácie
+            <<: *timestamp_columns
+
+        znizenie_imania_issues:
+          description: Oznámenia o znížení základného imania
+          long_description_html: Obsahuje štrukturovane spracované údaje podaní <code>OV_OZNAMENIE_ZNIZENIE_ZAKLADNEHO_IMANIA_SRO-v-1</code>, <code>OV_OZNAMENIE_2_ZNIZENIE_ZAKLADNEHO_IMANIA_SRO-v-1</code>, <code>OV_OZNAMENIE_ZNIZENIE_ZAKLADNEHO_IMANIA_AS-v-1</code> a <code>OV_OZNAMENIE_2_ZNIZENIE_ZAKLADNEHO_IMANIA_AS</code>
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            bulletin_issue_id:
+              description: Identifikátor vydania
+            raw_issue_id:
+              description: Identifikátor neštrukturovanej verzie podania
+            corporate_body_name:
+              description: Názov právnickej osoby
+            cin:
+              description: IČO
+            street:
+              description: Ulica
+            building_number:
+              description: Orientačné číslo stavby
+            city:
+              description: Mesto
+            country:
+              description: Krajina
+            postal_code:
+              description: PSČ
+            br_section:
+              description: Oddiel v OR
+            br_insertion:
+              description: Vložka číslo v OR
+            br_court_code:
+              description: Kód súdu
+            br_court_name:
+              description: Celý názov súdu
+            decision_text:
+              description: Text rozhodnutia
+            decision_date:
+              description: Dátum rozhodnutia
+            equity_currency_code:
+              description: Kód meny
+            old_equity_value:
+              description: Pôvodná hodnota základného imania
+            new_equity_value:
+              description: Nová hodnota základného imania
+            resolution_store_date:
+              description: Dátum uloženia rozhodnutia
+            first_ov_released_date:
+              description: Dátum OV prvého zverejnenia informácie
+            first_ov_released_number:
+              description: Číslo OV prvého zverejnenia informácie
+            <<: *timestamp_columns
+
+        znizenie_imania_ceos:
+          description: Konatelia, ktorí rozhodli o znížení základného imania
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            znizenie_imania_issue_id:
+              description: Identifikátor oznámenia o znížení základného imania
+            prefixes:
+              description: Titul pred menom
+            postfixes:
+              description: Titul za menom
+            given_name:
+              description: Krstné meno
+            family_name:
+              description: Priezvisko
+            street:
+              description: Ulica
+            building_number:
+              description: Orientačné číslo stavby
+            city:
+              description: Mesto
+            country:
+              description: Krajina
+            postal_code:
+              description: PSČ
+            <<: *timestamp_columns
+
+    ruz:
+      tables:
+        accounting_entities:
+          description: Zoznam účtovných jednotiek
+
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Pochádza zo zdroja.
+            cin:
+              description: IČO
+            tin:
+              description: DIČ
+            sid:
+              description: SID
+            corporate_body_name:
+              description: Názov
+            city:
+              description: Mesto
+            street:
+              description: Ulica a číslo
+            postal_code:
+              description: PSČ
+            region_id:
+              description: Identifikátor regiónu
+            district_id:
+              description: Identifikátor okresu
+            municipality_id:
+              description: Identifikátor sídla
+            last_updated_on:
+              description: Dátum poslednej úravy
+              note_html: Pochádza zo zdroja.
+            established_on:
+              description: Dátum vzniku
+            terminated_on:
+              description: Dátum zrušnia
+            legal_form_id:
+              description: Identifikátor právnej formy
+            sk_nace_category_id:
+              description: Identifikátor SK NACE kvalifikácie
+            organization_size_id:
+              description: Identifikátor veľkosti organizácie
+            ownership_type_id:
+              description: Identifikátor typu vlastníctva
+            consolidated:
+              description: Príznak konsolidovanej účtovnej jednotky
+            data_source:
+              description: Zdroj dát
+            deleted:
+              description: Príznak zmazanej účtovnej jednotky
+            <<: *timestamp_columns
+
+        ruz_enumeration_columns: &ruz_enumeration_columns
+          id:
+            description: Identifikátor
+            note_html: Pochádza zo zdroja.
+          name_sk:
+            description: Názov v slovenčine
+          name_en:
+            description: Názov v angličtine
+          <<: *timestamp_columns
+
+        districts:
+          description: Číselník okresov
+
+          columns:
+            region_id:
+              description: Identifikátor regiónu
+            <<: *ruz_enumeration_columns
+
+        legal_forms:
+          description: Číselník právnych foriem
+
+          columns:
+            <<: *ruz_enumeration_columns
+
+        municipalities:
+          description: Číselník sídiel
+
+          columns:
+            <<: *ruz_enumeration_columns
+
+        organization_sizes:
+          description: Číselník veľkosti organizácií
+
+          columns:
+            <<: *ruz_enumeration_columns
+
+        ownership_types:
+          description: Číselník druhov vlastníctva
+
+          columns:
+            <<: *ruz_enumeration_columns
+
+        regions:
+          description: Číselník krajov
+
+          columns:
+            <<: *ruz_enumeration_columns
+
+        sk_nace_categories:
+          description: Číselník SK NACE kvalifikácií
+
+          columns:
+            <<: *ruz_enumeration_columns

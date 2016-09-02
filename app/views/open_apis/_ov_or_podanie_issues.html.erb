@@ -1,0 +1,60 @@
+<h4>Získanie podaní na obchodný register</h4>
+<p class="docs-endpoint"><code>GET <%= api_data_ov_or_podanie_issue_url(id: ':id', host: api_host) %></code></p>
+<h5>Parametre</h5>
+
+<table class="table table-bordered table-nonfluid">
+  <thead>
+  <tr>
+    <th>Názov</th>
+    <th>Typ</th>
+    <th>Popis</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><code>id</code></td>
+    <td><code>integer</code></td>
+    <td>Identifikátor podania</td>
+  </tr>
+  </tbody>
+</table>
+
+<h5>Odpoveď</h5>
+<p><%= link_to 'Popis atribútov', open_data_path(anchor: 'ov.or_podanie_issues'), class: 'btn btn-default btn-sm' %></p>
+<pre class="pre-scrollable"><code class="language-json">{
+  "id":11577,
+  "raw_issue_id":1266,
+  "br_mark":"R133862",
+  "br_court_code":"B",
+  "br_court_name":"Okresný súd Bratislava I",
+  "kind_code":"nz",
+  "kind_name":"Nové zápisy",
+  "cin":50407333,
+  "registration_date":"2016-07-19",
+  "corporate_body_name":"Diagram s. r. o.",
+  "br_section":"Sro",
+  "br_insertion":"112843/B",
+  "text":"ODDIEL: Sro\nVLOŽKA ČÍSLO: 112843/B \nOBCHODNÉ MENO: Diagram s. r. o.\nSÍDLO: Názov ulice (iného verejného priestranstva) a orientačné číslo (príp. súpisné číslo): Nejedlého 67, Názov obce: Bratislava - mestská časť Dúbravka, PSČ: 841 02\nIČO: 50 407 333\nDEŇ ZÁPISU: 19.07.2016\nPRÁVNA FORMA: Spoločnosť s ručením obmedzeným\nPREDMET PODNIKANIA (ČINNOSTI): \n1. Kúpa tovaru na účely jeho predaja konečnému spotrebiteľovi (maloobchod) alebo iným prevádzkovateľom živnosti (veľkoobchod)\n2. Sprostredkovateľská činnosť v oblasti služieb\n3. Sprostredkovateľská činnosť v oblasti výroby\n4. Sprostredkovateľská činnosť v oblasti obchodu\n5. Činnosť podnikateľských, organizačných a ekonomických poradcov\n6. Reklamné a marketingové služby\n7. Organizovanie kultúrnych a iných spoločenských podujatí\n8. Vydavateľská činnosť\n9. Služby súvisiace s počítačovým spracovaním údajov\n10. Prenájom hnuteľných vecí\n11. Počítačové služby\n12. Fotografické služby\n13. Vedenie účtovníctva\n14. Prieskum trhu a verejnej mienky\n15. Administratívne služby\nŠTATUTÁRNY ORGÁN: KONATEĽ\nMeno a priezvisko:  Róbert Badi, Bydlisko: Názov ulice (iného verejného priestranstva) a orientačné číslo (príp. súpisné číslo): Nejedlého 33, Názov obce: Bratislava - mestská časť Dúbravka, PSČ: 841 02, Vznik funkcie: 19.07.2016\nSpôsob konania štatutárneho orgánu v mene spoločnosti s ručením obmedzeným: V mene spoločnosti koná každý konateľ samostatne. V mene spoločnosti koná a podpisuje tak, že k vytlačenému alebo napísanému obchodnému menu spoločnosti jeden z konateľov pripojí svoj podpis.\nSPOLOČNÍCI\nMeno a priezvisko:  Róbert Badi, Bydlisko: Názov ulice (iného verejného priestranstva) a orientačné číslo (príp. súpisné číslo): Nejedlého 33, Názov obce: Bratislava - mestská časť Dúbravka, PSČ: 841 02, Výška vkladu: 5 000,000000 EUR (peňažný vklad) , Rozsah splatenia: 5 000,000000 EUR\nVÝŠKA ZÁKLADNÉHO IMANIA: 5 000,000000 EUR\nROZSAH SPLATENIA ZÁKLADNÉHO IMANIA: 5 000,000000 EUR\n",
+  "created_at":"2016-07-21T14:26:17.978919Z",
+  "updated_at":"2016-07-21T14:26:17.978919Z",
+  "address_line":"Nejedlého 67, 84102 Bratislava - mestská časť Dúbravka",
+  "street":"Nejedlého 67",
+  "postal_code":"84102",
+  "city":"Bratislava - mestská časť Dúbravka",
+  "documents":[
+
+  ],
+  "bulletin_issue":{
+    "id":1386,
+    "year":2016,
+    "number":140,
+    "published_at":"2016-07-21T00:00:00.000000Z",
+    "created_at":"2016-07-21T14:24:42.506537Z",
+    "updated_at":"2016-07-21T14:24:42.506537Z"
+  },
+  "raw_issue_url":"<%= api_data_ov_raw_issue_url(1266, host: api_host) %>"
+}
+</code></pre>
+<h4>Získanie zmenených podaní na obchodný register</h4>
+<p class="docs-endpoint"><code>GET <%= sync_api_data_ov_or_podanie_issues_url(host: api_host) %></code></p>
+<p>Zmenené záznamy od určeného času je možné získať pomocou <%= link_to 'synchronizačného API', '#sync-api' %>. </p>

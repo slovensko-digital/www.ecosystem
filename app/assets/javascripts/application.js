@@ -12,5 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require bootstrap-sprockets
+//= require prism.js
+//= require anchor.min.js
+//= require main
+//= require datahub_form
+//= require autoform_form
+//= require newsletter_form

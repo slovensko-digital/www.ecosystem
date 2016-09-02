@@ -1,0 +1,76 @@
+<h4>Získanie podaní o zníženie základného imania</h4>
+<p class="docs-endpoint"><code>GET <%= api_data_ov_znizenie_imania_issue_url(id: ':id', host: api_host) %></code></p>
+<h5>Parametre</h5>
+<table class="table table-bordered table-nonfluid">
+  <thead>
+  <tr>
+    <th>Názov</th>
+    <th>Typ</th>
+    <th>Popis</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><code>id</code></td>
+    <td><code>integer</code></td>
+    <td>Identifikátor podania</td>
+  </tr>
+  </tbody>
+</table>
+<h5>Odpoveď</h5>
+<p><%= link_to 'Popis atribútov', open_data_path(anchor: 'ov.znizenie_imania_issues'), class: 'btn btn-default btn-sm' %></p>
+<pre class="pre-scrollable"><code class="language-json">{
+  "id":3,
+  "raw_issue_id":1260,
+  "corporate_body_name":"TVK s.r.o.",
+  "street":"Solivarská",
+  "building_number":"1/A",
+  "postal_code":"08001",
+  "city":"Prešov",
+  "country":null,
+  "br_court_code":"156",
+  "br_court_name":"Okresný súd Prešov",
+  "br_section":"Sro",
+  "br_insertion":"11930/P",
+  "cin":36464121,
+  "decision_text":"Zápisnica č. 2/2016",
+  "decision_date":"2016-05-20",
+  "equity_currency_code":"EUR",
+  "old_equity_value":"43257.4",
+  "new_equity_value":"6639.0",
+  "resolution_store_date":null,
+  "first_ov_released_date":null,
+  "first_ov_released_number":null,
+  "created_at":"2016-07-21T14:26:17.816091Z",
+  "updated_at":"2016-07-21T14:26:17.816091Z",
+  "ceos":[
+    {
+      "id":3,
+      "znizenie_imania_issue_id":3,
+      "prefixes":"Ing.",
+      "postfixes":null,
+      "given_name":"Vladimír",
+      "family_name":"Kocvár",
+      "street":"Veterná",
+      "building_number":"2",
+      "postal_code":"08001",
+      "city":"Prešov",
+      "country":"SR",
+      "created_at":"2016-07-21T14:26:17.870030Z",
+      "updated_at":"2016-07-21T14:26:17.870030Z"
+    }
+  ],
+  "bulletin_issue":{
+    "id":1386,
+    "year":2016,
+    "number":140,
+    "published_at":"2016-07-21T00:00:00.000000Z",
+    "created_at":"2016-07-21T14:24:42.506537Z",
+    "updated_at":"2016-07-21T14:24:42.506537Z"
+  },
+  "raw_issue_url":"<%= api_data_ov_raw_issue_url(1260, host: api_host) %>"
+}
+</code></pre>
+<h4>Získanie zmenených podaní</h4>
+<p class="docs-endpoint"><code>GET <%= sync_api_data_ov_znizenie_imania_issues_url(host: api_host) %></code></p>
+<p>Zmenené záznamy od určeného času je možné získať pomocou <%= link_to 'synchronizačného API', '#sync-api' %>. </p>

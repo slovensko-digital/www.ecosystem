@@ -1,14 +1,164 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Ecosystem</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title><%= @page.title %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' %>
+  <%= csrf_meta_tags %>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700|Merriweather:100,200,300,500&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Ekosystém.Slovensko.Digital"/>
+  <meta property="og:url" content="<%= @page.url %>"/>
+  <meta property="og:title" content="
+    <% if @page.og.title %><%= @page.og.title %>
+    <% else %><%= @page.title %>
+    <% end %>"/>
+  <% if @page.og.description %>
+    <meta property="og:description" content="<%= @page.og.description %>"/>
+  <% end %>
+  <% if @page.og.image %>
+    <meta property="og:image" content="<%= @page.og.image %>"/>
+  <% end %>
+  <% if @page.og.secure_url %>
+    <meta property="og:image:secure_url" content="<%= @page.og.secure_url %>"/>
+  <% end %>
+</head>
+<body>
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-69285708-5', 'auto');
+  ga('send', 'pageview');
+</script>
+<% if Rails.env.production? %>
+  <script>!function(i,t){function e(e){return function(){var n=arguments;if("initialize"==e&&n&&n[0].modify&&n[0].modify.overlay&&"loading"==t.readyState){var a="__inf__overlay__";t.write('<div id="'+a+'" style="position:absolute;background:#fff;left:0;top:0;width:100%;height:100%;z-index:1000000"></div>'),setTimeout(function(){var e=t.getElementById(a);e&&t.body.removeChild(e),i.exponea.__=!0},n[0].modify.delay||500)}this._.push([e,arguments])}}if(!i.exponea){var n,a,o="initialize identify update track trackLink trackEnhancedEcommerce getHtml showHtml showBanner showForm ping getAbTest getRecommendation".split(" "),r=t.createElement("script"),d="https:"===t.location.protocol?"https:":"http:";for(i.exponea={_:[]},a=0;a<o.length;a++)n=o[a],i.exponea[n]=e(n);r.type="text/javascript",r.async=!0,r.src=d+"//api.exponea.com/js/exponea.min.js",t.getElementsByTagName("head")[0].appendChild(r)}}(window,document);</script>
+  <script type="text/javascript">
+    exponea.initialize({
+      "token": "d460e54c-68b6-11e6-8cef-141877340e97",
+      "track": {
+        "visits": true
+      }
+      //, customer: window.loggedInCustomer // replace window.loggedInCustomer with id of your web site customer, e.g. "john.smith@gmail.com"
+    });
+  </script>
+<% end %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<nav class="navbar" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/"><%= image_tag 'ekosystem.svg', width: '270' %></a>
+    </div>
+    <div id="navbar" class="navbar-right visible-lg visible-md">
+      <ul class="nav navbar-nav">
+        <li class="navbar-claim">Služby. Otvorené API. Otvorené dáta.</li>
+        <li class="navbar-last">
+          <a href="https://platforma.slovensko.digital" target="_blank">Platforma <%= image_tag 'platforma-arrow.svg', size: '26x26' %></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-  <body>
-    <%= yield %>
-  </body>
+<%= yield %>
+
+<footer>
+  <div class="newsletter">
+    <div class="container">
+      <div class="row">
+        <form role="form" action="https://my.sendinblue.com/users/subscribe/js_id/29wti/id/2" data-action="https://my.sendinblue.com/users/subscribeembed/js_id/29wti/id/2" method="post">
+          <div class="col-md-4 col-md-pad">
+            <p><strong>Newsletter Ekosystém.Slovensko.Digital</strong></p>
+            <p>Novinky emailom sem-tam, žiadny spam.</p>
+          </div>
+          <div class="col-md-3 col-md-pad">
+            <div class="form-group">
+              <%= label_tag 'entry.204431983', 'Email', class: 'control-label' %>
+              <input type="hidden" name="js_id" id="js_id" value="29wti">
+              <input type="hidden" name="listid" id="listid" value="14">
+              <input type="hidden" name="from_url" id="from_url" value="yes">
+              <input type="hidden" name="hdn_email_txt" id="hdn_email_txt" value="">
+              <input type="email" required name="email" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-4 col-md-pad">
+            <%= label_tag :a, '&nbsp'.html_safe %> <br>
+            <%= button_tag 'Prihlásiť', class: 'btn btn-default' %>
+          </div>
+        </form>
+        <div class="col-md-12 hidden newsletter-success">
+          <p>Na zadanú adresu sme poslali email pre potvrdenie odberu. Ďakujeme za Váš záujem.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <address>
+          <a href="https://slovensko.digital/"><strong>Slovensko.Digital</strong></a><br>
+          Staré grunty 12<br>
+          841 04 Bratislava<br>
+        </address>
+        <p><a href="mailto:kontakt@slovensko.digital">kontakt@slovensko.digital</a></p>
+      </div>
+
+      <div class="col-md-3">
+        <ul class="list-unstyled">
+          <li><%= link_to root_path do %>
+              <strong>Ekosystém</strong><% end %>
+          </li>
+          <li><%= link_to 'Služby', root_path %></li>
+          <li><%= link_to 'Otvorené dáta', open_data_path %></li>
+          <li><%= link_to 'Otvorené API', open_api_path %></li>
+          <li><%= link_to 'Podmienky používania', terms_path %></li>
+          <li><a href="https://platforma.slovensko.digital/t/ekosystem-slovensko-digital-novinky/2326">Novinky</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-3">
+        <ul class="list-unstyled">
+          <li><a href="https://slovensko.digital/"><strong>Občianske združenie</strong></a></li>
+          <li><a href="https://slovensko.digital/o-nas">O nás</a></li>
+          <li><a href="https://slovensko.digital/podpora">Podpora</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-2">
+        <p class="pull-right icons">
+          <a href="https://www.facebook.com/slovensko.digital/" target="_blank">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+            </span></a>
+          <a href="https://github.com/slovensko-digital/ekosystem" target="_blank">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+            </span></a>
+          <a href="https://www.youtube.com/channel/UCbpnKa1XOIpQLYUQ2dz7Sng" target="_blank">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+            </span></a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
 </html>

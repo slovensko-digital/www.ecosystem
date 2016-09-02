@@ -1,0 +1,5 @@
+/sluzby/autoform
+/sluzby/datahub
+/otvorene-data
+/otvorene-api
+/
