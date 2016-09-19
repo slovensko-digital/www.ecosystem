@@ -1,0 +1,3 @@
+machine:
+  environment:
+    AUTOFORM_JAVASCRIPT_URL: https://autoform.ekosystem.staging.slovensko.digital/assets/autoform.js
