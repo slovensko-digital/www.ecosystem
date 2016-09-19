@@ -42,7 +42,8 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'pry'
   gem 'dotenv-rails'
-
+  gem 'rspec-rails'
+  gem 'rspec_junit_formatter', '0.2.2'
   gem 'rack-mini-profiler'
 end
 
@@ -59,3 +60,7 @@ group :staging, :production do
   gem 'rails_12factor'
 end
 
+group :test do
+  gem 'capybara'
+  gem 'launchy'
+end
