@@ -3,7 +3,7 @@ class ContentController < ApplicationController
     http_basic_authenticate_with name: 'admin', password: ENV['SITE_PASSWORD']
   end
 
-  before_filter :set_page
+  before_action :set_page
 
   def set_page
     @page = OpenStruct.new(
