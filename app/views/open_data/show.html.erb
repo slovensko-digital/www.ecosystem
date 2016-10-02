@@ -67,6 +67,17 @@
       <% tables = PgCatalog::PgTable.find_by_schema(:ruz) %>
       <%= render partial: 'tables', object: tables %>
       <%= render partial: 'table', collection: tables %>
+
+      <h3 id="socpoist"> Zoznamy dlžníkov Sociálnej poisťovne <span class="label label-danger">ALFA</span></h3>
+      <p>Zoznamy dlžníkov obsahujú informácie o dlžobách voči Sociálnej poisťovni firiem a sukromníkov na Slovensku.</p>
+      <p class="btn-row">
+        <a href="" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>socpoist.sql.gz.torrent</strong></a>
+        <a href="" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> socpoist.sql.gz</a>
+        <%= link_to 'API', open_api_path(anchor: :socpoist), class: 'btn btn-default' %>
+      </p>
+      <% tables = PgCatalog::PgTable.find_by_schema(:socpoist) %>
+      <%= render partial: 'tables', object: tables %>
+      <%= render partial: 'table', collection: tables %>
     </div>
   </div>
 <% end %>

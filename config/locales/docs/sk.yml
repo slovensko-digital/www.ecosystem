@@ -1101,3 +1101,63 @@ sk:
 
           columns:
             <<: *ruz_enumeration_columns
+
+    socpoist:
+      tables:
+        debt_entries:
+          description: Zoznam dlhov
+
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Pochádza zo zdroja.
+            debtor_id:
+              description: Identifikátor dlžnika
+            list_id:
+              description: Identifikátor dátumu uverejnenia
+            amount:
+              description: Výška dlhu
+            <<: *timestamp_columns
+
+        debt_ranges:
+          description: Časový rozsah dlhov
+
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Pochádza zo zdroja.
+            debtor_id:
+              description: Identifikátor dlžníka
+            effective_from:
+              description: Dátum vzniku dlžoby
+            effective_to:
+              description: Dátum ukončnia dlžoby
+            amount:
+              description: Výška dlhu
+            <<: *timestamp_columns
+
+        debtors:
+          description: Zoznam dlžníkov
+
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Pochádza zo zdroja.
+            name:
+              description: Meno dlžníka
+            address:
+              description: Adresa dlžníka
+            city:
+              description: Mesto bydliska dlžníka
+            <<: *timestamp_columns
+
+        debts_lists:
+          description: Časový identifikátor dlhov
+
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Pochádza zo zdroja.
+            published_on:
+              description: Dátum uverejnenia dlhu
+            <<: *timestamp_columns
