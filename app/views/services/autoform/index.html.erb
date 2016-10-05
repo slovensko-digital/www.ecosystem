@@ -75,6 +75,15 @@
 
       <section>
         <div class="row">
+          <div class="col-md-4 col-md-pad">
+            <%= label_tag :formatted_street, 'Ulica s číslom' %>
+            <%= text_field_tag :formatted_street, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'formatted-street'} %>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="row">
           <div class="col-md-1 col-md-pad">
             <%= label_tag :postal_code, 'PSČ' %>
             <%= text_field_tag :postal_code, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'postal-code'} %>
@@ -209,6 +218,11 @@
               <td><code>reg-number</code></td>
               <td>Súpisné číslo</td>
               <td><code>null</code></td>
+            </tr>
+            <tr>
+              <td><code>formatted-street</code></td>
+              <td>Ulica a číslo</td>
+              <td><code>"Staré Grunty 12"</code></td>
             </tr>
             <tr>
               <td><code>postal-code</code></td>
