@@ -1101,3 +1101,86 @@ sk:
 
           columns:
             <<: *ruz_enumeration_columns
+    vszp:
+      tables:
+        debt_ranges:
+          description: Časový rozsah dlhov
+          columns:
+            id:
+              description: Identifikátor záznamu
+              note_html: Pochádza zo zdroja.
+            debtor_id:
+              description: Identifikátor dlžníka
+            effective_from:
+              description: Dátum vzniku dlžoby
+            effective_to:
+              description: Dátum ukončenia dlžoby
+            amount:
+              description: Výška dlhu
+            created_at:
+              description: Čas vzniku záznamu
+              note_html: Systémový stĺpec. Nepochádza zo zdroja.
+            updated_at:
+              description: Čas poslednej zmeny záznamu
+              note_html: Systémový stĺpec. Nepochádza zo zdroja.
+
+        debtor_entries:
+           description: Zoznam dlhov
+           columns:
+             id:
+               description: Identifikátor záznamu
+               note_html: Pochádza zo zdroja.
+             list_id:
+               description: Identifikátor uverejnenia
+             debtor_id:
+               description: Identifikátor dlžníka
+             amount:
+               description: Výška dlhu
+             created_at:
+               description: Čas vzniku záznamu
+               note_html: Systémový stĺpec. Nepochádza zo zdroja.
+             updated_at:
+               description: Čas poslednej zmeny záznamu
+               note_html: Systémový stĺpec. Nepochádza zo zdroja.
+
+        debtors:
+           description: Zoznam dlžníkov
+           columns:
+             id:
+               description: Identifikátor záznamu
+               note_html: Pochádza zo zdroja.
+             name:
+               description: Meno dlžníka
+             city:
+               description: Mesto bydliska dlžníka
+             address:
+               description: Ulica a popisné číslo bydliska dlžníka
+             postal_code:
+               description: Poštové smerovacie číslo dlžníka
+             cin:
+               description: IČO dlžníka
+             payer_type:
+               description: Typ platiteľa
+             full_health_care_claim:
+               description: Nárok na plnú zdravotnú starostlivosť
+             created_at:
+               description: Čas vzniku záznamu
+               note_html: Systémový stĺpec. Nepochádza zo zdroja.
+             updated_at:
+               description: Čas poslednej zmeny záznamu
+               note_html: Systémový stĺpec. Nepochádza zo zdroja.
+
+        debtors_lists:
+           description: Zoznam uverejnení zoznamov dlhov
+           columns:
+             id:
+               description: Identifikátor záznamu
+               note_html: Pochádza zo zdroja.
+             date:
+               description: Dátum uverejnenia
+             created_at:
+               description: Čas vzniku záznamu
+               note_html: Systémový stĺpec. Nepochádza zo zdroja.
+             updated_at:
+               description: Čas poslednej zmeny záznamu
+               note_html: Systémový stĺpec. Nepochádza zo zdroja.
