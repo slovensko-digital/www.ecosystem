@@ -1,0 +1,46 @@
+<h4>Získanie údajov o dlžobách</h4>
+<p class="docs-endpoint"><code>GET <%= api_data_vszp_debt_range_url(id: ':id', host: api_host) %></code></p>
+<h5>Parametre</h5>
+<table class="table table-bordered table-nonfluid">
+  <thead>
+  <tr>
+    <th>Názov</th>
+    <th>Typ</th>
+    <th>Popis</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><code>id</code></td>
+    <td><code>integer</code></td>
+    <td>Identifikátor dlhu</td>
+  </tr>
+  </tbody>
+</table>
+<h5>Odpoveď</h5>
+<p><%= link_to 'Popis atribútov', open_data_path(anchor: 'vszp.debt_ranges'), class: 'btn btn-default btn-sm' %></p>
+<pre class="pre-scrollable"><code class="language-json">{
+  "id":2,
+  "debtor_id":80430,
+  "effective_from":"2016-09-20",
+  "effective_to":null,
+  "amount":"459.21",
+  "created_at":"2016-10-05T12:33:10.046575Z",
+  "updated_at":"2016-10-05T12:33:10.046575Z",
+  "debtor":{
+    "id":80430,
+    "name":"A - HORIZONT S.R.O.",
+    "city":"GABČÍKOVO",
+    "address":"HLAVNÁ 1621/107",
+    "postal_code":"93005",
+    "cin":"46641602",
+    "payer_type":"Zamestnávateľ",
+    "full_health_care_claim":null,
+    "created_at":"2016-10-04T14:08:16.586218Z",
+    "updated_at":"2016-10-04T14:08:16.586218Z"
+  }
+}
+</code></pre>
+<h4>Získanie zmenených údajov o dlžobách</h4>
+<p class="docs-endpoint"><code>GET <%= sync_api_data_vszp_debt_ranges_url(host: api_host) %></code></p>
+<p>Zmenené záznamy od určeného času je možné získať pomocou <%= link_to 'synchronizačného API', '#sync-api' %>. </p>
