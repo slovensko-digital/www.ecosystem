@@ -1110,7 +1110,6 @@ sk:
           columns:
             id:
               description: Identifikátor
-              note_html: Pochádza zo zdroja.
             debtor_id:
               description: Identifikátor dlžnika
             list_id:
@@ -1125,13 +1124,12 @@ sk:
           columns:
             id:
               description: Identifikátor
-              note_html: Pochádza zo zdroja.
             debtor_id:
               description: Identifikátor dlžníka
             effective_from:
-              description: Dátum vzniku dlžoby
+              description: Dátum vzniku dlhu
             effective_to:
-              description: Dátum ukončnia dlžoby
+              description: Dátum ukončenia dlhu
             amount:
               description: Výška dlhu
             <<: *timestamp_columns
@@ -1142,22 +1140,20 @@ sk:
           columns:
             id:
               description: Identifikátor
-              note_html: Pochádza zo zdroja.
             name:
               description: Meno dlžníka
             address:
               description: Adresa dlžníka
             city:
-              description: Mesto bydliska dlžníka
+              description: Mesto dlžníka
             <<: *timestamp_columns
 
         debts_lists:
-          description: Časový identifikátor dlhov
+          description: Zoznamy dlhov
 
           columns:
             id:
               description: Identifikátor
-              note_html: Pochádza zo zdroja.
             published_on:
-              description: Dátum uverejnenia dlhu
+              description: Dátum zverejnenia dlhu
             <<: *timestamp_columns

@@ -1,5 +1,5 @@
-<h4>Získanie údajov o dlžke ukončených dlhov</h4>
-<p class="docs-endpoint"><code>GET <%= api_data_socpoist_debt_ranges_url(id: ':id', host: api_host) %></code></p>
+<h4>Získanie údajov o dlžobách</h4>
+<p class="docs-endpoint"><code>GET <%= api_data_socpoist_debt_range_url(id: ':id', host: api_host) %></code></p>
 <h5>Parametre</h5>
 <table class="table table-bordered table-nonfluid">
   <thead>
@@ -36,6 +36,6 @@
     "updated_at":"2016-10-03T16:49:33.507801Z"}
   }
 </code></pre>
-<h4>Získanie ukončených dlhov</h4>
+<h4>Získanie zmenených dlhov </h4>
 <p class="docs-endpoint"><code>GET <%= sync_api_data_socpoist_debt_ranges_url(host: api_host) %></code></p>
 <p>Zmenené záznamy od určeného času je možné získať pomocou <%= link_to 'synchronizačného API', '#sync-api' %>. </p>
