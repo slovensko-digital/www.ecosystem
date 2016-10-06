@@ -1142,10 +1142,13 @@ sk:
               description: Identifikátor
             name:
               description: Meno dlžníka
+              note_html: Napríklad <code>X S E D A N s.r.o. Trebišov</code>.
             address:
               description: Adresa dlžníka
+              note_html: Napríklad <code>Jazerná 1</code>.
             city:
               description: Mesto dlžníka
+              note_html: Napríklad <code>Košice Nad jazerom</code>.
             <<: *timestamp_columns
 
         debts_lists:
