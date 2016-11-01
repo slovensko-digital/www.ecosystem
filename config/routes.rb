@@ -61,7 +61,7 @@ Rails.application.routes.draw do
       end
 
       namespace :vszp do
-        resources :debt_ranges, concerns: :syncable
+        resources :debtors, concerns: :syncable
       end
     end
 
