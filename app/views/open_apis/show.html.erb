@@ -7,7 +7,7 @@
         <h2>Dokumentácia</h2>
 
         <h3 id="sync-api">Synchronizačné API</h3>
-        <p class="docs-endpoint"><code>GET <%= root_url(host: api_host) %>api/data/&lt;zdroj&gt;/sync{?since,last_id}</code></p>
+        <p class="docs-endpoint"><code>GET <%= root_url(host: api_host) %>api/data/&lt;zdroj&gt;/sync{?since,last_id,only_ids}</code></p>
         <p>Pre všetky dátové zdroje existuje API na synchronizáciu a je vhodné na použitie v prípadoch, keď je potrebné udržiavať lokálnu kópiu dát.</p>
         <h5>Parametre</h5>
         <table class="table table-bordered table-nonfluid">
@@ -24,9 +24,16 @@
             <td><code>ISO 8601 timestamp</code></td>
             <td>Čas poslednej zmeny</td>
           </tr>
-          <td><code>last_id</code></td>
-          <td><code>integer</code></td>
-          <td>Pomocný unikátny identifikátor záznamu</td>
+          <tr>
+            <td><code>last_id</code></td>
+            <td><code>integer</code></td>
+            <td>Pomocný unikátny identifikátor záznamu</td>
+          </tr>
+          <tr>
+            <td><code>only_ids</code></td>
+            <td><code>null</code></td>
+            <td>Obmedzí a tým zrýchli odpoveď zmenených záznamov. <br/>Vrátené údaje pre zmenený záznam sú len <code>id</code>, <code>updated_at</code>, <code>resource_url</code></td>
+          </tr>
           </tbody>
         </table>
         <h5>Odpoveď</h5>
