@@ -25,6 +25,7 @@ $(document).ready(function() {
             $('#autoform-form').hide();
             $('#autoform-form-sent').show();
 
+            ga('send', 'event', 'Autoform', 'Registration');
             return true;
         }
     });

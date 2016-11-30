@@ -25,6 +25,8 @@ module Ecosystem
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
     config.i18n.default_locale = :sk
 
+    config.active_record.schema_format = :sql
+
     # use custom errors
     config.exceptions_app = self.routes
   end

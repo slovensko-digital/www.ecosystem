@@ -13,6 +13,7 @@ $(document).ready(function() {
             $('#datahub-form').hide();
             $('#datahub-form-sent').show();
 
+            ga('send', 'event', 'Datahub', 'Registration');
             return true;
         }
     });
