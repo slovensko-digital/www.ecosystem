@@ -1103,18 +1103,19 @@ sk:
             <<: *ruz_enumeration_columns
     vszp:
       tables:
-        debt_ranges:
+        debtor_ranges:
           description: Časový rozsah dlhov
           columns:
             id:
               description: Identifikátor záznamu
-              note_html: Pochádza zo zdroja.
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
             debtor_id:
               description: Identifikátor dlžníka
             effective_from:
-              description: Dátum vzniku dlžoby
+              description: Dátum vzniku
             effective_to:
-              description: Dátum ukončenia dlžoby
+              description: Dátum ukončenia
+              note_html: Hodnota <code>NULL</code> označuje neukončený dlh k dátumu zverejnenia posledného zoznamu dlžôb
             amount:
               description: Výška dlhu
             created_at:
@@ -1124,41 +1125,22 @@ sk:
               description: Čas poslednej zmeny záznamu
               note_html: Systémový stĺpec. Nepochádza zo zdroja.
 
-        debtor_entries:
-           description: Zoznam dlhov
-           columns:
-             id:
-               description: Identifikátor záznamu
-               note_html: Pochádza zo zdroja.
-             list_id:
-               description: Identifikátor uverejnenia
-             debtor_id:
-               description: Identifikátor dlžníka
-             amount:
-               description: Výška dlhu
-             created_at:
-               description: Čas vzniku záznamu
-               note_html: Systémový stĺpec. Nepochádza zo zdroja.
-             updated_at:
-               description: Čas poslednej zmeny záznamu
-               note_html: Systémový stĺpec. Nepochádza zo zdroja.
-
         debtors:
            description: Zoznam dlžníkov
            columns:
              id:
                description: Identifikátor záznamu
-               note_html: Pochádza zo zdroja.
+               note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
              name:
-               description: Meno dlžníka
+               description: Meno / Obchodné meno
              city:
-               description: Mesto bydliska dlžníka
+               description: Mesto
              address:
-               description: Ulica a popisné číslo bydliska dlžníka
+               description: Ulica a číslo
              postal_code:
-               description: Poštové smerovacie číslo dlžníka
+               description: PSČ
              cin:
-               description: IČO dlžníka
+               description: IČO
              payer_type:
                description: Typ platiteľa
              full_health_care_claim:
@@ -1175,7 +1157,7 @@ sk:
            columns:
              id:
                description: Identifikátor záznamu
-               note_html: Pochádza zo zdroja.
+               note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
              date:
                description: Dátum uverejnenia
              created_at:
