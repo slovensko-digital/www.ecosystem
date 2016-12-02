@@ -63,6 +63,10 @@ Rails.application.routes.draw do
       namespace :socpoist do
         resources :debtors, concerns: :syncable
       end
+
+      namespace :vszp do
+        resources :debtors, concerns: :syncable
+      end
     end
 
     namespace :autoform do # TODO move to separate app

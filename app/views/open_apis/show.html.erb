@@ -104,6 +104,9 @@ X-RateLimit-Reset: 1470751164</code></pre>
         <h3 id="socpoist">Zoznamy dlžníkov Sociálnej poisťovne <span class="label label-danger">ALFA</span></h3>
         <%= render 'socpoist_debt_ranges' %>
 
+        <h3 id="vszp">Zoznamy dlžníkov Všeobecnej zdravotnej poisťovne <span class="label label-danger">ALFA</span></h3>
+        <%= render 'vszp_api' %>
+
         <h2 id="licencia">Licencia</h2>
         <p>Využívaním týchto dát a API súhlasíte s <a href="/podmienky">podmienkami používania</a>.</p>
       </div>
@@ -124,7 +127,11 @@ X-RateLimit-Reset: 1470751164</code></pre>
               <li class="list-group-item"><%= link_to 'Vestník verejného obstarávania', '#vvo' %></li>
               <li class="list-group-item"><%= link_to 'Obchodný vestník', '#ov' %></li>
               <li class="list-group-item"><%= link_to 'Register účtovných závierok', '#ruz' %></li>
+<<<<<<< HEAD
               <li class="list-group-item"><%= link_to 'Zoznamy dlžníkov Sociálnej poisťovne', '#socpoist' %></li>
+=======
+              <li class="list-group-item"><%= link_to 'Zoznamy dlžníkov Všeobecnej zdravotnej poisťovne', '#vszp' %></li>
+>>>>>>> vszp-debtors
             </ul>
           </li>
           <li class="list-group-item"><%= link_to 'Licencia', '#licencia' %></li>

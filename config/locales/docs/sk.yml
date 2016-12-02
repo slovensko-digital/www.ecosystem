@@ -1104,32 +1104,20 @@ sk:
 
     socpoist:
       tables:
-        debt_entries:
-          description: Zoznam dlhov
-
-          columns:
-            id:
-              description: Identifikátor
-            debtor_id:
-              description: Identifikátor dlžnika
-            list_id:
-              description: Identifikátor dátumu uverejnenia
-            amount:
-              description: Výška dlhu
-            <<: *timestamp_columns
-
         debt_ranges:
           description: Časový rozsah dlhov
 
           columns:
             id:
-              description: Identifikátor
+              description: Identifikátor záznamu
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
             debtor_id:
               description: Identifikátor dlžníka
             effective_from:
-              description: Dátum vzniku dlhu
+              description: Dátum vzniku
             effective_to:
-              description: Dátum ukončenia dlhu
+              description: Dátum ukončenia
+              note_html: Hodnota <code>NULL</code> označuje neukončený dlh k dátumu zverejnenia posledného zoznamu dlžôb
             amount:
               description: Výška dlhu
             <<: *timestamp_columns
@@ -1140,23 +1128,73 @@ sk:
           columns:
             id:
               description: Identifikátor
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
             name:
-              description: Meno dlžníka
-              note_html: Napríklad <code>X S E D A N s.r.o. Trebišov</code>.
+              description: Meno / Obchodné meno
             address:
-              description: Adresa dlžníka
-              note_html: Napríklad <code>Jazerná 1</code>.
+              description: Adresa
             city:
-              description: Mesto dlžníka
-              note_html: Napríklad <code>Košice Nad jazerom</code>.
+              description: Mesto
             <<: *timestamp_columns
 
         debts_lists:
-          description: Zoznamy dlhov
+          description: Zoznamy uverejnení zoznamov dlhov
 
           columns:
             id:
-              description: Identifikátor
+              description: Identifikátor záznamu
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
             published_on:
-              description: Dátum zverejnenia dlhu
+              description: Dátum uverejnenia
             <<: *timestamp_columns
+
+    vszp:
+      tables:
+        debt_ranges:
+          description: Časový rozsah dlhov
+          columns:
+            id:
+              description: Identifikátor záznamu
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            debtor_id:
+              description: Identifikátor dlžníka
+            effective_from:
+              description: Dátum vzniku
+            effective_to:
+              description: Dátum ukončenia
+              note_html: Hodnota <code>NULL</code> označuje neukončený dlh k dátumu zverejnenia posledného zoznamu dlžôb
+            amount:
+              description: Výška dlhu
+            <<: *timestamp_columns
+
+        debtors:
+           description: Zoznam dlžníkov
+           columns:
+             id:
+               description: Identifikátor záznamu
+               note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+             name:
+               description: Meno / Obchodné meno
+             city:
+               description: Mesto
+             address:
+               description: Ulica a číslo
+             postal_code:
+               description: PSČ
+             cin:
+               description: IČO
+             payer_type:
+               description: Typ platiteľa
+             full_health_care_claim:
+               description: Nárok na plnú zdravotnú starostlivosť
+             <<: *timestamp_columns
+
+        debts_lists:
+           description: Zoznam uverejnení zoznamov dlhov
+           columns:
+             id:
+               description: Identifikátor záznamu
+               note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+             published_on:
+               description: Dátum uverejnenia
+             <<: *timestamp_columns
