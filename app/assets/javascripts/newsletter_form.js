@@ -14,6 +14,8 @@ $(document).ready(function () {
                     if (data.result != undefined && data.result.result == 'success') {
                         form.remove();
                         $('.newsletter .newsletter-success').removeClass('hidden');
+
+                        ga('send', 'event', 'Newsletter', 'Registration');
                     }
                 },
                 complete: function () {
