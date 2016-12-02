@@ -1103,7 +1103,7 @@ sk:
             <<: *ruz_enumeration_columns
     vszp:
       tables:
-        debtor_ranges:
+        debt_ranges:
           description: Časový rozsah dlhov
           columns:
             id:
@@ -1152,13 +1152,13 @@ sk:
                description: Čas poslednej zmeny záznamu
                note_html: Systémový stĺpec. Nepochádza zo zdroja.
 
-        debtors_lists:
+        debts_lists:
            description: Zoznam uverejnení zoznamov dlhov
            columns:
              id:
                description: Identifikátor záznamu
                note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
-             date:
+             published_on:
                description: Dátum uverejnenia
              created_at:
                description: Čas vzniku záznamu
