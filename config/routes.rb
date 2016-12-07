@@ -62,10 +62,12 @@ Rails.application.routes.draw do
 
       namespace :socpoist do
         resources :debtors, concerns: :syncable
+        resources :debts_lists, concerns: :syncable
       end
 
       namespace :vszp do
         resources :debtors, concerns: :syncable
+        resources :debts_lists, concerns: :syncable
       end
     end
 

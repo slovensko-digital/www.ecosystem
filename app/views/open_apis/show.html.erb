@@ -102,10 +102,12 @@ X-RateLimit-Reset: 1470751164</code></pre>
         <%= render 'ruz_api' %>
 
         <h3 id="socpoist">Zoznamy dlžníkov Sociálnej poisťovne <span class="label label-danger">ALFA</span></h3>
-        <%= render 'socpoist_api' %>
+        <%= render 'socpoist_debtors' %>
+        <%= render 'socpoist_debts_lists' %>
 
         <h3 id="vszp">Zoznamy dlžníkov Všeobecnej zdravotnej poisťovne <span class="label label-danger">ALFA</span></h3>
-        <%= render 'vszp_api' %>
+        <%= render 'vszp_debtors' %>
+        <%= render 'vszp_debts_lists' %>
 
         <h2 id="licencia">Licencia</h2>
         <p>Využívaním týchto dát a API súhlasíte s <a href="/podmienky">podmienkami používania</a>.</p>
