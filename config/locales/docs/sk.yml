@@ -1105,7 +1105,7 @@ sk:
     socpoist:
       tables:
         debt_ranges:
-          description: Časový rozsah dlhov
+          description: Zoznam dlhov
 
           columns:
             id:
@@ -1138,20 +1138,20 @@ sk:
             <<: *timestamp_columns
 
         debts_lists:
-          description: Zoznamy uverejnení zoznamov dlhov
+          description: Zoznamy zoznamov dlžníkov
 
           columns:
             id:
               description: Identifikátor záznamu
               note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
             published_on:
-              description: Dátum uverejnenia
+              description: Dátum zverejnenia
             <<: *timestamp_columns
 
     vszp:
       tables:
         debt_ranges:
-          description: Časový rozsah dlhov
+          description: Zoznam dlhov
           columns:
             id:
               description: Identifikátor záznamu
@@ -1168,7 +1168,7 @@ sk:
             <<: *timestamp_columns
 
         health_care_ranges:
-          description: Interval poskytovanej zdravotnej starostlivosti dlžníkov
+          description: Nároky na poskytnutie plnej zdravotnej starostlivosti
           columns:
             id:
               description: Identifikátor záznamu
@@ -1176,12 +1176,12 @@ sk:
             debtor_id:
               description: Identifikátor dlžníka
             effective_from:
-              description: Dátum začiatku
+              description: Dátum vzniku
             effective_to:
               description: Dátum ukončenia
               note_html: Hodnota <code>NULL</code> označuje neukončený interval k dátumu zverejnenia posledného zoznamu dlžôb
             full_coverage:
-              description: Nárok na plnú zdravotnú starostlivosť
+              description: Nárok dlžníka na plnú zdravotnú starostlivosť
             <<: *timestamp_columns
 
         debtors:
@@ -1205,11 +1205,11 @@ sk:
              <<: *timestamp_columns
 
         debts_lists:
-           description: Zoznam uverejnení zoznamov dlhov
+           description: Zoznam zoznamov dlžníkov
            columns:
              id:
                description: Identifikátor záznamu
                note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
              published_on:
-               description: Dátum uverejnenia
+               description: Dátum zverejnenia
              <<: *timestamp_columns

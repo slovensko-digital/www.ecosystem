@@ -1,4 +1,4 @@
-<h4>Získanie zrevejnenia zoznamu dlžníkov</h4>
+<h4>Získanie zoznamu dlžníkov</h4>
 <p class="docs-endpoint"><code>GET <%= api_data_socpoist_debts_list_url(id: ':id', host: api_host) %></code></p>
 <h5>Parametre</h5>
 <table class="table table-bordered table-nonfluid">
@@ -13,7 +13,7 @@
   <tr>
     <td><code>id</code></td>
     <td><code>integer</code></td>
-    <td>Identifikátor zverejnenia</td>
+    <td>Identifikátor zoznamu</td>
   </tr>
   </tbody>
 </table>
@@ -26,6 +26,6 @@
   "updated_at":"2016-12-03T13:19:13.325555Z"
 }
 </code></pre>
-<h4>Získanie zmenených zverejnení zoznamov dlžníkov</h4>
+<h4>Získanie zmenených zoznamov dlžníkov</h4>
 <p class="docs-endpoint"><code>GET <%= sync_api_data_socpoist_debts_lists_url(host: api_host) %></code></p>
 <p>Zmenené záznamy od určeného času je možné získať pomocou <%= link_to 'synchronizačného API', '#sync-api' %>. </p>
