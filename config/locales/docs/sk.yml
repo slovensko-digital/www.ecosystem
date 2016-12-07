@@ -1167,6 +1167,23 @@ sk:
               description: Výška dlhu
             <<: *timestamp_columns
 
+        health_care_ranges:
+          description: Interval poskytovanej zdravotnej starostlivosti dlžníkov
+          columns:
+            id:
+              description: Identifikátor záznamu
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            debtor_id:
+              description: Identifikátor dlžníka
+            effective_from:
+              description: Dátum začiatku
+            effective_to:
+              description: Dátum ukončenia
+              note_html: Hodnota <code>NULL</code> označuje neukončený interval k dátumu zverejnenia posledného zoznamu dlžôb
+            full_coverage:
+              description: Nárok na plnú zdravotnú starostlivosť
+            <<: *timestamp_columns
+
         debtors:
            description: Zoznam dlžníkov
            columns:
@@ -1185,8 +1202,6 @@ sk:
                description: IČO
              payer_type:
                description: Typ platiteľa
-             full_health_care_claim:
-               description: Nárok na plnú zdravotnú starostlivosť
              <<: *timestamp_columns
 
         debts_lists:
