@@ -59,6 +59,10 @@ Rails.application.routes.draw do
         resources :raw_notices, concerns: :syncable
         resources :notices, concerns: :syncable
       end
+
+      namespace :vszp do
+        resources :debtors, concerns: :syncable
+      end
     end
 
     namespace :autoform do # TODO move to separate app

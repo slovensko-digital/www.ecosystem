@@ -1101,3 +1101,68 @@ sk:
 
           columns:
             <<: *ruz_enumeration_columns
+    vszp:
+      tables:
+        debt_ranges:
+          description: Časový rozsah dlhov
+          columns:
+            id:
+              description: Identifikátor záznamu
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            debtor_id:
+              description: Identifikátor dlžníka
+            effective_from:
+              description: Dátum vzniku
+            effective_to:
+              description: Dátum ukončenia
+              note_html: Hodnota <code>NULL</code> označuje neukončený dlh k dátumu zverejnenia posledného zoznamu dlžôb
+            amount:
+              description: Výška dlhu
+            created_at:
+              description: Čas vzniku záznamu
+              note_html: Systémový stĺpec. Nepochádza zo zdroja.
+            updated_at:
+              description: Čas poslednej zmeny záznamu
+              note_html: Systémový stĺpec. Nepochádza zo zdroja.
+
+        debtors:
+           description: Zoznam dlžníkov
+           columns:
+             id:
+               description: Identifikátor záznamu
+               note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+             name:
+               description: Meno / Obchodné meno
+             city:
+               description: Mesto
+             address:
+               description: Ulica a číslo
+             postal_code:
+               description: PSČ
+             cin:
+               description: IČO
+             payer_type:
+               description: Typ platiteľa
+             full_health_care_claim:
+               description: Nárok na plnú zdravotnú starostlivosť
+             created_at:
+               description: Čas vzniku záznamu
+               note_html: Systémový stĺpec. Nepochádza zo zdroja.
+             updated_at:
+               description: Čas poslednej zmeny záznamu
+               note_html: Systémový stĺpec. Nepochádza zo zdroja.
+
+        debts_lists:
+           description: Zoznam uverejnení zoznamov dlhov
+           columns:
+             id:
+               description: Identifikátor záznamu
+               note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+             published_on:
+               description: Dátum uverejnenia
+             created_at:
+               description: Čas vzniku záznamu
+               note_html: Systémový stĺpec. Nepochádza zo zdroja.
+             updated_at:
+               description: Čas poslednej zmeny záznamu
+               note_html: Systémový stĺpec. Nepochádza zo zdroja.
