@@ -1105,7 +1105,7 @@ sk:
     socpoist:
       tables:
         debt_ranges:
-          description: Zoznam dlhov
+          description: Dlhy
 
           columns:
             id:
@@ -1117,13 +1117,13 @@ sk:
               description: Dátum vzniku
             effective_to:
               description: Dátum ukončenia
-              note_html: Hodnota <code>NULL</code> označuje neukončený dlh k dátumu zverejnenia posledného zoznamu dlžôb
+              note_html: Hodnota <code>NULL</code> označuje neukončený dlh k dátumu zverejnenia posledného zoznamu dlžníkov
             amount:
               description: Výška dlhu
             <<: *timestamp_columns
 
         debtors:
-          description: Zoznam dlžníkov
+          description: Dlžníci
 
           columns:
             id:
@@ -1138,7 +1138,7 @@ sk:
             <<: *timestamp_columns
 
         debts_lists:
-          description: Zoznamy zoznamov dlžníkov
+          description: Zoznamy dlžníkov
 
           columns:
             id:
@@ -1151,7 +1151,7 @@ sk:
     vszp:
       tables:
         debt_ranges:
-          description: Zoznam dlhov
+          description: Dlhy
           columns:
             id:
               description: Identifikátor záznamu
@@ -1162,7 +1162,7 @@ sk:
               description: Dátum vzniku
             effective_to:
               description: Dátum ukončenia
-              note_html: Hodnota <code>NULL</code> označuje neukončený dlh k dátumu zverejnenia posledného zoznamu dlžôb
+              note_html: Hodnota <code>NULL</code> označuje neukončený dlh k dátumu zverejnenia posledného zoznamu dlžníkov
             amount:
               description: Výška dlhu
             <<: *timestamp_columns
@@ -1179,37 +1179,37 @@ sk:
               description: Dátum vzniku
             effective_to:
               description: Dátum ukončenia
-              note_html: Hodnota <code>NULL</code> označuje neukončený interval k dátumu zverejnenia posledného zoznamu dlžôb
+              note_html: Hodnota <code>NULL</code> označuje neukončený interval k dátumu zverejnenia posledného zoznamu dlžníkov
             full_coverage:
               description: Nárok dlžníka na plnú zdravotnú starostlivosť
             <<: *timestamp_columns
 
         debtors:
-           description: Zoznam dlžníkov
-           columns:
-             id:
-               description: Identifikátor záznamu
-               note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
-             name:
-               description: Meno / Obchodné meno
-             city:
-               description: Mesto
-             address:
-               description: Ulica a číslo
-             postal_code:
-               description: PSČ
-             cin:
-               description: IČO
-             payer_type:
-               description: Typ platiteľa
-             <<: *timestamp_columns
+          description: Dlžníci
+          columns:
+            id:
+              description: Identifikátor záznamu
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            name:
+              description: Meno / Obchodné meno
+            city:
+              description: Mesto
+            address:
+              description: Ulica a číslo
+            postal_code:
+              description: PSČ
+            cin:
+              description: IČO
+            payer_type:
+              description: Typ platiteľa
+            <<: *timestamp_columns
 
         debts_lists:
-           description: Zoznam zoznamov dlžníkov
-           columns:
-             id:
-               description: Identifikátor záznamu
-               note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
-             published_on:
-               description: Dátum zverejnenia
-             <<: *timestamp_columns
+          description: Zoznamy dlžníkov
+          columns:
+            id:
+              description: Identifikátor záznamu
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            published_on:
+              description: Dátum zverejnenia
+            <<: *timestamp_columns
