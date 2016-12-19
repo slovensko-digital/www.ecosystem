@@ -607,7 +607,7 @@ sk:
               note_html: Napríklad <code>Správca reštrukturalizačného konania</code>.
             <<: *timestamp_columns
         organizations:
-          description: Zoznam právnických osôb
+          description: Právnicke osôby
           long_description_html: <p>Hlavná tabuľka právnických osôb.</p>
           columns:
             id:
@@ -647,7 +647,7 @@ sk:
     ov:
       tables:
         bulletin_issues:
-          description: Zoznam vydaní obchodného vestníka
+          description: Vydania obchodného vestníka
           columns:
             id:
               description: Identifikátor
@@ -663,7 +663,7 @@ sk:
             <<: *timestamp_columns
 
         raw_issues:
-          description: Zoznam všetkých podaní v neštrukturovanej forme, tak ako ich poskytuje obchodný vestník
+          description: Podania v neštrukturovanej forme, tak ako ich poskytuje obchodný vestník
           long_description_html: Obchodný vestník poskytuje údaje vo vydaniach. Vydanie je tvorené súbormi. Táto tabuľka obsahuje všetky súbory z vydania v neštrukturovanej forme.
           columns:
             id:
@@ -725,7 +725,7 @@ sk:
             <<: *timestamp_columns
 
         or_podanie_issue_documents:
-          description: Zoznam listín vkladaných spoločnosťou do zoznamu listín
+          description: Listiny vkladaných spoločnosťou do zoznamu listín
           columns:
             id:
               description: Identifikátor
@@ -999,7 +999,7 @@ sk:
     ruz:
       tables:
         accounting_entities:
-          description: Zoznam účtovných jednotiek
+          description: Účtovné jednotky
 
           columns:
             id:
