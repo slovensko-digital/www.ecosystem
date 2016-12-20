@@ -358,7 +358,7 @@ sk:
               description: Identifikátor právnickej osoby
             body:
               description: Text oprávnenia
-              note_html: Napríklad <code>V mene spoločnosti koná konateľ.</code>
+              note_html: Napríklad <code>V mene spoločnosti koná konateľ</code>.
             <<: *timestamp_columns
             <<: *effective_range_columns
         organization_deposit_entries:
@@ -607,7 +607,7 @@ sk:
               note_html: Napríklad <code>Správca reštrukturalizačného konania</code>.
             <<: *timestamp_columns
         organizations:
-          description: Zoznam právnických osôb
+          description: Právnicke osôby
           long_description_html: <p>Hlavná tabuľka právnických osôb.</p>
           columns:
             id:
@@ -647,7 +647,7 @@ sk:
     ov:
       tables:
         bulletin_issues:
-          description: Zoznam vydaní obchodného vestníka
+          description: Vydania obchodného vestníka
           columns:
             id:
               description: Identifikátor
@@ -663,7 +663,7 @@ sk:
             <<: *timestamp_columns
 
         raw_issues:
-          description: Zoznam všetkých podaní v neštrukturovanej forme, tak ako ich poskytuje obchodný vestník
+          description: Podania v neštrukturovanej forme, tak ako ich poskytuje obchodný vestník
           long_description_html: Obchodný vestník poskytuje údaje vo vydaniach. Vydanie je tvorené súbormi. Táto tabuľka obsahuje všetky súbory z vydania v neštrukturovanej forme.
           columns:
             id:
@@ -725,7 +725,7 @@ sk:
             <<: *timestamp_columns
 
         or_podanie_issue_documents:
-          description: Zoznam listín vkladaných spoločnosťou do zoznamu listín
+          description: Listiny vkladaných spoločnosťou do zoznamu listín
           columns:
             id:
               description: Identifikátor
@@ -999,7 +999,7 @@ sk:
     ruz:
       tables:
         accounting_entities:
-          description: Zoznam účtovných jednotiek
+          description: Účtovné jednotky
 
           columns:
             id:
@@ -1105,7 +1105,7 @@ sk:
     socpoist:
       tables:
         debt_ranges:
-          description: Zoznam dlhov
+          description: Dlhy
 
           columns:
             id:
@@ -1117,13 +1117,13 @@ sk:
               description: Dátum vzniku
             effective_to:
               description: Dátum ukončenia
-              note_html: Hodnota <code>NULL</code> označuje neukončený dlh k dátumu zverejnenia posledného zoznamu dlžôb
+              note_html: Hodnota <code>NULL</code> označuje neukončený dlh k dátumu zverejnenia posledného zoznamu dlžníkov.
             amount:
               description: Výška dlhu
             <<: *timestamp_columns
 
         debtors:
-          description: Zoznam dlžníkov
+          description: Dlžníci
 
           columns:
             id:
@@ -1138,7 +1138,7 @@ sk:
             <<: *timestamp_columns
 
         debts_lists:
-          description: Zoznamy zoznamov dlžníkov
+          description: Zoznamy dlžníkov
 
           columns:
             id:
@@ -1151,7 +1151,7 @@ sk:
     vszp:
       tables:
         debt_ranges:
-          description: Zoznam dlhov
+          description: Dlhy
           columns:
             id:
               description: Identifikátor záznamu
@@ -1162,7 +1162,7 @@ sk:
               description: Dátum vzniku
             effective_to:
               description: Dátum ukončenia
-              note_html: Hodnota <code>NULL</code> označuje neukončený dlh k dátumu zverejnenia posledného zoznamu dlžôb
+              note_html: Hodnota <code>NULL</code> označuje neukončený dlh k dátumu zverejnenia posledného zoznamu dlžníkov.
             amount:
               description: Výška dlhu
             <<: *timestamp_columns
@@ -1179,37 +1179,37 @@ sk:
               description: Dátum vzniku
             effective_to:
               description: Dátum ukončenia
-              note_html: Hodnota <code>NULL</code> označuje neukončený interval k dátumu zverejnenia posledného zoznamu dlžôb
+              note_html: Hodnota <code>NULL</code> označuje neukončený interval k dátumu zverejnenia posledného zoznamu dlžníkov.
             full_coverage:
               description: Nárok dlžníka na plnú zdravotnú starostlivosť
             <<: *timestamp_columns
 
         debtors:
-           description: Zoznam dlžníkov
-           columns:
-             id:
-               description: Identifikátor záznamu
-               note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
-             name:
-               description: Meno / Obchodné meno
-             city:
-               description: Mesto
-             address:
-               description: Ulica a číslo
-             postal_code:
-               description: PSČ
-             cin:
-               description: IČO
-             payer_type:
-               description: Typ platiteľa
-             <<: *timestamp_columns
+          description: Dlžníci
+          columns:
+            id:
+              description: Identifikátor záznamu
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            name:
+              description: Meno / Obchodné meno
+            city:
+              description: Mesto
+            address:
+              description: Ulica a číslo
+            postal_code:
+              description: PSČ
+            cin:
+              description: IČO
+            payer_type:
+              description: Typ platiteľa
+            <<: *timestamp_columns
 
         debts_lists:
-           description: Zoznam zoznamov dlžníkov
-           columns:
-             id:
-               description: Identifikátor záznamu
-               note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
-             published_on:
-               description: Dátum zverejnenia
-             <<: *timestamp_columns
+          description: Zoznamy dlžníkov
+          columns:
+            id:
+              description: Identifikátor záznamu
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            published_on:
+              description: Dátum zverejnenia
+            <<: *timestamp_columns

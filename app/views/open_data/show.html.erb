@@ -7,7 +7,7 @@
       <p class="lead"><%= link_to 'Slovensko.Digital', 'https://slovensko.digital/' %> poskytuje verejnosti bezplatný prístup k štruktúrovaným dátam vybraných zdrojov. Dáta je možné stiahnuť ako SQL dumpy z relačnej databázy alebo priamo využívať <%= link_to 'REST', open_api_path %> a <%= link_to 'SQL API', services_datahub_index_path %>. V prípade záujmu o ďalšie dáta nás <%= mail_to 'kontakt@slovensko.digital', 'kontaktujte' %>.</p>
 
       <h2>Dokumentácia</h2>
-      <p>Popis štruktúry tabuliek pre datasety z <%= link_to 'centrálneho registra zmlúv', '#crz' %>, <%= link_to 'registra právnických osôb', '#rpo' %>, <%= link_to 'vestníka verejného obstarávania', '#vvo' %>, <%= link_to 'obchodného vestníka', '#ov' %> a <%= link_to 'registra účtovných závierok', '#ruz' %> nájdete v tejto dokumentácii.</p>
+      <p>Popis štruktúry tabuliek pre datasety z <%= link_to 'centrálneho registra zmlúv', '#crz' %>, <%= link_to 'registra právnických osôb', '#rpo' %>, <%= link_to 'vestníka verejného obstarávania', '#vvo' %>, <%= link_to 'obchodného vestníka', '#ov' %>, <%= link_to 'registra účtovných závierok', '#ruz' %>, <%= link_to 'dlžníkov Sociálnej poisťovne', '#socpoist' %> a <%= link_to 'dlžníkov Všeobecnej zdravotnej poisťovne', '#vszp' %> nájdete v tejto dokumentácii.</p>
 
       <h3>Aktualizácia</h3>
       <p>SQL dumpy sú vytvárané raz týždenne v nedeľu od 4:00. Dáta prístupné cez API sú aktualizované priebežne.</p>
@@ -58,7 +58,7 @@
       <%= render partial: 'table', collection: tables %>
 
       <h3 id="ruz">Register účtovných závierok <span class="label label-danger">ALFA</span></h3>
-      <p>Register účtovných závierok obsahuje dôležité informácie o hospodárení firiem na Slovensku. Momentálne poskytujeme len zoznam účtovných jednotiek a číselníky.</p>
+      <p>Register účtovných závierok obsahuje dôležité informácie o hospodárení firiem na Slovensku. Momentálne poskytujeme len účtovné jednotky a číselníky.</p>
       <p class="btn-row">
         <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/ruz.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>ruz.sql.gz.torrent</strong></a>
         <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/ruz.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> ruz.sql.gz</a>
@@ -68,8 +68,8 @@
       <%= render partial: 'tables', object: tables %>
       <%= render partial: 'table', collection: tables %>
 
-      <h3 id="socpoist"> Zoznamy dlžníkov Sociálnej poisťovne <span class="label label-danger">ALFA</span></h3>
-      <p>Zoznamy dlžníkov obsahujú informácie o dlžobách  právnických a fyzických osôb voči Sociálnej poisťovni.</p>
+      <h3 id="socpoist">Dlžníci Sociálnej poisťovne <span class="label label-danger">ALFA</span></h3>
+      <p>Zoznamy dlžníkov obsahujú informácie o dlžobách fyzických a právnických osôb voči Sociálnej poisťovni.</p>
       <p class="btn-row">
         <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/socpoist.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>socpoist.sql.gz.torrent</strong></a>
         <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/socpoist.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> socpoist.sql.gz</a>
@@ -79,8 +79,8 @@
       <%= render partial: 'tables', object: tables %>
       <%= render partial: 'table', collection: tables %>
 
-      <h3 id="vszp">Zoznamy dlžníkov Všeobecnej zdravotnej poisťovne <span class="label label-danger">ALFA</span></h3>
-      <p>Zoznamy dlžníkov obsahujú informácie o dlžobách fyzických a právnických osôb voči Všeobecnej zdravotnej poisťovni na Slovensku.</p>
+      <h3 id="vszp">Dlžníci Všeobecnej zdravotnej poisťovne <span class="label label-danger">ALFA</span></h3>
+      <p>Zoznamy dlžníkov obsahujú informácie o dlžobách fyzických a právnických osôb voči Všeobecnej zdravotnej poisťovni.</p>
       <p class="btn-row">
         <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/vszp.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>vszp.sql.gz.torrent</strong></a>
         <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/vszp.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> vszp.sql.gz</a>
