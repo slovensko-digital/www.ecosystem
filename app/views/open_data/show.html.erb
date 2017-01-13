@@ -89,6 +89,15 @@
       <% tables = PgCatalog::PgTable.find_by_schema(:vszp) %>
       <%= render partial: 'tables', object: tables %>
       <%= render partial: 'table', collection: tables %>
+
+      <h3 id="datahub">Prémiové dáta <span class="label label-success">PREMIUM</span></h3>
+      <p>Konsolidované dáta fyzických a pravníckých osôb. Prístupu k dátam je možný <%= mail_to 'kontakt@slovensko.digital', 'na výžiadanie po dohode' %>.</p>
+      <p class="btn-row">
+        <%= link_to 'API', open_api_path(anchor: :datahub), class: 'btn btn-default' %>
+      </p>
+      <% tables = PgCatalog::PgTable.find_by_schema(:datahub) %>
+      <%= render partial: 'tables', object: tables %>
+      <%= render partial: 'table', collection: tables %>
     </div>
   </div>
 <% end %>

@@ -109,6 +109,21 @@ X-RateLimit-Reset: 1470751164</code></pre>
         <%= render 'vszp_debtors' %>
         <%= render 'vszp_debts_lists' %>
 
+        <h2 id="premium">Prémiové API</h2>
+        <p>Prístup ku prémiovému API je dostupný <%= mail_to 'kontakt@slovensko.digital', 'na výžiadanie po dohode' %>.</p>
+
+        <h3 id="access-token">Overenie prístupu</h3>
+        <p>Každá požiadavka na odpoveď z premiového API musí obsahovať prístupový kľúč <code>access_token</code>, ktorý sme Vám zaslali. Prístupový kľúč môže byť umiestnení buď v hlavičke požiadavky, alebo v parametry.</p>
+        <h5>Príklad</h5>
+        <p>Ako vytvoriť požiadavku s hodnotou prístupového kľúča <code>sd515s3</code></p>
+        <p class="docs-endpoint"><code>curl -H 'Authorization: Token sd515s3' '<%= sync_api_datahub_corporate_bodies_url(host: api_host) %>'</code></p>
+        <p class="docs-endpoint"><code>curl '<%= sync_api_datahub_corporate_bodies_url(host: api_host, access_token: 'sd515s3') %>'</code></p>
+
+        <h2 id="premium-data">Prémium dáta</h2>
+
+        <h3 id="datahub">Fyzické a právnické osoby <span class="label label-success">PREMIUM</span></h3>
+        <%= render 'datahub_corporate_bodies_api' %>
+
         <h2 id="licencia">Licencia</h2>
         <p>Využívaním týchto dát a API súhlasíte s <a href="/podmienky">podmienkami používania</a>.</p>
       </div>
@@ -131,6 +146,14 @@ X-RateLimit-Reset: 1470751164</code></pre>
               <li class="list-group-item"><%= link_to 'Register účtovných závierok', '#ruz' %></li>
               <li class="list-group-item"><%= link_to 'Dlžníci Sociálnej poisťovne', '#socpoist' %></li>
               <li class="list-group-item"><%= link_to 'Dlžníci Všeobecnej zdravotnej poisťovne', '#vszp' %></li>
+            </ul>
+          </li>
+          <li class="list-group-item"><%= link_to 'Prémiové API', '#premium' %></li>
+          <li class="list-group-item"><%= link_to 'Overenie prístupu', '#access-token' %></li>
+          <li class="list-group-item">
+            <%= link_to 'Prémium dáta', '#premium-data' %>
+            <ul class="list-group">
+              <li class="list-group-item"><%= link_to 'Fyzické a právnické osoby', '#datahub' %></li>
             </ul>
           </li>
           <li class="list-group-item"><%= link_to 'Licencia', '#licencia' %></li>

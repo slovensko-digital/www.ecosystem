@@ -119,6 +119,28 @@
   <hr>
 
   <section>
+    <h2>Prémiové dáta &amp; API</h2>
+    <p class="lead">Konsolidované dáta, tak ako by ste ich chceli mať. Dostupné <%= mail_to 'kontakt@slovensko.digital', 'na výžiadanie po dohode' %>.</p>
+
+    <div class="row">
+      <div class="col-md-5">
+        <h3>Fyzické a právnické osoby <span class="label label-success">PREMIUM</span></h3>
+        <p class="lead">Databáza fyzických a právnických osôb.</p>
+        <p class="btn-row">
+          <%= link_to 'Dokumentácia', open_data_path(anchor: :datahub), class: 'btn btn-default' %>
+          <%= link_to 'API', open_api_path(anchor: :datahub), class: 'btn btn-default' %>
+        </p>
+        <p>
+          <small>Zdroj: Naše konsolidované dáta vytvorené nad registrom právnických osôb, registrom účtovných závierok a finančnou správou.</small>
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <hr>
+
+  <section>
     <div class="well premium">
       <h3>Nenašli ste čo ste hľadali?</h3>
       <p class="lead">Máte nápad na službu alebo vylepšenie? Potrebujete iné dáta? Využívate tieto dáta? <strong><%= mail_to 'kontakt@slovensko.digital', 'Ozvite sa nám' %></strong>.</p>

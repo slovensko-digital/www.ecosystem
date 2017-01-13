@@ -1213,3 +1213,49 @@ sk:
             published_on:
               description: Dátum zverejnenia
             <<: *timestamp_columns
+
+    datahub:
+      tables:
+        corporate_bodies:
+          description: Fyzické a právnické osoby
+          columns:
+            id:
+              description: Identifikátor záznamu
+              note_html: Interný systémový identifikátor.
+            cin:
+              description: IČO
+            tin:
+              description: DIČ
+            vatin:
+              description: IČ DPH
+            name:
+              description: Názov subjektu
+            formatted_address:
+              description: Naformátovaná adresa
+            street:
+              description: Ulica
+            reg_number:
+              description: Súpisné číslo
+            building_number:
+              description: Orientačné číslo
+            street_number:
+              description: Číslo domu
+            formatted_street:
+              description: Ulica a číslo
+            postal_code:
+              description: PSČ
+            municipality:
+              description: Obec
+            country:
+              description: Krajina
+            established_on:
+              description: Dátum vzniku
+            terminated_on:
+              description: Dátum zániku
+            vatin_paragraph:
+              description: DPH podľa paragrafu
+            registration_office:
+              description: Registrátor
+            registration_number:
+              description: Registračné číslo
+            <<: *timestamp_columns
