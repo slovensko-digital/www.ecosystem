@@ -1,0 +1,34 @@
+<p class="docs-endpoint"><code>GET <%= root_url(host: api_host) %>api/data/&lt;zdroj&gt;/sync{?since,last_id,only_ids}</code></p>
+<p>Pre všetky dátové zdroje existuje API na synchronizáciu a je vhodné na použitie v prípadoch, keď je potrebné udržiavať lokálnu kópiu dát.</p>
+<h5>Parametre</h5>
+<table class="table table-bordered table-nonfluid">
+  <thead>
+  <tr>
+    <th>Názov</th>
+    <th>Typ</th>
+    <th>Popis</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><code>since</code></td>
+    <td><code>ISO 8601 timestamp</code></td>
+    <td>Čas poslednej zmeny</td>
+  </tr>
+  <tr>
+    <td><code>last_id</code></td>
+    <td><code>integer</code></td>
+    <td>Pomocný unikátny identifikátor záznamu</td>
+  </tr>
+  <tr>
+    <td><code>only_ids</code></td>
+    <td><code>null</code></td>
+    <td>Obmedzí a tým zrýchli odpoveď zmenených záznamov. <br/>Vrátené údaje pre zmenený záznam sú len <code>id</code>, <code>updated_at</code>, <code>resource_url</code></td>
+  </tr>
+  </tbody>
+</table>
+<h5>Odpoveď</h5>
+<pre class="pre-scrollable"><code>HTTP/1.1 200 OK
+  Link: &lt;<%= root_url(host: api_host) %>api/data/crz/contracts/sync?last_id=2517939&since=2016-07-08T13%3A54%3A05.176752Z&gt;; rel='next'</code></pre>
+
+<p>Získanú URL z hlavičky je možné priamo použiť na vyžiadanie ďalších záznamov zmenených od zadaného času.</p>

@@ -1,0 +1,28 @@
+<p>Neautentifikované prístupy na verejné API sú limitované na 60 prístupov za minútu na jednu IP adresu. V hlavičke HTTP odpovede sú uvedené limity pre aktuálneho klienta.</p>
+<pre><code>HTTP/1.1 200 OK
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 58
+X-RateLimit-Reset: 1470751164</code></pre>
+
+<table class="table table-bordered table-nonfluid">
+  <thead>
+  <tr>
+    <th>Hlavička</th>
+    <th>Popis</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><code>X-RateLimit-Limit</code></td>
+    <td>Maximálny povolený počet prístupov.</td>
+  </tr>
+  <tr>
+    <td><code>X-RateLimit-Remaining</code></td>
+    <td>Povolený počet prístupov v danom časovom okne.</td>
+  </tr>
+  <tr>
+    <td><code>X-RateLimit-Reset</code></td>
+    <td>Časová pečiatka, kedy bude počítadlo obnovené na pôvodnú hodnotu.</td>
+  </tr>
+  </tbody>
+</table>

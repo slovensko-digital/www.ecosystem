@@ -1,0 +1,22 @@
+<% cache 'open_data_docs' do %>
+  <div class="container">
+    <h1><strong>Premiové dáta</strong></h1>
+
+    <div class="anchors">
+      <h2>Úvod</h2>
+      <p class="lead"><%= link_to 'Slovensko.Digital', 'https://slovensko.digital/' %> poskytuje prístup ku konsolidovaným dátam cez <%= link_to 'REST', premium_api_path %> a <%= link_to 'SQL API', services_datahub_index_path %>. Premiové dáta sprístupňujeme <%= mail_to 'kontakt@slovensko.digital', 'na vyžiadanie po dohode' %>.</p>
+
+      <h2>Dokumentácia</h2>
+      <p>Popis štruktúry tabuliek pre datasety z <%= link_to 'právnických osôb', '#datahub' %> nájdete v tejto dokumentácii.</p>
+
+      <h3 id="datahub">Právnické osoby <span class="label label-success">PREMIUM</span></h3>
+      <p>Konsolidované dáta fyzických a pravníckých osôb.</p>
+      <p class="btn-row">
+        <%= link_to 'API', premium_api_path(anchor: :datahub), class: 'btn btn-default' %>
+      </p>
+      <% tables = PgCatalog::PgTable.find_by_schema(:datahub) %>
+      <%= render partial: 'open_data/tables', object: tables %>
+      <%= render partial: 'open_data/table', collection: tables %>
+    </div>
+  </div>
+<% end %>

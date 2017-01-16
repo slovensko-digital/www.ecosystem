@@ -1217,7 +1217,7 @@ sk:
     datahub:
       tables:
         corporate_bodies:
-          description: Fyzické a právnické osoby
+          description: Právnické osoby
           columns:
             id:
               description: Identifikátor záznamu
