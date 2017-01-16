@@ -67,7 +67,7 @@ RSpec.describe 'Pages' do
     it 'works' do
       visit 'premiove-api'
 
-      expect(page).to have_content('Premiové API')
+      expect(page).to have_content('Prémiové API')
 
       expect(page).to have_content('Overenie prístupu')
       expect(page).to have_content('Právnické osoby')
@@ -78,7 +78,7 @@ RSpec.describe 'Pages' do
     it 'works' do
       visit 'premiove-data'
 
-      expect(page).to have_content('Premiové dáta')
+      expect(page).to have_content('Prémiové dáta')
       expect(page).to have_content('Právnické osoby')
 
       expect(page).to have_content('datahub.')
