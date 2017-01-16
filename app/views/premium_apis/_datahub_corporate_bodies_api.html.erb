@@ -54,26 +54,3 @@
 <h4>Získanie zmenených osôb</h4>
 <p class="docs-endpoint"><code>GET <%= sync_api_datahub_corporate_bodies_url(host: api_host) %></code></p>
 <p>Zmenené záznamy od určeného času je možné získať pomocou <%= link_to 'synchronizačného API', '#sync-api' %>. </p>
-
-<h4>Vyhľadanie osôby</h4>
-<p class="docs-endpoint"><code>GET <%= search_api_datahub_corporate_bodies_url(host: api_host) %>?q=cin:12314</code></p>
-<p>Aktuálne je možné vyhľadanie iba podľa IČO.</p>
-
-<h5>Parametre</h5>
-
-<table class="table table-bordered table-nonfluid">
-  <thead>
-  <tr>
-    <th>Názov</th>
-    <th>Typ</th>
-    <th>Popis</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td><code>q</code></td>
-    <td><code>string</code></td>
-    <td>vyhľadávací dopyt. napríklad <code>cin:12314</code></td>
-  </tr>
-  </tbody>
-</table>
