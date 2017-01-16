@@ -63,6 +63,28 @@ RSpec.describe 'Pages' do
     end
   end
 
+  describe 'premium-api' do
+    it 'works' do
+      visit 'premiove-api'
+
+      expect(page).to have_content('Premiové API')
+
+      expect(page).to have_content('Overenie prístupu')
+      expect(page).to have_content('Právnické osoby')
+    end
+  end
+
+  describe 'premium-data' do
+    it 'works' do
+      visit 'premiove-data'
+
+      expect(page).to have_content('Premiové dáta')
+      expect(page).to have_content('Právnické osoby')
+
+      expect(page).to have_content('datahub.')
+    end
+  end
+
   describe 'podmienky' do
     it 'works' do
       visit 'podmienky'
