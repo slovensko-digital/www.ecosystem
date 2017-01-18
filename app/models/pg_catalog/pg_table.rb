@@ -14,7 +14,8 @@
 
 class PgCatalog::PgTable < ActiveRecord::Base
   def self.find_by_schema(schemaname)
-    where(schemaname: schemaname).order(:tablename)
+    # TODO remove table filtering hack
+    where(schemaname: schemaname).where('tablename <> ?', 'ar_internal_metadata').order(:tablename)
   end
 
   def attributes
