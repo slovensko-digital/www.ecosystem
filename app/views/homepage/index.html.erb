@@ -7,10 +7,29 @@
         <p class="lead">Automatické dopĺňanie kontaktných a&nbsp;fakturačných údajov o&nbsp;právnických osobách. Denne aktualizované. <em>Integrácia na pár riadkov HTML kódu.</em></p>
       </div>
       <div class="col-md-5 col-md-offset-1">
-        <h3><%= link_to 'Datahub', services_datahub_index_path %> <span class="label label-danger">ALFA</span></h3>
-        <p class="lead">Prístup ku konsolidovaným a&nbsp;prepojeným štruktúrovaným dátam a&nbsp;rozhranie pre <em>analytické reporty cez SQL</em>.</p>
+        <h3><%= link_to 'Datahub', services_datahub_index_path %> <span class="label label-warning">BETA</span></h3>
+        <p class="lead">Prístup ku konsolidovaným a&nbsp;prepojeným štruktúrovaným dátam cez <em>jednoduché REST API</em> a&nbsp;rozhranie pre <em>analytické reporty cez SQL</em>.</p>
       </div>
     </div>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>Prémiové dáta &amp; API</h2>
+    <p class="lead">Konsolidované a prepojené dáta z rôznych zdrojov. Dostupné <%= link_to 'po registrácii', services_datahub_index_path %>.</p>
+
+    <div class="row">
+      <div class="col-md-5">
+        <h3>Právnické osoby <span class="label label-success">LIVE</span></h3>
+        <p class="lead">Databáza konsolidovaných údajov o&nbsp;právnických osobách. Aktuálny názov, adresa, IČO, DIČ, IČ&nbsp;DPH a prepojenia na kompletné záznamy v&nbsp;zdrojových registroch.</p>
+        <p class="btn-row">
+          <%= link_to 'Dokumentácia', premium_data_path(anchor: :po), class: 'btn btn-default' %>
+          <%= link_to 'API', premium_api_path(anchor: :po), class: 'btn btn-default' %>
+        </p>
+      </div>
+    </div>
+
   </section>
 
   <hr>
@@ -22,7 +41,7 @@
 
     <div class="row">
       <div class="col-md-5">
-        <h3>Register právnických osôb <span class="label label-warning">BETA</span></h3>
+        <h3>Register právnických osôb <span class="label label-success">LIVE</span></h3>
         <p class="lead">Databáza právnických osôb, podnikateľov a&nbsp;orgánov verejnej moci. Viac ako 1.4 milióna právnických osôb s&nbsp;kompletnou históriou.</p>
         <p class="btn-row">
           <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/rpo.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>rpo.sql.gz.torrent</strong> (~850MB)</a>
@@ -114,28 +133,6 @@
         </p>
       </div>
     </div>
-  </section>
-
-  <hr>
-
-  <section>
-    <h2>Prémiové dáta &amp; API</h2>
-    <p class="lead">Konsolidované dáta, tak ako by ste ich chceli mať. Dostupné <%= mail_to 'kontakt@slovensko.digital', 'na výžiadanie po dohode' %>.</p>
-
-    <div class="row">
-      <div class="col-md-5">
-        <h3>Právnické osoby <span class="label label-success">PRÉMIUM</span></h3>
-        <p class="lead">Databáza právnických osôb.</p>
-        <p class="btn-row">
-          <%= link_to 'Dokumentácia', premium_data_path(anchor: :datahub), class: 'btn btn-default' %>
-          <%= link_to 'API', premium_api_path(anchor: :datahub), class: 'btn btn-default' %>
-        </p>
-        <p>
-          <small>Zdroj: Naše konsolidované dáta vytvorené nad registrom právnických osôb, registrom účtovných závierok a finančnou správou.</small>
-        </p>
-      </div>
-    </div>
-
   </section>
 
   <hr>

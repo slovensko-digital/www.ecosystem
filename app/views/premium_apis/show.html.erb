@@ -7,13 +7,14 @@
         <h2>Dokumentácia</h2>
 
         <h3 id="access-token">Overenie prístupu</h3>
-        <p>Na prístup ku prémiovému API je potrebný prístupový kľúč <code>access_token</code>, ktorý je dostupný <%= mail_to 'kontakt@slovensko.digital', 'na výžiadanie po dohode' %>.</p>
+        <p>Na prístup ku prémiovému API je potrebný prístupový kľúč <code>access_token</code>, ktorý je dostupný <%= link_to 'po registrácii', services_datahub_index_path %>.</p>
 
-        <p>Každá požiadavka na odpoveď z premiového API musí obsahovať prístupový kľúč <code>access_token</code>. Prístupový kľúč môže byť umiestnený buď v hlavičke požiadavky, alebo v parametry.</p>
+        <p>Každá požiadavka na odpoveď z premiového API musí obsahovať prístupový kľúč <code>access_token</code>. Prístupový kľúč môže byť umiestnený buď v hlavičke HTTP požiadavky alebo v parametri.</p>
         <h5>Príklad</h5>
-        <p>Ako vytvoriť požiadavku s hodnotou prístupového kľúča <code>sd515s3</code></p>
-        <p class="docs-endpoint"><code>curl -H 'Authorization: Token sd515s3' '<%= sync_api_datahub_corporate_bodies_url(host: api_host) %>'</code></p>
-        <p class="docs-endpoint"><code>curl '<%= sync_api_datahub_corporate_bodies_url(host: api_host, access_token: 'sd515s3') %>'</code></p>
+        <p>Ako vytvoriť požiadavku s hodnotou prístupového kľúča <code>nbsr123</code></p>
+        <p class="docs-endpoint"><code>curl -H 'Authorization: Token nbsr123' '<%= sync_api_datahub_corporate_bodies_url(host: api_host) %>'</code></p>
+        <p>alebo</p>
+        <p class="docs-endpoint"><code>curl '<%= sync_api_datahub_corporate_bodies_url(host: api_host, access_token: 'nbsr123') %>'</code></p>
 
         <h3 id="sync-api">Synchronizačné API</h3>
         <%= render 'open_apis/sync_api' %>
@@ -26,7 +27,7 @@
 
         <h2 id="premium-data">Prémiové dáta</h2>
 
-        <h3 id="datahub">Právnické osoby <span class="label label-success">PRÉMIUM</span></h3>
+        <h3 id="po">Právnické osoby <span class="label label-success">LIVE</span></h3>
         <%= render 'datahub_corporate_bodies_api' %>
 
         <h2 id="licencia">Licencia</h2>
