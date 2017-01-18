@@ -7,12 +7,13 @@
         <h2>Dokumentácia</h2>
 
         <h3 id="sync-api">Synchronizačné API</h3>
-        <%= render 'sync_api' %>
+        <%= render 'sync_api', premium: false %>
 
         <h3 id="sql-api">SQL API</h3>
         <p>Pre analytické a pokročilé dopytovanie poskytujeme <%= link_to 'SQL API', services_datahub_index_path %>.</p>
 
         <h3 id="rate-limit">Obmedzenie počtu prístupov</h3>
+        <p>Neautentifikované prístupy na verejné API sú limitované na 60 prístupov za minútu na jednu IP adresu. V hlavičke HTTP odpovede sú uvedené limity pre aktuálneho klienta.</p>
         <%= render 'rate_limit' %>
 
         <h2 id="data">Dáta</h2>
