@@ -1,10 +1,16 @@
 <div class="container autoform">
   <h1><strong>Datahub</strong>
-    <small><span class="label label-danger">ALFA</span></small>
+    <small><span class="label label-warning">BETA</span></small>
   </h1>
-  <p class="lead">Prístup ku konsolidovaným a&nbsp;prepojeným štruktúrovaným dátam. Exporty dát do Excelu a&nbsp;rozhranie pre
-    <em>analytické reporty cez SQL</em>.</p>
+  <p class="lead">Prístup ku konsolidovaným a&nbsp;prepojeným štruktúrovaným dátam cez <em>jednoduché REST API</em>. Exporty dát do Excelu a&nbsp;rozhranie pre
+    <em>analytické reporty cez SQL</em>.
   <hr>
+
+  <section>
+    <h2>Naše dáta vo Vašom informačnom systéme</h2>
+    <p class="lead">Integrácia cez <%= link_to 'jednoduché REST API', premium_api_path %> na konsolidované a prepojené dáta.</p>
+  </section>
+
   <section>
     <h2>Analýzy a exporty dát</h2>
     <p class="lead">Potrebujete zoznam firiem v IT sektore? Analýzu obstarávaní v zdravotníctve? <em>Export do Excelu?</em></p>
@@ -123,8 +129,8 @@
 
   <section>
     <h2>Registrácia</h2>
-    <p class="lead">Jednoduchá registrácia na prístup k SQL rozhraniu.
-      <em>Kompletné dáta zdrojových registrov.</em> Konsolidované a prepojené dáta po dohode.</p>
+    <p class="lead">Jednoduchá registrácia na prístup k SQL rozhraniu a API.
+      <em>Kompletné dáta zdrojových registrov.</em> API na konsolidované a&nbsp;prepojené dáta po dohode.</p>
 
     <div id="datahub-error" style="display: none;">
       <%= render 'services/share/flash_message', {type: :alert, message: 'Vyplňte prosím email a skúste znova.'} %>
@@ -151,4 +157,22 @@
       <% end %>
     </div>
   </section>
+
+  <section id="clients">
+    <h2 class="text-center">Naši spokojní používatelia</h2>
+
+    <div class="row">
+      <div class="col-md-3 col-md-offset-3 text-center">
+        <%= link_to 'http://www.finstat.sk', target: '_blank', title: 'FinStat' do %>
+            <%= image_tag 'clients/finstat.png', alt: 'FinStat' %>
+        <% end %>
+      </div>
+      <div class="col-md-3 text-center">
+        <%= link_to 'http://verejne.digital', target: '_blank', title: 'verejne.digital' do %>
+            <%= image_tag 'clients/verejne_digital.png', alt: 'verejne.digital' %>
+        <% end %>
+      </div>
+    </div>
+  </section>
+
 </div>

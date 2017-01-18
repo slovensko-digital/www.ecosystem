@@ -16,7 +16,7 @@
         <div class="row">
           <div class="col-md-5 col-md-pad">
             <%= label_tag :name, 'Názov' %>
-            <%= text_field_tag :name, nil, class: 'form-control input-lg', data: {'slovensko-digital-autoform': 'name'} %>
+            <%= text_field_tag :name, nil, class: 'form-control input-lg', autocomplete: 'off', data: {'slovensko-digital-autoform': 'name'} %>
             <p class="help-block">Napríklad: Slovensko.Digital, Martinus</p>
           </div>
           <div class="col-md-2 col-md-offset-1 col-md-pad">
@@ -97,6 +97,28 @@
       </section>
   <% end %>
 
+  <section id="clients">
+    <h2 class="text-center">Naši spokojní používatelia</h2>
+
+    <div class="row">
+      <div class="col-md-3 col-md-offset-2 text-center">
+        <%= link_to 'http://www.zlavomat.sk', target: '_blank', title: 'Zlavomat.sk' do %>
+          <%= image_tag 'clients/zlavomat.png', alt: 'Zlavomat.sk' %>
+        <% end %>
+      </div>
+      <div class="col-md-3 text-center">
+        <%= link_to 'http://www.rozpoctovarada.sk', target: '_blank', title: 'Rada pre rozpočtovú zodpovednosť' do %>
+          <%= image_tag 'clients/rrz.png', alt: 'Rada pre rozpočtovú zodpovednosť' %>
+        <% end %>
+      </div>
+      <div class="col-md-3 text-center">
+        <%= link_to 'http://vibration.sk', target: '_blank' do %>
+          <%= image_tag 'clients/vibration.png', alt: 'vibration.sk' %>
+        <% end %>
+      </div>
+    </div>
+  </section>
+
   <section>
     <h2>Registrácia</h2>
     <p class="lead">Jednoduchá registrácia, <em>až 256 vyhľadávaní mesačne <strong>pre kohokoľvek</strong></em>. Viac vyhľadávaní po dohode.</p>
@@ -137,7 +159,7 @@
 
   <section id="integracny-manual">
     <h2>Integračný manuál</h2>
-    <p class="lead">Jednoduchá integrácia na zopár riadkov HTML kódu.</p>
+    <p class="lead">Jednoduchá integrácia na zopár riadkov HTML kódu. <em>Potrebujete API? Využite <strong><%= link_to 'Datahub', services_datahub_index_path %></strong>.</em></p>
     <h4>Ukážka integrácie</h4>
     <pre class="language-markup"><code class="highlight">&lt;script src=&quot;https://code.jquery.com/jquery-1.10.2.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;https://code.jquery.com/ui/1.11.4/jquery-ui.js&quot;&gt;&lt;/script&gt;

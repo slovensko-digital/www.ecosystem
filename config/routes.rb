@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   resource 'open_data', path: 'otvorene-data'
   resource 'open_api', path: 'otvorene-api'
 
+  resource 'premium_data', path: 'premiove-data'
+  resource 'premium_api', path: 'premiove-api'
+
   get 'podmienky', to: 'static#terms', as: :terms
 
   root to: 'homepage#index'
