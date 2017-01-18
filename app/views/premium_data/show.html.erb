@@ -14,7 +14,7 @@
       <p class="btn-row">
         <%= link_to 'API', premium_api_path(anchor: :po), class: 'btn btn-default' %>
       </p>
-      <% tables = PgCatalog::PgTable.find_by_schema(:datahub) %>
+      <% tables = PgCatalog::PgTable.find_by_schema(:po) %>
       <%= render partial: 'open_data/tables', object: tables %>
       <%= render partial: 'open_data/table', collection: tables %>
     </div>
