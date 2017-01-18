@@ -4,12 +4,12 @@
 
     <div class="anchors">
       <h2>Úvod</h2>
-      <p class="lead"><%= link_to 'Slovensko.Digital', 'https://slovensko.digital/' %> poskytuje prístup ku konsolidovaným dátam cez <%= link_to 'REST', premium_api_path %> a <%= link_to 'SQL API', services_datahub_index_path %>. Premiové dáta sprístupňujeme <%= mail_to 'kontakt@slovensko.digital', 'na vyžiadanie po dohode' %>.</p>
+      <p class="lead"><%= link_to 'Slovensko.Digital', 'https://slovensko.digital/' %> poskytuje prístup ku konsolidovaným dátam cez <%= link_to 'REST', premium_api_path %> a <%= link_to 'SQL API', services_datahub_index_path %>. Premiové dáta sprístupňujeme <%= link_to 'po registrácii', services_datahub_index_path %>.</p>
 
       <h2>Dokumentácia</h2>
       <p>Popis štruktúry tabuliek pre datasety z <%= link_to 'právnických osôb', '#datahub' %> nájdete v tejto dokumentácii.</p>
 
-      <h3 id="po">Právnické osoby <span class="label label-success">LIVE</span></h3>
+      <h3 id="po">Právnické osoby <span class="label label-warning">BETA</span></h3>
       <p>Konsolidované dáta pravníckých osôb.</p>
       <p class="btn-row">
         <%= link_to 'API', premium_api_path(anchor: :po), class: 'btn btn-default' %>

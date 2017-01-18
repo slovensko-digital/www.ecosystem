@@ -11,10 +11,10 @@
 
         <p>Každá požiadavka na odpoveď z premiového API musí obsahovať prístupový kľúč <code>access_token</code>. Prístupový kľúč môže byť umiestnený buď v hlavičke HTTP požiadavky alebo v parametri.</p>
         <h5>Príklad</h5>
-        <p>Ako vytvoriť požiadavku s hodnotou prístupového kľúča <code>nbsr123</code></p>
-        <p class="docs-endpoint"><code>curl -H 'Authorization: Token nbsr123' '<%= sync_api_datahub_corporate_bodies_url(host: api_host) %>'</code></p>
+        <p>Ako vytvoriť požiadavku s hodnotou prístupového kľúča <code>nbusr123</code></p>
+        <p class="docs-endpoint"><code>curl -H 'Authorization: Token nbusr123' '<%= sync_api_datahub_corporate_bodies_url(host: api_host) %>'</code></p>
         <p>alebo</p>
-        <p class="docs-endpoint"><code>curl '<%= sync_api_datahub_corporate_bodies_url(host: api_host, access_token: 'nbsr123') %>'</code></p>
+        <p class="docs-endpoint"><code>curl '<%= sync_api_datahub_corporate_bodies_url(host: api_host, access_token: 'nbusr123') %>'</code></p>
 
         <h3 id="sync-api">Synchronizačné API</h3>
         <%= render 'open_apis/sync_api', premium: true %>
@@ -23,12 +23,12 @@
         <p>Pre analytické a pokročilé dopytovanie poskytujeme <%= link_to 'SQL API', services_datahub_index_path %>.</p>
 
         <h3 id="rate-limit">Obmedzenie počtu prístupov</h3>
-        <p>Prístupy na API sú limitované na 60 prístupov za minútu na jednu IP adresu. V hlavičke HTTP odpovede sú uvedené limity pre aktuálneho klienta. Limit počtu prístupov vieme po dohode navýšiť.</p>
+        <p>Prístupy na API sú limitované na 60 prístupov za minútu na jednu IP adresu. V hlavičke HTTP odpovede sú uvedené limity pre aktuálneho klienta. Limity vieme po dohode navýšiť.</p>
         <%= render 'open_apis/rate_limit' %>
 
         <h2 id="premium-data">Prémiové dáta</h2>
 
-        <h3 id="po">Právnické osoby <span class="label label-success">LIVE</span></h3>
+        <h3 id="po">Právnické osoby <span class="label label-warning">BETA</span></h3>
         <%= render 'datahub_corporate_bodies_api' %>
 
         <h2 id="licencia">Licencia</h2>
@@ -47,7 +47,7 @@
           <li class="list-group-item">
             <%= link_to 'Prémiové dáta', '#data' %>
             <ul class="list-group">
-              <li class="list-group-item"><%= link_to 'Právnické osoby', '#datahub' %></li>
+              <li class="list-group-item"><%= link_to 'Právnické osoby', '#po' %></li>
             </ul>
           </li>
           <li class="list-group-item"><%= link_to 'Licencia', '#licencia' %></li>
