@@ -1214,6 +1214,32 @@ sk:
               description: Dátum zverejnenia
             <<: *timestamp_columns
 
+    upvs:
+      tables:
+        public_authority_edesks:
+          description: Elektronické schránky inštitúcii
+          columns:
+            id:
+              description: Identifikátor záznamu
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            cin:
+              description: IČO
+            uri:
+              description: Identifikátor schránky
+            name:
+              description: Názov schránky inštitúcie
+            street:
+              description: Ulica
+            street_number:
+              description: Číslo domu
+            formatted_street:
+              description: Ulica a číslo
+            postal_code:
+              description: PSČ
+            city:
+              description: Mesto
+            <<: *timestamp_columns
+
     datahub:
       tables:
         corporate_bodies:
