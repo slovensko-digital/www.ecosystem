@@ -162,18 +162,25 @@
     <h2 class="text-center">Naši spokojní používatelia</h2>
 
     <div class="row">
+      <div class="col-md-4 col-md-offset-2 text-center">
+        <%= link_to 'https://www.finstat.sk', target: '_blank', title: 'FinStat' do %>
+          <%= image_tag 'clients/finstat.png', alt: 'FinStat' %>
+        <% end %>
+      </div>
       <div class="col-md-4 text-center">
+        <%= link_to 'http://www.ringieraxelspringer.sk', target: '_blank', title: 'Ringier Axel Springer' do %>
+          <%= image_tag 'clients/ringieraxelspringer.png', alt: 'Ringier Axel Springer' %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-2 text-center">
         <%= link_to 'https://www.profinancie.sk/', target: '_blank', title: 'ProFinancie.sk' do %>
           <%= image_tag 'clients/profinancie.png', alt: 'ProFinancie.sk' %>
         <% end %>
       </div>
       <div class="col-md-4 text-center">
-        <%= link_to 'http://www.finstat.sk', target: '_blank', title: 'FinStat' do %>
-          <%= image_tag 'clients/finstat.png', alt: 'FinStat' %>
-        <% end %>
-      </div>
-      <div class="col-md-4 text-center">
-        <%= link_to 'http://verejne.digital', target: '_blank', title: 'verejne.digital' do %>
+        <%= link_to 'https://verejne.digital', target: '_blank', title: 'verejne.digital' do %>
           <%= image_tag 'clients/verejne_digital.png', alt: 'verejne.digital' %>
         <% end %>
       </div>
