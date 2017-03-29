@@ -43,7 +43,6 @@ group :development, :test do
   gem 'pry'
   gem 'dotenv-rails'
   gem 'rspec-rails'
-  gem 'rspec_junit_formatter', '0.2.2'
   gem 'rack-mini-profiler'
 end
 
@@ -63,4 +62,7 @@ end
 group :test do
   gem 'capybara'
   gem 'launchy'
+  gem 'simplecov'
+  gem 'codeclimate-test-reporter', '~> 1.0.0'
+  gem 'rspec_junit_formatter'
 end
