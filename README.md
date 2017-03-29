@@ -1,6 +1,6 @@
 # Ecosystem
 
-Ecosystem is user facing web app for [ekosystem.slovensko.digital](https://ekosystem.slovensko.digital/), contains mainly  documentation for datasets and APIs from various data sources. App for pushing data to ecosystem is [harvester].(https://github.com/slovensko-digital/harvester.ecosystem) 
+Ecosystem is user facing web app for [ekosystem.slovensko.digital](https://ekosystem.slovensko.digital/), contains mainly  documentation for datasets and APIs from various data sources. App for pushing data to ecosystem is [harvester](https://github.com/slovensko-digital/harvester.ecosystem).
 
 [![CircleCI](https://circleci.com/gh/slovensko-digital/www.ecosystem.svg?style=shield&circle-token=584a3d3e70da9e50ddb748ac5fd2d5c5c6bb05eb)](https://circleci.com/gh/slovensko-digital/www.ecosystem)
 [![Dependency Status](https://gemnasium.com/slovensko-digital/www.ecosystem.png)](https://gemnasium.com/slovensko-digital/www.ecosystem)
