@@ -6,8 +6,4 @@ module ApplicationHelper
       'datahub.ekosystem.slovensko.digital'
     end
   end
-
-  def required_label_mark
-    content_tag :span, '*', class: 'required-label-mark'
-  end
 end
