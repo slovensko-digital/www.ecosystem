@@ -162,11 +162,111 @@ sk:
 
     vvo:
       tables:
+        contractors:
+          description: Dodávatelia
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Nepochádza zo zdroja.
+            contract_award_id:
+              description: Identifikátor zadania
+            corporate_body_name:
+              description: Meno právnickej osoby
+            corporate_body_ipo_raw:
+              description: IČO v nespracovanej forme
+              note_html: Hodnota zo zdroja. Napríklad <code>00 585 441</code>.
+            corporate_body_ipo:
+              description: IČO v spracovanej forme.
+              note_html: Spracovaná hodnota, obsahuje iba čísla. Napríklad <code>585441</code>. Ak nevieme IČO spracovať, hodnota je <code>NULL</code>.
+            sme:
+              description: Príznak stredného a malého podnikateľa
+            country:
+              description: Krajina
+            <<: *timestamp_columns
+
+        contract_awards:
+          description: Zadania
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Nepochádza zo zdroja.
+            result_notice_id:
+              description: Identifikátor oznámenia o výsledku
+            lot_number:
+              description: Číslo časti
+              note_html: Referencuje číslo položky, ku ktorému za zadanie vzťahuje.
+            title:
+              description: Mázov
+            awarded:
+              description: Zákazka / časť je pridelená
+              note_html: Hodnota je vypĺňaná len pre formy oznamení <code>CONTRACT_AWARD</code>, <code>CONTRACT_AWARD_UTILITIES</code> a <code>VYSLEDOK_VO</code>. Pri ostatných formách je hodnota <code>null</code>.
+            concluded_on:
+              description: Dátum uzavretia zmluvy
+            number_of_tenders:
+              description: Počet prijatých ponúk
+            number_of_electronic_tenders:
+              description: Počet prijatých ponúk elektronicky
+            number_of_other_eu_tenders:
+              description: Počet prijatých ponúk z iných členských štátov EU
+              note_html: Hodnota je vypĺňaná len pre formy oznamení <code>CONTRACT_AWARD</code>, <code>CONTRACT_AWARD_UTILITIES</code> a <code>VYSLEDOK_VO</code>. Pri ostatných formách je hodnota <code>null</code>.
+            number_of_non_eu_tenders:
+              description: Počet prijatých ponúk zo štátov mimo EU
+              note_html: Hodnota je vypĺňaná len pre formy oznamení <code>CONTRACT_AWARD</code>, <code>CONTRACT_AWARD_UTILITIES</code> a <code>VYSLEDOK_VO</code>. Pri ostatných formách je hodnota <code>null</code>.
+            number_of_sme_tenders:
+              description: Počet prijatých ponúk od malých a stredných podnikateľov
+              note_html: Hodnota je vypĺňaná len pre formy oznamení <code>CONTRACT_AWARD</code>, <code>CONTRACT_AWARD_UTILITIES</code> a <code>VYSLEDOK_VO</code>. Pri ostatných formách je hodnota <code>null</code>.
+            estimated_value_amount:
+              description: Predpokladaná hodnota zákazky / časti
+            estimated_value_currency:
+              description: Mena
+              note_html: <code>EUR</code>.
+            estimated_value_vat_included:
+              description: Predpokladaná hodnota zahŕňa DPH
+            estimated_value_vat_rate:
+              description: Sadzba DPH
+              note_html: Uvádzaná len ak je cena vrátane DPH. V percentách. Nápríklad <code>20</code>.
+            final_value_type:
+              description: Typ hodnoty zákazky / časti
+              note_html: Hodnotou zákazky môže byť jedna suma (pri hodnote <code>Jedna hodnota</code>) alebo interval ponúk.
+            final_value_amount:
+              description: Celková hodnota zákazky / časti
+              note_html: Vypĺňaná ak <code>final_value_type</code> má hodnotu <code>Jedna hodnota</code>.
+            final_value_lowest_offer:
+              description: Celková hodnota najnižšej ponuky
+              note_html: Vypĺňaná pri intervale ponúk.
+            final_value_highest_offer:
+              description: Celková hodnota najvyššej ponuky
+              note_html: Vypĺňaná pri intervale ponúk.
+            final_value_currency:
+              description: Mena
+              note_html: <code>EUR</code>.
+            final_value_vat_included:
+              description: Celková hodnota zahŕňa DPH
+            final_value_vat_rate:
+              description: Sadzba DPH
+              note_html: Uvádzaná len ak je cena vrátane DPH. V percentách. Nápríklad <code>20</code>.
+            value_per_period_type:
+              description: Typ hodnoty časového obdobia
+              note_html: Vypĺňaná pre formy oznámení <code>NM03</code>, <code>NM06</code>, <code>PM07</code>, <code>PM09N</code> a to len v prípade, ak je hodnota platná pre časové obdobie. Napríklad <code>Počet mesiacov</code>.
+            value_per_period_value:
+              description: Hodnota časového obdobia
+              note_html: Vypĺňaná pre formy oznámení <code>NM03</code>, <code>NM06</code>, <code>PM07</code>, <code>PM09N</code> a to len v prípade, ak je hodnota platná pre časové obdobie. Napríklad <code>12</code>.
+            subcontracts_assumption:
+              description: Príznak predpokladu subdodávok
+            multiple_contractors:
+              description: Príznak pridelia skupine hospodárskych subjektov
+              note_html: Hodnota je vypĺňaná len pre formy oznamení <code>CONTRACT_AWARD</code>, <code>CONTRACT_AWARD_UTILITIES</code> a <code>VYSLEDOK_VO</code>. Pri ostatných formách je hodnota <code>null</code>.
+            multiple_contractors_count:
+              description: Počet hospodárskych subjektov v skupine
+              note_html: Hodnota je vypĺňaná len pre formy oznamení <code>CONTRACT_AWARD</code>, <code>CONTRACT_AWARD_UTILITIES</code> a <code>VYSLEDOK_VO</code>. Pri ostatných formách je hodnota <code>null</code>.
+            <<: *timestamp_columns
+
         bulletin_issues:
           description: Vydania vestníka
           columns:
             id:
               description: Identifikátor
+              note_html: Nepochádza zo zdroja.
             year:
               description: Rok vydania
             number:
@@ -176,21 +276,27 @@ sk:
             source_url:
               description: URL zdroja dát
             <<: *timestamp_columns
+
         contracting_authorities:
-          description: Objednávatelia
+          description: Obstarávatelia / Verejní obstarávatelia
           columns:
             id:
               description: Identifikátor
+              note_html: Hodnota zodpovedá identifikátoru v zdroji.
             name:
               description: Názov
             <<: *timestamp_columns
+
         contracts:
           description: Zákazky
           columns:
             id:
               description: Identifikátor
               note_html: Hodnota zodpovedá identifikátoru v zdroji.
+            name:
+              description: Názov
             <<: *timestamp_columns
+
         notice_suppliers:
           description: Dodávatelia
           columns:
@@ -208,14 +314,13 @@ sk:
           columns:
             id:
               description: Identifikátor
+              note_html: Nepochádza zo zdroja.
             code:
               description: Kód typu
               note_html: Napríklad <code>DES</code>.
             name:
               description: Názov
               note_html: Napríklad <code>oznámenie o dobrovoľnej transparentnosti EX-ANTE (služby)</code>.
-            cin:
-              description: IČO
             <<: *timestamp_columns
 
         notices:
@@ -271,8 +376,13 @@ sk:
           columns:
             id:
               description: Identifikátor
+              note_html: Nepochádza zo zdroja.
             bulletin_issue_id:
               description: Identifikátor vydania vestníka
+            contract_id:
+              description: Identifikátor zákazky
+            contracting_authority_id:
+              description: Identifikátor obstarávateľa
             number:
               description: Poradové číslo oznámenia
               note_html: Nepochádza zo zdroja.
@@ -280,8 +390,159 @@ sk:
               description: Identifikátor typu oznámenia
             body:
               description: Obsah oznámenia
+            zovo_type:
+              description: Forma oznámenia
+              note_html: Hodnota z obsahu oznámenia, časť ZovoForm. Určuje formu obsahu oznámenia. Napríklad <code>CONTRACT_AWARD</code>.
+            zovo_version:
+              description: Verzia formy oznámenia
+              note_html: Hodnota z obsahu oznámenia, časť ZovoForm. Napríklad <code>17</code>.
+            zovo_category:
+              description: Kategória formy oznámenia
+              note_html: Hodnota z obsahu oznámenia, časť ZovoForm. Napríklad <code>10</code>.
             <<: *timestamp_columns
 
+        result_notice_lot_main_cpvs:
+          description: Hlavné CPV kódy časti
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Nepochádza zo zdroja.
+            result_notice_lot_id:
+              description: Identifikátor časti
+            code:
+              description: Hlavný CPV kód
+              note_html: Napríklad <code>34352100-0</code>.
+            <<: *timestamp_columns
+
+        result_notice_lots:
+          description: Časti zákazky
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Nepochádza zo zdroja.
+            result_notice_id:
+              description: Identifikátor oznámenia o výsledku
+            number:
+              description: Číslo časti
+            title:
+              description: Názov
+            nuts:
+              description: Kód NUTS
+              note_html: Napríklad <code>SK041</code>.
+            description:
+              description: Opis obstarávania
+            eu_funds:
+              description: Príznak financovania z fondov EU
+            code:
+              description: Hlavný CPV kód
+              note_html: Napríklad <code>34352100-0</code>.
+            <<: *timestamp_columns
+
+        result_notice_main_cpvs:
+          description: Hlavné CPV kódy oznámení o výsledku
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Nepochádza zo zdroja.
+            result_notice_id:
+              description: Identifikátor oznámenia o výsledku
+            code:
+              description: Hlavný CPV kód
+              note_html: Napríklad <code>34352100-0</code>.
+            <<: *timestamp_columns
+
+        result_notices:
+          description: Oznámenia o výsledku obstarávania
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Nepochádza zo zdroja.
+            bulletin_issue_id:
+              description: Identifikátor vydania vestníka
+            contract_id:
+              description: Identifikátor zákazky
+            contracting_authority_id:
+              description: Identifikátor obstarávateľa
+            raw_notice_id:
+              description: Identifikátor neštruktúrovaného oznámenia
+            notice_type_id:
+              description: Identifikátor typu oznámenia
+            title:
+              description: Názov
+            short_description:
+              description: Popis
+            reference_number:
+              description: Referenčné číslo
+            contract_type:
+              description: Druh zákazky
+              note_html: Napríklad <code>Tovary</code>, <code>Služby</code>, <code>Práce</code>.
+            contract_sub_type:
+              description: Konkrétny druh zákazky
+              note_html: Hodnotu majú iba formy oznámení <code>NM03</code>, <code>NM06</code>, <code>PM07</code>, <code>PM09N</code>. Napríklad <code>Kúpa</code>.
+            nuts:
+              description: Kód NUTS
+              note_html: Hodnotu majú iba formy oznámení <code>NM03</code>, <code>NM06</code>, <code>PM07</code>, <code>PM09N</code>. Napríklad <code>SK041</code>.
+            main_cpv:
+              description: Hlavný CPV kód
+              note_html: Napríklad <code>34352100-0</code>.
+            gpa:
+              description: Dohoda o vládnom obstarávaní (GPA)
+              note_html: Hodnotu majú iba formy oznámení <code>NM03</code>, <code>NM06</code>, <code>PM07</code>.
+            e_auction:
+              description: Príznak použitia elektronickej aukcie
+            eu_funds:
+              description: Príznak financovania z fondov EU
+              note_html: Hodnotu majú iba formy oznámení <code>NM03</code>, <code>NM06</code>, <code>PM07</code>, <code>PM09N</code>.
+            procedure_type:
+              description: Druh postupu
+              note_html: Každá forma oznámanie obsahuje svoje vlastné hodnoty pre jednotlivé postupy. Napríklad <code>Verejná súťaž</code>.
+
+            total_final_value_type:
+              description: Typ celkovej hodnoty zákazky
+              note_html: Hodnotou zákazky môže byť jedna suma (pri hodnote <code>Jedna hodnota</code>) alebo interval ponúk. Oznámenie formy <code>PM09N</code> túto hodnotu neobsahuje.
+            total_final_value_amount:
+              description: Celková hodnota zákazky ako celku
+              note_html: Vypĺňaná ak <code>total_final_value_type</code> má hodnotu <code>Jedna hodnota</code>. Oznámenie formy <code>PM09N</code> túto hodnotu neobsahuje.
+            total_final_value_lowest_offer:
+              description: Celková hodnota najnižšej ponuky
+              note_html: Vypĺňaná pri intervale ponúk. Oznámenie formy <code>PM09N</code> túto hodnotu neobsahuje.
+            total_final_value_highest_offer:
+              description: Celková hodnota najvyššej ponuky
+              note_html: Vypĺňaná pri intervale ponúk. Oznámenie formy <code>PM09N</code> túto hodnotu neobsahuje.
+            total_final_value_currency:
+              description: Mena
+              note_html: <code>EUR</code>. Oznámenie formy <code>PM09N</code> túto hodnotu neobsahuje.
+            total_final_value_vat_included:
+              description: Celková hodnota zahŕňa DPH
+              note_html: Oznámenie formy <code>PM09N</code> túto hodnotu neobsahuje.
+            total_final_value_vat_rate:
+              description: Sadzba DPH
+              note_html: Uvádzaná len ak je cena vrátane DPH. V percentách. Nápríklad <code>20</code>. Oznámenie formy <code>PM09N</code> túto hodnotu neobsahuje.
+
+            total_estimated_value_type:
+              description: Typ celkovej odhadovanej hodnoty zákazky
+              note_html: Hodnotou zákazky môže byť jedna suma (pri hodnote <code>Jedna hodnota</code>) alebo interval ponúk. Hodnotu obsahuje iba oznámenie formy <code>PM09N</code>.
+            total_estimated_value_amount:
+              description: Celková odhadovaná hodnota zákazky ako celku
+              note_html: Vypĺňaná ak <code>total_estimated_value_type</code> má hodnotu <code>Jedna hodnota</code>. Hodnotu obsahuje iba oznámenie formy <code>PM09N</code>.
+            total_estimated_value_lowest_offer:
+              description: Celková odhadovaná hodnota najnižšej ponuky
+              note_html: Vypĺňaná pri intervale ponúk. Hodnotu obsahuje iba oznámenie formy <code>PM09N</code>.
+            total_estimated_value_highest_offer:
+              description: Celková odhadovaná hodnota najvyššej ponuky
+              note_html: Vypĺňaná pri intervale ponúk. Hodnotu obsahuje iba oznámenie formy <code>PM09N</code>.
+            total_estimated_value_currency:
+              description: Mena
+              note_html: <code>EUR</code>. Hodnotu obsahuje iba oznámenie formy <code>PM09N</code>.
+            total_estimated_value_vat_included:
+              description: Celková odhadovaná hodnota zahŕňa DPH
+              note_html: Hodnotu obsahuje iba oznámenie formy <code>PM09N</code>.
+
+            direct_negotiate_procedure_reason:
+              description: Dôvod priameho rokovacieho konania
+              note_html: Vypĺňané len pre oznámenia formy <code>PM09N</code> a <code>VYSLEDOK_VO</code>.
+
+            <<: *timestamp_columns
 
     rpo:
       tables:
