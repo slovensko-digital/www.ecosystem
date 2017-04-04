@@ -416,6 +416,7 @@ sk:
 
         result_notice_lots:
           description: Časti zákazky
+          long_description_html: Časti zákazky obsahujú iba oznámenia formy <code>CONTRACT_AWARD</code>, <code>CONTRACT_AWARD_UTILITIES</code> a <code>VYSLEDOK_VO</code>.
           columns:
             id:
               description: Identifikátor
@@ -453,6 +454,7 @@ sk:
 
         result_notices:
           description: Oznámenia o výsledku obstarávania
+          long_description_html: "Obsahuje štrukturovane spracované informácie z oznámení <code>Oznámenia o vyhlásení verejného obstarávania</code> a <code>Informácie o výsledku verejného obstarávania</code>. Aktuálne spracovávame nasledujúce formy oznámení: <code>NM03</code>, <code>NM06</code>, <code>PM07</code>, <code>PM09N</code>, <code>CONTRACT_AWARD</code>, <code>CONTRACT_AWARD_UTILITIES</code> a <code>VYSLEDOK_VO</code>"
           columns:
             id:
               description: Identifikátor
