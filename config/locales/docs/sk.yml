@@ -253,10 +253,10 @@ sk:
               note_html: Vypĺňaná pre formy oznámení <code>NM03</code>, <code>NM06</code>, <code>PM07</code>, <code>PM09N</code> a to len v prípade, ak je hodnota platná pre časové obdobie. Napríklad <code>12</code>.
             subcontracts_assumption:
               description: Príznak predpokladu subdodávok
-            multiple_contractors:
+            awarded_to_group:
               description: Príznak pridelia skupine hospodárskych subjektov
               note_html: Hodnota je vypĺňaná len pre formy oznamení <code>CONTRACT_AWARD</code>, <code>CONTRACT_AWARD_UTILITIES</code> a <code>VYSLEDOK_VO</code>. Pri ostatných formách je hodnota <code>null</code>.
-            multiple_contractors_count:
+            group_count:
               description: Počet hospodárskych subjektov v skupine
               note_html: Hodnota je vypĺňaná len pre formy oznamení <code>CONTRACT_AWARD</code>, <code>CONTRACT_AWARD_UTILITIES</code> a <code>VYSLEDOK_VO</code>. Pri ostatných formách je hodnota <code>null</code>.
             <<: *timestamp_columns
