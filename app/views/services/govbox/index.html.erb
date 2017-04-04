@@ -1,0 +1,149 @@
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+<%= javascript_include_tag ENV.fetch('AUTOFORM_JAVASCRIPT_URL') %>
+
+<div class="container autoform">
+  <h1><strong>GovBox</strong></h1>
+  <p class="lead">Jednoduchý prístup k štátnej elektronickej schránke.<br>
+    <em>Bez elektronického občianskeho preukazu, priamo cez Váš email.</em></p>
+
+  <hr>
+
+  <h2>Vedeli ste, že?</h2>
+  <p class="lead">Od 1.júna 2017 právnické osoby zapísané v obchodnom registri
+    <em>musia komunikovať</em> so štátom elektronicky.</p>
+
+  <hr>
+
+  <h2>Ako funguje GovBox?</h2>
+  <p class="lead">GovBox preposiela správy na Vami zadaný email. Všetky správy (aj tie do vlastných rúk) otvoríte pohodlne aj na mobile, bez akýchkoľvek problémov.</p>
+
+  <h2>Registrácia</h2>
+  <p class="lead"><em>Jednoduchá registrácia, všetky potrebné dokumenty už vyplníme za Vás.</em></p>
+  <%= form_tag '#', data: {'slovensko-digital-autoform': ENV.fetch('AUTOFORM_ACCESS_TOKEN')} do %>
+      <div class="row">
+        <div class="col-md-6">
+
+          <fieldset>
+            <legend>Právnická osoba</legend>
+            <div class="row">
+              <div class="col-md-8 col-md-pad">
+                <%= label_tag :name, 'Názov' %>
+                <%= text_field_tag :name, nil, class: 'form-control input-lg', required: true, autocomplete: 'off', data: {'slovensko-digital-autoform': 'name'} %>
+                <p class="help-block">Napríklad: Slovensko.Digital, Martinus</p>
+              </div>
+              <div class="col-md-4 col-md-pad">
+                <%= label_tag :cin, 'IČO' %>
+                <%= text_field_tag :cin, nil, class: 'form-control input-lg', required: true, data: {'slovensko-digital-autoform': 'cin'} %>
+                <p class="help-block">Napríklad: 36421928</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 col-md-pad">
+                <%= label_tag :formatted_address, 'Adresa' %>
+                <%= text_field_tag :formatted_address, nil, class: 'form-control input-lg', required: true, data: {'slovensko-digital-autoform': 'formatted-address'} %>
+                <p class="help-block">Napríklad: Staré Grunty 12, 841 04 Bratislava</p>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="col-md-6">
+          <fieldset>
+            <legend>Konateľ</legend>
+            <div class="row">
+              <div class="col-md-3 col-md-pad">
+                <%= label_tag :name, 'Meno' %>
+                <%= text_field_tag :name, nil, class: 'form-control input-lg', required: true %>
+              </div>
+              <div class="col-md-4 col-md-pad">
+                <%= label_tag :name, 'Priezvisko' %>
+                <%= text_field_tag :name, nil, class: 'form-control input-lg', required: true %>
+              </div>
+              <div class="col-md-5 col-md-pad">
+                <%= label_tag :cin do %>
+                    Rodné číslo <span class="text-muted">(nepovinné)</span>
+                    <i class="fa fa-question-circle" data-toggle="tooltip" title="Rodné číslo potrebujeme kvôli zmluve."></i>
+                <% end %>
+                <%= text_field_tag :cin, nil, class: 'form-control input-lg' %>
+                <p class="help-block">Napríklad: 821101/1234</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 col-md-pad">
+                <%= label_tag :formatted_address, 'Trvalé bydlisko' %>
+                <%= text_field_tag :formatted_address, nil, class: 'form-control input-lg', required: true %>
+                <p class="help-block">Napríklad: Koprivnická 9/B, 841 04 Bratislava</p>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <fieldset>
+            <legend>Nastavenie služby</legend>
+            <div class="row">
+              <div class="col-md-8 col-md-pad">
+                <%= label_tag :email, 'Email' %>
+                <%= email_field_tag :email, nil, class: 'form-control input-lg', required: true %>
+                <p class="help-block">Kam chcete preposielať správy z elektronickej schránky.</p>
+              </div>
+              <div class="col-md-4 col-md-pad">
+                <%= label_tag :phone, 'Telefónne číslo' %>
+                <%= phone_field_tag :phone, nil, class: 'form-control input-lg', required: true %>
+                <p class="help-block">Mobil pre prípad núdze.</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 col-md-pad">
+                <%= label_tag :postal_address, 'Korešpondenčná adresa' %>
+                <%= text_field_tag :postal_address, nil, class: 'form-control input-lg', required: true %>
+                <p class="help-block">Kam budeme zasielať prípadnú poštu.</p>
+              </div>
+            </div>
+            <div class="checkbox"><label><%= check_box_tag :snailmail %> <strong>Mám záujem si niektoré správy nechať zasielať aj klasickou poštou.</strong></label></div>
+          </fieldset>
+        </div>
+        <div class="col-md-6">
+          <fieldset>
+            <legend>Zabezpečenie</legend>
+            <div class="row">
+              <div class="col-md-7 col-md-pad">
+                <%= label_tag :password, 'Heslo' %>
+                <%= password_field_tag :password, nil, class: 'form-control input-lg', required: true %>
+                <p class="help-block">Potrebné pre otváranie správ do vlastných rúk.</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-7 col-md-pad">
+                <%= label_tag :password_confirmation, 'Heslo (znova)' %>
+                <%= password_field_tag :password_confirmation, nil, class: 'form-control input-lg', required: true %>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <fieldset>
+            <legend>Potvrdenie registrácie</legend>
+          </fieldset>
+          <div class="checkbox"><label><%= check_box_tag :terms, 1, false, required: true  %> <strong>Súhlasím so všeobecnými obchodnými podmienkami.</strong></label></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-md-pad">
+          <%= label_tag :a, '&nbsp'.html_safe %> <br>
+          <%= button_tag id: 'submit_to_autoform', class: 'btn btn-default btn-lg btn-strong' do %>
+              <strong>Zaregistrovať</strong>
+          <% end %>
+        </div>
+      </div>
+  <% end %>
+</div>

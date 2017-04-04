@@ -15,7 +15,15 @@
 //= require bootstrap-sprockets
 //= require prism.js
 //= require anchor.min.js
-//= require main
 //= require datahub_form
 //= require autoform_form
 //= require newsletter_form
+
+$(document).on("ready page:change", function() {
+    $('[data-toggle="tooltip"]').tooltip({container: 'body'});
+});
+
+$(function () {
+    anchors.options.placement = 'left';
+    anchors.add('.anchors h1, .anchors h2, .anchors h3, .anchors h4, .anchorable');
+});
