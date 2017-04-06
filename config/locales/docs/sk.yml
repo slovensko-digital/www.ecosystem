@@ -196,7 +196,7 @@ sk:
               description: Číslo časti
               note_html: Referencuje číslo položky, ku ktorému za zadanie vzťahuje.
             title:
-              description: Mázov
+              description: Názov
             awarded:
               description: Zákazka / časť je pridelená
               note_html: Hodnota je vypĺňaná len pre formy oznamení <code>CONTRACT_AWARD</code>, <code>CONTRACT_AWARD_UTILITIES</code> a <code>VYSLEDOK_VO</code>. Pri ostatných formách je hodnota <code>null</code>.
