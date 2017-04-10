@@ -172,10 +172,10 @@ sk:
               description: Identifikátor zadania
             corporate_body_name:
               description: Meno právnickej osoby
-            corporate_body_ipo_raw:
+            corporate_body_cin_raw:
               description: IČO v nespracovanej forme
               note_html: Hodnota zo zdroja. Napríklad <code>00 585 441</code>.
-            corporate_body_ipo:
+            corporate_body_cin:
               description: IČO v spracovanej forme.
               note_html: Spracovaná hodnota, obsahuje iba čísla. Napríklad <code>585441</code>. Ak nevieme IČO spracovať, hodnota je <code>NULL</code>.
             sme:
@@ -185,7 +185,7 @@ sk:
             <<: *timestamp_columns
 
         contract_awards:
-          description: Zadania
+          description: Zadania zákazky
           columns:
             id:
               description: Identifikátor
