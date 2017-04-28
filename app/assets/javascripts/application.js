@@ -18,6 +18,7 @@
 //= require datahub_form
 //= require autoform_form
 //= require newsletter_form
+//= require password_confirmation_validator
 
 $(document).on("ready page:change", function() {
     $('[data-toggle="tooltip"]').tooltip({container: 'body'});

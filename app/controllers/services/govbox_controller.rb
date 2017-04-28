@@ -12,19 +12,18 @@ class Services::GovboxController < ContentController
     @page.og.description = 'Jednoduchý prístup k štátnej elektronickej schránke. Bez elektronického občianskeho preukazu, priamo na Váš email.'
   end
 
-  def register_step1
-  end
+  def register_step1; end
 
-  def register_step2
-  end
+  def register_step2; end
 
-  def register_step3
-  end
+  def register_step3; end
 
-  def register_step4
-  end
+  def register_step4; end
 
-  def register_thanks
+  def register_step5
     RestClient.post(ENV.fetch('GOVBOX_FORM_ENDPOINT'), params.permit(PARAMS).to_h)
+    redirect_to register_thanks_services_govbox_index_path
   end
+
+  def register_thanks; end
 end

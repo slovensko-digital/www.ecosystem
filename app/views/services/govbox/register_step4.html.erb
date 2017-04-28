@@ -1,5 +1,5 @@
 <div class="container autoform">
-  <%= form_tag register_thanks_services_govbox_index_path do %>
+  <%= form_tag register_step5_services_govbox_index_path do %>
       <%= hidden_field_tag :legal_subject_name, params[:legal_subject_name] %>
       <%= hidden_field_tag :cin, params[:cin] %>
       <%= hidden_field_tag :formatted_address, params[:formatted_address] %>
@@ -19,7 +19,7 @@
             <div class="row">
               <div class="col-md-7 col-md-pad">
                 <%= label_tag :password, 'Zvoľte si heslo' %>
-                <%= password_field_tag :password, nil, class: 'form-control input-lg', required: true %>
+                <%= password_field_tag :password, nil, class: 'form-control input-lg', required: true, pattern: '.{12,}', title: 'Heslo musí mať aspoň 12 znakov.', data: {'password-confirm': :password_confirmation} %>
                 <p class="help-block">Potrebné pre otváranie správ do vlastných rúk.</p>
               </div>
             </div>

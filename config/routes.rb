@@ -6,7 +6,8 @@ Rails.application.routes.draw do
         post :register_step2, path: 'registracia-statutar'
         post :register_step3, path: 'registracia-nastavenie'
         post :register_step4, path: 'registracia-zabezpecenie'
-        post :register_thanks, path: 'registracia-uspesna'
+        post :register_step5, path: 'registracia-odoslanie'
+        get :register_thanks, path: 'registracia-uspesna'
       end
     end
     resources :autoform
