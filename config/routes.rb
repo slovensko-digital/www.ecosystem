@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   namespace :services, path: :sluzby do
-    resources :govbox
+    resources :govbox do
+      collection do
+        get :register_step1, path: 'registracia'
+        post :register_step2, path: 'registracia-statutar'
+        post :register_step3, path: 'registracia-nastavenie'
+        post :register_step4, path: 'registracia-zabezpecenie'
+        post :register_thanks, path: 'registracia-uspesna'
+      end
+    end
     resources :autoform
     resources :datahub
   end

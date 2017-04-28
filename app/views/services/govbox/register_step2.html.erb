@@ -1,0 +1,49 @@
+<div class="container autoform">
+  <%= form_tag register_step3_services_govbox_index_path do %>
+      <h1>Registrácia k službe GovBox</h1>
+      <%= hidden_field_tag :legal_subject_name, params[:legal_subject_name] %>
+      <%= hidden_field_tag :cin, params[:cin] %>
+      <%= hidden_field_tag :formatted_address, params[:formatted_address] %>
+      <div class="row">
+        <div class="col-md-8">
+          <fieldset>
+            <legend>Štatutár</legend>
+            <div class="row">
+              <div class="col-md-3 col-md-pad">
+                <%= label_tag :first_name, 'Meno' %>
+                <%= text_field_tag :first_name, nil, class: 'form-control input-lg', required: true %>
+              </div>
+              <div class="col-md-4 col-md-pad">
+                <%= label_tag :surname, 'Priezvisko' %>
+                <%= text_field_tag :surname, nil, class: 'form-control input-lg', required: true %>
+              </div>
+              <div class="col-md-5 col-md-pad">
+                <%= label_tag :pin do %>
+                    Rodné číslo <span class="text-muted">(nepovinné)</span>
+                    <i class="fa fa-question-circle" data-toggle="tooltip" title="Rodné číslo potrebujeme kvôli zmluve. Ak nám ho nechcete posielať môžete ho do zmluvy vpísať ručne."></i>
+                <% end %>
+                <%= text_field_tag :pin, nil, class: 'form-control input-lg' %>
+                <p class="help-block">Napríklad: 821101/1234</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 col-md-pad">
+                <%= label_tag :person_formatted_address, 'Trvalé bydlisko' %>
+                <%= text_field_tag :person_formatted_address, nil, class: 'form-control input-lg', required: true %>
+                <p class="help-block">Napríklad: Koprivnická 9/B, 841 04 Bratislava</p>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 col-md-pad">
+          <%= button_tag class: 'btn btn-default btn-lg btn-strong' do %>
+              <strong>Ďalej</strong>
+          <% end %>
+        </div>
+      </div>
+  <% end %>
+</div>

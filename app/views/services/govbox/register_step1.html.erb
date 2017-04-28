@@ -1,0 +1,46 @@
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+<%= javascript_include_tag ENV.fetch('AUTOFORM_JAVASCRIPT_URL') %>
+
+
+<div class="container autoform">
+  <%= form_tag register_step2_services_govbox_index_path, data: {'slovensko-digital-autoform': ENV.fetch('AUTOFORM_ACCESS_TOKEN')} do %>
+      <h1>Registrácia k službe GovBox</h1>
+      <p class="lead">Zadajte údaje právnickej osoby, pre ktorú chcete zriadiť službu.</p>
+      <div class="row">
+        <div class="col-md-8">
+          <fieldset>
+            <legend>Právnická osoba</legend>
+            <div class="row">
+              <div class="col-md-8 col-md-pad">
+                <%= label_tag :legal_subject_name, 'Názov' %>
+                <%= text_field_tag :legal_subject_name, nil, class: 'form-control input-lg', required: true, autocomplete: 'off', data: {'slovensko-digital-autoform': 'name'} %>
+                <p class="help-block">Napríklad: Slovensko.Digital, Martinus</p>
+              </div>
+              <div class="col-md-4 col-md-pad">
+                <%= label_tag :cin, 'IČO' %>
+                <%= text_field_tag :cin, nil, class: 'form-control input-lg', required: true, data: {'slovensko-digital-autoform': 'cin'} %>
+                <p class="help-block">Napríklad: 36421928</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 col-md-pad">
+                <%= label_tag :formatted_address, 'Adresa' %>
+                <%= text_field_tag :formatted_address, nil, class: 'form-control input-lg', required: true, data: {'slovensko-digital-autoform': 'formatted-address'} %>
+                <p class="help-block">Napríklad: Staré Grunty 12, 841 04 Bratislava</p>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-md-pad">
+          <%= button_tag class: 'btn btn-default btn-lg btn-strong' do %>
+              <strong>Ďalej</strong>
+          <% end %>
+        </div>
+      </div>
+  <% end %>
+</div>

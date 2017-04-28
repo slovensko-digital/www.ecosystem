@@ -36,6 +36,7 @@ gem 'newrelic_rpm'
 gem 'rollbar'
 
 gem 'redis-rails'
+gem 'rest-client'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -60,6 +61,7 @@ group :staging, :production do
 end
 
 group :test do
+  gem 'webmock'
   gem 'capybara'
   gem 'launchy'
   gem 'simplecov'
