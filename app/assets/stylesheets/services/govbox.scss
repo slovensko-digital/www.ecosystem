@@ -1,3 +1,12 @@
 // Place all the styles related to the services/govbox controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h3.text-huge {
+  font-size: 3em;
+}
+
+.btn-xlg {
+  @include button-size($padding-large-vertical * 1.5, $padding-large-horizontal * 3, $font-size-large * 1.25, $line-height-large * 1.5, $btn-border-radius-large * 1.5);
+  border-width: 2px;
+}

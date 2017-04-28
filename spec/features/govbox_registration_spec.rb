@@ -13,7 +13,7 @@ RSpec.feature 'Govbox registration', type: :feature do
       to_return(status: 200)
 
     visit '/sluzby/govbox'
-    click_on 'Zaregistrovať'
+    click_on 'Chcem sa zaregistrovať'
 
     fill_in 'Názov', with: 'Slovensko.Digital'
     fill_in 'IČO', with: '50 158 635'
