@@ -97,6 +97,12 @@
       <%= render partial: 'tables', object: tables %>
       <%= render partial: 'table', collection: tables %>
 
+      <h3 id="upvs">ITMS2014+ dáta<span class="label label-danger">ALFA</span></h3>
+      <p>Projekt ITMS 2014+ obsahuje rozsiahle dáta o čerpaní peňazí z európskych operačných programov.</p>
+      <% tables = PgCatalog::PgTable.find_by_schema(:itms) %>
+      <%= render partial: 'tables', object: tables %>
+      <%= render partial: 'table', collection: tables %>
+
     </div>
   </div>
 <% end %>
