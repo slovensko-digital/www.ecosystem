@@ -3,14 +3,13 @@ require 'rails_helper'
 RSpec.feature 'Govbox registration', type: :feature do
   scenario 'User registers for govbox' do
     stub_request(:post, ENV.fetch('GOVBOX_FORM_ENDPOINT')).
-      with(body: {'cin' => '50 158 635', 'email' => 'jan.hargas@slovensko.digital', 'first_name' => 'Ján',
+      with(body: {'cin' => '50 158 635', 'email' => 'jan.hargas@slovensko.digital', 'family_name' => 'Hargaš',
         'formatted_address' => 'Staré grunty 12, 841 04 Bratislava - mestská časť Karlova Ves',
-        'legal_subject_name' => 'Slovensko.Digital',
+        'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital',
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '0903 919 123',
-        'pin' => '821101/1234', 'postal_address' => 'Púpavová 31, 841 01 Bratislava', 'snailmail' => '1',
-        'surname' => 'Hargaš'}).
-      to_return(status: 200)
+        'pin' => '821101/1234', 'postal_address' => 'Púpavová 31, 841 01 Bratislava', 'snail_mail' => '1',
+      }).to_return(status: 200)
 
     visit '/sluzby/govbox'
     click_on 'Chcem sa zaregistrovať'
@@ -37,15 +36,14 @@ RSpec.feature 'Govbox registration', type: :feature do
     fill_in 'Heslo (znova)', with: 'nejakeheslo'
     click_on 'Zaregistrovať'
 
-    expect(a_request(:post, ENV.fetch('GOVBOX_FORM_ENDPOINT')).with(
-      body: {'cin' => '50 158 635', 'email' => 'jan.hargas@slovensko.digital', 'first_name' => 'Ján',
+    expect(a_request(:post, ENV.fetch('GOVBOX_FORM_ENDPOINT')).
+      with(body: {'cin' => '50 158 635', 'email' => 'jan.hargas@slovensko.digital', 'family_name' => 'Hargaš',
         'formatted_address' => 'Staré grunty 12, 841 04 Bratislava - mestská časť Karlova Ves',
-        'legal_subject_name' => 'Slovensko.Digital',
+        'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital',
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '0903 919 123',
-        'pin' => '821101/1234', 'postal_address' => 'Púpavová 31, 841 01 Bratislava', 'snailmail' => '1',
-        'surname' => 'Hargaš'}
-    )).to have_been_made
+        'pin' => '821101/1234', 'postal_address' => 'Púpavová 31, 841 01 Bratislava', 'snail_mail' => '1',
+      })).to have_been_made
 
     expect(page).to have_content('Registrácia úspešná!')
   end
