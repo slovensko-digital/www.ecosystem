@@ -1,4 +1,6 @@
 class Services::GovboxController < ContentController
+  layout 'application_bs4'
+
   PARAMS = [
     :legal_subject_name, :cin, :formatted_address,
     :first_name, :surname, :pin, :person_formatted_address,

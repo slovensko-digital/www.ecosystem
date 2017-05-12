@@ -1,0 +1,50 @@
+@import "services/govbox";
+@import "autoform";
+
+// navbar
+.navbar {
+  .navbar-right a {
+    color: #333;
+  }
+
+  border-bottom: 1px solid lightgray;
+}
+
+.badge {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+#header mark {
+  padding: 0.1rem 0.25rem;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  background-color: #f9fad2;
+}
+
+// colors
+.badge-danger {
+  background-color: #cb3235;
+}
+
+
+// fonts
+h1 .badge {
+  font-family: 'Roboto', 'Helvetica', 'Arial', 'sans-serif';
+  font-weight: 300;
+  font-size: 1.3rem;
+}
+
+
+// utils
+.lead-short {
+  max-width: 25rem;
+}
+
+// custom
+h1 .badge {
+  padding: 0.7rem 0.7rem;
+  position: relative;
+  vertical-align: top;
+}

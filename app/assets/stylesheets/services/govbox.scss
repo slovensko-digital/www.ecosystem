@@ -2,11 +2,391 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-h3.text-huge {
-  font-size: 3em;
+/* generals */
+
+body {
+  font-family: 'Roboto', 'Helvetica', 'Arial', 'sans-serif';
+
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
 }
 
-.btn-xlg {
-  @include button-size($padding-large-vertical * 1.5, $padding-large-horizontal * 3, $font-size-large * 1.25, $line-height-large * 1.5, $btn-border-radius-large * 1.5);
-  border-width: 2px;
+
+i {
+  font-style: normal;
+}
+
+a {
+  color: #191d29;
+  text-decoration: none;
+  transition: all 0.08s ease-in-out;
+}
+
+a:hover {
+  color: #000;
+  text-decoration: underline;
+  transition: all 0.08s ease-in-out;
+}
+
+hr {
+  border: 0;
+  border-bottom: 1px solid #cecece;
+}
+
+h1, h2, h3 {
+  font-family: 'Merriweather', 'Arial', serif;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 29px;
+  margin: 0;
+  text-align: center;
+}
+
+h3 {
+  font-size: 19px;
+  margin: 0;
+  text-align: center;
+  font-family: 'Roboto', 'Helvetica', 'Arial', 'sans-serif';
+  color: #b0b0b0;
+  font-weight: 300;
+}
+
+b, strong {
+  font-weight: 600;
+}
+
+/* custom */
+
+.navbar-header {
+  display: inline-block;
+}
+
+.navbar-right {
+  display: inline-block;
+  float: right;
+  font-size: 18px;
+  margin-top: 4px;
+  font-weight: 300;
+  color: black;
+}
+
+.navbar-right span {
+  border-right: 1px solid lightgrey;
+  padding: 22px 44px 22px 0;
+}
+
+.navbar-right a {
+  font-weight: 400;
+  padding: 11px 12px;
+  margin: 8px 10px 0 27px;
+}
+
+
+/* custom */
+
+#header {
+  background: #292524;
+  font-size: 21px;
+  color: white;
+}
+
+#header .flight {
+  background-image: url(services/govbox/flight.jpg);
+  width: 402px;
+  height: 47px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  position: absolute;
+  margin-left: 19px;
+  z-index: 1;
+}
+
+#header img {
+  position: relative;
+  z-index: 2;
+}
+
+#header .label {
+  background: #cb3235;
+  padding: 6px 13px;
+  margin-left: 15px;
+  position: relative;
+  top: -5px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+#header .titles {
+  margin-top: 96px;
+  margin-bottom: 40px;
+}
+
+#header h1 {
+  margin-bottom: 2rem;
+  display: inline-block;
+}
+
+#how, #pricing {
+  font-size: 1.3rem;
+}
+
+#how h2 {
+  margin-top: 40px;
+  margin-bottom: 18px;
+}
+
+#how .weirdo {
+  width: 11px;
+  height: 11px;
+  background: white;
+  margin: 29px auto 0;
+  border-radius: 13px;
+  border: 1px solid #adadad;
+  position: relative;
+  left: -1px;
+  top: 0;
+}
+
+#how .weirdo2 {
+  margin: 0 auto 0;
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 10px 0 10px;
+  border-color: #adadad transparent transparent transparent;
+}
+
+#how ul, #how li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#how .fa {
+  font-size: 22px;
+}
+
+#how .theirs {
+  border-right: 1px solid #adadad;
+}
+
+#how .theirs .fa {
+  color: #cb3133;
+  float: right;
+  margin: 0 37px 0 30px;
+}
+
+#how .theirs li {
+  padding: 10px 14px;
+  text-align: right;
+}
+
+#how .ours li {
+  padding: 10px 14px;
+}
+
+#how .ours .fa {
+  color: #366ce6;
+  margin: 0 30px 0 34px;
+}
+
+#how .bordered {
+  border: 1px solid #e7e6eb;
+  padding: 16px 0;
+  margin: 49px 23px 0;
+}
+
+#how .ours .bordered {
+  box-shadow: 0 0 4px #bfbfbf;
+}
+
+#how small {
+  font-weight: 300;
+  font-size: 1.3rem;
+  font-family: 'Roboto', 'Helvetica', 'Arial', 'sans-serif';
+}
+
+#how aside {
+  display: inline-block;
+  font-weight: 300;
+  font-size: 12px;
+  background: #f9fad2;
+  padding: 2px 2px;
+  margin-right: 8px;
+}
+
+#pricing {}
+
+#pricing .bottom {
+  border-bottom: 1px solid #efefef;
+}
+
+#pricing .left {
+  border-right: 1px solid #efefef;
+}
+
+#pricing .col-7,
+#pricing .col-5,
+#pricing .col-12 {
+  padding: 33px 30px 28px;
+}
+
+#pricing .price {
+  padding-left: 49px;
+}
+
+#pricing h2 {
+  margin: 32px 0 27px;
+}
+
+#pricing i {
+  color: #8fcd46;
+  font-weight: 800;
+}
+
+#pricing a {
+  font-weight: 500;
+  color: #2b56b4;
+  text-decoration: underline;
+}
+
+#pricing .center {
+  text-align: center;
+  font-size: 18px;
+}
+
+#pricing .shadow {
+  box-shadow: 0 0 6px #c1c1c1;
+  padding: 10px 46px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+
+#registration {
+  text-align: center;
+}
+
+#registration .button {
+  background: #8fcf47;
+  color: white;
+  padding: 18px 40px;
+  display: inline-block;
+  border-radius: 9px;
+  font-weight: 700;
+  font-size: 25px;
+  margin-top: 19px;
+}
+
+#registration .button:hover {
+  background: #6d9e36;
+  text-decoration: none;
+}
+
+#registration .number {
+  box-shadow: 0 0 4px #ababab;
+  display: inline-block;
+  padding: 10px 19px;
+  border-radius: 32px;
+  color: #376ee5;
+  background: white;
+  height: 57px;
+  width: 57px;
+  line-height: 38px;
+
+}
+
+#registration .what {
+  color: #3e3e3e;
+  font-size: 18px;
+  max-width: 248px;
+  display: block;
+  margin: 28px auto 35px;
+}
+
+#registration .horizontal {
+  border-color: #376ee5;
+  position: relative;
+  z-index: -2;
+  top: 42px;
+  width: 67%;
+}
+
+#registration .last {
+  box-shadow: 0 0 17px #cccccc;
+  padding: 46px 0 10px;
+  position: relative;
+  top: -46px;
+  border: 1px solid #c4c3c9;
+
+}
+
+#registration .last .number {
+  background: #376ee5;
+  color: white;
+  width: 74px;
+  height: 72px;
+  padding: 17px 15px;
+  border-radius: 100px;
+  margin-top: -15px;
+}
+
+.newsletter {
+  border-bottom: 1px solid #eee;
+  padding-top: 1.5em;
+  padding-bottom: 1em;
+  background-color: #efefef;
+  text-align: left;
+  font-size: 18px;
+  color: #777777;
+}
+
+.newsletter .btn-default {
+  border-color: #23527c;
+  color: #23527c;
+  background-color: #fff;
+  padding: 7px 9px;
+}
+
+.newsletter .hidden {
+  display: none !important;
+}
+
+.footer {
+  text-align: left;
+  padding: 68px 0 3em;
+  font-size: 18px;
+  background-color: #f9f9f9;
+  color: #777777;
+}
+
+.footer a {
+  color: inherit;
+}
+
+@media (max-width: 800px) {
+  body { font-size: 15px; line-height: 19px; }
+  .col-6 { max-width: 100%; width: 100%; flex: 0 0 100%; }
+  .col-4 { max-width: 100%; width: 100%; flex: 0 0 100%; }
+  .col-12 { max-width: 100%; width: 100%; flex: 0 0 100%; }
+  #header .titles { line-height: 25px; }
+  #how .ours .fa { margin: 0px 11px; font-size: 17px; }
+  #how .theoirs .fa { margin: 0px 11px; font-size: 17px; }
+  #registration .last { box-shadow: none; margin-top: 29px; }
+  #registration hr { display: none; }
+  .desktop, .weirdo, .weirdo2 { display: none; }
+  .navbar-right {  float: none; }
+  .navbar-right, .navbar-right span { display: block; }
+  .navbar-right span { border: 0; }
+  .navbar-right a { padding: 0; margin: 0; }
+  #how .theirs { border-right: 0; }
+  .form-control { width: 300px; }
 }
