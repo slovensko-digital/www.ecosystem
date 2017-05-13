@@ -11,11 +11,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-
-i {
-  font-style: normal;
-}
-
 a {
   color: #191d29;
   text-decoration: none;
@@ -38,18 +33,17 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 36px;
   font-weight: 700;
 }
 
 h2 {
-  font-size: 29px;
+  font-size: 1.75rem;
   margin: 0;
   text-align: center;
 }
 
 h3 {
-  font-size: 19px;
+  font-size: 1.3rem;
   margin: 0;
   text-align: center;
   font-family: 'Roboto', 'Helvetica', 'Arial', 'sans-serif';
@@ -90,21 +84,57 @@ b, strong {
 
 /* custom */
 
+
+table.table-pricing {
+  margin-bottom: 0;
+  margin-top: 1.5rem;
+  margin: 0;
+
+  td, th {
+    border: 1px solid #eceeef;
+    padding: 1.5rem 3rem;
+    vertical-align: middle;
+  }
+
+  th {
+    font-weight: 300;
+  }
+
+  tr:first-child th, tr:first-child td {
+    border-top: 0;
+  }
+  tr:last-child td {
+    border-bottom: 0;
+  }
+  tr td:first-child,
+  tr th:first-child {
+    border-left: 0;
+  }
+  tr td:last-child,
+  tr th:last-child {
+    border-right: 0;
+  }
+}
+
+.pricing-more {
+  font-size: 1.2rem;
+}
+
 #header {
   background: #292524;
-  font-size: 21px;
   color: white;
 }
 
 #header .flight {
   background-image: url(services/govbox/flight.jpg);
-  width: 402px;
-  height: 47px;
   background-repeat: no-repeat;
-  display: inline-block;
-  position: absolute;
-  margin-left: 19px;
-  z-index: 1;
+  background-position: 17rem 6rem;
+}
+
+@media (max-width: 991px) {
+  #header .flight {
+    background: none;
+  }
 }
 
 #header img {
@@ -122,8 +152,8 @@ b, strong {
 }
 
 #header .titles {
-  margin-top: 96px;
-  margin-bottom: 40px;
+  margin-top: 6rem;
+  margin-bottom: 2rem;
 }
 
 #header h1 {
@@ -133,6 +163,15 @@ b, strong {
 
 #how, #pricing {
   font-size: 1.3rem;
+}
+
+#how .table {
+  margin: 2rem 0;
+}
+
+#how .table td {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 #how h2 {
@@ -170,8 +209,11 @@ b, strong {
   margin: 0;
 }
 
-#how .fa {
-  font-size: 22px;
+#how tr td:first-child {
+  padding-left: 2rem;
+}
+#how tr td:last-child {
+  padding-right: 2rem;
 }
 
 #how .theirs {
@@ -180,8 +222,6 @@ b, strong {
 
 #how .theirs .fa {
   color: #cb3133;
-  float: right;
-  margin: 0 37px 0 30px;
 }
 
 #how .theirs li {
@@ -195,13 +235,16 @@ b, strong {
 
 #how .ours .fa {
   color: #366ce6;
-  margin: 0 30px 0 34px;
+}
+
+#how .table td {
+  border: none;
 }
 
 #how .bordered {
   border: 1px solid #e7e6eb;
-  padding: 16px 0;
-  margin: 49px 23px 0;
+  padding: 1rem 0;
+  margin: 3rem 1rem 0;
 }
 
 #how .ours .bordered {
@@ -214,42 +257,22 @@ b, strong {
   font-family: 'Roboto', 'Helvetica', 'Arial', 'sans-serif';
 }
 
-#how aside {
-  display: inline-block;
-  font-weight: 300;
-  font-size: 12px;
+#how mark {
+  font-size: 0.75rem;
   background: #f9fad2;
-  padding: 2px 2px;
-  margin-right: 8px;
+  padding: 0.2rem;
 }
 
 #pricing {}
 
-#pricing .bottom {
-  border-bottom: 1px solid #efefef;
-}
-
-#pricing .left {
-  border-right: 1px solid #efefef;
-}
-
-#pricing .col-7,
-#pricing .col-5,
-#pricing .col-12 {
-  padding: 33px 30px 28px;
-}
-
-#pricing .price {
-  padding-left: 49px;
-}
-
 #pricing h2 {
-  margin: 32px 0 27px;
+  margin: 2rem 0 1rem;
 }
 
-#pricing i {
+#pricing em {
   color: #8fcd46;
   font-weight: 800;
+  font-style: normal;
 }
 
 #pricing a {
@@ -258,15 +281,11 @@ b, strong {
   text-decoration: underline;
 }
 
-#pricing .center {
-  text-align: center;
-  font-size: 18px;
-}
-
 #pricing .shadow {
   box-shadow: 0 0 6px #c1c1c1;
-  padding: 10px 46px;
-  max-width: 700px;
+  padding: 2rem;
+  padding-bottom: 0;
+  max-width: 50rem;
   margin: 0 auto;
 }
 
@@ -275,21 +294,6 @@ b, strong {
   text-align: center;
 }
 
-#registration .button {
-  background: #8fcf47;
-  color: white;
-  padding: 18px 40px;
-  display: inline-block;
-  border-radius: 9px;
-  font-weight: 700;
-  font-size: 25px;
-  margin-top: 19px;
-}
-
-#registration .button:hover {
-  background: #6d9e36;
-  text-decoration: none;
-}
 
 #registration .number {
   box-shadow: 0 0 4px #ababab;
@@ -301,12 +305,11 @@ b, strong {
   height: 57px;
   width: 57px;
   line-height: 38px;
-
 }
 
 #registration .what {
   color: #3e3e3e;
-  font-size: 18px;
+  font-size: 1.2rem;
   max-width: 248px;
   display: block;
   margin: 28px auto 35px;
@@ -377,9 +380,7 @@ b, strong {
   .col-6 { max-width: 100%; width: 100%; flex: 0 0 100%; }
   .col-4 { max-width: 100%; width: 100%; flex: 0 0 100%; }
   .col-12 { max-width: 100%; width: 100%; flex: 0 0 100%; }
-  #header .titles { line-height: 25px; }
-  #how .ours .fa { margin: 0px 11px; font-size: 17px; }
-  #how .theoirs .fa { margin: 0px 11px; font-size: 17px; }
+
   #registration .last { box-shadow: none; margin-top: 29px; }
   #registration hr { display: none; }
   .desktop, .weirdo, .weirdo2 { display: none; }
@@ -388,5 +389,4 @@ b, strong {
   .navbar-right span { border: 0; }
   .navbar-right a { padding: 0; margin: 0; }
   #how .theirs { border-right: 0; }
-  .form-control { width: 300px; }
 }

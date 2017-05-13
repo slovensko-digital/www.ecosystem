@@ -6,6 +6,8 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
   <%= stylesheet_link_tag    'application_bs4', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application_bs4', 'data-turbolinks-track': 'reload' %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   <%= csrf_meta_tags %>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -71,36 +73,6 @@
 </nav>
 <!-- eco app -->
 <%= yield %>
-
-<div class="newsletter">
-  <div class="container">
-    <div class="row">
-      <div class="col-4">
-        <p><strong>Newsletter Ekosystém.Slovensko.Digital</strong></p>
-        <p>Novinky emailom sem-tam, žiadny spam.</p>
-      </div>
-      <div class="col-3">
-        <form role="form" action="https://my.sendinblue.com/users/subscribe/js_id/29wti/id/2" data-action="https://my.sendinblue.com/users/subscribeembed/js_id/29wti/id/2" method="post">
-          <div class="form-group">
-            <label class="control-label" for="entry.204431983"><strong>Email</strong></label>
-            <input type="hidden" name="js_id" id="js_id" value="29wti">
-            <input type="hidden" name="listid" id="listid" value="14">
-            <input type="hidden" name="from_url" id="from_url" value="yes">
-            <input type="hidden" name="hdn_email_txt" id="hdn_email_txt" value="">
-            <input type="email" required="" name="email" class="form-control">
-          </div>
-        </form>
-      </div>
-      <div class="col-4">
-        <label for="a">&nbsp;</label> <br>
-        <button name="button" type="submit" class="btn btn-default">Prihlásiť</button>
-      </div>
-      <div class="col-md-12 hidden newsletter-success">
-        <p>Na zadanú adresu sme poslali email pre potvrdenie odberu. Ďakujeme za Váš záujem.</p>
-      </div>
-    </div>
-  </div>
-</div>
 
 <div class="footer">
   <div class="container">
