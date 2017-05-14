@@ -1,13 +1,13 @@
 <div id="header">
   <div class="container">
     <div class="row flight">
-      <div class="col-6 titles">
+      <div class="col-md-6 titles">
         <h1>GovBox <span class="badge badge-danger">ALFA</span></h1>
         <p class="lead lead-short">Jednoduchý prístup k štátnej elektronickej schránke <strong>priamo cez Váš email a&nbsp;bez elektronického občianskeho preukazu.</strong></p>
-        <p class="lead"><mark>Vedeli ste, že od 1. júna 2017 musia všetky právnické osoby zapísané v&nbsp;obchodnom registri komunikovať so&nbsp;štátom elektronicky?</mark></p>
+        <p class="lead"><mark>Vedeli ste, že od 1. júla 2017 musia všetky právnické osoby zapísané v&nbsp;obchodnom registri komunikovať so&nbsp;štátom elektronicky?</mark></p>
       </div>
-      <div class="col-6 text-center">
-        <%= image_tag 'services/govbox/header.png', class: 'img-fluid' %>
+      <div class="col-md-6 text-center">
+        <%= image_tag 'services/govbox/header.png', srcset: "#{path_to_image('services/govbox/header@2x.png')} 2x", class: 'img-fluid' %>
       </div>
     </div>
   </div>
@@ -16,15 +16,15 @@
 
 <div id="how" class="container">
   <div class="row">
-    <div class="col-12">
-      <br /><h2>Ako funguje GovBox?</h2>
-      <h3>Porovnajte si ponuku štátu s našou ponukou sami:</h3>
+    <div class="col-sm-12 text-center">
+      <h2>Ako funguje GovBox?</h2>
+      <p class="lead text-muted">Porovnajte si ponuku štátu s našou ponukou sami:</p>
       <div class="weirdo"></div>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-6 theirs">
+    <div class="col-sm-6 theirs">
       <h2 class="bordered">Štátna schránka<br /> <small>na slovensko.sk</small></h2>
       <table class="table">
         <tr>
@@ -41,7 +41,7 @@
         </tr>
       </table>
     </div>
-    <div class="col-6 ours">
+    <div class="col-sm-6 ours">
       <h2 class="bordered">GovBox<br /> <small>od Slovensko.Digital</small></h2>
 
       <table class="table">
@@ -67,10 +67,6 @@
         </tr>
         <tr>
           <td class="text-right"><i class="fa fa-thumbs-o-up"></i></td>
-          <td class="text-left"><mark>NAVYŠE</mark> zobrazenie <strong>na mobile</strong></td>
-        </tr>
-        <tr>
-          <td class="text-right"><i class="fa fa-thumbs-o-up"></i></td>
           <td class="text-left"><mark>NAVYŠE</mark> <strong>prehľadnejšie správy</strong></td>
         </tr>
         <tr>
@@ -86,7 +82,7 @@
 <div id="pricing" class="container">
   <div class="mt-5 text-center">
       <h2>Cenník</h2>
-      <h3><strong>Platí iba ak GovBox naozaj používate.</strong><br /> Všetky príjmy idú na aktivity nášho občianskeho zdrženia Slovensko.Digital.</h3><br />
+      <p class="lead text-muted"><strong>Platíte iba ak GovBox naozaj používate.</strong><br /> Príjmy idú na aktivity občianskeho združenia Slovensko.Digital.</p><br />
   </div>
 
   <div class="shadow">
@@ -117,25 +113,25 @@
 
 <div id="registration" class="container">
   <div class="row">
-    <div class="col-12">
+    <div class="col-md-12">
       <br /><br /><br />
       <h2>Ako získam GovBox?</h2><br />
-      <h3>Jednoduchá registrácia a jedna návšteva notára: <span class="desktop"><br /></span><strong>všetky potrebné dokumenty vyplníme za Vás</strong>.</h3>
+      <p class="lead text-muted">Jednoduchá registrácia a jedna návšteva notára: <span class="desktop"><br /></span><strong>všetky potrebné dokumenty vyplníme za Vás</strong>.</p>
     </div>
   </div>
   <br /><br />
 
   <div class="row">
     <hr class="horizontal" />
-    <div class="col-4">
+    <div class="col-md-4">
       <div class="number">1</div>
       <span class="what">Zaregistrujete sa a&nbsp;zaslané dokumenty si vytlačíte.</span>
     </div>
-    <div class="col-4">
+    <div class="col-md-4">
       <div class="number">2</div>
       <span class="what">Dokumenty podpíšte u&nbsp;notára a&nbsp;zašlete nám ich poštou.</span>
     </div>
-    <div class="col-4">
+    <div class="col-md-4">
       <div class="last">
         <div class="number"><i class="fa fa-check"></i></div>
         <span class="what"><strong>Hotovo!</strong> Onedlho Vám začnú na zvolený email chodiť všetky správy zo štátnej schránky.</span>
