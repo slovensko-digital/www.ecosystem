@@ -2,16 +2,18 @@
 <html>
 <head>
   <title><%= @page.title %></title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' %>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
+  <%= stylesheet_link_tag    'application_bs4', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application_bs4', 'data-turbolinks-track': 'reload' %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   <%= csrf_meta_tags %>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700|Merriweather:100,200,300,500&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&amp;subset=latin-ext" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,700,900&amp;subset=latin-ext" rel="stylesheet" />
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="Ekosystém.Slovensko.Digital"/>
   <meta property="og:url" content="<%= @page.url %>"/>
@@ -58,54 +60,21 @@
   </script>
 <% end %>
 
-<nav class="navbar" role="navigation">
+<nav class="navbar">
   <div class="container">
     <div class="navbar-header">
       <a class="navbar-brand" href="/"><%= image_tag 'ekosystem.svg', width: '270' %></a>
     </div>
-    <div id="navbar" class="navbar-right visible-lg visible-md">
-      <ul class="nav navbar-nav">
-        <li class="navbar-claim">Služby. Otvorené API. Otvorené dáta.</li>
-        <li class="navbar-last">
-          <a href="https://platforma.slovensko.digital" target="_blank">Platforma <%= image_tag 'platforma-arrow.svg', size: '26x26' %></a>
-        </li>
-      </ul>
+    <div class="navbar-right hidden-md-down">
+      <span>Služby. Otvorené API. Otvorené dáta.</span>
+      <a href="https://platforma.slovensko.digital" target="_blank">Platforma <%= image_tag 'platforma-arrow.svg', size: '26x26' %></a>
     </div>
   </div>
 </nav>
 <!-- eco app -->
 <%= yield %>
 
-<footer>
-  <div class="newsletter">
-    <div class="container">
-      <div class="row">
-        <form role="form" action="https://my.sendinblue.com/users/subscribe/js_id/29wti/id/2" data-action="https://my.sendinblue.com/users/subscribeembed/js_id/29wti/id/2" method="post">
-          <div class="col-md-4 col-md-pad">
-            <p><strong>Newsletter Ekosystém.Slovensko.Digital</strong></p>
-            <p>Novinky emailom sem-tam, žiadny spam.</p>
-          </div>
-          <div class="col-md-3 col-md-pad">
-            <div class="form-group">
-              <%= label_tag 'entry.204431983', 'Email', class: 'control-label' %>
-              <input type="hidden" name="js_id" id="js_id" value="29wti">
-              <input type="hidden" name="listid" id="listid" value="14">
-              <input type="hidden" name="from_url" id="from_url" value="yes">
-              <input type="hidden" name="hdn_email_txt" id="hdn_email_txt" value="">
-              <input type="email" required name="email" class="form-control">
-            </div>
-          </div>
-          <div class="col-md-4 col-md-pad">
-            <%= label_tag :a, '&nbsp'.html_safe %> <br>
-            <%= button_tag 'Prihlásiť', class: 'btn btn-default' %>
-          </div>
-        </form>
-        <div class="col-md-12 hidden newsletter-success">
-          <p>Na zadanú adresu sme poslali email pre potvrdenie odberu. Ďakujeme za Váš záujem.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="footer">
   <div class="container">
     <div class="row">
       <div class="col-md-4">
@@ -119,15 +88,15 @@
 
       <div class="col-md-3">
         <ul class="list-unstyled">
-          <li><%= link_to root_path do %>
-              <strong>Ekosystém</strong><% end %>
+          <li><a href="/">
+            <strong>Ekosystém</strong></a>
           </li>
-          <li><%= link_to 'Služby', root_path %></li>
-          <li><%= link_to 'Otvorené dáta', open_data_path %></li>
-          <li><%= link_to 'Otvorené API', open_api_path %></li>
-          <li><%= link_to 'Prémiové dáta', premium_data_path %></li>
-          <li><%= link_to 'Prémiové API', premium_api_path %></li>
-          <li><%= link_to 'Podmienky používania', terms_path %></li>
+          <li><a href="/">Služby</a></li>
+          <li><a href="/otvorene-data">Otvorené dáta</a></li>
+          <li><a href="/otvorene-api">Otvorené API</a></li>
+          <li><a href="/premiove-data">Prémiové dáta</a></li>
+          <li><a href="/premiove-api">Prémiové API</a></li>
+          <li><a href="/podmienky">Podmienky používania</a></li>
           <li><a href="https://platforma.slovensko.digital/t/ekosystem-slovensko-digital-novinky/2326">Novinky</a></li>
         </ul>
       </div>
@@ -143,24 +112,25 @@
       <div class="col-md-2">
         <p class="pull-right icons">
           <a href="https://www.facebook.com/slovensko.digital/" target="_blank">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-            </span></a>
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+              </span></a>
           <a href="https://github.com/slovensko-digital/ekosystem" target="_blank">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-            </span></a>
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span></a>
           <a href="https://www.youtube.com/channel/UCbpnKa1XOIpQLYUQ2dz7Sng" target="_blank">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
-            </span></a>
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+              </span></a>
         </p>
       </div>
     </div>
   </div>
-</footer>
+</div>
+
 </body>
 </html>

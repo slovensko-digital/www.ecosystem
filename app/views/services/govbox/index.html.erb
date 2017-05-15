@@ -1,177 +1,147 @@
-<div class="container autoform">
-  <h1><strong>GovBox</strong> <span class="label label-danger">ALFA</span></h1>
-  <p class="lead">Jednoduchý prístup k štátnej elektronickej schránke.<br>
-    <em>Bez elektronického občianskeho preukazu, priamo cez Váš email.</em></p>
-
-  <hr>
-
-  <h2>Vedeli ste, že?</h2>
-  <p class="lead"><em>Od 1. júla 2017 právnické osoby</em> zapísané v obchodnom registri
-    <em>musia komunikovať</em> so štátom elektronicky.</p>
-
-  <hr>
-
-  <h2>Prečo GovBox?</h2>
-
-  <div class="row">
-    <div class="col-md-6">
-      <div class="row" style="display: flex; align-items: center;">
-        <div class="col-md-3 text-center">
-          <i class="fa fa-share fa-5x"></i>
-        </div>
-        <div class="col-md-9">
-          <h3>Preposielanie správ</h3>
-          <p class="lead"><em>Všetko čo príde do štátnej schránky Vám prepošleme na email.</em> Nič viac nepotrebujete.
-          </p>
-        </div>
+<div id="header">
+  <div class="container">
+    <div class="row flight">
+      <div class="col-md-6 titles">
+        <h1>GovBox <span class="badge badge-danger">ALFA</span></h1>
+        <p class="lead lead-short">Jednoduchý prístup k štátnej elektronickej schránke <strong>priamo cez Váš email a&nbsp;bez elektronického občianskeho preukazu.</strong></p>
+        <p class="lead"><mark>Vedeli ste, že od 1. júla 2017 musia všetky právnické osoby zapísané v&nbsp;obchodnom registri komunikovať so&nbsp;štátom elektronicky?</mark></p>
+      </div>
+      <div class="col-md-6 text-center">
+        <%= image_tag 'services/govbox/header.png', srcset: "#{path_to_image('services/govbox/header@2x.png')} 2x", class: 'img-fluid' %>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="row" style="display: flex; align-items: center;">
-        <div class="col-md-3 text-center">
-          <i class="fa fa-check-square-o fa-5x"></i>
-        </div>
-        <div class="col-md-9">
-          <h3>Jednoduché ovládanie</h3>
-          <p class="lead">
-            <em>Bez elektronického občianskeho preukazu, bez čítačky.</em> Ak viete používať email, viete používať GovBox.
-          </p>
-        </div>
-      </div>
+  </div>
+</div>
+
+
+<div id="how" class="container">
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <h2>Ako funguje GovBox?</h2>
+      <p class="lead text-muted">Porovnajte si ponuku štátu s našou ponukou sami:</p>
+      <div class="weirdo"></div>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-6">
-      <div class="row" style="display: flex; align-items: center;">
-        <div class="col-md-3 text-center">
-          <i class="fa fa-mobile fa-5x"></i> <i class="fa fa-tablet fa-5x"></i>
-        </div>
-        <div class="col-md-9">
-          <h3>Podpora mobilných zariadení</h3>
-          <p class="lead"><em>Na mobile, na tablete.</em> Všade, kde viete otvoriť email.</p>
-        </div>
-      </div>
+    <div class="col-sm-6 theirs">
+      <h2 class="bordered">Štátna schránka<br /> <small>na slovensko.sk</small></h2>
+      <table class="table">
+        <tr>
+          <td class="text-right"><i class="fa fa-thumbs-o-down"></i></td>
+          <td class="text-left"><strong>2 hodiny</strong> klikania</td>
+        </tr>
+        <tr>
+          <td class="text-right"><i class="fa fa-thumbs-o-down"></i></td>
+          <td class="text-left"><strong>2 návštevy</strong> na krajskej polícii</td>
+        </tr>
+        <tr>
+          <td class="text-right"><i class="fa fa-thumbs-o-down"></i></td>
+          <td class="text-left">opakované prihlasovanie <strong>čítačkou</strong></td>
+        </tr>
+      </table>
     </div>
-    <div class="col-md-6">
-      <div class="row" style="display: flex; align-items: center;">
-        <div class="col-md-3 text-center">
-          <i class="fa fa-bell fa-5x"></i>
-        </div>
-        <div class="col-md-9">
-          <h3>Týždenný sumár</h3>
-          <p class="lead">
-            <em>Na nič nezabudnete.</em> Každý týždeň dostanete krátky sumár toho, čo vo Vašej schránke dialo.</p>
-        </div>
-      </div>
+    <div class="col-sm-6 ours">
+      <h2 class="bordered">GovBox<br /> <small>od Slovensko.Digital</small></h2>
+
+      <table class="table">
+        <tr>
+          <td class="text-right"><i class="fa fa-thumbs-o-up"></i></td>
+          <td class="text-left"><strong>0 hodín</strong> klikania</td>
+        </tr>
+        <tr>
+          <td class="text-right"><i class="fa fa-thumbs-o-up"></i></td>
+          <td class="text-left"><strong>1 návšteva</strong> ľubovoľného notára</td>
+        </tr>
+        <tr>
+          <td class="text-right"><i class="fa fa-thumbs-o-up"></i></td>
+          <td class="text-left">preposielanie správ <strong>bez prihlasovania</strong></td>
+        </tr>
+        <tr>
+          <td class="text-right"><i class="fa fa-thumbs-o-up"></i></td>
+          <td class="text-left"><mark>NAVYŠE</mark> zobrazenie <strong>na mobile</strong></td>
+        </tr>
+        <tr>
+          <td class="text-right"><i class="fa fa-thumbs-o-up"></i></td>
+          <td class="text-left"><mark>NAVYŠE</mark> týždenný <strong>sumár</strong></td>
+        </tr>
+        <tr>
+          <td class="text-right"><i class="fa fa-thumbs-o-up"></i></td>
+          <td class="text-left"><mark>NAVYŠE</mark> <strong>prehľadnejšie správy</strong></td>
+        </tr>
+        <tr>
+          <td class="text-right"><i class="fa fa-thumbs-o-up"></i></td>
+          <td class="text-left"><mark>NAVYŠE</mark> <strong>podporujete Slovensko.Digital</strong></td>
+        </tr>
+      </table>
     </div>
+    <div class="weirdo2"></div>
   </div>
+</div>
+
+<div id="pricing" class="container">
+  <div class="mt-5 text-center">
+      <h2>Cenník</h2>
+      <p class="lead text-muted"><strong>Platíte iba ak GovBox naozaj používate.</strong><br /> Príjmy idú na aktivity občianskeho združenia Slovensko.Digital.</p><br />
+  </div>
+
+  <div class="shadow">
+    <table class="table table-pricing table-responsive">
+      <tr>
+        <th><strong>Pripojenie na schránku</strong><br><span class="text-muted">Jednorázový poplatok</span></th>
+        <td><em>9€</em></td>
+      </tr>
+      <tr>
+        <th><strong>Prvý mesiac</strong></th>
+        <td><em>zadarmo</em></td>
+      </tr>
+      <tr>
+        <th><strong>Mesačný poplatok</strong><br /><span class="text-muted">do 20 správ mesačne</span></th>
+        <td class="w-50">
+          <em>8€ / mesiac</em> <br> alebo <br> <em>zadarmo</em> <span class="text-muted text-small">ak nedostanete žiadne správy</span></p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" class="text-center pricing-more">
+          <p>Potrebujete viac ako 20 správ mesačne?<br /> Integráciu na Váš interný systém cez API? Dedikovanú podporu?</p>
+          <p><%= link_to 'Kontakujte nás', 'https://slovensko.digital/kontakt' %></p>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div id="registration" class="container">
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <div class="row" style="display: flex; align-items: center;">
-        <div class="col-md-3 text-center">
-          <i class="fa fa-heart fa-5x" style="color: #fa6c8d"></i>
-        </div>
-        <div class="col-md-9">
-          <h3>Dobrá vec</h3>
-          <p class="lead">Podporujete aktivity Slovensko.Digital.
-            <em>Pomáhate nám zlepšovať digitálne služby štátu.</em></p>
-        </div>
-      </div>
+    <div class="col-md-12">
+      <br /><br /><br />
+      <h2>Ako získam GovBox?</h2><br />
+      <p class="lead text-muted">Jednoduchá registrácia a jedna návšteva notára: <span class="desktop"><br /></span><strong>všetky potrebné dokumenty vyplníme za Vás</strong>.</p>
     </div>
   </div>
-
-
-  <h3>Cenník</h3>
-  <p class="lead">
-    <em>Platíte len ak GovBox naozaj používate.</em> Všetky príjmy idú na aktivity občianskeho združenia Slovensko.Digital.
-  </p>
-
-  <table class="table">
-    <thead>
-    <tr>
-      <th></th>
-      <th class="text-center">Aktivačný poplatok</th>
-      <th class="text-center">Mesačný poplatok</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <th>
-        <h3 style="margin-top: 1em">Základ
-          <small style="color: black;">0 až 3 správy mesačne</small>
-          <br>
-          <small>Ideálne pre väčšinu firiem.</small>
-        </h3>
-      </th>
-      <td class="text-center" style="vertical-align: middle;  font-size: 1.25em;">
-        <strong>9&euro;</strong></td>
-      <td class="text-center" style="vertical-align: middle;  font-size: 1.25em;">
-        <strong>zadarmo</strong></td>
-
-    </tr>
-    <tr>
-      <th>
-        <span class="label label-success"><strong>PRVÝ MESIAC ZADARMO</strong></span><br>
-        <h3 style="margin-top: 0.5em;">Štandard
-          <small style="color: black;">3 až 20 správ mesačne</small>
-          </small><br>
-          <small>Pre firmy častejšie komunikujúce so štátom.</small>
-        </h3>
-      </th>
-
-      <td class="text-center" style="vertical-align: middle;  font-size: 1.25em;">
-        <strong>9&euro;</strong></td>
-      <td class="text-center" style="vertical-align: middle;  font-size: 1.25em;">
-        <strong>8&euro; / mesiac</strong> <br><span class="text-muted">(do 3 správ mesačne neplatíte)</span></td>
-    </tr>
-    <tr>
-      <td>
-        <h3 style="margin-top: 1em">Prémium
-          <small style="color: black;">neobmedzený počet správ</small>
-          <br>
-          <small>Pre firmy s množstvom dennej agendy.</small>
-        </h3>
-
-        <ul>
-          <li>Integrácia na Váš interný systém cez API</li>
-          <li>Dedikovaná podpora</li>
-        </ul>
-      </td>
-      <td></td>
-      <td colspan="2" class="text-center" style="vertical-align: middle">
-        <strong><a class="btn btn-default btn-lg" href="mailto:kontakt@slovensko.digital">Kontaktujte nás</a></strong>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-
-  <hr>
-
-
-  <h2>Ako získam GovBox?</h2>
-  <p class="lead"><em>Jednoduchá registrácia</em> a jedna návšteva notára.
-    <em>Všetky potrebné dokumenty vyplníme za Vás.</em></p>
+  <br /><br />
 
   <div class="row">
-    <div class="col-md-4 text-center">
-      <h3 class="text-huge">1.</h3>
-      <p class="lead">Zaregistrujete sa a&nbsp;zaslané dokumenty si vytlačíte.</p>
+    <hr class="horizontal" />
+    <div class="col-md-4">
+      <div class="number">1</div>
+      <span class="what">Zaregistrujete sa a&nbsp;zaslané dokumenty si vytlačíte.</span>
     </div>
-    <div class="col-md-4 text-center">
-      <h3 class="text-huge">2.</h3>
-      <p class="lead">Dokumenty podpíšete u notára a&nbsp;zašlete nám ich poštou.</p>
+    <div class="col-md-4">
+      <div class="number">2</div>
+      <span class="what">Dokumenty podpíšte u&nbsp;notára a&nbsp;zašlete nám ich poštou.</span>
     </div>
-    <div class="col-md-4 text-center">
-      <h3 class="text-huge">3.</h3>
-      <p class="lead"><strong>Hotovo!</strong> Onedlho Vám začnú na email chodiť všetky správy zo štátnej schránky.
-      </p>
+    <div class="col-md-4">
+      <div class="last">
+        <div class="number"><i class="fa fa-check"></i></div>
+        <span class="what"><strong>Hotovo!</strong> Onedlho Vám začnú na zvolený email chodiť všetky správy zo štátnej schránky.</span>
+      </div>
     </div>
   </div>
-  <hr>
-  <div class="text-center">
-    <%= link_to register_step1_services_govbox_index_path, class: 'btn btn-default btn-xlg btn-strong' do %>
-        <strong>Chcem sa zaregistrovať</strong>
+
+  <p class="mt-5 mb-5">
+    <%= link_to register_step1_services_govbox_index_path, class: 'btn btn-primary btn-xl' do %>
+    <strong>Zaregistruj sa</strong>
     <% end %>
-  </div>
+  </p>
 </div>
