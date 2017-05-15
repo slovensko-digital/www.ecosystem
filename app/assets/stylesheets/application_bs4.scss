@@ -78,6 +78,12 @@ h1 .badge {
 
 .btn-primary {
   background-color: #376ee5;
+  border-color: #376ee5;
+}
+
+.btn-success {
+  background-color: #85c73c;
+  border-color: #85c73c;
 }
 
 .btn-xl {
@@ -94,25 +100,11 @@ h1 .badge {
 
 // responsive typography
 
-@media (min-width: 0px) {
-  html {
-    font-size: 12px;
-  }
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 14px;
-  }
-}
-
-@media (min-width: 992px) {
-  html {
-    font-size: 16px;
-  }
-}
-
 @media (max-width: 767px) {
+  .btn-xl {
+    font-size: 1.2rem;
+  }
+
   .footer .pull-right.icons {
     float: none;
     text-align: center;
@@ -121,5 +113,12 @@ h1 .badge {
   table.table-pricing td,
   table.table-pricing th {
     padding: 1rem;
+  }
+
+  .navbar {
+    .navbar-brand,
+    .navbar-nav {
+      line-height: 2.5rem;
+    }
   }
 }

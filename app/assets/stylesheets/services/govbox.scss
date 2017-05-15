@@ -32,7 +32,6 @@ b, strong {
 
 /* custom */
 
-
 table.table-pricing {
   margin: 0;
 
@@ -159,6 +158,7 @@ table.table-pricing {
 #how tr td:first-child {
   padding-left: 2rem;
 }
+
 #how tr td:last-child {
   padding-right: 2rem;
 }
@@ -197,8 +197,6 @@ table.table-pricing {
   padding: 0.2rem;
 }
 
-#pricing {}
-
 #pricing h2 {
   margin: 3rem 0 1rem;
 }
@@ -223,11 +221,9 @@ table.table-pricing {
   margin: 0 auto;
 }
 
-
 #registration {
   text-align: center;
 }
-
 
 #registration .number {
   box-shadow: 0 0 4px #ababab;
@@ -259,7 +255,7 @@ table.table-pricing {
 
 #registration .last {
   box-shadow: 0 0 17px #cccccc;
-  padding: 46px 0 10px;
+  padding: 46px 2rem 10px;
   position: relative;
   top: -46px;
   border: 1px solid #c4c3c9;
@@ -275,7 +271,6 @@ table.table-pricing {
   border-radius: 100px;
   margin-top: -15px;
 }
-
 
 .footer {
   text-align: left;
@@ -294,9 +289,83 @@ table.table-pricing {
   text-decoration: underline;
 }
 
-@media (max-width: 800px) {
-  #registration .last { box-shadow: none; margin-top: 29px; }
-  #registration hr { display: none; }
-  .desktop, .weirdo, .weirdo2 { display: none; }
-  #how .theirs { border-right: 0; }
+@media (min-width: 992px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.govbox {
+  @media (max-width: 767px) {
+    #registration .last {
+      box-shadow: none;
+    }
+
+    #registration hr {
+      display: none;
+    }
+    .desktop, .weirdo, .weirdo2 {
+      display: none;
+    }
+    #how .theirs {
+      border-right: 0;
+    }
+
+    #header .titles {
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      .badge {
+        font-size: 1rem;
+      }
+    }
+
+    #how h2, #pricing h2, #registration h2 {
+      font-size: 1.3rem;
+      small {
+        font-size: 1.1rem;
+      }
+    }
+
+    #registration .what {
+      font-size: 0.9rem;
+    }
+
+    #registration .last {
+      margin-top: 3rem;
+    }
+
+    .lead {
+      font-size: 0.9rem;
+    }
+
+    .lead mark {
+      line-height: 1.5rem;
+    }
+
+    #pricing, #how, .pricing-more {
+      font-size: 0.9rem;
+    }
+
+    #pricing .shadow {
+      padding: 1rem;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .lead {
+      font-size: 1rem;
+    }
+
+    #pricing, #how, #registration, .pricing-more {
+      font-size: 1.1rem;
+    }
+
+    #registration .what {
+      font-size: 0.9rem;
+    }
+  }
 }
