@@ -11,18 +11,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-a {
-  color: #191d29;
-  text-decoration: none;
-  transition: all 0.08s ease-in-out;
-}
-
-a:hover {
-  color: #000;
-  text-decoration: underline;
-  transition: all 0.08s ease-in-out;
-}
-
 hr {
   border: 0;
   border-bottom: 1px solid #cecece;
@@ -48,37 +36,8 @@ b, strong {
 
 /* custom */
 
-.navbar-header {
-  display: inline-block;
-}
-
-.navbar-right {
-  display: inline-block;
-  float: right;
-  font-size: 18px;
-  margin-top: 4px;
-  font-weight: 300;
-  color: black;
-}
-
-.navbar-right span {
-  border-right: 1px solid lightgrey;
-  padding: 22px 44px 22px 0;
-}
-
-.navbar-right a {
-  font-weight: 400;
-  padding: 11px 12px;
-  margin: 8px 10px 0 27px;
-}
-
-
-/* custom */
-
 
 table.table-pricing {
-  margin-bottom: 0;
-  margin-top: 1.5rem;
   margin: 0;
 
   td, th {
@@ -324,23 +283,24 @@ table.table-pricing {
 
 .footer {
   text-align: left;
-  padding: 68px 0 3em;
-  font-size: 18px;
+  padding: 2rem 0 3rem;
+  font-size: 1.1rem;
   background-color: #f9f9f9;
-  color: #777777;
+  color: #777;
 }
 
 .footer a {
   color: inherit;
 }
 
+.footer a:hover {
+  color: #2b56b4;
+  text-decoration: underline;
+}
+
 @media (max-width: 800px) {
   #registration .last { box-shadow: none; margin-top: 29px; }
   #registration hr { display: none; }
   .desktop, .weirdo, .weirdo2 { display: none; }
-  .navbar-right {  float: none; }
-  .navbar-right, .navbar-right span { display: block; }
-  .navbar-right span { border: 0; }
-  .navbar-right a { padding: 0; margin: 0; }
   #how .theirs { border-right: 0; }
 }

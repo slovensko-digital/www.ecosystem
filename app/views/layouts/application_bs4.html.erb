@@ -60,17 +60,17 @@
   </script>
 <% end %>
 
-<nav class="navbar">
+
+<nav class="navbar navbar-toggleable-md">
   <div class="container">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/"><%= image_tag 'ekosystem.svg', width: '270' %></a>
-    </div>
-    <div class="navbar-right hidden-md-down">
-      <span>Služby. Otvorené API. Otvorené dáta.</span>
-      <a href="https://platforma.slovensko.digital" target="_blank">Platforma <%= image_tag 'platforma-arrow.svg', size: '26x26' %></a>
-    </div>
+    <a class="navbar-brand mr-auto" href="/"><%= image_tag 'ekosystem.svg', width: '270' %></a>
+    <ul class="navbar-nav hidden-md-down">
+      <li class="nav-item">Služby. Otvorené API. Otvorené dáta.</li>
+      <li class="nav-item"><a href="https://platforma.slovensko.digital" target="_blank">Platforma <%= image_tag 'platforma-arrow.svg', size: '26x26' %></a></li>
+    </ul>
   </div>
 </nav>
+
 <!-- eco app -->
 <%= yield %>
 

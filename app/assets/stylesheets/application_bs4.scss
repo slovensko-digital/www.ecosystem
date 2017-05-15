@@ -1,11 +1,34 @@
 @import "services/govbox";
 @import "autoform";
 @import "tooltip";
+@import "bs4/forms";
 
 // navbar
 .navbar {
-  .navbar-right a {
-    color: #333;
+  padding: 0;
+
+  .navbar-brand,
+  .navbar-nav {
+    padding: 0;
+    line-height: 3.5rem;
+
+    .nav-item {
+      font-size: 1.15rem;
+    }
+
+    .nav-item:first-child {
+      padding-right: 2rem;
+    }
+
+    .nav-item:last-child {
+      border-left: 1px solid lightgrey;
+      padding-left: 2rem;
+    }
+
+    a {
+      color: #333;
+      font-weight: normal;
+    }
   }
 
   border-bottom: 1px solid lightgray;
@@ -29,6 +52,12 @@
   background-color: #cb3235;
 }
 
+
+// buttons
+button {
+  cursor: hand;
+  cursor: pointer;
+}
 
 // fonts
 h1 .badge {
