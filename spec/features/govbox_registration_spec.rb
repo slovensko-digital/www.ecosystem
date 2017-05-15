@@ -35,7 +35,7 @@ RSpec.feature 'Govbox registration', type: :feature do
 
     fill_in 'Zvoľte si heslo', with: 'nejakeheslo'
     fill_in 'Heslo (znova)', with: 'nejakeheslo'
-    click_on 'Mám záujem o GovBox'
+    click_on 'Dokončiť registráciu'
 
     expect(a_request(:post, ENV.fetch('GOVBOX_FORM_ENDPOINT')).with(
       body: {'cin' => '50 158 635', 'email' => 'jan.hargas@slovensko.digital', 'first_name' => 'Ján',
