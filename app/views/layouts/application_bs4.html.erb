@@ -24,10 +24,7 @@
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="Ekosystém.Slovensko.Digital"/>
   <meta property="og:url" content="<%= @page.url %>"/>
-  <meta property="og:title" content="
-    <% if @page.og.title %><%= @page.og.title %>
-    <% else %><%= @page.title %>
-    <% end %>"/>
+  <meta property="og:title" content="<% if @page.og.title %><%= @page.og.title %><% else %><%= @page.title %><% end %>"/>
   <% if @page.og.description %>
     <meta property="og:description" content="<%= @page.og.description %>"/>
   <% end %>
