@@ -1,43 +1,34 @@
 <div class="container">
   <%= form_tag register_step5_services_govbox_index_path do %>
-      <%= hidden_field_tag :legal_subject_name, params[:legal_subject_name] %>
-      <%= hidden_field_tag :cin, params[:cin] %>
-      <%= hidden_field_tag :formatted_address, params[:formatted_address] %>
-      <%= hidden_field_tag :first_name, params[:first_name] %>
-      <%= hidden_field_tag :surname, params[:surname] %>
-      <%= hidden_field_tag :pin, params[:pin] %>
-      <%= hidden_field_tag :person_formatted_address, params[:person_formatted_address] %>
-      <%= hidden_field_tag :email, params[:email] %>
-      <%= hidden_field_tag :phone, params[:phone] %>
-      <%= hidden_field_tag :postal_address, params[:postal_address] %>
-      <%= hidden_field_tag :snailmail, params[:snailmail] %>
+    <%= render 'hidden_fields_from_step3' %>
 
-      <div class="row">
-        <div class="col-md-6">
-          <h1 class="form-title">Zabezpečenie konta</h1>
-          <p class="lead form-subtitle"></p>
-          <div class="row">
-            <div class="col-md-7 form-group">
-              <%= label_tag :password, 'Zvoľte si heslo' %>
-              <%= password_field_tag :password, nil, class: 'form-control input-lg', required: true, pattern: '.{12,}', title: 'Heslo musí mať aspoň 12 znakov.', data: {'password-confirm': :password_confirmation} %>
-              <span class="form-text text-muted">Pre otváranie správ do vlastných rúk.</span>
-            </div>
+    <div class="row">
+      <div class="col-md-6">
+        <h1 class="form-title">Zabezpečenie konta</h1>
+        <p class="lead form-subtitle"></p>
+        <div class="row">
+          <div class="col-md-7 form-group">
+            <%= label_tag :password, 'Zvoľte si heslo' %>
+            <%= password_field_tag :password, params[:password], class: 'form-control input-lg', required: true, pattern: '.{12,}', title: 'Heslo musí mať aspoň 12 znakov.', data: {'password-confirm': :password_confirmation} %>
+            <span class="form-text text-muted">Pre otváranie správ do vlastných rúk.</span>
           </div>
-          <div class="row">
-            <div class="col-md-7 form-group">
-              <%= label_tag :password_confirmation do %>
-                  Heslo <span class="text-muted">(znova)</span>
-              <% end %>
-              <%= password_field_tag :password_confirmation, nil, class: 'form-control input-lg', required: true %>
-            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-7 form-group">
+            <%= label_tag :password_confirmation do %>
+              Heslo <span class="text-muted">(znova)</span>
+            <% end %>
+            <%= password_field_tag :password_confirmation, params[:password_confirmation], class: 'form-control input-lg', required: true %>
           </div>
-          </fieldset>
         </div>
       </div>
-      <div class="form-navigation">
-        <%= button_tag class: 'btn btn-primary btn-lg' do %>
-            <strong>Dokončiť registráciu</strong>
-        <% end %>
-      </div>
+    </div>
+
+
+    <div class="form-navigation">
+      <%= button_tag class: 'btn btn-primary btn-lg' do %>
+        <strong>Dokončiť registráciu</strong>
+      <% end %>
+    </div>
   <% end %>
 </div>
