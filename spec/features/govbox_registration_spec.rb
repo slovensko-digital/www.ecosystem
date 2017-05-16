@@ -48,7 +48,7 @@ RSpec.feature 'Govbox registration', type: :feature do
     expect(page).to have_content('Registrácia úspešná!')
   end
 
-  scenario 'User cannot finnish registers for govbox' do
+  scenario 'User cannot finish registers for govbox' do
     visit '/sluzby/govbox'
     click_on 'Mám záujem o GovBox'
 

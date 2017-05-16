@@ -5,10 +5,11 @@
 
 <div class="container">
   <%= form_tag register_step2_services_govbox_index_path, data: {'slovensko-digital-autoform': ENV.fetch('AUTOFORM_ACCESS_TOKEN')} do %>
-    <h1 class="form-title">Registrácia k službe GovBox</h1>
-    <p class="form-subtitle lead">Zadajte údaje právnickej osoby, pre ktorú máte záujem zriadiť službu.</p>
     <div class="row">
       <div class="col-lg-8">
+        <h1 class="form-title">Registrácia k službe GovBox</h1>
+        <p class="form-subtitle lead">Zadajte údaje právnickej osoby, pre ktorú máte záujem zriadiť službu.</p>
+
         <div class="row">
           <div class="col-md-8 form-group">
             <%= label_tag :legal_subject_name, 'Názov právnickej osoby' %>
