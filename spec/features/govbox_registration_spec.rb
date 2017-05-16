@@ -88,7 +88,7 @@ RSpec.feature 'Govbox registration', type: :feature do
         'pin' => '821101/1234', 'postal_address' => 'Púpavová 31, 841 01 Bratislava', 'snail_mail' => '1',
       }).to_return(status: 201)
 
-    click_on 'Skús dokončiť registráciu'
+    click_on 'Skúsiť dokončiť registráciu znova'
 
     expect(page).to have_content('Registrácia úspešná!')
   end
