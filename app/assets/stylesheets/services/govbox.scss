@@ -1,7 +1,3 @@
-// Place all the styles related to the services/govbox controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 /* generals */
 
 body {
@@ -9,18 +5,6 @@ body {
 
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
-}
-
-a {
-  color: #191d29;
-  text-decoration: none;
-  transition: all 0.08s ease-in-out;
-}
-
-a:hover {
-  color: #000;
-  text-decoration: underline;
-  transition: all 0.08s ease-in-out;
 }
 
 hr {
@@ -48,37 +32,7 @@ b, strong {
 
 /* custom */
 
-.navbar-header {
-  display: inline-block;
-}
-
-.navbar-right {
-  display: inline-block;
-  float: right;
-  font-size: 18px;
-  margin-top: 4px;
-  font-weight: 300;
-  color: black;
-}
-
-.navbar-right span {
-  border-right: 1px solid lightgrey;
-  padding: 22px 44px 22px 0;
-}
-
-.navbar-right a {
-  font-weight: 400;
-  padding: 11px 12px;
-  margin: 8px 10px 0 27px;
-}
-
-
-/* custom */
-
-
 table.table-pricing {
-  margin-bottom: 0;
-  margin-top: 1.5rem;
   margin: 0;
 
   td, th {
@@ -117,7 +71,7 @@ table.table-pricing {
 }
 
 #header .flight {
-  background-image: url(services/govbox/flight.png);
+  background-image: url(image-path('services/govbox/flight.png'));
   background-size: auto 3rem;
   background-repeat: no-repeat;
   background-position: 17rem 6rem;
@@ -204,6 +158,7 @@ table.table-pricing {
 #how tr td:first-child {
   padding-left: 2rem;
 }
+
 #how tr td:last-child {
   padding-right: 2rem;
 }
@@ -212,11 +167,7 @@ table.table-pricing {
   border-right: 1px solid #adadad;
 }
 
-#how .theirs .fa {
-  color: #cb3133;
-}
-
-#how .ours .fa {
+#how .ours .fa-thumbs-o-up {
   color: #366ce6;
 }
 
@@ -246,8 +197,6 @@ table.table-pricing {
   padding: 0.2rem;
 }
 
-#pricing {}
-
 #pricing h2 {
   margin: 3rem 0 1rem;
 }
@@ -272,11 +221,9 @@ table.table-pricing {
   margin: 0 auto;
 }
 
-
 #registration {
   text-align: center;
 }
-
 
 #registration .number {
   box-shadow: 0 0 4px #ababab;
@@ -308,7 +255,7 @@ table.table-pricing {
 
 #registration .last {
   box-shadow: 0 0 17px #cccccc;
-  padding: 46px 0 10px;
+  padding: 46px 2rem 10px;
   position: relative;
   top: -46px;
   border: 1px solid #c4c3c9;
@@ -325,26 +272,100 @@ table.table-pricing {
   margin-top: -15px;
 }
 
-
 .footer {
   text-align: left;
-  padding: 68px 0 3em;
-  font-size: 18px;
+  padding: 2rem 0 3rem;
+  font-size: 1.1rem;
   background-color: #f9f9f9;
-  color: #777777;
+  color: #777;
 }
 
 .footer a {
   color: inherit;
 }
 
-@media (max-width: 800px) {
-  #registration .last { box-shadow: none; margin-top: 29px; }
-  #registration hr { display: none; }
-  .desktop, .weirdo, .weirdo2 { display: none; }
-  .navbar-right {  float: none; }
-  .navbar-right, .navbar-right span { display: block; }
-  .navbar-right span { border: 0; }
-  .navbar-right a { padding: 0; margin: 0; }
-  #how .theirs { border-right: 0; }
+.footer a:hover {
+  color: #2b56b4;
+  text-decoration: underline;
+}
+
+@media (min-width: 992px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.govbox {
+  @media (max-width: 767px) {
+    #registration .last {
+      box-shadow: none;
+    }
+
+    #registration hr {
+      display: none;
+    }
+    .desktop, .weirdo, .weirdo2 {
+      display: none;
+    }
+    #how .theirs {
+      border-right: 0;
+    }
+
+    #header .titles {
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      .badge {
+        font-size: 1rem;
+      }
+    }
+
+    #how h2, #pricing h2, #registration h2 {
+      font-size: 1.3rem;
+      small {
+        font-size: 1.1rem;
+      }
+    }
+
+    #registration .what {
+      font-size: 0.9rem;
+    }
+
+    #registration .last {
+      margin-top: 3rem;
+    }
+
+    .lead {
+      font-size: 0.9rem;
+    }
+
+    .lead mark {
+      line-height: 1.5rem;
+    }
+
+    #pricing, #how, .pricing-more {
+      font-size: 0.9rem;
+    }
+
+    #pricing .shadow {
+      padding: 1rem;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .lead {
+      font-size: 1rem;
+    }
+
+    #pricing, #how, #registration, .pricing-more {
+      font-size: 1.1rem;
+    }
+
+    #registration .what {
+      font-size: 0.9rem;
+    }
+  }
 }

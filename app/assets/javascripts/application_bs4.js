@@ -16,7 +16,13 @@
 //= require bootstrap.min
 //= require password_confirmation_validator
 
-$(document).on("ready page:change", function() {
-    $('[data-toggle="tooltip"]').tooltip({container: 'body'});
+$(document).on("ready page:change", function () {
+    $('[data-toggle="tooltip"]').each(function () {
+        var klass = $(this).data('toggle-class');
+        $(this).tooltip({
+            container: 'body',
+            template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner '+ klass + '"></div></div>'
+        });
+    });
 });
 
