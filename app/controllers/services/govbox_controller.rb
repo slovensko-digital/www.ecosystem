@@ -23,9 +23,16 @@ class Services::GovboxController < ContentController
   def register_step4; end
 
   def register_step5
-    RestClient.post(ENV.fetch('GOVBOX_FORM_ENDPOINT'), params.permit(PARAMS).to_h)
-    redirect_to register_thanks_services_govbox_index_path
+    begin
+      RestClient.post(ENV.fetch('GOVBOX_FORM_ENDPOINT'), params.permit(PARAMS).to_h)
+      redirect_to register_thanks_services_govbox_index_path
+    rescue RestClient::ExceptionWithResponse => e
+      Rollbar.error(e)
+      render :register_error
+    end
   end
 
   def register_thanks; end
+
+  def register_error; end
 end

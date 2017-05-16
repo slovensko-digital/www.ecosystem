@@ -3,41 +3,41 @@
 
 <%= javascript_include_tag ENV.fetch('AUTOFORM_JAVASCRIPT_URL') %>
 
-
 <div class="container">
   <%= form_tag register_step2_services_govbox_index_path, data: {'slovensko-digital-autoform': ENV.fetch('AUTOFORM_ACCESS_TOKEN')} do %>
-      <h1 class="form-title">Registrácia k službe GovBox</h1>
-      <p class="form-subtitle lead">Zadajte údaje právnickej osoby, pre ktorú máte záujem zriadiť službu.</p>
-      <div class="row">
-        <div class="col-lg-8">
-          <div class="row">
-            <div class="col-md-8 form-group">
-              <%= label_tag :legal_subject_name, 'Názov právnickej osoby' %>
-              <%= text_field_tag :legal_subject_name, nil, class: 'form-control input-lg', required: true, autocomplete: 'off', data: {'slovensko-digital-autoform': 'name'} %>
-              <span class="form-text text-muted">Napríklad: Slovensko.Digital, Martinus</span>
-            </div>
-            <div class="col-md-4 form-group">
-              <%= label_tag :cin, 'IČO' %>
-              <%= text_field_tag :cin, nil, class: 'form-control input-lg', required: true, data: {'slovensko-digital-autoform': 'cin'} %>
-              <span class="form-text text-muted">Napríklad: 36421928</span>
-            </div>
+    <h1 class="form-title">Registrácia k službe GovBox</h1>
+    <p class="form-subtitle lead">Zadajte údaje právnickej osoby, pre ktorú máte záujem zriadiť službu.</p>
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="row">
+          <div class="col-md-8 form-group">
+            <%= label_tag :legal_subject_name, 'Názov právnickej osoby' %>
+            <%= text_field_tag :legal_subject_name, params[:legal_subject_name], class: 'form-control input-lg', required: true, autocomplete: 'off', data: {'slovensko-digital-autoform': 'name'} %>
+            <span class="form-text text-muted">Napríklad: Slovensko.Digital, Martinus</span>
           </div>
+          <div class="col-md-4 form-group">
+            <%= label_tag :cin, 'IČO' %>
+            <%= text_field_tag :cin, params[:cin], class: 'form-control input-lg', required: true, data: {'slovensko-digital-autoform': 'cin'} %>
+            <span class="form-text text-muted">Napríklad: 36421928</span>
+          </div>
+        </div>
 
-          <div class="row">
-            <div class="col-md-12 form-group">
-              <%= label_tag :formatted_address, 'Adresa' %>
-              <%= text_field_tag :formatted_address, nil, class: 'form-control input-lg', required: true, data: {'slovensko-digital-autoform': 'formatted-address'} %>
-              <span class="form-text text-muted">Napríklad: Staré Grunty 12, 841 04 Bratislava</span>
-            </div>
+        <div class="row">
+          <div class="col-md-12 form-group">
+            <%= label_tag :formatted_address, 'Adresa' %>
+            <%= text_field_tag :formatted_address, params[:formatted_address], class: 'form-control input-lg', required: true, data: {'slovensko-digital-autoform': 'formatted-address'} %>
+            <span class="form-text text-muted">Napríklad: Staré Grunty 12, 841 04 Bratislava</span>
           </div>
         </div>
       </div>
-      <div class="row form-navigation">
-        <div class="col-md-4 form-group">
-          <%= button_tag class: 'btn btn-primary btn-lg' do %>
-              <strong>Ďalej</strong>
-          <% end %>
-        </div>
+    </div>
+
+    <div class="row form-navigation">
+      <div class="col-md-4 form-group">
+        <%= button_tag class: 'btn btn-primary btn-lg' do %>
+          <strong>Ďalej</strong>
+        <% end %>
       </div>
+    </div>
   <% end %>
 </div>
