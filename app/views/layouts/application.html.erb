@@ -2,6 +2,13 @@
 <html>
 <head>
   <title><%= @page.title %></title>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-59ZNJC5');</script>
+  <!-- End Google Tag Manager -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -30,33 +37,25 @@
   <% end %>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-59ZNJC5"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <script>
-  (function (i, s, o, g, r, a, m) {
-    i['GoogleAnalyticsObject'] = r;
-    i[r] = i[r] || function () {
-          (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-    a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
-    a.async = 1;
-    a.src = g;
-    m.parentNode.insertBefore(a, m)
-  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-  ga('create', '<%= ENV.fetch('GA_TRACKING_ID') %>', 'auto');
-  ga('send', 'pageview');
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', '<%= ENV.fetch('GA_TRACKING_ID') %>', 'auto');
+    ga('send', 'pageview');
 </script>
-<% if Rails.env.production? %>
-  <script>!function(i,t){function e(e){return function(){var n=arguments;if("initialize"==e&&n&&n[0].modify&&n[0].modify.overlay&&"loading"==t.readyState){var a="__inf__overlay__";t.write('<div id="'+a+'" style="position:absolute;background:#fff;left:0;top:0;width:100%;height:100%;z-index:1000000"></div>'),setTimeout(function(){var e=t.getElementById(a);e&&t.body.removeChild(e),i.exponea.__=!0},n[0].modify.delay||500)}this._.push([e,arguments])}}if(!i.exponea){var n,a,o="initialize identify update track trackLink trackEnhancedEcommerce getHtml showHtml showBanner showForm ping getAbTest getRecommendation".split(" "),r=t.createElement("script"),d="https:"===t.location.protocol?"https:":"http:";for(i.exponea={_:[]},a=0;a<o.length;a++)n=o[a],i.exponea[n]=e(n);r.type="text/javascript",r.async=!0,r.src=d+"//api.exponea.com/js/exponea.min.js",t.getElementsByTagName("head")[0].appendChild(r)}}(window,document);</script>
-  <script type="text/javascript">
-    exponea.initialize({
-      "token": "d460e54c-68b6-11e6-8cef-141877340e97",
-      "track": {
-        "visits": true
-      }
-      //, customer: window.loggedInCustomer // replace window.loggedInCustomer with id of your web site customer, e.g. "john.smith@gmail.com"
-    });
-  </script>
-<% end %>
 
 <nav class="navbar" role="navigation">
   <div class="container">
