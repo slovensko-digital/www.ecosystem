@@ -22,10 +22,4 @@ class HealthController < ApplicationController
 
     render html: 'ok'
   end
-
-  private
-
-  def all_schemas
-    ActiveRecord::Base.connection.execute('SELECT schema_name FROM information_schema.schemata').map{ |row| row.fetch('schema_name') }
-  end
 end
