@@ -11,13 +11,13 @@ class Services::GovboxController < ContentController
   def index
     @page.title = 'Jednoduchý prístup k štátnej elektronickej schránke &middot; GovBox'.html_safe
     @page.og.image = view_context.image_url('services/govbox/facebook_share.png')
-    @page.og.description = 'Jednoduchý prístup k štátnej elektronickej schránke priamo cez Váš email a bez elektronického občianskeho preukazu. Od Slovensko.Digital.'
+    @page.og.description = 'Preposielanie správ zo štátnej elektronickej schránky priamo na Váš email. Bez elektronického občianskeho preukazu, bez prihlasovania. Od Slovensko.Digital.'
   end
 
   def register_step1
     @page.title = 'Jednoduchý prístup k štátnej elektronickej schránke &middot; GovBox'.html_safe
     @page.og.image = view_context.image_url('services/govbox/facebook_share.png')
-    @page.og.description = 'Jednoduchý prístup k štátnej elektronickej schránke priamo cez Váš email a bez elektronického občianskeho preukazu. Od Slovensko.Digital.'
+    @page.og.description = 'Preposielanie správ zo štátnej elektronickej schránky priamo na Váš email. Bez elektronického občianskeho preukazu, bez prihlasovania. Od Slovensko.Digital.'
   end
 
   def register_step2; end
