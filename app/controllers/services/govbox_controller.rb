@@ -1,7 +1,7 @@
 class Services::GovboxController < ContentController
   layout 'application_bs4'
 
-  before_action :ensure_live, only: [:index, :register_step1]
+  before_action :ensure_live, only: [:index, :register_step1, :faq]
 
   PARAMS = [
     :legal_subject_name, :cin, :formatted_address,
@@ -14,6 +14,11 @@ class Services::GovboxController < ContentController
     @page.title = 'Jednoduchý prístup k štátnej elektronickej schránke &middot; GovBox'.html_safe
     @page.og.image = view_context.image_url('services/govbox/facebook_share.png')
     @page.og.description = 'Preposielanie správ zo štátnej elektronickej schránky priamo na Váš email. Bez elektronického občianskeho preukazu, bez prihlasovania. Od Slovensko.Digital.'
+  end
+
+  def faq
+    @page.title = 'Často kladené otázky &middot; GovBox'.html_safe
+    @page.og.image = view_context.image_url('services/govbox/facebook_share.png')
   end
 
   def register_step1
@@ -46,6 +51,7 @@ class Services::GovboxController < ContentController
 
   def register_error
   end
+
 
   private
 
