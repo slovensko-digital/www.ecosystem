@@ -49,7 +49,6 @@ class Services::GovboxController < ContentController
 
   private
 
-
   def ensure_live
     unless rollout.active?(:govbox)
       render template: 'errors/not_found', status: 404, layout: 'application'
