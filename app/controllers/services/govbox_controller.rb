@@ -1,6 +1,8 @@
 class Services::GovboxController < ContentController
   layout 'application_bs4'
 
+  before_action :ensure_live, only: [:index, :register_step1]
+
   PARAMS = [
     :legal_subject_name, :cin, :formatted_address,
     :given_name, :family_name, :pin, :person_formatted_address,
@@ -20,11 +22,14 @@ class Services::GovboxController < ContentController
     @page.og.description = 'Preposielanie správ zo štátnej elektronickej schránky priamo na Váš email. Bez elektronického občianskeho preukazu, bez prihlasovania. Od Slovensko.Digital.'
   end
 
-  def register_step2; end
+  def register_step2
+  end
 
-  def register_step3; end
+  def register_step3
+  end
 
-  def register_step4; end
+  def register_step4
+  end
 
   def register_step5
     begin
@@ -36,7 +41,17 @@ class Services::GovboxController < ContentController
     end
   end
 
-  def register_thanks; end
+  def register_thanks
+  end
 
-  def register_error; end
+  def register_error
+  end
+
+  private
+
+  def ensure_live
+    unless rollout.active?(:govbox)
+      render template: 'errors/not_found', status: 404, layout: 'application'
+    end
+  end
 end
