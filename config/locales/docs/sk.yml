@@ -1503,6 +1503,65 @@ sk:
               description: Mesto
             <<: *timestamp_columns
 
+    ra:
+      tables:
+        region_changes:
+          description: Register krajov – zmenové dáta
+        county_changes:
+          description: Register okresov – zmenové dáta
+        municipality_changes:
+          description: Register obcí – zmenové dáta
+        district_changes:
+          description: Register častí obcí – zmenové dáta
+        street_name_changes:
+          description: Register ulíc – zmenové dáta
+        property_registration_number_changes:
+          description: Register budov (súpisných čísiel) – zmenové dáta
+        building_number_changes:
+          description: Register vchodov (orientačných čísiel) – zmenové dáta
+        building_unit_changes:
+          description: Register bytov – zmenové dáta
+
+        regions:
+          description: Register krajov – identifikátory
+        counties:
+          description: Register okresov – identifikátory
+        municipalities:
+          description: Register obcí – identifikátory
+        districts:
+          description: Register častí obcí – identifikátory
+        street_names:
+          description: Register ulíc – identifikátory
+        property_registration_numbers:
+          description: Register budov (súpisných čísiel) – identifikátory
+        building_numbers:
+          description: Register vchodov (orientačných čísiel) – identifikátory
+        building_units:
+          description: Register bytov – identifikátory
+
+        changes:
+          description: Identifikátory zmenových dát
+        changes_batches:
+          description: Identifikátory zmenových dávok
+
+        building_purpose_codes:
+          description: Číselník Účel budovy CL010142
+        building_type_codes:
+          description: Číselník Druhov stavieb (budov) CL010143
+        district_codes:
+          description: Číselník Častí obcí CL010141
+        municipality_codes:
+          description: Číselník Obcí CL000025
+        county_codes:
+          description: Číselník Okresov CL000024
+        region_codes:
+          description: Číselník Krajov CL000023
+
+        street_name_changes_districts:
+          description: Register ulíc – zmenové dáta – identifikátory častí obce, cez ktoré ulica prechádza
+        street_name_changes_municipalities:
+          description: Register ulíc – zmenové dáta –  identifikátory mestských častí, cez ktoré ulica prechádza
+
     datahub:
       tables:
         corporate_bodies:

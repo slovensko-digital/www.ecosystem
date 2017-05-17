@@ -97,6 +97,12 @@
       <%= render partial: 'tables', object: tables %>
       <%= render partial: 'table', collection: tables %>
 
+      <h3 id="ra">Register adries <span class="label label-danger">ALFA</span></h3>
+      <p>Zmenové dáta Registra adries</p>
+      <% tables = PgCatalog::PgTable.find_by_schema(:ra) %>
+      <%= render partial: 'tables', object: tables %>
+      <%= render partial: 'table', collection: tables %>
+
     </div>
   </div>
 <% end %>
