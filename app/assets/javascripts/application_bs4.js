@@ -25,7 +25,7 @@ $(document).on("ready page:change", function () {
     });
   });
 
-  if ($('#ga_user_id').length > 0) {
+  if ($('#ga_user_id').length > 0 && (typeof ga === 'function')) {
     ga(function(tracker) {
       var clientId = tracker.get('clientId');
       $('#ga_user_id').val(clientId);
