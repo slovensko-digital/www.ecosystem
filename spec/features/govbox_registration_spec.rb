@@ -9,6 +9,7 @@ RSpec.feature 'Govbox registration', type: :feature do
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '0903 919 123',
         'pin' => '821101/1234', 'postal_address' => 'Púpavová 31, 841 01 Bratislava', 'snail_mail' => '1',
+        'ga_user_id' => '',
       }).to_return(status: 201)
 
     visit '/sluzby/govbox'
@@ -43,6 +44,7 @@ RSpec.feature 'Govbox registration', type: :feature do
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '0903 919 123',
         'pin' => '821101/1234', 'postal_address' => 'Púpavová 31, 841 01 Bratislava', 'snail_mail' => '1',
+        'ga_user_id' => '',
       })).to have_been_made
 
     expect(page).to have_content('Registrácia úspešná!')
@@ -86,6 +88,7 @@ RSpec.feature 'Govbox registration', type: :feature do
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '0903 919 123',
         'pin' => '821101/1234', 'postal_address' => 'Púpavová 31, 841 01 Bratislava', 'snail_mail' => '1',
+        'ga_user_id' => '',
       }).to_return(status: 201)
 
     click_on 'Skúsiť dokončiť registráciu znova'

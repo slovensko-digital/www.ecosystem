@@ -17,12 +17,19 @@
 //= require password_confirmation_validator
 
 $(document).on("ready page:change", function () {
-    $('[data-toggle="tooltip"]').each(function () {
-        var klass = $(this).data('toggle-class');
-        $(this).tooltip({
-            container: 'body',
-            template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner '+ klass + '"></div></div>'
-        });
+  $('[data-toggle="tooltip"]').each(function () {
+    var klass = $(this).data('toggle-class');
+    $(this).tooltip({
+      container: 'body',
+      template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner '+ klass + '"></div></div>'
     });
+  });
+
+  if ($('#ga_user_id').length > 0) {
+    ga(function(tracker) {
+      var clientId = tracker.get('clientId');
+      $('#ga_user_id').val(clientId);
+    });
+  }
 });
 
