@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def rollout
     r = Rollout.new
-    r.add_feature(:govbox, Time.new(2017, 5, 17, 10, 0, 0))
+    r.add_feature(:govbox, Time.new(2017, 5, 18, 10, 0, 0))
     r.activate!(params[:rollout].to_sym) if params[:rollout]
     r
   end
