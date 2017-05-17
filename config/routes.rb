@@ -22,6 +22,13 @@ Rails.application.routes.draw do
 
   get 'podmienky', to: 'static#terms', as: :terms
 
+  namespace :health do
+    get :all_env_set
+    get :services
+
+    get '/' => :services
+  end
+
   root to: 'homepage#index'
 
   get '404', to: 'errors#not_found'
