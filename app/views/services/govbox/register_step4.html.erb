@@ -9,7 +9,7 @@
         <p class="lead form-subtitle"></p>
         <div class="row">
           <div class="col-md-7 form-group">
-            <%= label_tag :password, 'Zvoľte si heslo' %>
+            <%= label_tag :password, 'Zvoľte si heslo' %> <span class="text-muted">(aspoň 12 znakov)</span>
             <%= password_field_tag :password, params[:password], class: 'form-control input-lg', required: true, pattern: '.{12,}', title: 'Heslo musí mať aspoň 12 znakov.', data: {'password-confirm': :password_confirmation} %>
             <span class="form-text text-muted">Pre otváranie správ do vlastných rúk.</span>
           </div>
