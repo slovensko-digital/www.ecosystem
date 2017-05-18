@@ -1528,7 +1528,6 @@ sk:
           description: Dátum účinnosti
         <<: *timestamp_columns
 
-
       tables:
         region_changes:
           description: Register krajov – zmenové dáta
@@ -1546,7 +1545,7 @@ sk:
             county_code_id:
               description: Identifikátor záznamu v číselníku Okresov CL000024
             region_id:
-              description:  Identifikátor nadradeného kraja
+              description: Identifikátor nadradeného kraja
             <<: *change_columns
         municipality_changes:
           description: Register obcí – zmenové dáta
@@ -1560,7 +1559,7 @@ sk:
             municipality_status:
               description: Štatút obce
             city_id:
-              description:  Identifikátor nadradeného mesta pre mestskú časť
+              description: Identifikátor nadradeného mesta pre mestskú časť
               note_html: Položka je vyplnená ak je <code>municipality_status</code> == <code>MESTSKA_CAST</code>
             <<: *change_columns
         district_changes:
@@ -1574,7 +1573,7 @@ sk:
             district_code_id:
               description: Identifikátor záznamu v číselníku Častí obcí CL010141
             municipality_id:
-              description:  Identifikátor nadradenej obce
+              description: Identifikátor nadradenej obce
             <<: *change_columns
         street_name_changes:
           description: Register ulíc – zmenové dáta
@@ -1599,9 +1598,9 @@ sk:
             building_type_code_id:
               description: Identifikátor záznamu v číselníku Druhov stavieb (budov) CL010143
             municipality_id:
-              description:  Identifikátor nadradenej obce
+              description: Identifikátor nadradenej obce
             district_id:
-              description:  Identifikátor nadradenej časti obce
+              description: Identifikátor nadradenej časti obce
             <<: *change_columns
         building_number_changes:
           description: Register vchodov (orientačných čísiel) – zmenové dáta
@@ -1641,8 +1640,19 @@ sk:
 
         street_name_changes_districts:
           description: Register ulíc – zmenové dáta – identifikátory častí obce, cez ktoré ulica prechádza
+          columns:
+            street_name_change_id:
+              description: Identifikátor záznamu zmeny ulice
+            district_id:
+              description: Identifikátor časti obce
+
         street_name_changes_municipalities:
           description: Register ulíc – zmenové dáta –  identifikátory mestských častí, cez ktoré ulica prechádza
+          columns:
+            street_name_change_id:
+              description: Identifikátor záznamu zmeny ulice
+            municipality_id:
+              description: Identifikátor obce
 
         regions:
           description: Register krajov – identifikátory
