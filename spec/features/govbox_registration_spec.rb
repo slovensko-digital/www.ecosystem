@@ -8,7 +8,7 @@ RSpec.feature 'Govbox registration', type: :feature do
         'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital',
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '0903 919 123',
-        'pin' => '821101/1234', 'postal_address' => 'Púpavová 31, 841 01 Bratislava', 'snail_mail' => '1',
+        'postal_address' => 'Púpavová 31, 841 01 Bratislava', 'snail_mail' => '1',
         'ga_user_id' => '',
       }).to_return(status: 201)
 
@@ -24,7 +24,6 @@ RSpec.feature 'Govbox registration', type: :feature do
 
     fill_in 'Meno', with: 'Ján'
     fill_in 'Priezvisko', with: 'Hargaš'
-    fill_in 'Rodné číslo', with: '821101/1234'
     fill_in 'Trvalé bydlisko', with: 'Koprivnická 9/B, 841 04 Bratislava'
     click_on 'Ďalej'
 
@@ -45,7 +44,7 @@ RSpec.feature 'Govbox registration', type: :feature do
         'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital',
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '0903 919 123',
-        'pin' => '821101/1234', 'postal_address' => 'Púpavová 31, 841 01 Bratislava', 'snail_mail' => '1',
+        'postal_address' => 'Púpavová 31, 841 01 Bratislava', 'snail_mail' => '1',
         'ga_user_id' => '',
       })).to have_been_made
 
@@ -65,7 +64,6 @@ RSpec.feature 'Govbox registration', type: :feature do
 
     fill_in 'Meno', with: 'Ján'
     fill_in 'Priezvisko', with: 'Hargaš'
-    fill_in 'Rodné číslo', with: '821101/1234'
     fill_in 'Trvalé bydlisko', with: 'Koprivnická 9/B, 841 04 Bratislava'
     click_on 'Ďalej'
 
@@ -91,7 +89,7 @@ RSpec.feature 'Govbox registration', type: :feature do
         'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital',
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '0903 919 123',
-        'pin' => '821101/1234', 'postal_address' => 'Púpavová 31, 841 01 Bratislava', 'snail_mail' => '1',
+        'postal_address' => 'Púpavová 31, 841 01 Bratislava', 'snail_mail' => '1',
         'ga_user_id' => '',
       }).to_return(status: 201)
 

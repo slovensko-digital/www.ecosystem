@@ -8,21 +8,13 @@
         <p class="form-subtitle lead">Zadajte údaje štatutára (napríklad konateľa s.r.o.), ktorý podpíše splnomocnenie na prístup k schránke.</p>
 
         <div class="row">
-          <div class="col-md-3 form-group">
+          <div class="col-md-4 form-group">
             <%= label_tag :given_name, 'Meno' %>
             <%= text_field_tag :given_name, params[:given_name], class: 'form-control input-lg', required: true %>
           </div>
-          <div class="col-md-4 form-group">
+          <div class="col-md-8 form-group">
             <%= label_tag :family_name, 'Priezvisko' %>
             <%= text_field_tag :family_name, params[:family_name], class: 'form-control input-lg', required: true %>
-          </div>
-          <div class="col-md-5 form-group">
-            <%= label_tag :pin do %>
-              Rodné číslo <span class="text-muted">(nepovinné)</span>
-              <i class="fa fa-question-circle" data-toggle="tooltip" title="Rodné číslo potrebujeme kvôli zmluve. Ak nám ho nechcete posielať môžete ho do zmluvy vpísať ručne."></i>
-            <% end %>
-            <%= text_field_tag :pin, params[:pin], class: 'form-control input-lg' %>
-            <span class="form-text text-muted">Napríklad: 821101/1234</span>
           </div>
         </div>
 
