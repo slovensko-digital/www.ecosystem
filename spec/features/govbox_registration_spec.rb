@@ -13,7 +13,9 @@ RSpec.feature 'Govbox registration', type: :feature do
       }).to_return(status: 201)
 
     visit '/sluzby/govbox'
-    click_on 'Mám záujem o GovBox'
+    within('#registration') do
+      click_on 'Mám záujem o GovBox'
+    end
 
     fill_in 'Názov', with: 'Slovensko.Digital'
     fill_in 'IČO', with: '50 158 635'
@@ -52,7 +54,9 @@ RSpec.feature 'Govbox registration', type: :feature do
 
   scenario 'User cannot finish registers for govbox' do
     visit '/sluzby/govbox'
-    click_on 'Mám záujem o GovBox'
+    within('#header') do
+      click_on 'Mám záujem o GovBox'
+    end
 
     fill_in 'Názov', with: 'Slovensko.Digital'
     fill_in 'IČO', with: '50 158 635'
