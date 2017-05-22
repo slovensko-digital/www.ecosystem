@@ -5,7 +5,7 @@ class Services::GovboxController < ContentController
 
   PARAMS = [
     :legal_subject_name, :cin, :formatted_address,
-    :given_name, :family_name, :pin, :person_formatted_address,
+    :given_name, :family_name, :person_formatted_address,
     :email, :phone, :postal_address, :snail_mail,
     :password, :password_confirmation, :ga_user_id,
   ]
