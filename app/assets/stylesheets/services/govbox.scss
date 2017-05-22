@@ -102,7 +102,6 @@ table.table-pricing {
 
 #header .titles {
   margin-top: 6rem;
-  margin-bottom: 2rem;
 }
 
 #header h1 {
@@ -368,6 +367,17 @@ table.table-pricing {
 
     #registration .what {
       font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 1199px) {
+    #header .titles {
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    #header .flight {
+      background-position: 17rem 3rem;
     }
   }
 }

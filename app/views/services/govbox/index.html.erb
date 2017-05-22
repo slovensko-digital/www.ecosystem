@@ -9,6 +9,9 @@
           <p class="lead">
             <mark>Vedeli ste, že od 1.júla 2017 bude štát právnickým osobám zapísaným v&nbsp;obchodnom registri posielať úradné zásielky do&nbsp;elektronickej schránky? GovBox ich pošle na&nbsp;Váš email.</mark>
           </p>
+          <%= link_to register_step1_services_govbox_index_path, class: 'btn btn-primary btn-lg' do %>
+              <strong>Mám záujem o GovBox</strong>
+          <% end %>
         </div>
         <div class="col-md-6 text-center">
           <%= image_tag 'services/govbox/header.png', srcset: "#{path_to_image('services/govbox/header@2x.png')} 2x", class: 'hidden-sm-down' %>
