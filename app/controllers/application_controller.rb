@@ -13,8 +13,8 @@ class ApplicationController < ActionController::Base
   end
 
   def store_referral
-    if params[:referral]
-      cookies[:referral] = params[:referral]
+    if params[:ref]
+      cookies[:ref] = { value: params[:ref], expires: 30.days.from_now }
     end
   end
 end

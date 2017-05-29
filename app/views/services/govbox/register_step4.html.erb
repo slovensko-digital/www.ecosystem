@@ -2,7 +2,7 @@
   <%= form_tag register_step5_services_govbox_index_path do %>
     <%= render 'hidden_fields_from_step3' %>
     <%= hidden_field_tag :ga_user_id, '' %>
-    <%= hidden_field_tag :referral_code, cookies[:referral] %>
+    <%= hidden_field_tag :referral_code, cookies[:ref] %>
 
     <div class="row">
       <div class="col-md-6">
