@@ -9,7 +9,7 @@ RSpec.feature 'Govbox registration', type: :feature do
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '0903 919 123',
         'postal_address' => 'Púpavová 31, 841 01 Bratislava', 'snail_mail' => '1',
-        'ga_user_id' => '',
+        'ga_user_id' => '', 'referral_code' => '',
       }).to_return(status: 201)
 
     visit '/sluzby/govbox'
@@ -45,14 +45,14 @@ RSpec.feature 'Govbox registration', type: :feature do
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '0903 919 123',
         'postal_address' => 'Púpavová 31, 841 01 Bratislava', 'snail_mail' => '1',
-        'ga_user_id' => '',
+        'ga_user_id' => '', 'referral_code' => '',
       })).to have_been_made
 
     expect(page).to have_content('Registrácia úspešná!')
   end
 
   scenario 'User cannot finish registers for govbox' do
-    visit '/sluzby/govbox'
+    visit '/sluzby/govbox?referral=sf'
     within('#header') do
       click_on 'Mám záujem o GovBox'
     end
@@ -90,7 +90,7 @@ RSpec.feature 'Govbox registration', type: :feature do
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '0903 919 123',
         'postal_address' => 'Púpavová 31, 841 01 Bratislava', 'snail_mail' => '1',
-        'ga_user_id' => '',
+        'ga_user_id' => '', 'referral_code' => 'sf'
       }).to_return(status: 201)
 
     click_on 'Skúsiť dokončiť registráciu znova'
