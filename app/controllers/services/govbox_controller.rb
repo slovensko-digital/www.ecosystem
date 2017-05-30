@@ -52,6 +52,9 @@ class Services::GovboxController < ContentController
   def register_error
   end
 
+  def back_to_step1
+    redirect_to register_step1_services_govbox_index_path
+  end
 
   private
 
