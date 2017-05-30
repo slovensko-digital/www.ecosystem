@@ -9,6 +9,12 @@ Rails.application.routes.draw do
         post :register_step4, path: 'registracia-zabezpecenie'
         post :register_step5, path: 'registracia-odoslanie'
         get :register_thanks, path: 'registracia-uspesna'
+
+        # redirects
+        get 'registracia-statutar', to: 'govbox#back_to_step1'
+        get 'registracia-nastavenie', to: 'govbox#back_to_step1'
+        get 'registracia-zabezpecenie', to: 'govbox#back_to_step1'
+        get 'registracia-odoslanie', to: 'govbox#back_to_step1'
       end
     end
     resources :autoform
