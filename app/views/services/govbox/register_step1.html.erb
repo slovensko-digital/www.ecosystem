@@ -23,10 +23,16 @@
         </div>
 
         <div class="row">
-          <div class="col-md-12 form-group">
+          <div class="col-md-8 form-group">
             <%= label_tag :formatted_address, 'Adresa' %>
             <%= text_field_tag :formatted_address, params[:formatted_address], class: 'form-control input-lg', required: true, data: {'slovensko-digital-autoform': 'formatted-address'} %>
             <span class="form-text text-muted">Napríklad: Staré Grunty 12, 841 04 Bratislava</span>
+          </div>
+
+          <div class="col-md-4 form-group">
+            <%= label_tag :vatin, 'IČ-DPH' %>
+            <%= text_field_tag :vatin, params[:vatin], class: 'form-control input-lg', required: true, data: {'slovensko-digital-autoform': 'vatin'} %>
+            <span class="form-text text-muted">Napríklad: SK1080812345</span>
           </div>
         </div>
       </div>
