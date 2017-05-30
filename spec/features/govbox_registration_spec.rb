@@ -10,6 +10,7 @@ RSpec.feature 'Govbox registration', type: :feature do
     fill_in 'Názov', with: 'Slovensko.Digital'
     fill_in 'IČO', with: '50 158 635'
     fill_in 'Adresa', with: 'Staré grunty 12, 841 04 Bratislava - mestská časť Karlova Ves'
+    fill_in 'IČ-DPH', with: 'SK1080812345'
     click_on 'Ďalej'
 
     fill_in 'Meno', with: 'Ján'
@@ -33,7 +34,7 @@ RSpec.feature 'Govbox registration', type: :feature do
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '0903 919 123',
         'postal_address' => 'Púpavová 31, 841 01 Bratislava', 'snail_mail' => '1',
-        'ga_user_id' => '', 'referral_code' => '',
+        'ga_user_id' => '', 'referral_code' => '', 'vatin' => 'SK1080812345',
       }).to_return(status: 201)
     click_on 'Dokončiť registráciu'
 
@@ -49,6 +50,7 @@ RSpec.feature 'Govbox registration', type: :feature do
     fill_in 'Názov', with: 'Slovensko.Digital'
     fill_in 'IČO', with: '50 158 635'
     fill_in 'Adresa', with: 'Staré grunty 12, 841 04 Bratislava - mestská časť Karlova Ves'
+    fill_in 'IČ-DPH', with: 'SK1080812345'
     click_on 'Ďalej'
 
     fill_in 'Meno', with: 'Ján'
@@ -78,7 +80,7 @@ RSpec.feature 'Govbox registration', type: :feature do
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '0903 919 123',
         'postal_address' => 'Púpavová 31, 841 01 Bratislava', 'snail_mail' => '1',
-        'ga_user_id' => '', 'referral_code' => ''
+        'ga_user_id' => '', 'referral_code' => '', 'vatin' => 'SK1080812345',
       }).to_return(status: 201)
 
     click_on 'Skúsiť dokončiť registráciu znova'
@@ -122,7 +124,7 @@ RSpec.feature 'Govbox registration', type: :feature do
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '0903 919 123',
         'postal_address' => 'Púpavová 31, 841 01 Bratislava', 'snail_mail' => '1',
-        'ga_user_id' => '', 'referral_code' => 'sf'
+        'ga_user_id' => '', 'referral_code' => 'sf', 'vatin' => '',
       }).to_return(status: 201)
 
     click_on 'Skúsiť dokončiť registráciu znova'
