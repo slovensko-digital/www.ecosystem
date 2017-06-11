@@ -105,4 +105,5 @@ Rails.application.routes.draw do
 
   get 'apple-touch-icon', to: 'errors#not_found'
   get 'apple-touch-icon-precomposed', to: 'errors#not_found'
+  get 'apple-touch-icon-120x120-precomposed', to: 'errors#not_found'
 end
