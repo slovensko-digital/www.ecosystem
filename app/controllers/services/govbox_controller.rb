@@ -56,6 +56,26 @@ class Services::GovboxController < ContentController
     redirect_to register_step1_services_govbox_index_path
   end
 
+  def service_provider
+    @page.title = 'Prevádzkovateľ služby &middot; GovBox'.html_safe
+    @page.og.image = view_context.image_url('services/govbox/facebook_share.png')
+  end
+
+  def terms
+    @page.title = 'Všeobecné obchodné podmienky &middot; GovBox'.html_safe
+    @page.og.image = view_context.image_url('services/govbox/facebook_share.png')
+  end
+
+  def pricing
+    @page.title = 'Cenník &middot; GovBox'.html_safe
+    @page.og.image = view_context.image_url('services/govbox/facebook_share.png')
+  end
+
+  def privacy_policy
+    @page.title = 'Oznámenie o ochrane osobných údajov &middot; GovBox'.html_safe
+    @page.og.image = view_context.image_url('services/govbox/facebook_share.png')
+  end
+
   private
 
   def ensure_live
