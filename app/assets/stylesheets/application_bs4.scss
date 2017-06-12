@@ -53,6 +53,12 @@
 }
 
 
+.text-muted a {
+  color: #636c72;
+  text-decoration: underline;
+}
+
+
 // buttons
 button {
   cursor: hand;
@@ -119,6 +125,42 @@ h1 .badge {
     .navbar-brand,
     .navbar-nav {
       line-height: 2.5rem;
+    }
+  }
+}
+
+
+// terms list
+
+.terms {
+
+  ol {
+    counter-reset: item;
+    list-style-type: none;
+    padding: 0;
+  }
+
+  & > ol > li {
+    margin-top: 1rem;
+  }
+
+  ol ol {
+    padding-left: 2rem;
+  }
+
+  ol li {
+    counter-increment: item;
+  }
+
+  ol li:before {
+    content: counters(item, ".") ". ";
+    font-weight: bold;
+  }
+
+  ol > li > ol > li > ol {
+    list-style-type: lower-latin;
+    li:before {
+      content: ''
     }
   }
 }
