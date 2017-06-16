@@ -199,7 +199,7 @@
     </code><code class="highlight">&lt;input type=&quot;text&quot; name=&quot;vatin&quot; <strong>data-slovensko-digital-autoform=&quot;vatin&quot;</strong>/&gt;</code><code>
   &lt;/p&gt;
 &lt;/form&gt;</code></pre>
-    <h4>Postup integrácie</h4>
+    <h3>Postup integrácie</h3>
     <ol>
       <li><p>Pre integráciu do HTML formulára je potrebné použiť knižnice jQuery, jQuery UI a Autoform.</p></li>
       <li><p>Element <code>&lt;form&gt;</code> je potrebné označiť atribútom <code>data-slovensko-digital-autoform</code> s API klúčom udeleným pri registrácii. </p></li>
@@ -340,5 +340,11 @@
   display: none;
 }</code></pre></li>
     </ol>
+    <h3>Pokročilé nastavenia</h3>
+    <h4>Volitelný počet výsledkov</h4>
+    <p>Na prvku <code>form</code> je možné uviesť voliteľný atribút <code>data-slovensko-digital-autoform-limit</code>, ktorý nastavuje počet výsledkov. Hodnotu atribútu je potrebné nastaviť v rozmedzí 1 až 20. Predvolená hodnota je 5 výsledkov.</p>
+    <h5>Ukážka použitia</h5>
+    <pre class="language-markup">
+<code class="highlight">&lt;form data-slovensko-digital-autoform-limit=&quot;10" data-slovensko-digital-autoform=&quot;SEM_API_KĽÚČ&quot; action=&quot;...&quot;&gt;</code></pre>
   </section>
 </div>
