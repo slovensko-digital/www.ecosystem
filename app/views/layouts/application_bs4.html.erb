@@ -76,38 +76,44 @@
         <ul class="list-unstyled">
           <li>
             <%= link_to services_govbox_index_path do %>
-                <strong>GovBox</strong>
+              <strong>GovBox</strong>
             <% end %>
           </li>
           <li><%= link_to 'Všeobecné obchodné podmienky', terms_services_govbox_index_path %></a></li>
           <li><%= link_to 'Ochrana osobných údajov', privacy_policy_services_govbox_index_path %></a></li>
           <li><%= link_to 'Prevádzkovateľ', service_provider_services_govbox_index_path %></li>
           <li><%= link_to 'Cenník', pricing_services_govbox_index_path %></li>
-          <li><a href="https://govbox.slovensko.digital/zabudnute-heslo">Zabudli ste heslo?</a></li>
+          <li><%= link_to 'Zabudli ste heslo?', 'https://govbox.slovensko.digital/zabudnute-heslo' %></li>
         </ul>
         <p><%= mail_to 'podpora@slovensko.digital' %></a></p>
       </div>
 
       <div class="col-md-3">
         <ul class="list-unstyled">
-          <li><a href="/">
-            <strong>Ekosystém</strong></a>
+          <li>
+            <%= link_to root_path do %>
+              <strong>Ekosystém</strong></a>
+            <% end %>
           </li>
-          <li><a href="/">Služby</a></li>
-          <li><a href="/otvorene-data">Otvorené dáta</a></li>
-          <li><a href="/otvorene-api">Otvorené API</a></li>
-          <li><a href="/premiove-data">Prémiové dáta</a></li>
-          <li><a href="/premiove-api">Prémiové API</a></li>
-          <li><a href="/podmienky">Podmienky používania</a></li>
-          <li><a href="https://platforma.slovensko.digital/t/ekosystem-slovensko-digital-novinky/2326">Novinky</a></li>
+          <li><%= link_to 'Služby', root_path %></li>
+          <li><%= link_to 'Otvorené dáta', open_data_path %></li>
+          <li><%= link_to 'Otvorené API', open_api_path %></li>
+          <li><%= link_to 'Prémiové dáta', premium_data_path %></li>
+          <li><%= link_to 'Prémiové API', premium_api_path %></li>
+          <li><%= link_to 'Podmienky používania', '/podmienky' %></li>
+          <li><%= link_to 'Novinky', 'https://platforma.slovensko.digital/t/ekosystem-slovensko-digital-novinky/2326' %></li>
         </ul>
       </div>
 
       <div class="col-md-3">
         <ul class="list-unstyled">
-          <li><a href="https://slovensko.digital/"><strong>Občianske združenie</strong></a></li>
-          <li><a href="https://slovensko.digital/o-nas">O nás</a></li>
-          <li><a href="https://slovensko.digital/podpora">Podpora</a></li>
+          <li>
+            <%= link_to 'https://slovensko.digital' do %>
+              <strong>Občianske združenie</strong>
+            <% end %>
+          </li>
+          <li><%= link_to 'O nás', 'https://slovensko.digital/o-nas' %></li>
+          <li><%= link_to 'Podpora', 'https://slovensko.digital/podpora' %></li>
         </ul>
       </div>
 
