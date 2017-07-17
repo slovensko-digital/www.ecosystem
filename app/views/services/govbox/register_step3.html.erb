@@ -14,6 +14,7 @@
           </div>
           <div class="col-md-4 form-group">
             <%= label_tag :phone, 'Mobilný telefón' %>
+            <i class="fa fa-question-circle" data-toggle="tooltip" data-toggle-class="text-left" data-html="true" title="Budeme ho potrebovať, keď napríklad zabudnete heslo alebo Vám nepôjde doručiť správy na email."></i>
             <%= phone_field_tag :phone, params[:phone], class: 'form-control input-lg', required: true %>
             <span class="form-text text-muted">Napríklad: +421910160880</span>
           </div>
