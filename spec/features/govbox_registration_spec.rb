@@ -19,7 +19,7 @@ RSpec.feature 'Govbox registration', type: :feature do
     click_on 'Ďalej'
 
     fill_in 'Email', with: 'jan.hargas@slovensko.digital'
-    fill_in 'Telefónne číslo', with: '0903 919 123'
+    fill_in 'Mobilný telefón', with: '0903 919 123'
     fill_in 'Korešpondenčná adresa', with: 'Púpavová 31, 841 01 Bratislava'
     check 'Mám záujem si niektoré správy nechať zasielať aj klasickou poštou.'
     click_on 'Ďalej'
@@ -59,7 +59,7 @@ RSpec.feature 'Govbox registration', type: :feature do
     click_on 'Ďalej'
 
     fill_in 'Email', with: 'jan.hargas@slovensko.digital'
-    fill_in 'Telefónne číslo', with: '0903 919 123'
+    fill_in 'Mobilný telefón', with: '0903 919 123'
     fill_in 'Korešpondenčná adresa', with: 'Púpavová 31, 841 01 Bratislava'
     check 'Mám záujem si niektoré správy nechať zasielať aj klasickou poštou.'
     click_on 'Ďalej'
@@ -105,7 +105,7 @@ RSpec.feature 'Govbox registration', type: :feature do
     click_on 'Ďalej'
 
     fill_in 'Email', with: 'jan.hargas@slovensko.digital'
-    fill_in 'Telefónne číslo', with: '0903 919 123'
+    fill_in 'Mobilný telefón', with: '0903 919 123'
     fill_in 'Korešpondenčná adresa', with: 'Púpavová 31, 841 01 Bratislava'
     check 'Mám záujem si niektoré správy nechať zasielať aj klasickou poštou.'
     click_on 'Ďalej'
