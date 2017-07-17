@@ -19,7 +19,7 @@ RSpec.feature 'Govbox registration', type: :feature do
     click_on 'Ďalej'
 
     fill_in 'Email', with: 'jan.hargas@slovensko.digital'
-    fill_in 'Mobilný telefón', with: '0903 919 123'
+    fill_in 'Mobilný telefón', with: '+421903919123'
     fill_in 'Korešpondenčná adresa', with: 'Púpavová 31, 841 01 Bratislava'
     check 'Mám záujem si niektoré správy nechať zasielať aj klasickou poštou.'
     click_on 'Ďalej'
@@ -32,7 +32,7 @@ RSpec.feature 'Govbox registration', type: :feature do
         'formatted_address' => 'Staré grunty 12, 841 04 Bratislava - mestská časť Karlova Ves',
         'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital',
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
-        'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '0903 919 123',
+        'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '+421903919123',
         'postal_address' => 'Púpavová 31, 841 01 Bratislava', 'snail_mail' => '1',
         'ga_user_id' => '', 'referral_code' => '', 'vatin' => 'SK1080812345',
       }).to_return(status: 201)
@@ -59,7 +59,7 @@ RSpec.feature 'Govbox registration', type: :feature do
     click_on 'Ďalej'
 
     fill_in 'Email', with: 'jan.hargas@slovensko.digital'
-    fill_in 'Mobilný telefón', with: '0903 919 123'
+    fill_in 'Mobilný telefón', with: '+421903919123'
     fill_in 'Korešpondenčná adresa', with: 'Púpavová 31, 841 01 Bratislava'
     check 'Mám záujem si niektoré správy nechať zasielať aj klasickou poštou.'
     click_on 'Ďalej'
@@ -78,7 +78,7 @@ RSpec.feature 'Govbox registration', type: :feature do
         'formatted_address' => 'Staré grunty 12, 841 04 Bratislava - mestská časť Karlova Ves',
         'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital',
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
-        'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '0903 919 123',
+        'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '+421903919123',
         'postal_address' => 'Púpavová 31, 841 01 Bratislava', 'snail_mail' => '1',
         'ga_user_id' => '', 'referral_code' => '', 'vatin' => 'SK1080812345',
       }).to_return(status: 201)
@@ -105,7 +105,7 @@ RSpec.feature 'Govbox registration', type: :feature do
     click_on 'Ďalej'
 
     fill_in 'Email', with: 'jan.hargas@slovensko.digital'
-    fill_in 'Mobilný telefón', with: '0903 919 123'
+    fill_in 'Mobilný telefón', with: '+421903919123'
     fill_in 'Korešpondenčná adresa', with: 'Púpavová 31, 841 01 Bratislava'
     check 'Mám záujem si niektoré správy nechať zasielať aj klasickou poštou.'
     click_on 'Ďalej'
@@ -122,7 +122,7 @@ RSpec.feature 'Govbox registration', type: :feature do
         'formatted_address' => 'Staré grunty 12, 841 04 Bratislava - mestská časť Karlova Ves',
         'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital',
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
-        'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '0903 919 123',
+        'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '+421903919123',
         'postal_address' => 'Púpavová 31, 841 01 Bratislava', 'snail_mail' => '1',
         'ga_user_id' => '', 'referral_code' => 'sf', 'vatin' => '',
       }).to_return(status: 201)
