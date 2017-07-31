@@ -66,6 +66,11 @@ class Services::GovboxController < ContentController
     @page.og.image = view_context.image_url('services/govbox/facebook_share.png')
   end
 
+  def terms_v1
+    @page.title = 'Všeobecné obchodné podmienky  &middot; GovBox'.html_safe
+    @page.og.image = view_context.image_url('services/govbox/facebook_share.png')
+  end
+
   def pricing
     @page.title = 'Cenník &middot; GovBox'.html_safe
     @page.og.image = view_context.image_url('services/govbox/facebook_share.png')

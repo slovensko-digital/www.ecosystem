@@ -11,6 +11,7 @@ Rails.application.routes.draw do
         get :register_thanks, path: 'registracia-uspesna'
 
         get :terms, path: 'vseobecne-obchodne-podmienky'
+        get :terms_v1, path: 'vseobecne-obchodne-podmienky-v1'
         get :privacy_policy, path: 'ochrana-osobnych-udajov'
         get :service_provider, path: 'prevadzkovatel'
         get :pricing, path: 'cennik'
