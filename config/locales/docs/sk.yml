@@ -842,6 +842,18 @@ sk:
             terminated_on:
               description: Dátum zániku právnickej osoby
             <<: *timestamp_columns
+        organization_registration_number_entries:
+          description: Registračné čísla právnických osôb
+          columns:
+            id:
+              description: Identifikátor
+            organization_id:
+              description: Identifikátor právnickej osoby
+            registration_number:
+              description: Registračné číslo
+            effective_from:
+              description: Dátum začiatku platnosti záznamu
+            <<: *timestamp_columns
         share_forms:
           description: Číselník druhov akcií
           columns:
@@ -897,8 +909,6 @@ sk:
               note_html: V zdroji existuje veľa právnických osôb s hodnotou <code>NULL</code>. Sú to pravdepodobne pomocné záznamy používané pre prepojenia právnických osôb. Nie sú však nijako normalizované a vzniká veľké množstvo duplicít, ktoré je možné ignorovať.
             registration_office:
               description: Registrátor
-            registration_number:
-              description: Registračné číslo
             main_organization_id:
               description: Identifikátor nadradenej právnickej osoby
               note_html: Vyplnené len pre organizačné zložky alebo prevádzkárne, inak <code>NULL</code>.
