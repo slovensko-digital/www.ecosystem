@@ -911,7 +911,7 @@ sk:
               description: Registrátor
             registration_number:
               description: Registračné číslo
-              note_html: Zastaralý stĺpec. Použite <a href="#rpo.organization_registration_number_entries">rpo.organization_registration_number_entries</a>.
+              note_html: Zastaralý stĺpec. Obsahuje najnovší záznam z <a href="#rpo.organization_registration_number_entries">rpo.organization_registration_number_entries</a>.
             main_organization_id:
               description: Identifikátor nadradenej právnickej osoby
               note_html: Vyplnené len pre organizačné zložky alebo prevádzkárne, inak <code>NULL</code>.
