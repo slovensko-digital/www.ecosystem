@@ -1561,3 +1561,9 @@ sk:
             registration_number:
               description: Registračné číslo
             <<: *timestamp_columns
+
+    itms:
+      columns:
+        itms_identifier:
+          description: Identifikátor
+          note_html: Hodnota zodpovedá identifikátoru v zdroji.
