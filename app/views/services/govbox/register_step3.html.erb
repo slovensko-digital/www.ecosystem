@@ -1,0 +1,48 @@
+<div class="container autoform">
+  <%= form_tag register_step4_services_govbox_index_path do %>
+    <%= render 'hidden_fields_from_step2' %>
+
+    <div class="row">
+      <div class="col-lg-8">
+        <h1 class="form-title">Nastavenie služby</h1>
+        <p class="lead form-subtitle">Zadajte údaje pre preposielanie správ a kontaktné údaje.</p>
+        <div class="row">
+          <div class="col-md-8 form-group">
+            <%= label_tag :email, 'Email' %>
+            <%= email_field_tag :email, params[:email], class: 'form-control input-lg', required: true %>
+            <span class="form-text text-muted">Kam chcete preposielať správy z elektronickej schránky.</span>
+          </div>
+          <div class="col-md-4 form-group">
+            <%= label_tag :phone, 'Mobilný telefón' %>
+            <i class="fa fa-question-circle" data-toggle="tooltip" data-toggle-class="text-left" data-html="true" title="Budeme ho potrebovať, keď napríklad zabudnete heslo alebo Vám nepôjde doručiť správy na email."></i>
+            <%= phone_field_tag :phone, params[:phone], class: 'form-control input-lg', required: true, pattern: '^\+\d+$', title: 'Číslo v medzinárodnom formáte (napr +421910160880)' %>
+            <span class="form-text text-muted">Napríklad: +421910160880</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 form-group">
+            <%= label_tag :postal_address, 'Korešpondenčná adresa' %>
+            <%= text_field_tag :postal_address, params[:postal_address], class: 'form-control input-lg', required: true %>
+            <span class="form-text text-muted">Kam budeme zasielať prípadnú poštu.</span>
+          </div>
+        </div>
+        <div class="form-check">
+          <%= hidden_field_tag :snail_mail, '0' %>
+          <label class="form-check-label">
+            <%= check_box_tag :snail_mail, '1', params[:snail_mail] == '1', class: 'form-check-input' %>
+            <strong>Mám záujem si niektoré správy nechať zasielať aj klasickou poštou.</strong>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row form-navigation">
+      <div class="col-md-4 form-group">
+        <%= button_tag class: 'btn btn-primary btn-lg' do %>
+          <strong>Ďalej</strong>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

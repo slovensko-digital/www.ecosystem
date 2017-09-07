@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','<%= ENV.fetch('GTM_ID') %>');</script>
+  <!-- End Google Tag Manager -->
+  <title><%= @page.title %></title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
+  <%= stylesheet_link_tag    'application_bs4', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application_bs4', 'data-turbolinks-track': 'reload' %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <%= csrf_meta_tags %>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700,900&amp;subset=latin-ext" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,700,900&amp;subset=latin-ext" rel="stylesheet" />
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Ekosystém.Slovensko.Digital"/>
+  <meta property="og:url" content="<%= @page.url %>"/>
+  <meta property="og:title" content="<% if @page.og.title %><%= @page.og.title %><% else %><%= @page.title %><% end %>"/>
+  <% if @page.og.description %>
+    <meta property="og:description" content="<%= @page.og.description %>"/>
+  <% end %>
+  <% if @page.og.image %>
+    <meta property="og:image" content="<%= @page.og.image %>"/>
+  <% end %>
+  <% if @page.og.secure_url %>
+    <meta property="og:image:secure_url" content="<%= @page.og.secure_url %>"/>
+  <% end %>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-59ZNJC5"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+  ga('create', '<%= ENV.fetch('GA_TRACKING_ID') %>', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<nav class="navbar navbar-toggleable-md">
+  <div class="container">
+    <a class="navbar-brand mr-auto" href="/"><%= image_tag 'ekosystem.svg', width: '270' %></a>
+    <ul class="navbar-nav hidden-md-down">
+      <li class="nav-item">Služby. Otvorené API. Otvorené dáta.</li>
+      <li class="nav-item"><a href="https://platforma.slovensko.digital" target="_blank">Platforma <%= image_tag 'platforma-arrow.svg', size: '26x26' %></a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- eco app -->
+<%= yield %>
+
+<div class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <ul class="list-unstyled">
+          <li>
+            <%= link_to services_govbox_index_path do %>
+              <strong>GovBox</strong>
+            <% end %>
+          </li>
+          <li><%= link_to 'Všeobecné obchodné podmienky', terms_services_govbox_index_path %></a></li>
+          <li><%= link_to 'Ochrana osobných údajov', privacy_policy_services_govbox_index_path %></a></li>
+          <li><%= link_to 'Prevádzkovateľ', service_provider_services_govbox_index_path %></li>
+          <li><%= link_to 'Cenník', pricing_services_govbox_index_path %></li>
+          <li><%= link_to 'Zabudli ste heslo?', 'https://govbox.slovensko.digital/zabudnute-heslo' %></li>
+          <li><%= link_to 'Chcete zmeniť email?', 'https://govbox.slovensko.digital/zmena-emailu' %></li>
+          <li><%= link_to 'Chcete zmeniť telefón?', 'https://govbox.slovensko.digital/zmena-telefonu' %></li>
+        </ul>
+        <p><%= mail_to 'podpora@slovensko.digital' %></a></p>
+      </div>
+
+      <div class="col-md-3">
+        <ul class="list-unstyled">
+          <li>
+            <%= link_to root_path do %>
+              <strong>Ekosystém</strong></a>
+            <% end %>
+          </li>
+          <li><%= link_to 'Služby', root_path %></li>
+          <li><%= link_to 'Otvorené dáta', open_data_path %></li>
+          <li><%= link_to 'Otvorené API', open_api_path %></li>
+          <li><%= link_to 'Prémiové dáta', premium_data_path %></li>
+          <li><%= link_to 'Prémiové API', premium_api_path %></li>
+          <li><%= link_to 'Podmienky používania', '/podmienky' %></li>
+          <li><%= link_to 'Novinky', 'https://platforma.slovensko.digital/t/ekosystem-slovensko-digital-novinky/2326' %></li>
+        </ul>
+      </div>
+
+      <div class="col-md-3">
+        <ul class="list-unstyled">
+          <li>
+            <%= link_to 'https://slovensko.digital' do %>
+              <strong>Občianske združenie</strong>
+            <% end %>
+          </li>
+          <li><%= link_to 'O nás', 'https://slovensko.digital/o-nas' %></li>
+          <li><%= link_to 'Podpora', 'https://slovensko.digital/podpora' %></li>
+        </ul>
+      </div>
+
+      <div class="col-md-2">
+        <p class="pull-right icons">
+          <a href="https://www.facebook.com/slovensko.digital/" target="_blank">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+              </span></a>
+          <a href="https://github.com/slovensko-digital/ekosystem" target="_blank">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span></a>
+          <a href="https://www.youtube.com/channel/UCbpnKa1XOIpQLYUQ2dz7Sng" target="_blank">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+              </span></a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
