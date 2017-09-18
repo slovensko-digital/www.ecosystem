@@ -1,16 +1,40 @@
 <div class="container">
   <section>
     <h2>Služby</h2>
-    <div class="row">
-      <div class="col-md-5">
-        <h3><%= link_to 'Autoform', services_autoform_index_path %> <span class="label label-success">LIVE</span></h3>
-        <p class="lead">Automatické dopĺňanie kontaktných a&nbsp;fakturačných údajov o&nbsp;právnických osobách. Denne aktualizované. <em>Integrácia na pár riadkov HTML kódu.</em></p>
-      </div>
-      <div class="col-md-5 col-md-offset-1">
-        <h3><%= link_to 'Datahub', services_datahub_index_path %> <span class="label label-warning">BETA</span></h3>
-        <p class="lead">Prístup ku konsolidovaným a&nbsp;prepojeným štruktúrovaným dátam cez <em>jednoduché REST API</em> a&nbsp;rozhranie pre <em>analytické reporty cez SQL</em>.</p>
-      </div>
-    </div>
+    <% if rollout.active?(:govbox) %>
+        <div class="row">
+          <div class="col-md-5">
+            <h3><%= link_to 'GovBox', services_govbox_index_path %> <span class="label label-danger">ALFA</span> <span class="label label-success">NOVÉ</span></h3>
+            <p class="lead">Jednoduchý prístup k štátnej elektronickej schránke
+              <em>priamo cez Váš email a&nbsp;bez elektronického občianskeho preukazu</em>.</p>
+          </div>
+          <div class="col-md-5 col-md-offset-1">
+            <h3><%= link_to 'Autoform', services_autoform_index_path %> <span class="label label-success">LIVE</span></h3>
+            <p class="lead">Automatické dopĺňanie kontaktných a&nbsp;fakturačných údajov o&nbsp;právnických osobách. Denne aktualizované.
+              <em>Integrácia na pár riadkov HTML kódu.</em></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5">
+            <h3><%= link_to 'Datahub', services_datahub_index_path %> <span class="label label-warning">BETA</span></h3>
+            <p class="lead">Prístup ku konsolidovaným a&nbsp;prepojeným štruktúrovaným dátam cez
+              <em>jednoduché REST API</em> a&nbsp;rozhranie pre <em>analytické reporty cez SQL</em>.</p>
+          </div>
+        </div>
+    <% else %>
+        <div class="row">
+          <div class="col-md-5">
+            <h3><%= link_to 'Autoform', services_autoform_index_path %> <span class="label label-success">LIVE</span></h3>
+            <p class="lead">Automatické dopĺňanie kontaktných a&nbsp;fakturačných údajov o&nbsp;právnických osobách. Denne aktualizované.
+              <em>Integrácia na pár riadkov HTML kódu.</em></p>
+          </div>
+          <div class="col-md-5 col-md-offset-1">
+            <h3><%= link_to 'Datahub', services_datahub_index_path %> <span class="label label-warning">BETA</span></h3>
+            <p class="lead">Prístup ku konsolidovaným a&nbsp;prepojeným štruktúrovaným dátam cez
+              <em>jednoduché REST API</em> a&nbsp;rozhranie pre <em>analytické reporty cez SQL</em>.</p>
+          </div>
+        </div>
+    <% end %>
   </section>
 
   <hr>
@@ -130,6 +154,17 @@
         </p>
         <p>
           <small>Zdroj: Zoznamy dlžníkov, Všeobecná zdravotná poisťovňa.</small>
+        </p>
+      </div>
+      <div class="col-md-5 col-md-offset-1">
+        <h3>ITMS2014+ <span class="label label-danger">ALFA</span></h3>
+        <p class="lead">Rozsiahle dáta o čerpaní peňazí z európskych operačných programov.</p>
+        <p class="btn-row">
+          <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/itms.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>itms.sql.gz.torrent</strong> (~14MB)</a>
+          <%= link_to 'Dokumentácia', open_data_path(anchor: :itms), class: 'btn btn-default' %>
+        </p>
+        <p>
+          <small>Zdroj: ITMS2014+</small>
         </p>
       </div>
     </div>

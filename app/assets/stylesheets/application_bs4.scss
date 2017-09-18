@@ -1,0 +1,166 @@
+@import "services/govbox";
+@import "autoform";
+@import "tooltip";
+@import "bs4/forms";
+
+// navbar
+.navbar {
+  padding: 0;
+
+  .navbar-brand,
+  .navbar-nav {
+    padding: 0;
+    line-height: 3.5rem;
+
+    .nav-item {
+      font-size: 1.15rem;
+    }
+
+    .nav-item:first-child {
+      padding-right: 2rem;
+    }
+
+    .nav-item:last-child {
+      border-left: 1px solid lightgrey;
+      padding-left: 2rem;
+    }
+
+    a {
+      color: #333;
+      font-weight: normal;
+    }
+  }
+
+  border-bottom: 1px solid lightgray;
+}
+
+.badge {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+#header mark {
+  padding: 0.1rem 0.25rem;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  background-color: #f9fad2;
+}
+
+// colors
+.badge-danger {
+  background-color: #cb3235;
+}
+
+
+.text-muted a {
+  color: #636c72;
+  text-decoration: underline;
+}
+
+
+// buttons
+button {
+  cursor: hand;
+  cursor: pointer;
+}
+
+// fonts
+h1 .badge {
+  font-family: 'Roboto', 'Helvetica', 'Arial', 'sans-serif';
+  font-weight: 300;
+  font-size: 1.3rem;
+}
+
+
+// utils
+@media (min-width: 972px) {
+  .lead-short {
+    max-width: 25rem;
+  }
+}
+
+// btn
+
+.btn-primary {
+  background-color: #376ee5;
+  border-color: #376ee5;
+}
+
+.btn-success {
+  background-color: #85c73c;
+  border-color: #85c73c;
+}
+
+.btn-xl {
+  font-size: 1.5rem;
+  padding: 1.2rem 2rem;
+}
+
+// custom
+h1 .badge {
+  padding: 0.7rem 0.7rem;
+  position: relative;
+  vertical-align: top;
+}
+
+// responsive typography
+
+@media (max-width: 767px) {
+  .btn-xl {
+    font-size: 1.2rem;
+  }
+
+  .footer .pull-right.icons {
+    float: none;
+    text-align: center;
+  }
+
+  table.table-pricing td,
+  table.table-pricing th {
+    padding: 1rem;
+  }
+
+  .navbar {
+    .navbar-brand,
+    .navbar-nav {
+      line-height: 2.5rem;
+    }
+  }
+}
+
+
+// terms list
+
+.terms {
+
+  ol {
+    counter-reset: item;
+    list-style-type: none;
+    padding: 0;
+  }
+
+  & > ol > li {
+    margin-top: 1rem;
+  }
+
+  ol ol {
+    padding-left: 2rem;
+  }
+
+  ol li {
+    counter-increment: item;
+  }
+
+  ol li:before {
+    content: counters(item, ".") ". ";
+    font-weight: bold;
+  }
+
+  ol > li > ol > li > ol {
+    list-style-type: lower-latin;
+    li:before {
+      content: ''
+    }
+  }
+}

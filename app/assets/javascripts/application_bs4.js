@@ -12,19 +12,24 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap-sprockets
-//= require prism.js
-//= require anchor.min.js
-//= require datahub_form
-//= require autoform_form
-//= require newsletter_form
+//= require tether.min
+//= require bootstrap.min
 //= require password_confirmation_validator
 
-$(document).on("ready page:change", function() {
-    $('[data-toggle="tooltip"]').tooltip({container: 'body'});
+$(document).on("ready page:change", function () {
+  $('[data-toggle="tooltip"]').each(function () {
+    var klass = $(this).data('toggle-class');
+    $(this).tooltip({
+      container: 'body',
+      template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner '+ klass + '"></div></div>'
+    });
+  });
+
+  if ($('#ga_user_id').length > 0 && (typeof ga === 'function')) {
+    ga(function(tracker) {
+      var clientId = tracker.get('clientId');
+      $('#ga_user_id').val(clientId);
+    });
+  }
 });
 
-$(function () {
-    anchors.options.placement = 'left';
-    anchors.add('.anchors h1, .anchors h2, .anchors h3, .anchors h4, .anchorable');
-});
