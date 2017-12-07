@@ -43,6 +43,8 @@ sk:
         description: Poštové smerové číslo
       address_municipality:
         description: Obec
+      address_district:
+        description: Okres
       address_country:
         description: Krajina
 
@@ -597,6 +599,8 @@ sk:
               description: Poštové smerové číslo
             municipality:
               description: Obec
+            district:
+              description: Okres
             country:
               description: Krajina
             <<: *timestamp_columns
