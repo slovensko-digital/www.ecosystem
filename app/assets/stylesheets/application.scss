@@ -4,6 +4,7 @@
 @import "autoform";
 @import "prism";
 @import "static";
+@import "tooltip";
 
 body, .label {
   font-family: 'Roboto', sans-serif;
@@ -23,7 +24,6 @@ h1 {
 }
 
 h2 {
-  font-weight: bold;
   margin-top: 2em;
   font-weight: 500;
 }
@@ -247,4 +247,21 @@ footer {
 
 .newsletter {
   border-bottom: 1px solid #eee;
+}
+
+[data-toggle="tooltip"] {
+  cursor: help;
+}
+
+fieldset {
+  margin-top: 3em;
+}
+
+.required-label-mark {
+  color: $alert-danger-text;
+  font-weight: bold;
+}
+
+.btn-xlg {
+
 }

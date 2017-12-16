@@ -7,6 +7,7 @@ class ErrorsController < ContentController
         render status: 404
       end
       format.json { render json: {error_message: 'Not found', status: 404}, status: 404 }
+      format.any { head 404 }
     end
   end
 

@@ -1,7 +1,28 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
   namespace :services, path: :sluzby do
+    resources :govbox do
+      collection do
+        get :faq, path: 'casto-kladene-otazky'
+        get :register_step1, path: 'registracia'
+        post :register_step2, path: 'registracia-statutar'
+        post :register_step3, path: 'registracia-nastavenie'
+        post :register_step4, path: 'registracia-zabezpecenie'
+        post :register_step5, path: 'registracia-odoslanie'
+        get :register_thanks, path: 'registracia-uspesna'
+
+        get :terms, path: 'vseobecne-obchodne-podmienky'
+        get :terms_v1, path: 'vseobecne-obchodne-podmienky-v1'
+        get :privacy_policy, path: 'ochrana-osobnych-udajov'
+        get :service_provider, path: 'prevadzkovatel'
+        get :pricing, path: 'cennik'
+
+        # redirects
+        get 'registracia-statutar', to: 'govbox#back_to_step1'
+        get 'registracia-nastavenie', to: 'govbox#back_to_step1'
+        get 'registracia-zabezpecenie', to: 'govbox#back_to_step1'
+        get 'registracia-odoslanie', to: 'govbox#back_to_step1'
+      end
+    end
     resources :autoform
     resources :datahub
   end
@@ -13,6 +34,13 @@ Rails.application.routes.draw do
   resource 'premium_api', path: 'premiove-api'
 
   get 'podmienky', to: 'static#terms', as: :terms
+
+  namespace :health do
+    get :all_env_set
+    get :services
+
+    get '/' => :services
+  end
 
   root to: 'homepage#index'
 
@@ -80,4 +108,9 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  get 'apple-touch-icon', to: 'errors#not_found'
+  get 'apple-touch-icon-precomposed', to: 'errors#not_found'
+  get 'apple-touch-icon-120x120', to: 'errors#not_found'
+  get 'apple-touch-icon-120x120-precomposed', to: 'errors#not_found'
 end
