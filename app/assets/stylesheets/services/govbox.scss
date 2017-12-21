@@ -296,12 +296,20 @@ table.table-pricing {
   }
 }
 
-.terms {
+.legal {
   margin-top: 5rem;
 }
 
-.terms h1 {
+.legal h1 {
   font-size: 2rem;
+}
+
+.pricing ol {
+  font-weight: bold;
+
+  & li > span {
+    font-weight: 300;
+  }
 }
 
 .govbox {

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
         get :privacy_policy, path: 'ochrana-osobnych-udajov'
         get :service_provider, path: 'prevadzkovatel'
         get :pricing, path: 'cennik'
+        get :pricing_v1, path: 'cennik-v1'
 
         # redirects
         get 'registracia-statutar', to: 'govbox#back_to_step1'
