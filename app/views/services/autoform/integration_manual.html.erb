@@ -1,0 +1,264 @@
+<div class="container autoform">
+  <h1>
+    <p class="small"><strong><%= link_to 'Autoform', services_autoform_index_path, class: 'text-muted' %></strong></p>
+    <strong>Integračný manuál</strong>
+  </h1>
+
+  <section >
+    <p class="lead">Jednoduchá integrácia <a href="#javascript">pomocou JavaScriptu</a> alebo <a href="#api">priamo cez API</a>.</p>
+  </section>
+
+  <section class="anchors">
+    <h2 id="javascript">JavaScript integrácia</h2>
+    <h4>Ukážka</h4>
+    <pre class="language-markup"><code class="highlight">&lt;script src=&quot;https://code.jquery.com/jquery-1.10.2.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://code.jquery.com/ui/1.11.4/jquery-ui.js&quot;&gt;&lt;/script&gt;
+<%=h "<script async src=\"#{ENV.fetch('AUTOFORM_JAVASCRIPT_URL')}\"></script>" %></code>
+
+<code class="highlight">&lt;form data-slovensko-digital-autoform=&quot;SEM_JAVASCRIPT_KĽÚČ&quot; action=&quot;...&quot;&gt;</code><code>
+  &lt;p&gt;
+    &lt;label for=&quot;name&quot;&gt;N&aacute;zov&lt;/label&gt;&lt;br&gt;
+    </code><code class="highlight">&lt;input type=&quot;text&quot; name=&quot;name&quot; <strong>data-slovensko-digital-autoform=&quot;name&quot;</strong>/&gt;</code><code>
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;label for=&quot;cin&quot;&gt;I&#268;O&lt;/label&gt;&lt;br&gt;
+    </code><code class="highlight">&lt;input type=&quot;text&quot; name=&quot;cin&quot; <strong>data-slovensko-digital-autoform=&quot;cin&quot;</strong>/&gt;</code><code>
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;label for=&quot;formatted_address&quot;&gt;Adresa&lt;/label&gt;&lt;br&gt;
+    </code><code class="highlight">&lt;input type=&quot;text&quot; name=&quot;formatted_address&quot; <strong>data-slovensko-digital-autoform=&quot;formatted-address&quot;</strong>/&gt;</code><code>
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;label for=&quot;tin&quot;&gt;DI&#268;&lt;/label&gt;&lt;br&gt;
+    </code><code class="highlight">&lt;input type=&quot;text&quot; name=&quot;tin&quot; <strong>data-slovensko-digital-autoform=&quot;tin&quot;</strong>/&gt;</code><code>
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;label for=&quot;vatin&quot;&gt;I&#268;-DPH&lt;/label&gt;&lt;br&gt;
+    </code><code class="highlight">&lt;input type=&quot;text&quot; name=&quot;vatin&quot; <strong>data-slovensko-digital-autoform=&quot;vatin&quot;</strong>/&gt;</code><code>
+  &lt;/p&gt;
+&lt;/form&gt;</code></pre>
+    <h3>Postup integrácie</h3>
+    <ol>
+      <li><p>Pre integráciu do HTML formulára je potrebné použiť knižnice jQuery, jQuery UI a Autoform.</p></li>
+      <li><p>Element <code>&lt;form&gt;</code> je potrebné označiť atribútom <code>data-slovensko-digital-autoform</code> s API klúčom udeleným pri registrácii. </p></li>
+      <li><p>Následne stačí jednotlivé prvky formulára označiť atribútmi <code>data-slovensko-digital-autoform</code> určujúcimi typ údajov. </p>
+        <div id="popis-atributov" class="table-responsive">
+          <table class="table table-bordered table-nonfluid">
+            <thead>
+            <tr>
+              <th>Hodnota atribútu</th>
+              <th>Význam</th>
+              <th>Ukážka hodnoty</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><code>name</code></td>
+              <td>Názov subjektu</td>
+              <td><code>"Websupport, s.r.o."</code></td>
+            </tr>
+            <tr>
+              <td><code>cin</code></td>
+              <td>IČO</td>
+              <td><code>"36 421 928"</code></td>
+            </tr>
+            <tr>
+              <td><code>formatted-address</code></td>
+              <td>Naformátovaná adresa</td>
+              <td><code>"Staré Grunty 12, 841 04 Bratislava"</code></td>
+            </tr>
+            <tr>
+              <td><code>street</code></td>
+              <td>Ulica</td>
+              <td><code>"Staré Grunty"</code></td>
+            </tr>
+            <tr>
+              <td><code>building-number</code></td>
+              <td>Orientačné číslo</td>
+              <td><code>"12"</code></td>
+            </tr>
+            <tr>
+              <td><code>reg-number</code></td>
+              <td>Súpisné číslo</td>
+              <td><code>null</code></td>
+            </tr>
+            <tr>
+              <td><code>street-number</code></td>
+              <td>Číslo domu</td>
+              <td><code>"12"</code></td>
+            </tr>
+            <tr>
+              <td><code>formatted-street</code></td>
+              <td>Ulica a číslo</td>
+              <td><code>"Staré Grunty 12"</code></td>
+            </tr>
+            <tr>
+              <td><code>postal-code</code></td>
+              <td>PSČ</td>
+              <td><code>"841 04"</code></td>
+            </tr>
+            <tr>
+              <td><code>municipality</code></td>
+              <td>Obec</td>
+              <td><code>"Bratislava"</code></td>
+            </tr>
+            <tr>
+              <td><code>country</code></td>
+              <td>Krajina</td>
+              <td><code>"Slovenská republika"</code></td>
+            </tr>
+            <tr>
+              <td><code>tin</code></td>
+              <td>DIČ</td>
+              <td><code>2021869234</code></td>
+            </tr>
+            <tr>
+              <td><code>vatin</code></td>
+              <td>IČ-DPH</td>
+              <td><code>"SK2021869234"</code></td>
+            </tr>
+            <tr>
+              <td><code>vatin-paragraph</code></td>
+              <td>DPH podľa paragrafu</td>
+              <td><code>"§4"</code></td>
+            </tr>
+            <tr>
+              <td><code>registration-office</code></td>
+              <td>Registrátor</td>
+              <td><code>"Okresný súd Bratislava I"</code></td>
+            </tr>
+            <tr>
+              <td><code>registration-number</code></td>
+              <td>Registračné číslo</td>
+              <td><code>"Sro/63270/B"</code></td>
+            </tr>
+            <tr>
+              <td><code>established-on</code></td>
+              <td>Dátum vzniku</td>
+              <td><code>"2004-08-12"</code></td>
+            </tr>
+            <tr>
+              <td><code>terminated-on</code></td>
+              <td>Dátum zániku</td>
+              <td><code>null</code></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </li>
+      <li>Pridajte CSS štýly pre jQuery autocomplete. Toto sú ukážkové štýly, ktoré vidíte na <%= link_to 'tejto stránke', services_autoform_index_path %>.
+        <pre class="pre-scrollable"><code class="language-css">.ui-autocomplete {
+  width: inherit;
+  position: absolute;
+  z-index: 1000;
+  padding: 0;
+  list-style: none;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.ui-autocomplete &gt; li {
+  padding: 6px 12px;
+  cursor: pointer;
+  cursor: hand;
+  transition: background-color ease-in-out 0.15s;
+}
+
+.ui-autocomplete &gt; li.terminated {
+  text-decoration: line-through;
+}
+
+.ui-autocomplete &gt; li.ui-state-focus {
+  background-color: rgb(238, 238, 238);
+}
+
+.ui-helper-hidden-accessible {
+  display: none;
+}</code></pre></li>
+    </ol>
+    <h3>Pokročilé nastavenia</h3>
+    <h4>Volitelný počet výsledkov</h4>
+    <p>Na prvku <code>form</code> je možné uviesť voliteľný atribút <code>data-slovensko-digital-autoform-limit</code>, ktorý nastavuje počet výsledkov. Hodnotu atribútu je potrebné nastaviť v rozmedzí 1 až 20. Predvolená hodnota je 5 výsledkov.</p>
+    <h5>Ukážka použitia</h5>
+    <pre class="language-markup">
+<code class="highlight">&lt;form data-slovensko-digital-autoform-limit=&quot;10&quot; data-slovensko-digital-autoform=&quot;SEM_API_KĽÚČ&quot; action=&quot;...&quot;&gt;</code></pre>
+    <h4>Filtrovanie výsledkov</h4>
+    <p>Na prvku <code>form</code> je možné uviesť volitelný atribút <code>data-slovensko-digital-autoform-filter</code> s hodnotou <code>active</code>, ktorý nastaví filtrovania výsledkov vyhľadávania len na existujúce (nezaniknuté) subjekty.</p>
+    <h5>Ukážka použitia</h5>
+    <pre class="language-markup">
+<code class="highlight">&lt;form data-slovensko-digital-autoform-filter=&quot;active&quot; data-slovensko-digital-autoform=&quot;SEM_API_KĽÚČ&quot; action=&quot;...&quot;&gt;</code></pre>
+  </section>
+  <section class="anchors">
+    <h2 id="api">Integrácia cez API</h2>
+    Priame pripojenie k nášmu vyhľadávaciemu API.
+    <h4>Vyhľadanie právnickej osoby podľa názvu</h4>
+    <p class="docs-endpoint"><code>GET https://autoform.ekosystem.slovensko.digital/api/corporate_bodies/search?q=<strong>name:slovensko.digital</strong>&private_access_token=<strong>SEM_JAVASCRIPT_KĽÚČ</strong></code></p>
+
+    <h5>Parametre</h5>
+
+    <table class="table table-bordered table-nonfluid">
+      <thead>
+      <tr>
+        <th>Názov</th>
+        <th>Typ</th>
+        <th>Popis</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><code>private_access_token</code></td>
+        <td><code>string</code></td>
+        <td>Prístupový kľúč k API. Odlišný od kľúču k JavaScript integrácii.</td>
+      </tr>
+      <tr>
+        <td><code>q</code></td>
+        <td><code>string</code></td>
+        <td>
+          Vyhľadávaný výraz v tvare <code>pole:výraz</code>.
+          <br>
+          Platné hodnoty pre pole sú <code>cin:</code> alebo <code>name:</code> pre IČO alebo názov.
+        </td>
+      </tr>
+      <tr>
+        <td><code>limit</code></td>
+        <td><code>integer</code></td>
+        <td>Počet zobrazených výsledkov. Hodnotu atribútu je potrebné nastaviť v rozmedzí 1 až 20. Predvolená hodnota je 5 výsledkov.</td>
+      </tr>
+      <tr>
+        <td><code>filter</code></td>
+        <td><code>string</code></td>
+        <td>Ak má tento atribút hodnotu <code>active</code>, vyhľadávanie vráti iba existujúce (nezaniknuté) subjekty.</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <h5>Odpoveď</h5>
+    <p><%= link_to 'Popis atribútov', '#popis-atributov', class: 'btn btn-default btn-sm' %></p>
+    <pre class="pre-scrollable"><code class="language-json">[
+    {
+      "id": 1358414,
+      "cin": "50 158 635",
+      "tin": 2120264674,
+      "vatin": null,
+      "name": "Slovensko.Digital",
+      "formatted_address": "Staré Grunty 6207/12, 841 04 Bratislava - mestská časť Karlova Ves",
+      "street": "Staré Grunty",
+      "reg_number": 6207,
+      "building_number": "12",
+      "street_number": "6207/12",
+      "formatted_street": "Staré Grunty 6207/12",
+      "postal_code": "841 04",
+      "municipality": "Bratislava - mestská časť Karlova Ves",
+      "country": "Slovenská republika",
+      "established_on": "2016-01-29",
+      "terminated_on": null,
+      "vatin_paragraph": null,
+      "registration_office": "MV SR",
+      "registration_number": "VVS/1-900/90-48099"
+    },
+    ...
+]</code></pre>
+  </section>
+</div>
