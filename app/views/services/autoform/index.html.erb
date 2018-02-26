@@ -161,7 +161,7 @@
         </div>
         <div class="col-md-4 col-md-pad">
           <%= label_tag :a, '&nbsp'.html_safe %> <br>
-          <%= button_tag id: 'submit_to_autoform', class: 'btn btn-default btn-lg btn-strong' do %>
+          <%= button_tag id: 'submit_to_autoform', class: 'btn btn-default btn-lg' do %>
             <strong>Zaregistrovať</strong>
           <% end %>
         </div>
@@ -170,8 +170,11 @@
   </section>
 
   <section id="integracny-manual">
-    <h2>Integračný manuál</h2>
-    <p class="lead">Jednoduchá integrácia na zopár riadkov HTML kódu. <em>Potrebujete API? Využite <strong><%= link_to 'Datahub', services_datahub_index_path %></strong>.</em></p>
+    <h2>Integrácia</h2>
+    <p class="lead">Jednoduchá integrácia na zopár riadkov HTML kódu, alebo <em>priame pripojenie na API</em>.</p>
+    <%= link_to integration_manual_services_autoform_index_path , class: 'btn btn-default btn-lg' do %>
+      <strong>Integračný manuál</strong>
+    <% end %>
     <h4>Ukážka integrácie</h4>
     <pre class="language-markup"><code class="highlight">&lt;script src=&quot;https://code.jquery.com/jquery-1.10.2.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;https://code.jquery.com/ui/1.11.4/jquery-ui.js&quot;&gt;&lt;/script&gt;
