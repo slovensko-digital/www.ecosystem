@@ -52,6 +52,14 @@
           <%= link_to 'API', premium_api_path(anchor: :po), class: 'btn btn-default' %>
         </p>
       </div>
+      <div class="col-md-5 col-md-offset-1">
+        <h3><%= link_to 'Autoform API', services_autoform_index_path %> <span class="label label-success">LIVE</span></h3>
+        <p class="lead">Vyhľadávanie právnických osôb podľa IČO alebo názvu.</p>
+        <p class="btn-row">
+          <%= link_to 'Dokumentácia', integration_manual_services_autoform_index_path, class: 'btn btn-default' %>
+          <%= link_to 'API', integration_manual_services_autoform_index_path(anchor: :api), class: 'btn btn-default' %>
+        </p>
+      </div>
     </div>
 
   </section>
