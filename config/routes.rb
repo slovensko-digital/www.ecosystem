@@ -24,7 +24,13 @@ Rails.application.routes.draw do
         get 'registracia-odoslanie', to: 'govbox#back_to_step1'
       end
     end
-    resources :autoform
+
+    resources :autoform do
+      collection do
+        get :integration_manual, path: 'integracny-manual'
+      end
+    end
+
     resources :datahub
   end
 
