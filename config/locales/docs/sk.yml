@@ -886,7 +886,7 @@ sk:
               note_html: Napríklad <code>Správca reštrukturalizačného konania</code>.
             <<: *timestamp_columns
         organizations:
-          description: Právnicke osôby
+          description: Právnické osoby
           long_description_html: <p>Hlavná tabuľka právnických osôb.</p>
           columns:
             id:
