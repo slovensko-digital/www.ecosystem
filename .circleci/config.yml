@@ -17,11 +17,12 @@ jobs:
           POSTGRES_PASSWORD: ''
 
     steps:
+      - checkout
+
       - run: mkdir -p tmp/
       - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./tmp/cc-test-reporter
       - run: chmod +x ./tmp/cc-test-reporter
 
-      - checkout
       - run: sudo apt-get install postgresql-client
       - restore_cache: { keys: ['{{ checksum "Gemfile.lock" }}'] }
       - run: bundle install --path vendor/bundle
