@@ -64,6 +64,4 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'simplecov'
-  gem 'codeclimate-test-reporter', '~> 1.0.0'
-  gem 'rspec_junit_formatter'
 end
