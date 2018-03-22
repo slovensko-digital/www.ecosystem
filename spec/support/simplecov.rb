@@ -1,5 +1,7 @@
 require 'simplecov'
 
 SimpleCov.start do
-  coverage_dir File.join(Rails.root, 'tmp', 'coverage')
+  unless ENV['CC_TEST_REPORTER_ID']
+    coverage_dir File.join(Rails.root, 'tmp', 'coverage')
+  end
 end
