@@ -1,6 +1,9 @@
 version: 2
 jobs:
   build:
+    environment:
+      CC_TEST_REPORTER_ID: bdda8062e987a067dcdfe953dbc12024acaeb7e4c621304b69ba725fb5470a3e
+
     working_directory: ~/slovensko-digital/www.ecosystem
 
     docker:
@@ -14,6 +17,9 @@ jobs:
           POSTGRES_PASSWORD: ''
 
     steps:
+      - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./tmp/cc-test-reporter
+      - run: chmod +x ./tmp/cc-test-reporter
+
       - checkout
       - run: sudo apt-get install postgresql-client
       - restore_cache: { keys: ['{{ checksum "Gemfile.lock" }}'] }
@@ -22,4 +28,8 @@ jobs:
       - run: dockerize -wait tcp://localhost:5432 -timeout 60s
       - run: mv .circleci/database.yml config/database.yml
       - run: bundle exec rake db:create db:structure:load --trace
+
+
+      - run: ./tmp/cc-test-reporter before-build
       - run: bundle exec rspec
+      - run: ./tmp/cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
