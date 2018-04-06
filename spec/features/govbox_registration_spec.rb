@@ -9,8 +9,6 @@ RSpec.feature 'Govbox registration', type: :feature do
 
     fill_in 'Názov', with: 'Slovensko.Digital'
     fill_in 'IČO', with: '50 158 635'
-    fill_in 'Adresa', with: 'Staré grunty 12, 841 04 Bratislava - mestská časť Karlova Ves'
-    fill_in 'IČ-DPH', with: 'SK1080812345'
     click_on 'Ďalej'
 
     fill_in 'Meno', with: 'Ján'
@@ -20,8 +18,6 @@ RSpec.feature 'Govbox registration', type: :feature do
 
     fill_in 'Email', with: 'jan.hargas@slovensko.digital'
     fill_in 'Mobilný telefón', with: '+421903919123'
-    fill_in 'Korešpondenčná adresa', with: 'Púpavová 31, 841 01 Bratislava'
-    check 'Mám záujem si niektoré správy nechať zasielať aj klasickou poštou.'
     click_on 'Ďalej'
 
     fill_in 'Zvoľte si heslo', with: 'nejakeheslo'
@@ -29,12 +25,10 @@ RSpec.feature 'Govbox registration', type: :feature do
 
     stub_request(:post, ENV.fetch('GOVBOX_FORM_ENDPOINT')).
       with(body: {'cin' => '50 158 635', 'email' => 'jan.hargas@slovensko.digital', 'family_name' => 'Hargaš',
-        'formatted_address' => 'Staré grunty 12, 841 04 Bratislava - mestská časť Karlova Ves',
         'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital',
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '+421903919123',
-        'postal_address' => 'Púpavová 31, 841 01 Bratislava', 'snail_mail' => '1',
-        'ga_user_id' => '', 'referral_code' => '', 'vatin' => 'SK1080812345',
+        'ga_user_id' => '', 'referral_code' => '',
       }).to_return(status: 201)
     click_on 'Dokončiť registráciu'
 
@@ -49,8 +43,6 @@ RSpec.feature 'Govbox registration', type: :feature do
 
     fill_in 'Názov', with: 'Slovensko.Digital'
     fill_in 'IČO', with: '50 158 635'
-    fill_in 'Adresa', with: 'Staré grunty 12, 841 04 Bratislava - mestská časť Karlova Ves'
-    fill_in 'IČ-DPH', with: 'SK1080812345'
     click_on 'Ďalej'
 
     fill_in 'Meno', with: 'Ján'
@@ -60,8 +52,6 @@ RSpec.feature 'Govbox registration', type: :feature do
 
     fill_in 'Email', with: 'jan.hargas@slovensko.digital'
     fill_in 'Mobilný telefón', with: '+421903919123'
-    fill_in 'Korešpondenčná adresa', with: 'Púpavová 31, 841 01 Bratislava'
-    check 'Mám záujem si niektoré správy nechať zasielať aj klasickou poštou.'
     click_on 'Ďalej'
 
     fill_in 'Zvoľte si heslo', with: 'nejakeheslo'
@@ -75,12 +65,10 @@ RSpec.feature 'Govbox registration', type: :feature do
 
     stub_request(:post, ENV.fetch('GOVBOX_FORM_ENDPOINT')).
       with(body: {'cin' => '50 158 635', 'email' => 'jan.hargas@slovensko.digital', 'family_name' => 'Hargaš',
-        'formatted_address' => 'Staré grunty 12, 841 04 Bratislava - mestská časť Karlova Ves',
         'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital',
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '+421903919123',
-        'postal_address' => 'Púpavová 31, 841 01 Bratislava', 'snail_mail' => '1',
-        'ga_user_id' => '', 'referral_code' => '', 'vatin' => 'SK1080812345',
+        'ga_user_id' => '', 'referral_code' => ''
       }).to_return(status: 201)
 
     click_on 'Skúsiť dokončiť registráciu znova'
@@ -96,7 +84,6 @@ RSpec.feature 'Govbox registration', type: :feature do
 
     fill_in 'Názov', with: 'Slovensko.Digital'
     fill_in 'IČO', with: '50 158 635'
-    fill_in 'Adresa', with: 'Staré grunty 12, 841 04 Bratislava - mestská časť Karlova Ves'
     click_on 'Ďalej'
 
     fill_in 'Meno', with: 'Ján'
@@ -106,8 +93,6 @@ RSpec.feature 'Govbox registration', type: :feature do
 
     fill_in 'Email', with: 'jan.hargas@slovensko.digital'
     fill_in 'Mobilný telefón', with: '+421903919123'
-    fill_in 'Korešpondenčná adresa', with: 'Púpavová 31, 841 01 Bratislava'
-    check 'Mám záujem si niektoré správy nechať zasielať aj klasickou poštou.'
     click_on 'Ďalej'
 
     fill_in 'Zvoľte si heslo', with: 'nejakeheslo'
@@ -119,12 +104,10 @@ RSpec.feature 'Govbox registration', type: :feature do
 
     stub_request(:post, ENV.fetch('GOVBOX_FORM_ENDPOINT')).
       with(body: {'cin' => '50 158 635', 'email' => 'jan.hargas@slovensko.digital', 'family_name' => 'Hargaš',
-        'formatted_address' => 'Staré grunty 12, 841 04 Bratislava - mestská časť Karlova Ves',
         'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital',
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '+421903919123',
-        'postal_address' => 'Púpavová 31, 841 01 Bratislava', 'snail_mail' => '1',
-        'ga_user_id' => '', 'referral_code' => 'sf', 'vatin' => '',
+        'ga_user_id' => '', 'referral_code' => 'sf',
       }).to_return(status: 201)
 
     click_on 'Skúsiť dokončiť registráciu znova'
