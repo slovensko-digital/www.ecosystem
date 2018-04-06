@@ -21,20 +21,6 @@
             <span class="form-text text-muted">Napríklad: 36421928</span>
           </div>
         </div>
-
-        <div class="row">
-          <div class="col-md-8 form-group">
-            <%= label_tag :formatted_address, 'Adresa' %>
-            <%= text_field_tag :formatted_address, params[:formatted_address], class: 'form-control input-lg', data: {'slovensko-digital-autoform': 'formatted-address'}, disabled: true %>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-4 form-group">
-            <%= label_tag :vatin, 'IČ-DPH' %>
-            <%= text_field_tag :vatin, params[:vatin], class: 'form-control input-lg', data: {'slovensko-digital-autoform': 'vatin'}, disabled: true %>
-          </div>
-        </div>
       </div>
     </div>
 
