@@ -4,8 +4,6 @@
 
 <div class="container">
   <%= form_tag register_step2_services_govbox_index_path, data: {'slovensko-digital-autoform': ENV.fetch('AUTOFORM_ACCESS_TOKEN')} do %>
-    <%= hidden_field_tag :formatted_address, params[:formatted_address], data: {'slovensko-digital-autoform': 'formatted-address'} %>
-    <%= hidden_field_tag :vatin, params[:vatin], data: {'slovensko-digital-autoform': 'vatin'} %>
     <div class="row">
       <div class="col-lg-8">
         <h1 class="form-title">Registrácia k službe GovBox</h1>
