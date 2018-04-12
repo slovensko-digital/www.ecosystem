@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   resource 'premium_api', path: 'premiove-api'
 
   get 'podmienky', to: 'static#terms', as: :terms
+  get 'cennik', to: 'static#pricing', as: :pricing
 
   namespace :health do
     get :all_env_set
