@@ -40,7 +40,8 @@ Rails.application.routes.draw do
   resource 'premium_data', path: 'premiove-data'
   resource 'premium_api', path: 'premiove-api'
 
-  get 'podmienky', to: 'static#terms', as: :terms
+  get 'podmienky', to: 'static#datasets_terms', as: :datasets_terms
+  get 'podmienky-sluzieb', to: 'static#services_terms', as: :services_terms
   get 'cennik', to: 'static#pricing', as: :pricing
 
   namespace :health do

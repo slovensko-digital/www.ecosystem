@@ -1,10 +1,12 @@
+.long-text {
+  max-width: 800px;
+}
+
 .list-legal > ol > li {
   margin-top: 2em;
 }
 
 .list-legal {
-  max-width: 780px;
-
   ol {
     list-style-type: none;
     counter-reset: item;
