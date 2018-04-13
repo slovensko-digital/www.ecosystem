@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   resource 'premium_api', path: 'premiove-api'
 
   get 'podmienky', to: 'static#datasets_terms', as: :datasets_terms
+  get 'podmienky-v1', to: 'static#datasets_terms_v1', as: :datasets_terms_v1
   get 'podmienky-sluzieb', to: 'static#services_terms', as: :services_terms
   get 'cennik', to: 'static#pricing', as: :pricing
 
