@@ -7,7 +7,7 @@ class Services::GovboxController < ContentController
     :legal_subject_name, :cin, :vatin, :formatted_address,
     :given_name, :family_name, :person_formatted_address,
     :email, :phone, :postal_address, :snail_mail,
-    :password, :password_confirmation, :ga_user_id, :referral_code,
+    :password, :password_confirmation, :referral_code,
   ]
 
   def index

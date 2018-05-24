@@ -28,7 +28,7 @@ RSpec.feature 'Govbox registration', type: :feature do
         'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital',
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '+421903919123',
-        'ga_user_id' => '', 'referral_code' => '',
+        'referral_code' => '',
       }).to_return(status: 201)
     click_on 'Dokončiť registráciu'
 
@@ -68,7 +68,7 @@ RSpec.feature 'Govbox registration', type: :feature do
         'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital',
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '+421903919123',
-        'ga_user_id' => '', 'referral_code' => ''
+        'referral_code' => ''
       }).to_return(status: 201)
 
     click_on 'Skúsiť dokončiť registráciu znova'
@@ -107,7 +107,7 @@ RSpec.feature 'Govbox registration', type: :feature do
         'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital',
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '+421903919123',
-        'ga_user_id' => '', 'referral_code' => 'sf',
+        'referral_code' => 'sf',
       }).to_return(status: 201)
 
     click_on 'Skúsiť dokončiť registráciu znova'
