@@ -30,7 +30,13 @@
       <div class="col-lg-8">
         <div class="row">
           <div class="col-md-12">
-            <p class="form-text text-muted mt-3"><small>Dokončením registrácie udeľujete súhlas na zaradenie zadaných údajov do predbežnej registrácie na použitie služby GovBox. Údaje budú použité iba na účel ďalšej komunikácie s Vami pri zriaďovaní prístupu k službe GovBox. Zaradením do predbežnej registrácie nie je uzatvorená dohoda o poskytovaní služby, ani dané oprávnenie na prístup k elektronickej schránke registrovaného subjektu. <%= link_to 'Oznámenie k ochrane osobných údajov.', privacy_policy_services_govbox_index_path, target: :_blank %> <%= link_to 'Prevádzkovateľom služby', service_provider_services_govbox_index_path, target: :_blank %> je spoločnosť Služby Slovensko.Digital, s.r.o.</small></p>
+            <div class="form-check">
+              <label class="form-check-label">
+                <%= check_box_tag :accept_terms, '1', false, class: 'form-check-input', required: true %>
+                <small>Dokončením registrácie udeľujem dobrovoľný súhlas Prevádzkovateľovi služby, spoločnosti Služby Slovensko.Digital, s.r.o., na spracúvanie mojich zadaných osobných údajov na účel ďalšej komunikácie pri zriaďovaní prístupu k službe GovBox. Zaradením do predbežnej registrácie nie je uzatvorená dohoda o poskytovaní služby, ani dané oprávnenie na prístup k elektronickej schránke registrovaného subjektu. Tento súhlas môžem kedykoľvek odvolať zaslaním žiadosti e-mailom na <a href="mailto:podpora@govbox.slovensko.digital">podpora@govbox.slovensko.digital</a>. Potvrdzujem správnosť mnou zadaných osobných údajov. Oboznámil(a) som sa s informáciami v sekcii <%= link_to 'Ochrana osobných údajov', privacy_policy_path, target: :_blank %>.</small>
+              </label>
+            </div>
+            <p class="form-text text-muted mt-3"></p>
           </div>
         </div>
       </div>
