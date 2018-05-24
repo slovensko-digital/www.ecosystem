@@ -24,12 +24,5 @@ $(document).on("ready page:change", function () {
       template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner '+ klass + '"></div></div>'
     });
   });
-
-  if ($('#ga_user_id').length > 0 && (typeof ga === 'function')) {
-    ga(function(tracker) {
-      var clientId = tracker.get('clientId');
-      $('#ga_user_id').val(clientId);
-    });
-  }
 });
 
