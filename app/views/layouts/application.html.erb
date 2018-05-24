@@ -78,8 +78,8 @@
 <footer>
   <div class="newsletter">
     <div class="container">
-      <div class="row">
-        <form role="form" action="https://my.sendinblue.com/users/subscribe/js_id/29wti/id/2" data-action="https://my.sendinblue.com/users/subscribeembed/js_id/29wti/id/2" method="post">
+      <form role="form" action="https://my.sendinblue.com/users/subscribe/js_id/29wti/id/2" data-action="https://my.sendinblue.com/users/subscribeembed/js_id/29wti/id/2" method="post">
+        <div class="row">
           <div class="col-md-4 col-md-pad">
             <p><strong>Newsletter Ekosystém.Slovensko.Digital</strong></p>
             <p>Novinky emailom sem-tam, žiadny spam.</p>
@@ -98,8 +98,17 @@
             <%= label_tag :a, '&nbsp'.html_safe %> <br>
             <%= button_tag 'Prihlásiť', class: 'btn btn-default' %>
           </div>
-        </form>
-        <div class="col-md-12 hidden newsletter-success">
+        </div>
+        <div class="row">
+          <p class="col-md-offset-4 col-md-5 col-md-pad legal">
+            Dávam dobrovoľný súhlas spoločnosti Služby Slovensko.Digital s.r.o. na zasielanie bezplatného newslettera na mnou zadaný e-mail. Tento súhlas môžem kedykoľvek odvolať na
+            <a href="mailto:podpora@slovensko.digital">podpora@slovensko.digital</a>. Oboznámil(a) som sa s informáciami v sekcii
+            <%= link_to 'Ochrana osobných údajov', privacy_policy_path, target: '_blank' %>.
+          </p>
+        </div>
+      </form>
+      <div class="row hidden newsletter-success">
+        <div class="col-md-12">
           <p>Na zadanú adresu sme poslali email pre potvrdenie odberu. Ďakujeme za Váš záujem.</p>
         </div>
       </div>

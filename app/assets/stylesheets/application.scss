@@ -239,6 +239,17 @@ footer .icons a:hover {
   padding-bottom: 1em;
   margin-bottom: 2em;
   background-color: #efefef;
+
+  .legal {
+    font-size: .75em;
+    line-height: 1.4em;
+    margin-top: 1em;
+    margin-bottom: 0;
+
+    a {
+      color: $link-color;
+    }
+  }
 }
 
 footer {
