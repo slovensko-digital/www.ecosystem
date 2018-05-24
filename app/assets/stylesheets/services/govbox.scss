@@ -298,10 +298,19 @@ table.table-pricing {
 
 .legal {
   margin-top: 5rem;
-}
 
-.legal h1 {
-  font-size: 2rem;
+  h1 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  h5 {
+    margin-top: 2rem;
+  }
 }
 
 .pricing ol {

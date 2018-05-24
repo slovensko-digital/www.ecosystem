@@ -15,4 +15,8 @@ class StaticController < ContentController
   def pricing
     @page.title = 'Cenník služieb &middot; Ekosystém.Slovensko.Digital'.html_safe
   end
+
+  def privacy_policy
+    @page.title = 'Informácie o spracúvaní osobných údajov &middot; Ekosystém.Slovensko.Digital'.html_safe
+  end
 end

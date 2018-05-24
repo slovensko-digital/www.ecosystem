@@ -76,11 +76,6 @@ class Services::GovboxController < ContentController
     @page.og.image = view_context.image_url('services/govbox/facebook_share.png')
   end
 
-  def privacy_policy
-    @page.title = 'Oznámenie o ochrane osobných údajov &middot; GovBox'.html_safe
-    @page.og.image = view_context.image_url('services/govbox/facebook_share.png')
-  end
-
   private
 
   def ensure_live
