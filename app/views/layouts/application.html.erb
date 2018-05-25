@@ -14,6 +14,7 @@
   <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' %>
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css"/>
   <%= csrf_meta_tags %>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,6 +36,28 @@
   <% if @page.og.secure_url %>
     <meta property="og:image:secure_url" content="<%= @page.og.secure_url %>"/>
   <% end %>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+  <script>
+      window.addEventListener("load", function () {
+          window.cookieconsent.initialise({
+              "palette": {
+                  "popup": {
+                      "background": "#000000"
+                  },
+                  "button": {
+                      "background": "#3a67e8"
+                  }
+              },
+              "theme": "classic",
+              "content": {
+                  "message": "Tento web používa súbory cookie na poskytovanie služieb a analýzu webu. Používaním tohto webu vyjadrujete svoj súhlas s používaním súborov cookie.",
+                  "dismiss": "OK"
+              },
+              "showLink": false
+          })
+      });
+  </script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
