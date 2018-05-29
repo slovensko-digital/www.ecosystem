@@ -1384,24 +1384,6 @@ sk:
 
     socpoist:
       tables:
-        debt_ranges:
-          description: Dlhy
-
-          columns:
-            id:
-              description: Identifikátor záznamu
-              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
-            debtor_id:
-              description: Identifikátor dlžníka
-            effective_from:
-              description: Dátum vzniku
-            effective_to:
-              description: Dátum ukončenia
-              note_html: Hodnota <code>NULL</code> označuje neukončený dlh k dátumu zverejnenia posledného zoznamu dlžníkov.
-            amount:
-              description: Výška dlhu
-            <<: *timestamp_columns
-
         debtors:
           description: Dlžníci
 
@@ -1415,61 +1397,22 @@ sk:
               description: Adresa
             city:
               description: Mesto
-            <<: *timestamp_columns
-
-        debts_lists:
-          description: Zoznamy dlžníkov
-
-          columns:
-            id:
-              description: Identifikátor záznamu
-              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            amount:
+              description: Výška dlhu
             published_on:
-              description: Dátum zverejnenia
+              description: Dátum publikovania
             <<: *timestamp_columns
 
     vszp:
       tables:
-        debt_ranges:
-          description: Dlhy
-          columns:
-            id:
-              description: Identifikátor záznamu
-              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
-            debtor_id:
-              description: Identifikátor dlžníka
-            effective_from:
-              description: Dátum vzniku
-            effective_to:
-              description: Dátum ukončenia
-              note_html: Hodnota <code>NULL</code> označuje neukončený dlh k dátumu zverejnenia posledného zoznamu dlžníkov.
-            amount:
-              description: Výška dlhu
-            <<: *timestamp_columns
-
-        health_care_ranges:
-          description: Nároky na poskytnutie plnej zdravotnej starostlivosti
-          columns:
-            id:
-              description: Identifikátor záznamu
-              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
-            debtor_id:
-              description: Identifikátor dlžníka
-            effective_from:
-              description: Dátum vzniku
-            effective_to:
-              description: Dátum ukončenia
-              note_html: Hodnota <code>NULL</code> označuje neukončený interval k dátumu zverejnenia posledného zoznamu dlžníkov.
-            full_coverage:
-              description: Nárok dlžníka na plnú zdravotnú starostlivosť
-            <<: *timestamp_columns
-
         debtors:
           description: Dlžníci
           columns:
             id:
               description: Identifikátor záznamu
               note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            cin:
+              description: IČO
             name:
               description: Meno / Obchodné meno
             city:
@@ -1478,20 +1421,14 @@ sk:
               description: Ulica a číslo
             postal_code:
               description: PSČ
-            cin:
-              description: IČO
+            amount:
+              description: Výška dlhu
             payer_type:
               description: Typ platiteľa
-            <<: *timestamp_columns
-
-        debts_lists:
-          description: Zoznamy dlžníkov
-          columns:
-            id:
-              description: Identifikátor záznamu
-              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            full_health_care_claim:
+              description: Nárok na plnú zdravotnú starostlivosť
             published_on:
-              description: Dátum zverejnenia
+              description: Dátum publikovania
             <<: *timestamp_columns
 
     upvs:
