@@ -1,7 +1,6 @@
 <h4>Získanie právnickej osoby</h4>
 <p class="docs-endpoint"><code>GET <%= api_data_rpo_organization_url(id: ':id', host: api_host) %></code></p>
 <h5>Parametre</h5>
-
 <table class="table table-bordered table-nonfluid">
   <thead>
   <tr>
@@ -18,144 +17,131 @@
   </tr>
   </tbody>
 </table>
-
 <h5>Odpoveď</h5>
 <p><%= link_to 'Popis atribútov', open_data_path(anchor: 'rpo.organizations'), class: 'btn btn-default btn-sm' %></p>
 <pre class="pre-scrollable"><code class="language-json">{
-  "id":6562824,
-  "established_on":"2016-01-29",
-  "terminated_on":null,
-  "actualized_at":"2016-02-23T10:40:56.000000Z",
-  "has_organization_unit":false,
-  "has_operations":false,
-  "statistical_codes_actualized_on":"2016-03-30",
-  "created_at":"2016-08-30T13:52:03.649151Z",
-  "updated_at":"2016-08-30T13:52:03.649151Z",
-  "source_register":"Register občianskych združení",
-  "registration_office":"MV SR",
-  "registration_number":"VVS/1-900/90-48099",
-  "main_organization_id":null,
-  "deleted_at":null,
-  "identifier_entries":[
+  "id": 6562824,
+  "established_on": "2016-01-29",
+  "terminated_on": null,
+  "actualized_at": "2016-02-23T10:40:56.000000Z",
+  "has_organization_unit": false,
+  "has_operations": false,
+  "statistical_codes_actualized_on": "2016-03-30",
+  "created_at": "2016-08-30T13:52:03.649151Z",
+  "updated_at": "2016-08-30T13:52:03.649151Z",
+  "source_register": "Register občianskych združení",
+  "registration_office": "MV SR",
+  "registration_number": "VVS/1-900/90-48099",
+  "main_organization_id": null,
+  "deleted_at": null,
+  "identifier_entries": [
     {
-      "id":2531,
-      "organization_id":6562824,
-      "ipo":50158635,
-      "effective_from":"2016-01-29",
-      "effective_to":null,
-      "created_at":"2016-08-30T13:52:03.678777Z",
-      "updated_at":"2016-08-30T13:52:03.678777Z"
+      "id": 2531,
+      "organization_id": 6562824,
+      "ipo": 50158635,
+      "effective_from": "2016-01-29",
+      "effective_to": null,
+      "created_at": "2016-08-30T13:52:03.678777Z",
+      "updated_at": "2016-08-30T13:52:03.678777Z"
     }
   ],
-  "address_entries":[
+  "address_entries": [
     {
-      "id":3493,
-      "organization_id":6562824,
-      "formatted_address":null,
-      "street":"Staré grunty",
-      "reg_number":0,
-      "building_number":"12",
-      "postal_code":"84104",
-      "municipality":"Bratislava - mestská časť Karlova Ves",
-      "country":"Slovenská republika",
-      "effective_from":"2016-01-29",
-      "effective_to":null,
-      "created_at":"2016-08-30T13:52:03.687331Z",
-      "updated_at":"2016-08-30T13:52:03.687331Z"
+      "id": 3493,
+      "organization_id": 6562824,
+      "formatted_address": null,
+      "street": "Staré grunty",
+      "reg_number": 0,
+      "building_number": "12",
+      "postal_code": "84104",
+      "municipality": "Bratislava - mestská časť Karlova Ves",
+      "country": "Slovenská republika",
+      "effective_from": "2016-01-29",
+      "effective_to": null,
+      "created_at": "2016-08-30T13:52:03.687331Z",
+      "updated_at": "2016-08-30T13:52:03.687331Z"
     }
   ],
-  "alternate_name_entries":[
-
+  "alternate_name_entries": [
   ],
-  "authorization_entries":[
-
+  "authorization_entries": [
   ],
-  "deposit_entries":[
-
+  "deposit_entries": [
   ],
-  "economic_activity_entries":[
+  "economic_activity_entries": [
     {
-      "id":19204,
-      "organization_id":6562824,
-      "description":"IT, PC",
-      "effective_from":"2016-01-29",
-      "effective_to":null,
-      "created_at":"2016-08-30T13:52:03.695947Z",
-      "updated_at":"2016-08-30T13:52:03.695947Z",
-      "suspended_from":null,
-      "suspended_to":null
+      "id": 19204,
+      "organization_id": 6562824,
+      "description": "IT, PC",
+      "effective_from": "2016-01-29",
+      "effective_to": null,
+      "created_at": "2016-08-30T13:52:03.695947Z",
+      "updated_at": "2016-08-30T13:52:03.695947Z",
+      "suspended_from": null,
+      "suspended_to": null
     }
   ],
-  "equity_entries":[
-
+  "equity_entries": [
   ],
-  "legal_form_entries":[
+  "legal_form_entries": [
     {
-      "id":2441,
-      "organization_id":6562824,
-      "legal_form_id":3,
-      "effective_from":"2016-01-29",
-      "effective_to":null,
-      "created_at":"2016-08-30T13:52:03.691420Z",
-      "updated_at":"2016-08-30T13:52:03.691420Z"
+      "id": 2441,
+      "organization_id": 6562824,
+      "legal_form_id": 3,
+      "effective_from": "2016-01-29",
+      "effective_to": null,
+      "created_at": "2016-08-30T13:52:03.691420Z",
+      "updated_at": "2016-08-30T13:52:03.691420Z"
     }
   ],
-  "legal_status_entries":[
-
+  "legal_status_entries": [
   ],
-  "name_entries":[
-    {
-      "id":3204,
-      "organization_id":6562824,
-      "name":"Slovensko.Digital",
-      "effective_from":"2016-01-29",
-      "effective_to":null,
-      "created_at":"2016-08-30T13:52:03.683486Z",
-      "updated_at":"2016-08-30T13:52:03.683486Z"
-    }
-  ],
-  "registration_number_entries":[
+  "name_entries": [
     {
       "id": 3204,
-      "organization_id":6562824,
-      "registration_number":"VVS/1-900/90-48099",
-      "effective_from":null,
-      "created_at":"2016-08-30T13:52:03.683486Z",
-      "updated_at":"2016-08-30T13:52:03.683486Z"
+      "organization_id": 6562824,
+      "name": "Slovensko.Digital",
+      "effective_from": "2016-01-29",
+      "effective_to": null,
+      "created_at": "2016-08-30T13:52:03.683486Z",
+      "updated_at": "2016-08-30T13:52:03.683486Z"
+    }
+  ],
+  "registration_number_entries": [
+    {
+      "id":  3204,
+      "organization_id": 6562824,
+      "registration_number": "VVS/1-900/90-48099",
+      "effective_from": null,
+      "created_at": "2016-08-30T13:52:03.683486Z",
+      "updated_at": "2016-08-30T13:52:03.683486Z"
     }
   ]
-  "other_legal_fact_entries":[
-
+  "other_legal_fact_entries": [
   ],
-  "predecessor_entries":[
-
+  "predecessor_entries": [
   ],
-  "share_entries":[
-
+  "share_entries": [
   ],
-  "stakeholder_entries":[
-
+  "stakeholder_entries": [
   ],
-  "statutory_entries":[
-
+  "statutory_entries": [
   ],
-  "successor_entries":[
-
+  "successor_entries": [
   ],
-  "main_activity_code":{
-    "id":94992,
-    "name":"Činnosti záujmových organizácií",
-    "created_at":"2016-08-02T10:08:43.768349Z",
-    "updated_at":"2016-08-02T10:08:43.768349Z"
+  "main_activity_code": {
+    "id": 94992,
+    "name": "Činnosti záujmových organizácií",
+    "created_at": "2016-08-02T10:08:43.768349Z",
+    "updated_at": "2016-08-02T10:08:43.768349Z"
   },
-  "esa2010_code":{
-    "id":15000,
-    "name":"Neziskové inštitúcie slúžiace domácnostiam",
-    "created_at":"2016-08-02T10:08:43.859448Z",
-    "updated_at":"2016-08-02T10:08:43.859448Z"
+  "esa2010_code": {
+    "id": 15000,
+    "name": "Neziskové inštitúcie slúžiace domácnostiam",
+    "created_at": "2016-08-02T10:08:43.859448Z",
+    "updated_at": "2016-08-02T10:08:43.859448Z"
   }
 }</code></pre>
-
 <h4>Získanie zmenených právnických osôb</h4>
 <p class="docs-endpoint"><code>GET <%= sync_api_data_crz_contracts_url(host: api_host) %></code></p>
 <p>Zmenené záznamy od určeného času je možné získať pomocou <%= link_to 'synchronizačného API', '#sync-api' %>. </p>

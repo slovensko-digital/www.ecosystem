@@ -14,16 +14,16 @@
   </thead>
   <tbody>
   <% table.attributes.each do |attr| %>
-      <%= content_tag :tr, id: docs_attribute_dom_id(table, attr) do %>
-        <td class="col-md-3"><code><%= attr.attname %></code>
-          <% if attr.fattname %>
-              &rarr;&nbsp;<code><a href="#<%= attr.fnspname %>.<%= attr.frelname %>.<%= attr.fattname %>"><%= attr.fnspname %>.<%= attr.frelname %>.<%= attr.fattname %></a></code>
-          <% end %>
-        </td>
-        <td class="col-md-3"><%= docs [table.schemaname, :tables, table.tablename, :columns, attr.attname, :description] %></td>
-        <td class="col-md-2"><code><%= attr.typname %></code><% if !attr.attnotnull %>, <code>NULL</code><% end %></td>
-        <td class="col-md-4"><small><%= docs [table.schemaname, :tables, table.tablename, :columns, attr.attname, :note_html] %></small></td>
-      <% end %>
+    <%= content_tag :tr, id: docs_attribute_dom_id(table, attr) do %>
+      <td class="col-md-3"><code><%= attr.attname %></code>
+        <% if attr.fattname %>
+            &rarr;&nbsp;<code><a href="#<%= attr.fnspname %>.<%= attr.frelname %>.<%= attr.fattname %>"><%= attr.fnspname %>.<%= attr.frelname %>.<%= attr.fattname %></a></code>
+        <% end %>
+      </td>
+      <td class="col-md-3"><%= docs [table.schemaname, :tables, table.tablename, :columns, attr.attname, :description] %></td>
+      <td class="col-md-2"><code><%= attr.typname %></code><% if !attr.attnotnull %>, <code>NULL</code><% end %></td>
+      <td class="col-md-4"><small><%= docs [table.schemaname, :tables, table.tablename, :columns, attr.attname, :note_html] %></small></td>
+    <% end %>
   <% end %>
   </tbody>
 </table>
