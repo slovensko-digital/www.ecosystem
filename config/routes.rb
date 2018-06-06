@@ -22,7 +22,7 @@ Rails.application.routes.draw do
         get 'registracia-nastavenie', to: 'govbox#back_to_step1'
         get 'registracia-zabezpecenie', to: 'govbox#back_to_step1'
         get 'registracia-odoslanie', to: 'govbox#back_to_step1'
-        get 'ochrana-osobnych-udajov', to: 'static#privacy_policy'
+        get 'ochrana-osobnych-udajov', to: '/static#privacy_policy'
       end
     end
 
