@@ -96,12 +96,18 @@ sk:
               description: Adresa objednávateľa
             contracting_authority_cin:
               description: IČO objednávateľa
+            contracting_authority_cin_raw:
+              description: IČO objednávateľa v nespracovanej forme
+              note_html: Hodnota zo zdroja. Napríklad <code>00 585 441</code> alebo <code>bez ičo</code>.
             supplier_name:
               description: Názov dodávateľa
             supplier_formatted_address:
               description: Adresa dodávateľa
             supplier_cin:
               description: IČO dodávateľa
+            supplier_cin_raw:
+              description: IČO dodávateľa v nespracovanej forme
+              note_html: Hodnota zo zdroja. Napríklad <code>00 585 441</code> alebo <code>bez ičo</code>.
             subject:
               description: Predmet zmluvy
             subject_description:
@@ -174,12 +180,11 @@ sk:
               description: Identifikátor zadania
             corporate_body_name:
               description: Meno právnickej osoby
+            corporate_body_cin:
+              description: IČO
             corporate_body_cin_raw:
               description: IČO v nespracovanej forme
-              note_html: Hodnota zo zdroja. Napríklad <code>00 585 441</code>.
-            corporate_body_cin:
-              description: IČO v spracovanej forme.
-              note_html: Spracovaná hodnota, obsahuje iba čísla. Napríklad <code>585441</code>. Ak nevieme IČO spracovať, hodnota je <code>NULL</code>.
+              note_html: Hodnota zo zdroja. Napríklad <code>00 585 441</code> alebo <code>bez ičo</code>.
             sme:
               description: Príznak stredného a malého podnikateľa
             country:
@@ -1413,6 +1418,9 @@ sk:
               note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
             cin:
               description: IČO
+            cin_raw:
+              description: IČO v nespracovanej forme
+              note_html: Hodnota zo zdroja. Napríklad <code>00 585 441</code> alebo <code>bez ičo</code>.
             name:
               description: Meno / Obchodné meno
             city:
