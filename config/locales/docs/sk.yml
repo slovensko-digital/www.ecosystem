@@ -95,8 +95,7 @@ sk:
             contracting_authority_formatted_address:
               description: Adresa objednávateľa
             contracting_authority_cin:
-              description: IČO objednávateľa v spracovanej forme
-              note_html: Spracovaná hodnota. Napríklad <code>585441</code> alebo <code>NULL</code>, ak hodnotu nevieme spracovať.
+              description: IČO objednávateľa
             contracting_authority_cin_raw:
               description: IČO objednávateľa v nespracovanej forme
               note_html: Hodnota zo zdroja. Napríklad <code>00 585 441</code> alebo <code>bez ičo</code>.
@@ -105,8 +104,7 @@ sk:
             supplier_formatted_address:
               description: Adresa dodávateľa
             supplier_cin:
-              description: IČO dodávateľa v spracovanej forme
-              note_html: Spracovaná hodnota. Napríklad <code>585441</code> alebo <code>NULL</code>, ak hodnotu nevieme spracovať.
+              description: IČO dodávateľa
             supplier_cin_raw:
               description: IČO dodávateľa v nespracovanej forme
               note_html: Hodnota zo zdroja. Napríklad <code>00 585 441</code> alebo <code>bez ičo</code>.
@@ -183,8 +181,7 @@ sk:
             corporate_body_name:
               description: Meno právnickej osoby
             corporate_body_cin:
-              description: IČO v spracovanej forme
-              note_html: Spracovaná hodnota. Napríklad <code>585441</code> alebo <code>NULL</code>, ak hodnotu nevieme spracovať.
+              description: IČO
             corporate_body_cin_raw:
               description: IČO v nespracovanej forme
               note_html: Hodnota zo zdroja. Napríklad <code>00 585 441</code> alebo <code>bez ičo</code>.
@@ -1420,8 +1417,7 @@ sk:
               description: Identifikátor záznamu
               note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
             cin:
-              description: IČO v spracovanej forme
-              note_html: Spracovaná hodnota. Napríklad <code>585441</code> alebo <code>NULL</code>, ak hodnotu nevieme spracovať.
+              description: IČO
             cin_raw:
               description: IČO v nespracovanej forme
               note_html: Hodnota zo zdroja. Napríklad <code>00 585 441</code> alebo <code>bez ičo</code>.
