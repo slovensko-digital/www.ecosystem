@@ -41,7 +41,7 @@ class Services::GovboxController < ContentController
       RestClient.post(ENV.fetch('GOVBOX_FORM_ENDPOINT'), params.permit(PARAMS).to_h)
       redirect_to register_thanks_services_govbox_index_path
     rescue RestClient::ExceptionWithResponse => e
-      errors = JSON.parse(e.response.body)
+      errors = e.http_code == 400 ? JSON.parse(e.response.body) : {}
       Rollbar.error(e, errors: errors)
       render :register_error, locals: { errors: errors }
     end
