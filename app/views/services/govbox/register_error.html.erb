@@ -12,6 +12,15 @@
       <div class="col-lg-8">
         <div class="alert alert-danger form-dialog" role="alert">
           <strong>Ľutujeme, ale momentálne nie je možné dokončiť registráciu.</strong><br/>
+          <% if errors.present? %>
+            <ul class="mt-3">
+              <% errors.keys.each do |field_name| %>
+                <% errors[field_name].each do |field_error|  %>
+                  <li><%= "#{field_name.humanize} #{field_error}" %></li>
+                <% end %>
+              <% end %>
+            </ul>
+          <% end %>
           Naši programátori boli na túto chybu automaticky upozornení a pravdepodobne už pracujú na náprave. Skúste dokončiť registráciu neskôr.
         </div>
       </div>
