@@ -63,7 +63,7 @@
         <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/fs.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>fs.sql.gz.torrent</strong></a>
         <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/fs.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> fs.sql.gz</a>
       </p>
-      <% tables = PgCatalog::PgTable.find_by_schema(:fs) %>
+      <% tables = PgCatalog::PgTable.find_by_schema(:fs).select { |t| t.tablename.in? %w(tax_liabilities vat_subjects) } %>
       <%= render partial: 'tables', object: tables %>
       <%= render partial: 'table', collection: tables %>
 
