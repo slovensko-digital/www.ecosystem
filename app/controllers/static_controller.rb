@@ -4,9 +4,8 @@ class StaticController < ContentController
     @page.og.description = 'Licenciu sme nastavili tak, aby boli podmienky používania úplne minimálne a mohli s dátami v princípe robiť čo chcete. Detailné podmienky v právničtine odporúča prečítať 10 z 10 právnikov.'
   end
 
-  def datasets_terms_v1
-    @page.title = 'Podmienky používania datasetov &middot; Ekosystém.Slovensko.Digital'.html_safe
-  end
+  alias datasets_terms_v1 datasets_terms
+  alias datasets_terms_v2 datasets_terms
 
   def services_terms
     @page.title = 'Podmienky používania služieb &middot; Ekosystém.Slovensko.Digital'.html_safe

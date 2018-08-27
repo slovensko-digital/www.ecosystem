@@ -43,6 +43,7 @@ Rails.application.routes.draw do
 
   get 'podmienky', to: 'static#datasets_terms', as: :datasets_terms
   get 'podmienky-v1', to: 'static#datasets_terms_v1', as: :datasets_terms_v1
+  get 'podmienky-v2', to: 'static#datasets_terms_v2', as: :datasets_terms_v2
   get 'podmienky-sluzieb', to: 'static#services_terms', as: :services_terms
   get 'cennik', to: 'static#pricing', as: :pricing
   get 'ochrana-osobnych-udajov', to: 'static#privacy_policy', as: :privacy_policy
