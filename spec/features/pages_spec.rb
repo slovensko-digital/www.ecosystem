@@ -59,7 +59,12 @@ RSpec.describe 'Pages' do
       expect(page).to have_content('crz.')
       expect(page).to have_content('vvo.')
       expect(page).to have_content('ov.')
+      expect(page).to have_content('fs.')
       expect(page).to have_content('ruz.')
+      expect(page).to have_content('socpoist.')
+      expect(page).to have_content('vszp.')
+      expect(page).to have_content('upvs.')
+      expect(page).to have_content('itms.')
     end
   end
 
