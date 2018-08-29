@@ -7,7 +7,7 @@
       <p class="lead"><%= link_to 'Slovensko.Digital', 'https://slovensko.digital/' %> poskytuje verejnosti bezplatný prístup k štruktúrovaným dátam vybraných zdrojov. Dáta je možné stiahnuť ako SQL dumpy z relačnej databázy alebo priamo využívať <%= link_to 'REST', open_api_path %> a <%= link_to 'SQL API', services_datahub_index_path %>. V prípade záujmu o ďalšie dáta nás <%= mail_to 'ekosystem@slovensko.digital', 'kontaktujte' %>.</p>
 
       <h2>Dokumentácia</h2>
-      <p>Popis štruktúry tabuliek pre datasety z <%= link_to 'centrálneho registra zmlúv', '#crz' %>, <%= link_to 'registra právnických osôb', '#rpo' %>, <%= link_to 'vestníka verejného obstarávania', '#vvo' %>, <%= link_to 'obchodného vestníka', '#ov' %>, <%= link_to 'registra účtovných závierok', '#ruz' %>, <%= link_to 'dlžníkov Sociálnej poisťovne', '#socpoist' %>, <%= link_to 'dlžníkov Všeobecnej zdravotnej poisťovne', '#vszp' %> ako aj ďalšie nájdete v tejto dokumentácii.</p>
+      <p>Popis štruktúry tabuliek pre datasety z <%= link_to 'registra právnických osôb', '#rpo' %>, <%= link_to 'centrálneho registra zmlúv', '#crz' %>, <%= link_to 'vestníka verejného obstarávania', '#vvo' %>, <%= link_to 'obchodného vestníka', '#ov' %>, <%= link_to 'informačných zoznamov Finančnej správy', '#fs' %>, <%= link_to 'registra účtovných závierok', '#ruz' %>, <%= link_to 'dlžníkov Sociálnej poisťovne', '#socpoist' %>, <%= link_to 'dlžníkov Všeobecnej zdravotnej poisťovne', '#vszp' %> ako aj ďalšie nájdete v tejto dokumentácii.</p>
 
       <h3>Aktualizácia</h3>
       <p>SQL dumpy sú vytvárané raz týždenne v nedeľu od 4:00. Dáta prístupné cez API sú aktualizované priebežne.</p>
@@ -57,6 +57,16 @@
       <%= render partial: 'tables', object: tables %>
       <%= render partial: 'table', collection: tables %>
 
+      <h3 id="fs">Informačné zoznamy Finančnej správy <span class="label label-danger">ALFA</span></h3>
+      <p>Informačné zoznamy Finančnej správy obsahujú informácie o daňových subjektoch na Slovensku. Momentálne poskytujeme len zoznam daňových subjektov registrovaných pre DPH a zoznam daňových subjektov s výškou nadmerného odpočtu a výškou vlastnej daňovej povinnosti.</p>
+      <p class="btn-row">
+        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/fs.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>fs.sql.gz.torrent</strong></a>
+        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/fs.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> fs.sql.gz</a>
+      </p>
+      <% tables = PgCatalog::PgTable.find_by_schema(:fs) %>
+      <%= render partial: 'tables', object: tables %>
+      <%= render partial: 'table', collection: tables %>
+
       <h3 id="ruz">Register účtovných závierok <span class="label label-danger">ALFA</span></h3>
       <p>Register účtovných závierok obsahuje dôležité informácie o hospodárení firiem na Slovensku. Momentálne poskytujeme len účtovné jednotky a číselníky.</p>
       <p class="btn-row">
@@ -92,6 +102,10 @@
 
       <h3 id="upvs">Zoznam inštitúcií so zriadenou elektronickou schránkou <span class="label label-danger">ALFA</span></h3>
       <p>Zoznam inštitúcií so zriadenou elektronickou schránkou.</p>
+      <p class="btn-row">
+        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/upvs.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>upvs.sql.gz.torrent</strong></a>
+        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/upvs.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> upvs.sql.gz</a>
+      </p>
       <% tables = PgCatalog::PgTable.find_by_schema(:upvs) %>
       <%= render partial: 'tables', object: tables %>
       <%= render partial: 'table', collection: tables %>
