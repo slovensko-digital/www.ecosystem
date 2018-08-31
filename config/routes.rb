@@ -47,7 +47,7 @@ Rails.application.routes.draw do
   get 'podmienky-sluzieb', to: 'static#services_terms', as: :services_terms
   get 'cennik', to: 'static#pricing', as: :pricing
   get 'ochrana-osobnych-udajov', to: 'static#privacy_policy', as: :privacy_policy
-  get 'planovane-zmeny', to: 'static#upcoming_changes', as: :upcoming_changes
+  get 'poznamky-k-zmenam', to: 'static#release_notes', as: :release_notes
 
   namespace :health do
     get :all_env_set

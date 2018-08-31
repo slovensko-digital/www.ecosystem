@@ -19,7 +19,7 @@ class StaticController < ContentController
     @page.title = 'Informácie o spracúvaní osobných údajov &middot; Ekosystém.Slovensko.Digital'.html_safe
   end
 
-  def upcoming_changes
+  def release_notes
     @page.title = 'Plánované zmeny datasetov &middot; Ekosystém.Slovensko.Digital'.html_safe
   end
 end
