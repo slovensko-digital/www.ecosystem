@@ -18,4 +18,8 @@ class StaticController < ContentController
   def privacy_policy
     @page.title = 'Informácie o spracúvaní osobných údajov &middot; Ekosystém.Slovensko.Digital'.html_safe
   end
+
+  def upcoming_changes
+    @page.title = 'Plánované zmeny datasetov &middot; Ekosystém.Slovensko.Digital'.html_safe
+  end
 end
