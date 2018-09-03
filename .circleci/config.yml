@@ -20,7 +20,7 @@ jobs:
       - checkout
       - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./test-reporter
       - run: chmod +x ./test-reporter
-      - run: sudo apt-get install postgresql-client-9.6
+      - run: sudo apt-get install postgresql-client --fix-missing
       - restore_cache: { keys: ['{{ checksum "Gemfile.lock" }}'] }
       - run: bundle install --path vendor/bundle
       - save_cache: { key: '{{ checksum "Gemfile.lock" }}', paths: [vendor/bundle] }
