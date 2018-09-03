@@ -20,6 +20,6 @@ class StaticController < ContentController
   end
 
   def release_notes
-    @page.title = 'Plánované zmeny datasetov &middot; Ekosystém.Slovensko.Digital'.html_safe
+    @page.title = 'Poznámky k zmenám funkcionality a štruktúry dát &middot; Ekosystém.Slovensko.Digital'.html_safe
   end
 end
