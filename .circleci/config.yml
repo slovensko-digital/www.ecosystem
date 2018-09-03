@@ -11,7 +11,7 @@ jobs:
         environment:
           RAILS_ENV: test
 
-      - image: circleci/postgres:9.6.8-alpine-ram
+      - image: circleci/postgres:9.6.10-alpine-ram
         environment:
           POSTGRES_USER: ubuntu
           POSTGRES_PASSWORD: ''
