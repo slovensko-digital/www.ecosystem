@@ -26,6 +26,9 @@
         <p>Prístupy na API sú limitované na 60 prístupov za minútu na jednu IP adresu. V hlavičke HTTP odpovede sú uvedené limity pre aktuálneho klienta. Limity vieme po dohode navýšiť.</p>
         <%= render 'open_apis/rate_limit' %>
 
+        <h3 id="upcoming-changes">Zmeny v štruktúre dát</h3>
+        <p>Štruktúra dát podlieha <%= link_to 'zmenám', release_notes_path %>.</p>
+
         <h2 id="premium-data">Prémiové dáta</h2>
 
         <h3 id="po">Právnické osoby <span class="label label-warning">BETA</span></h3>
@@ -44,6 +47,7 @@
           <li class="list-group-item"><%= link_to 'Synchronizačné API', '#sync-api' %></li>
           <li class="list-group-item"><%= link_to 'SQL API', '#sql-api' %></li>
           <li class="list-group-item"><%= link_to 'Obmedzenie počtu prístupov', '#rate-limit' %></li>
+          <li class="list-group-item"><%= link_to 'Zmeny v štruktúre dát', '#upcoming-changes' %></li>
           <li class="list-group-item">
             <%= link_to 'Prémiové dáta', '#data' %>
             <ul class="list-group">

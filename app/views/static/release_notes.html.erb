@@ -1,0 +1,154 @@
+<div class="container">
+  <h1><strong>Poznámky k zmenám funkcionality a štruktúry dát</strong></h1>
+  <div class="long-text">
+    <h2 class="anchorable">Zmena k 24. 9. 2018</h2>
+    <h3>Otvorené API</h3>
+    <h4>Zmenený endpoint <code>api/data/rpo/organizations/:id</code></h4>
+    <ul>
+      <li>Odstránený atribút <code>registration_office</code></li>
+      <li>Odstránený atribút <code>registration_number</code></li>
+      <li>
+        Zmenený objekt <code>deposit_entries</code>
+        <ul>
+          <li>Odstránený atribút <code>person_given_name</code></li>
+          <li>Odstránený atribút <code>person_family_name</code></li>
+          <li>Odstránený atribút <code>person_given_family_name</code></li>
+          <li>Zmenený atribút <code>person_prefixes: string</code> &rarr; <code>person_prefixes: array</code></li>
+          <li>Zmenený atribút <code>person_postfixes: string</code> &rarr; <code>person_postfixes: array</code></li>
+        </ul>
+      </li>
+      <li>
+        Zmenený objekt <code>stakeholder_entries</code>
+        <ul>
+          <li>Odstránený atribút <code>ico</code></li>
+          <li>Odstránený atribút <code>person_given_name</code></li>
+          <li>Odstránený atribút <code>person_family_name</code></li>
+          <li>Odstránený atribút <code>person_given_family_name</code></li>
+          <li>Zmenený atribút <code>person_prefixes: string</code> &rarr; <code>person_prefixes: array</code></li>
+          <li>Zmenený atribút <code>person_postfixes: string</code> &rarr; <code>person_postfixes: array</code></li>
+        </ul>
+      </li>
+      <li>
+        Zmenený objekt <code>statutory_entries</code>
+        <ul>
+          <li>Odstránený atribút <code>ico</code></li>
+          <li>Odstránený atribút <code>person_given_name</code></li>
+          <li>Odstránený atribút <code>person_family_name</code></li>
+          <li>Odstránený atribút <code>person_given_family_name</code></li>
+          <li>Zmenený atribút <code>person_prefixes: string</code> &rarr; <code>person_prefixes: array</code></li>
+          <li>Zmenený atribút <code>person_postfixes: string</code> &rarr; <code>person_postfixes: array</code></li>
+        </ul>
+      </li>
+      <li>
+        Zmenený objekt <code>predecessor_entries</code>
+        <ul>
+          <li>Odstránený atribút <code>ico</code></li>
+        </ul>
+      </li>
+      <li>
+        Zmenený objekt <code>successor_entries</code>
+        <ul>
+          <li>Odstránený atribút <code>ico</code></li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2 class="anchorable">Zmena k 10. 9. 2018</h2>
+    <h3>Otvorené API</h3>
+    <h4>Zmenený endpoint <code>api/data/rpo/organizations/:id</code></h4>
+    <ul>
+      <li>
+        Pridaný objekt <code>registration_office_entries: array</code>
+      </li>
+      <li>
+        Zmenený objekt <code>registration_number_entries</code>
+        <ul>
+          <li>Pridaný atribút <code>effective_to: date, null</code></li>
+        </ul>
+      </li>
+      <li>
+        Zmenený objekt <code>deposit_entries</code>
+        <ul>
+          <li>Pridaný atribút <code>person_given_names: array</code></li>
+          <li>Pridaný atribút <code>person_family_names: array</code></li>
+          <li>Pridaný atribút <code>person_given_family_names: array</code></li>
+        </ul>
+      </li>
+      <li>
+        Zmenený objekt <code>stakeholder_entries</code>
+        <ul>
+          <li>Pridaný atribút <code>cin: string</code></li>
+          <li>Pridaný atribút <code>person_given_names: array</code></li>
+          <li>Pridaný atribút <code>person_family_names: array</code></li>
+          <li>Pridaný atribút <code>person_given_family_names: array</code></li>
+        </ul>
+      </li>
+      <li>
+        Zmenený objekt <code>statutory_entries</code>
+        <ul>
+          <li>Pridaný atribút <code>cin: string</code></li>
+          <li>Pridaný atribút <code>person_given_names: array</code></li>
+          <li>Pridaný atribút <code>person_family_names: array</code></li>
+          <li>Pridaný atribút <code>person_given_family_names: array</code></li>
+        </ul>
+      </li>
+      <li>
+        Zmenený objekt <code>predecessor_entries</code>
+        <ul>
+          <li>Pridaný atribút <code>cin: string</code></li>
+        </ul>
+      </li>
+      <li>
+        Zmenený objekt <code>successor_entries</code>
+        <ul>
+          <li>Pridaný atribút <code>cin: string</code></li>
+        </ul>
+      </li>
+    </ul>
+    <h3>Otvorené dáta</h3>
+    <h4>Zmenená tabuľka <code>rpo.organizations</code></h4>
+    <ul>
+      <li>Odstránený stĺpec <code>registration_office</code></li>
+      <li>Odstránený stĺpec <code>registration_number</code></li>
+    </ul>
+    <h4>Pridaná tabuľka <code>rpo.organization_registration_office_entries</code></h4>
+    <h4>Zmenená tabuľka <code>rpo.organization_registration_number_entries</code></h4>
+    <ul>
+      <li>Pridaný stĺpec <code>effective_to: date, NULL</code></li>
+    </ul>
+    <h4>Zmenená tabuľka <code>rpo.organization_deposit_entries</code></h4>
+    <ul>
+      <li>Zmenený stĺpec <code>person_given_name: varchar</code> &rarr; <code>person_given_names: varchar[]</code></li>
+      <li>Zmenený stĺpec <code>person_family_name: varchar</code> &rarr; <code>person_family_names: varchar[]</code></li>
+      <li>Zmenený stĺpec <code>person_given_family_name: varchar</code> &rarr; <code>person_given_family_names: varchar[]</code></li>
+      <li>Zmenený stĺpec <code>person_prefixes: varchar</code> &rarr; <code>person_prefixes: varchar[]</code></li>
+      <li>Zmenený stĺpec <code>person_postfixes: varchar</code> &rarr; <code>person_postfixes: varchar[]</code></li>
+    </ul>
+    <h4>Zmenená tabuľka <code>rpo.organization_stakeholder_entries</code></h4>
+    <ul>
+      <li>Premenovaný stĺpec <code>ico</code> &rarr; <code>cin</code></li>
+      <li>Zmenený stĺpec <code>person_given_name: varchar</code> &rarr; <code>person_given_names: varchar[]</code></li>
+      <li>Zmenený stĺpec <code>person_family_name: varchar</code> &rarr; <code>person_family_names: varchar[]</code></li>
+      <li>Zmenený stĺpec <code>person_given_family_name: varchar</code> &rarr; <code>person_given_family_names: varchar[]</code></li>
+      <li>Zmenený stĺpec <code>person_prefixes: varchar</code> &rarr; <code>person_prefixes: varchar[]</code></li>
+      <li>Zmenený stĺpec <code>person_postfixes: varchar</code> &rarr; <code>person_postfixes: varchar[]</code></li>
+    </ul>
+    <h4>Zmenená tabuľka <code>rpo.organization_statutory_entries</code></h4>
+    <ul>
+      <li>Premenovaný stĺpec <code>ico</code> &rarr; <code>cin</code></li>
+      <li>Zmenený stĺpec <code>person_given_name: varchar</code> &rarr; <code>person_given_names: varchar[]</code></li>
+      <li>Zmenený stĺpec <code>person_family_name: varchar</code> &rarr; <code>person_family_names: varchar[]</code></li>
+      <li>Zmenený stĺpec <code>person_given_family_name: varchar</code> &rarr; <code>person_given_family_names: varchar[]</code></li>
+      <li>Zmenený stĺpec <code>person_prefixes: varchar</code> &rarr; <code>person_prefixes: varchar[]</code></li>
+      <li>Zmenený stĺpec <code>person_postfixes: varchar</code> &rarr; <code>person_postfixes: varchar[]</code></li>
+    </ul>
+    <h4>Zmenená tabuľka <code>rpo.organization_predecessor_entries</code></h4>
+    <ul>
+      <li>Premenovaný stĺpec <code>ico</code> &rarr; <code>cin</code></li>
+    </ul>
+    <h4>Zmenená tabuľka <code>rpo.organization_successor_entries</code></h4>
+    <ul>
+      <li>Premenovaný stĺpec <code>ico</code> &rarr; <code>cin</code></li>
+    </ul>
+  </div>
+</div>
