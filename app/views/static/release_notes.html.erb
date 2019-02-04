@@ -13,12 +13,12 @@
     <h3>Otvorené API</h3>
     <h4>Zmenený endpoint <code>api/data/fs/vat_subjects/:id</code></h4>
     <ul>
-      <li>Pridaný atribút <code>cin</code></li>
-      <li>Pridaný atribút <code>street</code></li>
-      <li>Pridaný atribút <code>country</code></li>
-      <li>Pridaný atribút <code>registration_kind</code></li>
-      <li>Pridaný atribút <code>registration_kind_updated_on</code></li>
-      <li>Pridaný atribút <code>registered_on</code></li>
+      <li>Pridaný atribút <code>cin: integer, null</code></li>
+      <li>Pridaný atribút <code>street: string, null</code></li>
+      <li>Pridaný atribút <code>country: string, null</code></li>
+      <li>Pridaný atribút <code>registration_kind: string, null</code></li>
+      <li>Pridaný atribút <code>registration_kind_updated_on: date, null</code></li>
+      <li>Pridaný atribút <code>registered_on: date</code></li>
     </ul>
     <h3>Otvorené dáta</h3>
     <h4>Zmenená tabuľka <code>fs.vat_subjects</code></h4>
@@ -108,7 +108,7 @@
       <li>
         Zmenený objekt <code>stakeholder_entries</code>
         <ul>
-          <li>Pridaný atribút <code>cin: string</code></li>
+          <li>Pridaný atribút <code>cin: integer, null</code></li>
           <li>Pridaný atribút <code>person_given_names: array</code></li>
           <li>Pridaný atribút <code>person_family_names: array</code></li>
           <li>Pridaný atribút <code>person_given_family_names: array</code></li>
@@ -117,7 +117,7 @@
       <li>
         Zmenený objekt <code>statutory_entries</code>
         <ul>
-          <li>Pridaný atribút <code>cin: string</code></li>
+          <li>Pridaný atribút <code>cin: integer, null</code></li>
           <li>Pridaný atribút <code>person_given_names: array</code></li>
           <li>Pridaný atribút <code>person_family_names: array</code></li>
           <li>Pridaný atribút <code>person_given_family_names: array</code></li>
@@ -126,13 +126,13 @@
       <li>
         Zmenený objekt <code>predecessor_entries</code>
         <ul>
-          <li>Pridaný atribút <code>cin: string</code></li>
+          <li>Pridaný atribút <code>cin: integer, null</code></li>
         </ul>
       </li>
       <li>
         Zmenený objekt <code>successor_entries</code>
         <ul>
-          <li>Pridaný atribút <code>cin: string</code></li>
+          <li>Pridaný atribút <code>cin: integer, null</code></li>
         </ul>
       </li>
     </ul>
