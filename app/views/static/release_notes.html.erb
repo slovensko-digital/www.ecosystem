@@ -1,6 +1,37 @@
 <div class="container">
   <h1><strong>Poznámky k zmenám funkcionality a štruktúry dát</strong></h1>
   <div class="long-text">
+    <h2 class="anchorable">Zmena k 18. 2. 2019</h2>
+    <h3>Otvorené API</h3>
+    <h4>Zmenený endpoint <code>api/data/fs/vat_subjects/:id</code></h4>
+    <ul>
+      <li>Odstránený atribút <code>address</code></li>
+      <li>Odstránený atribút <code>paragraph</code></li>
+    </ul>
+
+    <h2 class="anchorable">Zmena k 4. 2. 2019</h2>
+    <h3>Otvorené API</h3>
+    <h4>Zmenený endpoint <code>api/data/fs/vat_subjects/:id</code></h4>
+    <ul>
+      <li>Pridaný atribút <code>cin</code></li>
+      <li>Pridaný atribút <code>street</code></li>
+      <li>Pridaný atribút <code>country</code></li>
+      <li>Pridaný atribút <code>registration_kind</code></li>
+      <li>Pridaný atribút <code>registration_kind_updated_on</code></li>
+      <li>Pridaný atribút <code>registered_on</code></li>
+    </ul>
+    <h3>Otvorené dáta</h3>
+    <h4>Zmenená tabuľka <code>fs.vat_subjects</code></h4>
+    <ul>
+      <li>Pridaný stĺpec <code>cin: bigint, NULL</code></li>
+      <li>Pridaný stĺpec <code>country: varchar, NULL</code></li>
+      <li>Pridaný stĺpec <code>registration_kind_updated_on: date, NULL</code></li>
+      <li>Pridaný stĺpec <code>registered_on: date</code></li>
+      <li>Premenovaný stĺpec <code>address</code> &rarr; <code>street</code></li>
+      <li>Premenovaný stĺpec <code>paragraph</code> &rarr; <code>registration_kind</code></li>
+      <li>Zmenený stĺpec <code>municipality: varchar, NULL</code> &rarr; <code>municipality: varchar</code></li>
+    </ul>
+
     <h2 class="anchorable">Zmena k 24. 9. 2018</h2>
     <h3>Otvorené API</h3>
     <h4>Zmenený endpoint <code>api/data/rpo/organizations/:id</code></h4>
