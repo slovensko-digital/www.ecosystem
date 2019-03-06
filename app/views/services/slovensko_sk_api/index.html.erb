@@ -49,7 +49,7 @@
           </div>
           <ul class="list-group">
             <li class="list-group-item"><strong>Všetko z Komunitnej verzie</strong></li>
-            <li class="list-group-item">Okamžitý prístup k vývojovému prostrediu na&nbsp;testovanie</li>
+            <li class="list-group-item">O#kamžitý prístup k vývojovému prostrediu na&nbsp;testovanie</li>
             <li class="list-group-item">Vypracovanie integračných dokumentov pre&nbsp;Váš projekt na&nbsp;mieru</li>
             <li class="list-group-item">Celú komunikáciu s NASES vybavíme za Vás</li>
             <li class="list-group-item">Komerčná podpora a konzultácie</li>
@@ -81,20 +81,20 @@
       Nechajte nám Váš emailový kontakt alebo nám napíšte na <a href="mailto:ekosystem@slovensko.digital">ekosystem@slovensko.digital</a>. <em>Tešíme sa na spoluprácu.</em>
     </p>
 
-    <div id="datahub-error" style="display: none;">
+    <div id="sk-api-error" style="display: none;">
       <%= render 'services/share/flash_message', {type: :alert, message: 'Vyplňte prosím email a skúste znova.'} %>
     </div>
-    <div id="datahub-form-sent" style="display: none;">
+    <div id="sk-api-form-sent" style="display: none;">
       <%= render 'services/share/flash_message', {type: :notice, message: 'Ďakujeme, za Váš záujem. Budeme Vás kontaktovať cez zadaný email.'} %>
     </div>
 
     <iframe name="form-result" style="display: none;"></iframe>
     <div class="row">
-      <%= form_tag 'https://docs.google.com/forms/d/e/1FAIpQLSfUuAjnqGjDvSc-Miy6bP0xODXsjr6g04hGAeYlYkJo-3Iu1Q/formResponse', target: 'form-result', id: 'datahub-form' do %>
+      <%= form_tag 'https://docs.google.com/forms/d/e/1FAIpQLSfUuAjnqGjDvSc-Miy6bP0xODXsjr6g04hGAeYlYkJo-3Iu1Q/formResponse', target: 'form-result', id: 'sk-api-form' do %>
         <div class="col-md-3 col-md-pad">
           <div class="form-group">
             <%= label_tag 'emailAddress', 'Email', class: 'control-label' %>
-            <%= email_field_tag 'emailAddress', nil, class: 'form-control input-lg', id: 'datahub-email' %>
+            <%= email_field_tag 'emailAddress', nil, class: 'form-control input-lg', id: 'sk-api-email' %>
           </div>
         </div>
         <div class="col-md-4 col-md-pad">
