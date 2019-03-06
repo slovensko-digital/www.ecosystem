@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     end
 
     resources :datahub
+    resources :slovensko_sk_api, path: 'slovensko-sk-api'
   end
 
   resource 'open_data', path: 'otvorene-data'

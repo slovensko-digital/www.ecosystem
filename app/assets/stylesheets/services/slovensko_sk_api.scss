@@ -1,0 +1,33 @@
+.row-pricing {
+  margin-top: 4em;
+}
+
+.panel-pricing {
+  margin-top: 2em;
+
+  .panel-heading h3 {
+    font-size: 1.3em;
+  }
+
+  .panel-heading small {
+    color: white;
+  }
+  .list-group-item {
+    padding: 1em;
+  }
+
+  &.panel-pricing--featured {
+    margin-top: 0;
+    font-size: 1.15em;
+
+    .panel-heading h3 {
+      font-size: 1.5em;
+    }
+  }
+}
+
+.fa.fa--feature {
+  font-size: 6em;
+  margin: 0.5em 0;
+  color: #337ab7;
+}

@@ -1,0 +1,122 @@
+<div class="container autoform">
+  <h1><strong>slovensko.sk API</strong></h1>
+  <p class="lead">Integrácia na slovensko.sk, prihlasovanie pomocou eID, automatizované zasielanie podaní cez <em>REST API</em>. <br><em>Docker kontajner. Open source.</em></p>
+  <hr>
+
+  <section>
+    <h2 class="text-center">Integrácie pre Váš informačný systém</h2>
+    <div class="row text-center">
+      <div class="col-md-4">
+        <i class="fa fa-cogs fa--feature"></i><br>
+        <p class="lead">Posielate veľké množstvo podaní na slovensko.sk? <em>Automatizujte cez hromadné podania.</em></p>
+      </div>
+
+      <div class="col-md-4">
+        <i class="fa fa-id-badge fa--feature"></i><br>
+        <p class="lead">Potrebujete štátom garantovanú identitu a&nbsp;informácie o&nbsp;prihlasovanej osobe? <em>Podporujeme prihlasovanie elektronickým občianskym preukazom.</em></p>
+      </div>
+
+      <div class="col-md-4">
+        <i class="fa fa-envelope-open fa--feature"></i><br>
+        <p class="lead">Potrebujete automatizovane preberať správy zo schránky na slovensko.sk? <em>Použite službu <%= link_to 'GovBox API', services_govbox_index_path %>.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Balíky podpory</h2>
+    <p class="lead">Potrebujete pomôcť s vypracovaním integračných dokumentov? Potrebujete poradiť? <em>Objednajte si naše služby.</em></p>
+    <div class="row row-pricing">
+      <div class="col-md-4 ">
+        <div class="panel panel-pricing panel-default text-center">
+          <div class="panel-heading">
+            <h3>Komunitná verzia</h3>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item">Open Source</li>
+            <li class="list-group-item"><a href="https://hub.docker.com/r/skdigital/slovensko-sk-api" target="_blank">Docker kontajner</a></li>
+            <li class="list-group-item">Vzorové integračné dokumenty pre NASES</li>
+            <li class="list-group-item">Komunitná podpora</li>
+            <li class="list-group-item"><strong>Zadarmo</strong></li>
+            <li class="list-group-item"><a href="https://github.com/slovensko-digital/slovensko-sk-api" target="_blank" class="btn btn-default">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-pricing panel-pricing--featured panel-primary text-center">
+          <div class="panel-heading text-center">
+            <h3>Biznis verzia<br><small></small></h3>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item"><strong>Všetko z Komunitnej verzie</strong></li>
+            <li class="list-group-item">Okamžitý prístup k vývojovému prostrediu na&nbsp;testovanie</li>
+            <li class="list-group-item">Vypracovanie integračných dokumentov pre&nbsp;Váš projekt na&nbsp;mieru</li>
+            <li class="list-group-item">Celú komunikáciu s NASES vybavíme za Vás</li>
+            <li class="list-group-item">Komerčná podpora a konzultácie</li>
+            <li class="list-group-item list-group-item-info"><a href="#kontakt" class="btn btn-lg btn-default"><strong>Objednať</strong></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-pricing panel-default text-center">
+          <div class="panel-heading text-center">
+            <h3>Enterprise verzia</h3>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item"><strong>Všetko z Biznis verzie</strong></li>
+            <li class="list-group-item">Vývoj novej funkcionality na mieru</li>
+            <li class="list-group-item">Prevádzkovanie softvéru ako služby (SaaS)</li>
+            <li class="list-group-item">Komerčná podpora a SLA</li>
+            <li class="list-group-item">Propagácia Vašej firmy</li>
+            <li class="list-group-item list-group-item-default"><a href="#kontakt" class="btn btn-default">Kontaktujte nás</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <h2>Kontaktný formulár</h2>
+    <p class="lead">
+      Nechajte nám Váš emailový kontakt alebo nám napíšte na <a href="mailto:ekosystem@slovensko.digital">ekosystem@slovensko.digital</a>. <em>Tešíme sa na spoluprácu.</em>
+    </p>
+
+    <div id="datahub-error" style="display: none;">
+      <%= render 'services/share/flash_message', {type: :alert, message: 'Vyplňte prosím email a skúste znova.'} %>
+    </div>
+    <div id="datahub-form-sent" style="display: none;">
+      <%= render 'services/share/flash_message', {type: :notice, message: 'Ďakujeme, za Váš záujem. Budeme Vás kontaktovať cez zadaný email.'} %>
+    </div>
+
+    <iframe name="form-result" style="display: none;"></iframe>
+    <div class="row">
+      <%= form_tag 'https://docs.google.com/forms/d/e/1FAIpQLSfUuAjnqGjDvSc-Miy6bP0xODXsjr6g04hGAeYlYkJo-3Iu1Q/formResponse', target: 'form-result', id: 'datahub-form' do %>
+        <div class="col-md-3 col-md-pad">
+          <div class="form-group">
+            <%= label_tag 'emailAddress', 'Email', class: 'control-label' %>
+            <%= email_field_tag 'emailAddress', nil, class: 'form-control input-lg', id: 'datahub-email' %>
+          </div>
+        </div>
+        <div class="col-md-4 col-md-pad">
+          <%= label_tag :a, '&nbsp'.html_safe %> <br>
+          <%= button_tag id: 'submit_to_datahub', class: 'btn btn-default btn-lg btn-strong' do %>
+            <strong>Odoslať</strong>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </section>
+
+  <section id="clients">
+    <h2 class="text-center">Tento produkt vznikol v spolupráci&nbsp;s</h2>
+    <br>
+    <div class="row">
+      <div class="col-md-3 col-md-offset-5 text-center">
+        <%= link_to 'https://www.crystalconsulting.sk', target: '_blank', title: 'Crystal Consulting' do %>
+          <%= image_tag 'clients/crystal-consulting.webp', width: '200', alt: 'Crystal Consulting' %>
+        <% end %>
+      </div>
+    </div>
+  </section>
+
+</div>
