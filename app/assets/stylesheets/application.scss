@@ -255,6 +255,10 @@ footer .icons a:hover {
 
 footer {
   border-top: 1px solid #eee;
+
+  .icons .fa-stack {
+    width: 2em;
+  }
 }
 
 .newsletter {
