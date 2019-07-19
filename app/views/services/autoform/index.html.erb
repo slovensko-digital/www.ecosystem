@@ -4,12 +4,12 @@
 
 <div class="container autoform">
   <h1><strong>Autoform</strong></h1>
-  <p class="lead">Automatické vypĺňanie kontaktných a fakturačných údajov o právnických osobách. <br><em>Vždy aktuálne údaje, rýchle a bez chýb.</em></p>
+  <p class="lead">Automatické vypĺňanie kontaktných a fakturačných údajov o právnických osobách a SZČO. <br><em>Vždy aktuálne údaje, rýchle a bez chýb.</em></p>
 
   <hr>
 
   <h2>Ukážkové použitie</h2>
-  <p class="lead"><em>Začnite písať názov právnickej osoby alebo zadajte IČO.</em> Zvyšok sa doplní automaticky.</p>
+  <p class="lead"><em>Začnite písať názov právnickej osoby prípadne SZČO, alebo zadajte IČO.</em> Zvyšok sa doplní automaticky.</p>
   <%= form_tag '#', data: {'slovensko-digital-autoform': ENV.fetch('AUTOFORM_ACCESS_TOKEN') } do %>
       <section>
         <div class="row">
