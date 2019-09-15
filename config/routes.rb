@@ -13,7 +13,7 @@ Rails.application.routes.draw do
         get :terms, path: 'vseobecne-obchodne-podmienky'
         get :terms_v1, path: 'vseobecne-obchodne-podmienky-v1'
         get :terms_v2, path: 'vseobecne-obchodne-podmienky-v2'
-        get :terms_api, path: 'api-vseobecne-obchodne-podmienky'
+        get :terms_api, path: 'vseobecne-obchodne-podmienky-api'
         get :service_provider, path: 'prevadzkovatel'
         get :pricing, path: 'cennik'
         get :pricing_v1, path: 'cennik-v1'
