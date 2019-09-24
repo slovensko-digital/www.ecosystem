@@ -19,6 +19,11 @@
   background-color: white;
 }
 
+@media (max-width: 362px) {
+  [data-toggle="tooltip"] span {
+    left: -200%;}
+}
+
 [data-toggle="tooltip"]:hover {
   border: 0; /* IE6 fix */
 }
