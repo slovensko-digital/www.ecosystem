@@ -35,7 +35,8 @@ RSpec.feature 'Govbox registration', type: :feature do
     expect(page).to have_content('Registrácia úspešná!')
   end
 
-  scenario 'User registers for govbox API' do
+  # TO DO
+  xscenario 'User registers for govbox API' do
     visit '/sluzby/govbox'
     within('#registration') do
       click_on 'Mám záujem o GovBox'
@@ -59,7 +60,7 @@ RSpec.feature 'Govbox registration', type: :feature do
     fill_in 'Zvoľte si heslo', with: 'nejakeheslo'
     fill_in 'Heslo (znova)', with: 'nejakeheslo'
 
-    # WebMock.allow_net_connect!
+    WebMock.allow_net_connect!
     stub_request(:post, ENV.fetch('GOVBOX_FORM_ENDPOINT')).
       with(body: {'cin' => '50 158 635', 'email' => 'jan.hargas@slovensko.digital', 'family_name' => 'Hargaš',
                   'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital', 'mode' => 'api_mode',

@@ -2,7 +2,6 @@ class Services::GovboxController < ContentController
   layout 'application_bs4'
 
   before_action :ensure_live, only: [:index, :register_step1, :faq]
-  after_action :convert_mode, only: :register_step1
 
   PARAMS = [
     :legal_subject_name, :cin, :mode, :vatin, :formatted_address,
@@ -84,9 +83,5 @@ class Services::GovboxController < ContentController
     unless rollout.active?(:govbox)
       render template: 'errors/not_found', status: 404, layout: 'application'
     end
-  end
-
-  def convert_mode
-    (params[:mode] == 'on') ? params[:mode] = 'api_mode' : params[:mode] = nil
   end
 end

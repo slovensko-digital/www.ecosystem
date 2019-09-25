@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-lg-8">
         <h1 class="form-title">Nastavenie služby</h1>
-        <p class="lead form-subtitle">Zadajte údaje pre preposielanie správ a SMS upozornenia.</p>
+        <p class="lead form-subtitle">Zadajte údaje pre preposielanie správ, SMS upozornenia a vyberte typ služby.</p>
         <div class="row">
           <div class="col-md-8 form-group">
             <%= label_tag :email, 'Email' %>
@@ -17,6 +17,21 @@
             <i class="fa fa-question-circle" data-toggle="tooltip" data-toggle-class="text-left" data-html="true" title="Budeme ho potrebovať, keď napríklad zabudnete heslo alebo Vám nepôjde doručiť správy na email."></i>
             <%= phone_field_tag :phone, params[:phone], class: 'form-control input-lg', required: true, pattern: '^\+\d+$', title: 'Číslo v medzinárodnom formáte (napr +421910160880)' %>
             <span class="form-text text-muted">Napríklad: +421910160880</span>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-lg-8">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <%= check_box_tag :mode, 'api_mode', false, class: 'form-check-input' %>
+                    <span>Mám záujem o službu<em> GovBox API.</em></span>
+                  </label>
+                </div>
+                <span class="form-text text-muted">Umožňuje manipuláciu s schránkou prostredníctvom programového rozhrania (API) najmä prístup do elektronickej schránky, sťahovanie elektronických správ a elektronických dokumentov do vlastného rozhrania, potvrdzovanie doručeniek ako aj ďalšie funkcionality.</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
