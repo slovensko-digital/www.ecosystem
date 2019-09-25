@@ -43,7 +43,6 @@ RSpec.feature 'Govbox registration', type: :feature do
 
     fill_in 'Názov', with: 'Slovensko.Digital'
     fill_in 'IČO', with: '50 158 635'
-    check('api_interest')
 
     click_on 'Ďalej'
 
@@ -54,6 +53,7 @@ RSpec.feature 'Govbox registration', type: :feature do
 
     fill_in 'Email', with: 'jan.hargas@slovensko.digital'
     fill_in 'Mobilný telefón', with: '+421903919123'
+    check('api_interest')
     click_on 'Ďalej'
 
     fill_in 'Zvoľte si heslo', with: 'nejakeheslo'
