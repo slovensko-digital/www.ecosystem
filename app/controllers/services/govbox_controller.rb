@@ -4,7 +4,7 @@ class Services::GovboxController < ContentController
   before_action :ensure_live, only: [:index, :register_step1, :faq]
 
   PARAMS = [
-    :legal_subject_name, :cin, :vatin, :formatted_address,
+    :legal_subject_name, :cin, :mode, :vatin, :formatted_address,
     :given_name, :family_name, :person_formatted_address,
     :email, :phone, :postal_address, :snail_mail,
     :password, :password_confirmation, :referral_code,
