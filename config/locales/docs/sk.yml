@@ -315,6 +315,9 @@ sk:
               description: Názov
             cin:
               description: IČO
+            cin_raw:
+              description: IČO v nespracovanej forme
+              note_html: Hodnota zo zdroja. Napríklad <code>57-015-188</code> alebo <code>HR15645</code>.
             <<: *timestamp_columns
         notice_types:
           description: Typy oznámenia
