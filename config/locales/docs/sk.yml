@@ -830,7 +830,9 @@ sk:
             organization_id:
               description: Identifikátor právnickej osoby
             stakeholder_type_id:
-              description: Identifikátor typu zainteresovanej osoby
+              description: Identifikátor typu štatutárneho orgánu
+            statutory_type_id:
+              description: Identifikátor typu štatutárneho orgánu
             ico:
               description: Identifikátor právnickej osoby
             <<: *person_columns
@@ -892,6 +894,15 @@ sk:
             name:
               description: Názov typu zainteresovanej osoby
               note_html: Napríklad <code>Správca reštrukturalizačného konania</code>.
+            <<: *timestamp_columns
+        statutory_types:
+          description: Číselník typov štatutárnych orgánov
+          columns:
+            id:
+              description: Identifikátor
+            name:
+              description: Názov typu štatutárneho orgánu
+              note_html: Napríklad <code>Predseda predstavenstva</code>.
             <<: *timestamp_columns
         organizations:
           description: Právnické osoby
