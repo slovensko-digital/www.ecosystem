@@ -1,6 +1,55 @@
 <div class="container">
   <h1><strong>Poznámky k zmenám funkcionality a štruktúry dát</strong></h1>
   <div class="long-text">
+    <h2 class="anchorable">Zmena k 24. 6. 2020</h2>
+    <h3>Otvorené API</h3>
+    <h4>Zmenený endpoint <code>api/data/rpo/organizations/:id</code></h4>
+    <ul>
+      <li>
+        Zmenený objekt <code>statutory_entries</code>
+        <ul>
+          <li>Odstránený objekt <code>stakeholder_type</code></li>
+        </ul>
+      </li>
+    </ul>
+    <h3>Otvorené dáta</h3>
+    <h4>Zmenená tabuľka <code>rpo.organization_statutory_entries</code></h4>
+    <ul>
+      <li>Odstránený stĺpec <code>stakeholder_type_id</code></li>
+    </ul>
+
+
+    <h2 class="anchorable">Zmena k 10. 6. 2020</h2>
+    <h3>Otvorené API</h3>
+    <h4>Zmenený endpoint <code>api/data/rpo/organizations/:id</code></h4>
+    <ul>
+      <li>
+        Zmenený objekt <code>statutory_entries</code>
+        <ul>
+          <li>Pridaný objekt <code>statutory_type, null</code>
+            <ul>
+              <li>Pridaný atribút <code>id: integer</code></li>
+              <li>Pridaný atribút <code>name: string</code></li>
+              <li>Pridaný atribút <code>created_at: timestamp</code></li>
+              <li>Pridaný atribút <code>updated_at: timestamp</code></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h3>Otvorené dáta</h3>
+    <h4>Pridaná tabuľka <code>rpo.statutory_types</code></h4>
+    <ul>
+      <li>Pridaný stĺpec <code>id: bigint</code></li>
+      <li>Pridaný stĺpec <code>name: varchar</code></li>
+      <li>Pridaný stĺpec <code>created_at: timestamp</code></li>
+      <li>Pridaný stĺpec <code>updated_at: timestamp</code></li>
+    </ul>
+    <h4>Zmenená tabuľka <code>rpo.organization_statutory_entries</code></h4>
+    <ul>
+      <li>Pridaný stĺpec <code>statutory_type_id: bigint, NULL</code></li>
+    </ul>
+
     <h2 class="anchorable">Zmena k 16. 1. 2020</h2>
     <h3>Otvorené dáta</h3>
     <h4>Zmenená tabuľka <code>vvo.notice_suppliers</code></h4>
