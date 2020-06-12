@@ -64,3 +64,1529 @@
 <h4>Vyhľadanie právnickej osôby</h4>
 <p class="docs-endpoint"><code>GET <%= search_api_datahub_corporate_bodies_url(host: api_host) %>?q=cin:12314</code></p>
 <p>Podporované je vyhľadanie iba podľa IČO <code>cin</code>. Odpoveď obsahuje jednu právnicku osobu. V prípade, že sa právnicka osoba podľa zadaného IČO v databáze nenachádza, odpoveď vracia kód <code>404</code></p>
+
+<h4>Rozšírenie odpovede o dáta z Registra právnických osôb</h4>
+<p>Prémiové dáta umožňujú rozšíriť odpoveď požiadavky o podrobné údaje o prepojených organizáciách z RPO pridaním parametra <code>expand=rpo_organizations</code>.</p>
+<p>Podporované sú všetky typy požiadaviek - <code>/search</code>, <code>/:id</code> aj <code>/sync</code>.</p>
+
+<p class="docs-endpoint"><code>GET <%= search_api_datahub_corporate_bodies_url(host: api_host) %>?q=cin:36421928&expand=rpo_organizations</code></p>
+
+<h5>Odpoveď</h5>
+<p><%= link_to 'Popis atribútov', premium_data_path(anchor: 'datahub.corporate_bodies'), class: 'btn btn-default btn-sm' %></p>
+<pre class="pre-scrollable"><code class="language-json">{
+  "id": 291974,
+  "cin": 36421928,
+  "tin": 2021869234,
+  "vatin": "SK2021869234",
+  "name": "WebSupport s. r. o.",
+  "formatted_address": "Karadžičova 7608/12, 821 08 Bratislava - mestská časť Ružinov",
+  "street": "Karadžičova",
+  "reg_number": 7608,
+  "building_number": "12",
+  "postal_code": "821 08",
+  "municipality": "Bratislava - mestská časť Ružinov",
+  "country": "Slovenská republika",
+  "created_at": "2016-06-09T10:19:05.128358Z",
+  "updated_at": "2020-01-22T08:49:56.916522Z",
+  "established_on": "2004-08-12",
+  "terminated_on": null,
+  "vatin_paragraph": "§4",
+  "registration_office": "Okresný súd Bratislava I",
+  "registration_number": "Sro/63270/B",
+  "formatted_street": "Karadžičova 7608/12",
+  "street_number": "7608/12",
+  "rpo_organizations": [
+    {
+      "id": 1049550,
+      "established_on": "2004-08-12",
+      "terminated_on": null,
+      "actualized_at": "2019-11-07T07:41:09.000000Z",
+      "has_organization_unit": false,
+      "has_operations": false,
+      "statistical_codes_actualized_on": null,
+      "created_at": "2016-05-14T19:54:26.885224Z",
+      "updated_at": "2019-11-08T05:51:05.026695Z",
+      "source_register": "Obchodný register",
+      "main_organization_id": null,
+      "deleted_at": null,
+      "registration_office_entries": [
+        {
+          "id": 304278,
+          "organization_id": 1049550,
+          "registration_office": "Okresný súd Bratislava I",
+          "effective_from": "2004-08-12",
+          "effective_to": null,
+          "created_at": "2018-09-10T09:01:33.867865Z",
+          "updated_at": "2018-09-10T09:01:33.867865Z"
+        }
+      ],
+      "registration_number_entries": [
+        {
+          "id": 240693,
+          "organization_id": 1049550,
+          "registration_number": "Sro/63270/B",
+          "effective_from": "2004-08-12",
+          "created_at": "2017-08-26T23:13:34.251706Z",
+          "updated_at": "2017-08-26T23:13:34.251706Z",
+          "effective_to": null
+        }
+      ],
+      "identifier_entries": [
+        {
+          "id": 300328,
+          "organization_id": 1049550,
+          "ipo": 36421928,
+          "effective_from": "2004-08-12",
+          "effective_to": null,
+          "created_at": "2016-05-14T19:54:26.886667Z",
+          "updated_at": "2016-05-14T19:54:26.886667Z"
+        }
+      ],
+      "address_entries": [
+        {
+          "id": 4053437,
+          "organization_id": 1049550,
+          "formatted_address": null,
+          "street": "Karadžičova",
+          "reg_number": 0,
+          "building_number": "7608/12",
+          "postal_code": "821 08",
+          "municipality": "Bratislava - mestská časť Ružinov",
+          "country": "Slovenská republika",
+          "effective_from": "2019-02-01",
+          "effective_to": null,
+          "created_at": "2019-03-19T05:01:52.485241Z",
+          "updated_at": "2019-03-19T05:01:52.485241Z",
+          "district": null
+        },
+        {
+          "id": 480751,
+          "organization_id": 1049550,
+          "formatted_address": null,
+          "street": "Staré Grunty",
+          "reg_number": 0,
+          "building_number": "12",
+          "postal_code": "84104",
+          "municipality": "Bratislava",
+          "country": "Slovenská republika",
+          "effective_from": "2010-01-14",
+          "effective_to": "2019-01-31",
+          "created_at": "2016-05-14T19:54:26.890356Z",
+          "updated_at": "2019-03-19T05:01:52.372719Z",
+          "district": null
+        },
+        {
+          "id": 480752,
+          "organization_id": 1049550,
+          "formatted_address": null,
+          "street": null,
+          "reg_number": 0,
+          "building_number": "457",
+          "postal_code": "02334",
+          "municipality": "Kysucký Lieskovec",
+          "country": "Slovenská republika",
+          "effective_from": "2004-08-12",
+          "effective_to": "2010-01-13",
+          "created_at": "2016-05-14T19:54:26.893172Z",
+          "updated_at": "2016-05-14T19:54:26.893172Z",
+          "district": null
+        }
+      ],
+      "alternate_name_entries": [],
+      "authorization_entries": [
+        {
+          "id": 562879,
+          "organization_id": 1049550,
+          "body": "Každý konateľ koná v mene spoločnosti samostatne.",
+          "effective_from": "2019-11-08",
+          "effective_to": null,
+          "created_at": "2019-11-08T05:51:04.897039Z",
+          "updated_at": "2019-11-08T05:51:04.897039Z"
+        },
+        {
+          "id": 541129,
+          "organization_id": 1049550,
+          "body": "V mene spoločnosti konajú a za spoločnosť podpisujú vždy dvaja konatelia spoločne.",
+          "effective_from": "2019-03-29",
+          "effective_to": "2019-11-07",
+          "created_at": "2019-03-29T00:48:07.631081Z",
+          "updated_at": "2019-11-08T05:51:04.815700Z"
+        },
+        {
+          "id": 403500,
+          "organization_id": 1049550,
+          "body": "V mene spoločnosti koná každý z konateľov samostatne. Pri právnych úkonoch vykonaných v písomnej forme pripojí k obchodnému menu spoločnosti svoju funkciu a podpis.",
+          "effective_from": "2004-08-12",
+          "effective_to": "2019-03-28",
+          "created_at": "2016-05-14T19:54:26.933486Z",
+          "updated_at": "2019-03-29T00:48:07.453135Z"
+        }
+      ],
+      "deposit_entries": [
+        {
+          "id": 1463814,
+          "organization_id": 1049550,
+          "full_name": "Loopia Group AB",
+          "person_formatted_name": null,
+          "deposit_amount": "996.0",
+          "deposit_currency": "EUR",
+          "deposit_type": null,
+          "effective_from": "2019-10-16",
+          "effective_to": null,
+          "created_at": "2019-10-16T05:58:33.474402Z",
+          "updated_at": "2019-10-16T05:58:33.474402Z",
+          "person_given_names": [],
+          "person_family_names": [],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": []
+        },
+        {
+          "id": 1463813,
+          "organization_id": 1049550,
+          "full_name": "Loopia Aktiebolag",
+          "person_formatted_name": null,
+          "deposit_amount": "5644.0",
+          "deposit_currency": "EUR",
+          "deposit_type": null,
+          "effective_from": "2019-10-16",
+          "effective_to": null,
+          "created_at": "2019-10-16T05:58:33.231292Z",
+          "updated_at": "2019-10-16T05:58:33.231292Z",
+          "person_given_names": [],
+          "person_family_names": [],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": []
+        },
+        {
+          "id": 1419162,
+          "organization_id": 1049550,
+          "full_name": "Loopia Group AB",
+          "person_formatted_name": null,
+          "deposit_amount": "996.0",
+          "deposit_currency": "EUR",
+          "deposit_type": null,
+          "effective_from": "2019-03-20",
+          "effective_to": "2019-10-15",
+          "created_at": "2019-03-20T05:48:48.566870Z",
+          "updated_at": "2019-10-16T05:58:32.968847Z",
+          "person_given_names": [],
+          "person_family_names": [],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": []
+        },
+        {
+          "id": 1419161,
+          "organization_id": 1049550,
+          "full_name": "Loopia Aktiebolag",
+          "person_formatted_name": null,
+          "deposit_amount": "5644.0",
+          "deposit_currency": "EUR",
+          "deposit_type": null,
+          "effective_from": "2019-03-20",
+          "effective_to": "2019-10-15",
+          "created_at": "2019-03-20T05:48:48.530531Z",
+          "updated_at": "2019-10-16T05:58:33.144802Z",
+          "person_given_names": [],
+          "person_family_names": [],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": []
+        },
+        {
+          "id": 1418839,
+          "organization_id": 1049550,
+          "full_name": null,
+          "person_formatted_name": "Pavel Stano",
+          "deposit_amount": "2324.0",
+          "deposit_currency": "EUR",
+          "deposit_type": null,
+          "effective_from": "2019-03-19",
+          "effective_to": "2019-03-19",
+          "created_at": "2019-03-19T05:01:52.928026Z",
+          "updated_at": "2019-03-20T05:48:48.469611Z",
+          "person_given_names": [
+            "Pavel"
+          ],
+          "person_family_names": [
+            "Stano"
+          ],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": []
+        },
+        {
+          "id": 1418840,
+          "organization_id": 1049550,
+          "full_name": "Trantor Ventures GmbH",
+          "person_formatted_name": null,
+          "deposit_amount": "3320.0",
+          "deposit_currency": "EUR",
+          "deposit_type": null,
+          "effective_from": "2019-03-19",
+          "effective_to": "2019-03-19",
+          "created_at": "2019-03-19T05:01:52.977610Z",
+          "updated_at": "2019-03-20T05:48:48.306256Z",
+          "person_given_names": [],
+          "person_family_names": [],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": []
+        },
+        {
+          "id": 1418841,
+          "organization_id": 1049550,
+          "full_name": null,
+          "person_formatted_name": "Mgr. Ivan Štefunko",
+          "deposit_amount": "996.0",
+          "deposit_currency": "EUR",
+          "deposit_type": null,
+          "effective_from": "2019-03-19",
+          "effective_to": "2019-03-19",
+          "created_at": "2019-03-19T05:01:53.028519Z",
+          "updated_at": "2019-03-20T05:48:48.268739Z",
+          "person_given_names": [
+            "Ivan"
+          ],
+          "person_family_names": [
+            "Štefunko"
+          ],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": []
+        },
+        {
+          "id": 1107873,
+          "organization_id": 1049550,
+          "full_name": null,
+          "person_formatted_name": "Pavel Stano",
+          "deposit_amount": "2324.0",
+          "deposit_currency": "EUR",
+          "deposit_type": null,
+          "effective_from": "2013-05-07",
+          "effective_to": "2019-03-18",
+          "created_at": "2016-05-14T19:54:26.943045Z",
+          "updated_at": "2019-03-19T05:01:52.830352Z",
+          "person_given_names": [
+            "Pavel"
+          ],
+          "person_family_names": [
+            "Stano"
+          ],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": []
+        },
+        {
+          "id": 1107871,
+          "organization_id": 1049550,
+          "full_name": "Trantor Ventures GmbH",
+          "person_formatted_name": null,
+          "deposit_amount": "3320.0",
+          "deposit_currency": "EUR",
+          "deposit_type": null,
+          "effective_from": "2016-01-29",
+          "effective_to": "2019-03-18",
+          "created_at": "2016-05-14T19:54:26.940843Z",
+          "updated_at": "2019-03-19T05:01:52.723916Z",
+          "person_given_names": [],
+          "person_family_names": [],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": []
+        },
+        {
+          "id": 1278213,
+          "organization_id": 1049550,
+          "full_name": null,
+          "person_formatted_name": "Mgr. Ivan Štefunko",
+          "deposit_amount": "996.0",
+          "deposit_currency": "EUR",
+          "deposit_type": null,
+          "effective_from": "2017-01-03",
+          "effective_to": "2019-03-18",
+          "created_at": "2017-01-03T05:30:38.864406Z",
+          "updated_at": "2019-03-19T05:01:52.583514Z",
+          "person_given_names": [
+            "Ivan"
+          ],
+          "person_family_names": [
+            "Štefunko"
+          ],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": []
+        },
+        {
+          "id": 1107877,
+          "organization_id": 1049550,
+          "full_name": null,
+          "person_formatted_name": "Pavel Stano",
+          "deposit_amount": "100000.0",
+          "deposit_currency": "SKK",
+          "deposit_type": null,
+          "effective_from": "2007-02-23",
+          "effective_to": "2009-02-11",
+          "created_at": "2016-05-14T19:54:26.951836Z",
+          "updated_at": "2018-09-12T10:40:33.590269Z",
+          "person_given_names": [
+            "Pavel"
+          ],
+          "person_family_names": [
+            "Stano"
+          ],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": []
+        },
+        {
+          "id": 1107874,
+          "organization_id": 1049550,
+          "full_name": null,
+          "person_formatted_name": "Michal Truban",
+          "deposit_amount": "3320.0",
+          "deposit_currency": "EUR",
+          "deposit_type": null,
+          "effective_from": "2009-02-12",
+          "effective_to": "2016-01-28",
+          "created_at": "2016-05-14T19:54:26.944139Z",
+          "updated_at": "2018-09-12T10:40:33.562510Z",
+          "person_given_names": [
+            "Michal"
+          ],
+          "person_family_names": [
+            "Truban"
+          ],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": []
+        },
+        {
+          "id": 1107875,
+          "organization_id": 1049550,
+          "full_name": null,
+          "person_formatted_name": "Pavel Stano",
+          "deposit_amount": "3320.0",
+          "deposit_currency": "EUR",
+          "deposit_type": null,
+          "effective_from": "2009-02-12",
+          "effective_to": "2013-05-06",
+          "created_at": "2016-05-14T19:54:26.945748Z",
+          "updated_at": "2018-09-12T10:40:33.569356Z",
+          "person_given_names": [
+            "Pavel"
+          ],
+          "person_family_names": [
+            "Stano"
+          ],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": []
+        },
+        {
+          "id": 1107876,
+          "organization_id": 1049550,
+          "full_name": null,
+          "person_formatted_name": "Michal Truban",
+          "deposit_amount": "100000.0",
+          "deposit_currency": "SKK",
+          "deposit_type": null,
+          "effective_from": "2007-02-23",
+          "effective_to": "2009-02-11",
+          "created_at": "2016-05-14T19:54:26.948976Z",
+          "updated_at": "2018-09-12T10:40:33.577138Z",
+          "person_given_names": [
+            "Michal"
+          ],
+          "person_family_names": [
+            "Truban"
+          ],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": []
+        },
+        {
+          "id": 1107878,
+          "organization_id": 1049550,
+          "full_name": null,
+          "person_formatted_name": "Michal Truban",
+          "deposit_amount": "100000.0",
+          "deposit_currency": "SKK",
+          "deposit_type": null,
+          "effective_from": "2004-08-12",
+          "effective_to": "2007-02-22",
+          "created_at": "2016-05-14T19:54:26.967986Z",
+          "updated_at": "2018-09-12T10:40:33.597486Z",
+          "person_given_names": [
+            "Michal"
+          ],
+          "person_family_names": [
+            "Truban"
+          ],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": []
+        },
+        {
+          "id": 1107879,
+          "organization_id": 1049550,
+          "full_name": null,
+          "person_formatted_name": "Pavel Stano",
+          "deposit_amount": "100000.0",
+          "deposit_currency": "SKK",
+          "deposit_type": null,
+          "effective_from": "2004-08-12",
+          "effective_to": "2007-02-22",
+          "created_at": "2016-05-14T19:54:26.969923Z",
+          "updated_at": "2018-09-12T10:40:33.604122Z",
+          "person_given_names": [
+            "Pavel"
+          ],
+          "person_family_names": [
+            "Stano"
+          ],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": []
+        },
+        {
+          "id": 1107872,
+          "organization_id": 1049550,
+          "full_name": "MONOGRAM Ventures a.s.",
+          "person_formatted_name": null,
+          "deposit_amount": "996.0",
+          "deposit_currency": "EUR",
+          "deposit_type": "(peňažný vklad)",
+          "effective_from": "2013-05-07",
+          "effective_to": "2017-01-02",
+          "created_at": "2016-05-14T19:54:26.941980Z",
+          "updated_at": "2018-08-09T08:05:25.852426Z",
+          "person_given_names": [],
+          "person_family_names": [],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": []
+        }
+      ],
+      "economic_activity_entries": [
+        {
+          "id": 3614923,
+          "organization_id": 1049550,
+          "description": "- údržba a oprava technických častí kancelárskych strojov a počítačov",
+          "effective_from": "2004-08-12",
+          "effective_to": "2018-02-26",
+          "created_at": "2016-05-14T19:54:26.918701Z",
+          "updated_at": "2018-08-09T08:05:25.421055Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 3614922,
+          "organization_id": 1049550,
+          "description": "- služby súvisiace s databázami",
+          "effective_from": "2004-08-12",
+          "effective_to": "2018-02-26",
+          "created_at": "2016-05-14T19:54:26.917806Z",
+          "updated_at": "2018-08-09T08:05:25.290439Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 3614921,
+          "organization_id": 1049550,
+          "description": "- predaj nápojov na priamu konzumáciu",
+          "effective_from": "2004-08-12",
+          "effective_to": "2018-02-26",
+          "created_at": "2016-05-14T19:54:26.916856Z",
+          "updated_at": "2018-08-09T08:05:25.201266Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 3614919,
+          "organization_id": 1049550,
+          "description": "- spracovanie údajov",
+          "effective_from": "2004-08-12",
+          "effective_to": "2018-02-26",
+          "created_at": "2016-05-14T19:54:26.914663Z",
+          "updated_at": "2018-08-09T08:05:25.114473Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 3614918,
+          "organization_id": 1049550,
+          "description": "- poradenská služba a dodávanie programového vybavenia počítača (software)",
+          "effective_from": "2004-08-12",
+          "effective_to": "2018-02-26",
+          "created_at": "2016-05-14T19:54:26.912189Z",
+          "updated_at": "2018-08-09T08:05:24.915099Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 3614917,
+          "organization_id": 1049550,
+          "description": "- poradenská služba k technickému vybaveniu počítača (hardware)",
+          "effective_from": "2004-08-12",
+          "effective_to": "2018-02-26",
+          "created_at": "2016-05-14T19:54:26.910877Z",
+          "updated_at": "2018-08-09T08:05:24.868641Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 3614916,
+          "organization_id": 1049550,
+          "description": "- podnikateľské poradenstvo v rozsahu voľných živnsotí",
+          "effective_from": "2004-08-12",
+          "effective_to": "2018-02-26",
+          "created_at": "2016-05-14T19:54:26.909953Z",
+          "updated_at": "2018-08-09T08:05:24.772882Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 3614915,
+          "organization_id": 1049550,
+          "description": "- servis mechanických častí výpočtovej techniky",
+          "effective_from": "2004-08-12",
+          "effective_to": "2018-02-26",
+          "created_at": "2016-05-14T19:54:26.909104Z",
+          "updated_at": "2018-08-09T08:05:24.731631Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 3614914,
+          "organization_id": 1049550,
+          "description": "- sprostredkovanie obchodu, služieb a výroby",
+          "effective_from": "2004-08-12",
+          "effective_to": "2018-02-26",
+          "created_at": "2016-05-14T19:54:26.908137Z",
+          "updated_at": "2018-08-09T08:05:24.717293Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 3614913,
+          "organization_id": 1049550,
+          "description": "- prieskum trhu",
+          "effective_from": "2004-08-12",
+          "effective_to": "2018-02-26",
+          "created_at": "2016-05-14T19:54:26.907039Z",
+          "updated_at": "2018-08-09T08:05:24.590355Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 3614912,
+          "organization_id": 1049550,
+          "description": "- vydávanie periodických a neperiodických publikácií",
+          "effective_from": "2004-08-12",
+          "effective_to": "2018-02-26",
+          "created_at": "2016-05-14T19:54:26.905200Z",
+          "updated_at": "2018-08-09T08:05:24.528332Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 3614911,
+          "organization_id": 1049550,
+          "description": "- automatizované spracovanie dát",
+          "effective_from": "2004-08-12",
+          "effective_to": "2018-02-26",
+          "created_at": "2016-05-14T19:54:26.904060Z",
+          "updated_at": "2018-08-09T08:05:24.504757Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 3614910,
+          "organization_id": 1049550,
+          "description": "- prenájom motorových vozidiel",
+          "effective_from": "2004-08-12",
+          "effective_to": "2018-02-26",
+          "created_at": "2016-05-14T19:54:26.903056Z",
+          "updated_at": "2018-08-09T08:05:24.392288Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 3614909,
+          "organization_id": 1049550,
+          "description": "- kancelárske a sekretárske služby vrátane kopírovacích a rozmnožovacích služieb",
+          "effective_from": "2004-08-12",
+          "effective_to": "2018-02-26",
+          "created_at": "2016-05-14T19:54:26.902202Z",
+          "updated_at": "2018-08-09T08:05:24.365746Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 3614908,
+          "organization_id": 1049550,
+          "description": "- prenájom strojov, prístrojov a zariadení",
+          "effective_from": "2004-08-12",
+          "effective_to": "2018-02-26",
+          "created_at": "2016-05-14T19:54:26.901310Z",
+          "updated_at": "2018-08-09T08:05:24.313589Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 3614907,
+          "organization_id": 1049550,
+          "description": "- reklamná a propagačná činnosť",
+          "effective_from": "2004-08-12",
+          "effective_to": "2018-02-26",
+          "created_at": "2016-05-14T19:54:26.900381Z",
+          "updated_at": "2018-08-09T08:05:24.271085Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 3614906,
+          "organization_id": 1049550,
+          "description": "- tvorba internetových prezentácií - internetové stránky",
+          "effective_from": "2004-08-12",
+          "effective_to": "2018-02-26",
+          "created_at": "2016-05-14T19:54:26.899431Z",
+          "updated_at": "2018-08-09T08:05:24.113533Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 3614904,
+          "organization_id": 1049550,
+          "description": "- kúpa tovaru na júčely jeho predaja konečnému spotrebiteľovi v rozsahu voľných živností",
+          "effective_from": "2004-08-12",
+          "effective_to": "2018-02-26",
+          "created_at": "2016-05-14T19:54:26.897598Z",
+          "updated_at": "2018-08-09T08:05:23.954481Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 15305697,
+          "organization_id": 1049550,
+          "description": "Činnosť podnikateľských, organizačných a ekonomických poradcov",
+          "effective_from": "2018-02-27",
+          "effective_to": null,
+          "created_at": "2018-02-28T05:53:54.043704Z",
+          "updated_at": "2018-02-28T05:53:54.043704Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 15305696,
+          "organization_id": 1049550,
+          "description": "Sprostredkovateľská činnosť v oblasti obchodu, služieb, výroby",
+          "effective_from": "2018-02-27",
+          "effective_to": null,
+          "created_at": "2018-02-28T05:53:54.002571Z",
+          "updated_at": "2018-02-28T05:53:54.002571Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 15305695,
+          "organization_id": 1049550,
+          "description": "Vydavateľská činnosť, polygrafická výroba a knihárske práce",
+          "effective_from": "2018-02-27",
+          "effective_to": null,
+          "created_at": "2018-02-28T05:53:53.974740Z",
+          "updated_at": "2018-02-28T05:53:53.974740Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 15305694,
+          "organization_id": 1049550,
+          "description": "Administratívne služby",
+          "effective_from": "2018-02-27",
+          "effective_to": null,
+          "created_at": "2018-02-28T05:53:53.943587Z",
+          "updated_at": "2018-02-28T05:53:53.943587Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 15305693,
+          "organization_id": 1049550,
+          "description": "Prenájom hnuteľných vecí",
+          "effective_from": "2018-02-27",
+          "effective_to": null,
+          "created_at": "2018-02-28T05:53:53.910427Z",
+          "updated_at": "2018-02-28T05:53:53.910427Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 15305692,
+          "organization_id": 1049550,
+          "description": "Reklamné a marketingové služby, prieskum trhu a verejnej mienky",
+          "effective_from": "2018-02-27",
+          "effective_to": null,
+          "created_at": "2018-02-28T05:53:53.878246Z",
+          "updated_at": "2018-02-28T05:53:53.878246Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 15305691,
+          "organization_id": 1049550,
+          "description": "Výroba počítačových, elektronických a optických výrobkov",
+          "effective_from": "2018-02-27",
+          "effective_to": null,
+          "created_at": "2018-02-28T05:53:53.873956Z",
+          "updated_at": "2018-02-28T05:53:53.873956Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 15305690,
+          "organization_id": 1049550,
+          "description": "Počítačové služby a služby súvisiace s počítačovým spracovaním údajov",
+          "effective_from": "2018-02-27",
+          "effective_to": null,
+          "created_at": "2018-02-28T05:53:53.844783Z",
+          "updated_at": "2018-02-28T05:53:53.844783Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 15305689,
+          "organization_id": 1049550,
+          "description": "Kúpa tovaru na účely jeho predaja konečnému spotrebiteľovi (maloobchod) alebo iným prevádzkovateľom živnosti (veľkoobchod)",
+          "effective_from": "2018-02-27",
+          "effective_to": null,
+          "created_at": "2018-02-28T05:53:53.816666Z",
+          "updated_at": "2018-02-28T05:53:53.816666Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 3614903,
+          "organization_id": 1049550,
+          "description": "- kúpa tovaru na účely jeho predaja iným prevádzkovateľom živnosti v rozsahu voľných živností",
+          "effective_from": "2004-08-12",
+          "effective_to": "2018-02-26",
+          "created_at": "2016-05-14T19:54:26.896421Z",
+          "updated_at": "2018-08-09T08:05:23.877313Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 3614905,
+          "organization_id": 1049550,
+          "description": "- vedenie účtovníctva",
+          "effective_from": "2004-08-12",
+          "effective_to": "2018-02-26",
+          "created_at": "2016-05-14T19:54:26.898544Z",
+          "updated_at": "2018-08-09T08:05:24.048362Z",
+          "suspended_from": null,
+          "suspended_to": null
+        },
+        {
+          "id": 3614920,
+          "organization_id": 1049550,
+          "description": "- poskytovanie datových služieb - internetová čitáreň",
+          "effective_from": "2004-08-12",
+          "effective_to": "2018-02-26",
+          "created_at": "2016-05-14T19:54:26.915794Z",
+          "updated_at": "2018-08-09T08:05:25.172392Z",
+          "suspended_from": null,
+          "suspended_to": null
+        }
+      ],
+      "equity_entries": [
+        {
+          "id": 1943642,
+          "organization_id": 1049550,
+          "investment_amount": null,
+          "investment_currency": "SKK",
+          "paid_amount": "100000.0",
+          "paid_currency": "SKK",
+          "approved_amount": null,
+          "approved_currency": "SKK",
+          "effective_from": "2004-08-12",
+          "effective_to": "2007-02-22",
+          "created_at": "2018-08-09T08:05:25.830298Z",
+          "updated_at": "2018-08-09T08:05:25.830298Z"
+        },
+        {
+          "id": 1943641,
+          "organization_id": 1049550,
+          "investment_amount": "200000.0",
+          "investment_currency": "SKK",
+          "paid_amount": null,
+          "paid_currency": "SKK",
+          "approved_amount": null,
+          "approved_currency": "SKK",
+          "effective_from": "2004-08-12",
+          "effective_to": "2009-02-11",
+          "created_at": "2018-08-09T08:05:25.814294Z",
+          "updated_at": "2018-08-09T08:05:25.814294Z"
+        },
+        {
+          "id": 1943640,
+          "organization_id": 1049550,
+          "investment_amount": null,
+          "investment_currency": "SKK",
+          "paid_amount": "200000.0",
+          "paid_currency": "SKK",
+          "approved_amount": null,
+          "approved_currency": "SKK",
+          "effective_from": "2007-02-23",
+          "effective_to": "2009-02-11",
+          "created_at": "2018-08-09T08:05:25.729612Z",
+          "updated_at": "2018-08-09T08:05:25.729612Z"
+        },
+        {
+          "id": 1943639,
+          "organization_id": 1049550,
+          "investment_amount": null,
+          "investment_currency": "EUR",
+          "paid_amount": "6640.0",
+          "paid_currency": "EUR",
+          "approved_amount": null,
+          "approved_currency": "EUR",
+          "effective_from": "2009-02-12",
+          "effective_to": null,
+          "created_at": "2018-08-09T08:05:25.718064Z",
+          "updated_at": "2018-08-09T08:05:25.718064Z"
+        },
+        {
+          "id": 1943630,
+          "organization_id": 1049550,
+          "investment_amount": "6640.0",
+          "investment_currency": "EUR",
+          "paid_amount": null,
+          "paid_currency": "EUR",
+          "approved_amount": null,
+          "approved_currency": "EUR",
+          "effective_from": "2009-02-12",
+          "effective_to": null,
+          "created_at": "2018-08-09T08:05:25.530547Z",
+          "updated_at": "2018-08-09T08:05:25.530547Z"
+        }
+      ],
+      "legal_form_entries": [
+        {
+          "id": 300016,
+          "organization_id": 1049550,
+          "effective_from": "2004-08-12",
+          "effective_to": null,
+          "created_at": "2016-05-14T19:54:26.894850Z",
+          "updated_at": "2016-05-14T19:54:26.894850Z",
+          "legal_form": {
+            "id": 1,
+            "name": "Spoločnosť s ručením obmedzeným",
+            "created_at": "2016-05-13T08:49:08.690086Z",
+            "updated_at": "2016-05-13T08:49:08.690086Z"
+          }
+        }
+      ],
+      "legal_status_entries": [],
+      "name_entries": [
+        {
+          "id": 3734125,
+          "organization_id": 1049550,
+          "name": "WebSupport s. r. o.",
+          "effective_from": "2019-02-01",
+          "effective_to": null,
+          "created_at": "2019-03-19T05:01:52.178235Z",
+          "updated_at": "2019-03-19T05:01:52.178235Z"
+        },
+        {
+          "id": 385311,
+          "organization_id": 1049550,
+          "name": "Websupport, s.r.o.",
+          "effective_from": "2004-08-12",
+          "effective_to": "2019-01-31",
+          "created_at": "2016-05-14T19:54:26.888129Z",
+          "updated_at": "2019-03-19T05:01:51.925454Z"
+        }
+      ],
+      "other_legal_fact_entries": [
+        {
+          "id": 972263,
+          "organization_id": 1049550,
+          "body": "Zápisnica z valného zhromaždenia zo dňa 11.01.2019. Zmena obchodného mena z pôvodného Websupport s. r. o. na nové WebSupport s. r. o.",
+          "effective_from": "2019-02-01",
+          "effective_to": null,
+          "created_at": "2019-03-19T05:01:52.525666Z",
+          "updated_at": "2019-03-19T05:01:52.525666Z"
+        },
+        {
+          "id": 972262,
+          "organization_id": 1049550,
+          "body": "Zápisnica z mimoriadneho valného zhromaždenia konaného dňa 19.02.2019.",
+          "effective_from": "2019-03-19",
+          "effective_to": null,
+          "created_at": "2019-03-19T05:01:52.498870Z",
+          "updated_at": "2019-03-19T05:01:52.498870Z"
+        },
+        {
+          "id": 940989,
+          "organization_id": 1049550,
+          "body": "Zápisnica z mimoriadneho valného zhromaždenia zo dňa 06.02.2018.",
+          "effective_from": "2018-02-27",
+          "effective_to": null,
+          "created_at": "2018-02-28T05:53:54.139684Z",
+          "updated_at": "2018-02-28T05:53:54.139684Z"
+        },
+        {
+          "id": 717718,
+          "organization_id": 1049550,
+          "body": "Zápisnica z mimoriadneho valného zhromaždenia zo dňa 12.01.2016.",
+          "effective_from": "2016-01-29",
+          "effective_to": null,
+          "created_at": "2016-05-14T19:54:26.931253Z",
+          "updated_at": "2016-05-14T19:54:26.931253Z"
+        },
+        {
+          "id": 717719,
+          "organization_id": 1049550,
+          "body": "Zápisnica z riadneho valného zhromaždenia zo dňa 26.04.2013.",
+          "effective_from": "2013-05-07",
+          "effective_to": null,
+          "created_at": "2016-05-14T19:54:26.932419Z",
+          "updated_at": "2016-05-14T19:54:26.932419Z"
+        }
+      ],
+      "predecessor_entries": [],
+      "share_entries": [],
+      "stakeholder_entries": [
+        {
+          "id": 1694239,
+          "organization_id": 1049550,
+          "full_name": "Loopia Group AB",
+          "person_formatted_name": null,
+          "address_formatted": null,
+          "address_street": "Kopparbergsvägen",
+          "address_reg_number": 0,
+          "address_building_number": "8",
+          "address_postal_code": "SE-722 13",
+          "address_municipality": "Västerås",
+          "address_country": "Švédske kráľovstvo",
+          "address_effective_from": "2019-03-23",
+          "address_effective_to": null,
+          "effective_from": "2019-03-20",
+          "effective_to": null,
+          "created_at": "2019-03-29T00:48:07.414294Z",
+          "updated_at": "2019-03-29T00:48:07.414294Z",
+          "stakeholder_organization_id": null,
+          "cin": null,
+          "address_district": null,
+          "person_given_names": [],
+          "person_family_names": [],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": [],
+          "stakeholder_type": {
+            "id": 5,
+            "name": "Spoločník v.o.s. / s.r.o.",
+            "created_at": "2016-05-12T14:51:00.984798Z",
+            "updated_at": "2016-05-12T14:51:00.984798Z"
+          }
+        },
+        {
+          "id": 1692126,
+          "organization_id": 1049550,
+          "full_name": "Loopia Aktiebolag",
+          "person_formatted_name": null,
+          "address_formatted": null,
+          "address_street": "Kopparbergsvägen",
+          "address_reg_number": 0,
+          "address_building_number": "8 H",
+          "address_postal_code": "SE-722 13",
+          "address_municipality": "Västerås",
+          "address_country": "Švédske kráľovstvo",
+          "address_effective_from": "2019-03-20",
+          "address_effective_to": null,
+          "effective_from": "2019-03-20",
+          "effective_to": null,
+          "created_at": "2019-03-20T05:48:48.178651Z",
+          "updated_at": "2019-03-20T05:48:48.178651Z",
+          "stakeholder_organization_id": null,
+          "cin": null,
+          "address_district": null,
+          "person_given_names": [],
+          "person_family_names": [],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": [],
+          "stakeholder_type": {
+            "id": 5,
+            "name": "Spoločník v.o.s. / s.r.o.",
+            "created_at": "2016-05-12T14:51:00.984798Z",
+            "updated_at": "2016-05-12T14:51:00.984798Z"
+          }
+        },
+        {
+          "id": 1105615,
+          "organization_id": 1049550,
+          "full_name": "Trantor Ventures GmbH",
+          "person_formatted_name": null,
+          "address_formatted": null,
+          "address_street": "Siebenbrunnengasse",
+          "address_reg_number": 0,
+          "address_building_number": "44",
+          "address_postal_code": "1050",
+          "address_municipality": "Wien",
+          "address_country": "Rakúska republika",
+          "address_effective_from": "2016-01-29",
+          "address_effective_to": "2019-03-19",
+          "effective_from": "2016-01-29",
+          "effective_to": "2019-03-19",
+          "created_at": "2016-05-14T19:54:26.928371Z",
+          "updated_at": "2019-03-20T05:48:47.890415Z",
+          "stakeholder_organization_id": null,
+          "cin": null,
+          "address_district": null,
+          "person_given_names": [],
+          "person_family_names": [],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": [],
+          "stakeholder_type": {
+            "id": 5,
+            "name": "Spoločník v.o.s. / s.r.o.",
+            "created_at": "2016-05-12T14:51:00.984798Z",
+            "updated_at": "2016-05-12T14:51:00.984798Z"
+          }
+        },
+        {
+          "id": 1105613,
+          "organization_id": 1049550,
+          "full_name": null,
+          "person_formatted_name": "Pavel Stano",
+          "address_formatted": null,
+          "address_street": null,
+          "address_reg_number": 0,
+          "address_building_number": "170",
+          "address_postal_code": null,
+          "address_municipality": "Dolný Bar",
+          "address_country": "Slovenská republika",
+          "address_effective_from": null,
+          "address_effective_to": null,
+          "effective_from": "2004-08-12",
+          "effective_to": "2019-03-19",
+          "created_at": "2016-05-14T19:54:26.925145Z",
+          "updated_at": "2019-03-20T05:48:47.789397Z",
+          "stakeholder_organization_id": null,
+          "cin": null,
+          "address_district": null,
+          "person_given_names": [
+            "Pavel"
+          ],
+          "person_family_names": [
+            "Stano"
+          ],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": [],
+          "stakeholder_type": {
+            "id": 5,
+            "name": "Spoločník v.o.s. / s.r.o.",
+            "created_at": "2016-05-12T14:51:00.984798Z",
+            "updated_at": "2016-05-12T14:51:00.984798Z"
+          }
+        },
+        {
+          "id": 1105616,
+          "organization_id": 1049550,
+          "full_name": null,
+          "person_formatted_name": "Michal Truban",
+          "address_formatted": null,
+          "address_street": null,
+          "address_reg_number": 0,
+          "address_building_number": "457",
+          "address_postal_code": null,
+          "address_municipality": "Kysucký Lieskovec",
+          "address_country": "Slovenská republika",
+          "address_effective_from": null,
+          "address_effective_to": null,
+          "effective_from": "2004-08-12",
+          "effective_to": "2016-01-28",
+          "created_at": "2016-05-14T19:54:26.929783Z",
+          "updated_at": "2018-09-12T13:34:54.710692Z",
+          "stakeholder_organization_id": null,
+          "cin": null,
+          "address_district": null,
+          "person_given_names": [
+            "Michal"
+          ],
+          "person_family_names": [
+            "Truban"
+          ],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": [],
+          "stakeholder_type": {
+            "id": 5,
+            "name": "Spoločník v.o.s. / s.r.o.",
+            "created_at": "2016-05-12T14:51:00.984798Z",
+            "updated_at": "2016-05-12T14:51:00.984798Z"
+          }
+        },
+        {
+          "id": 1105614,
+          "organization_id": 1049550,
+          "full_name": "MONOGRAM Ventures a.s.",
+          "person_formatted_name": null,
+          "address_formatted": null,
+          "address_street": "Cintorínska",
+          "address_reg_number": 0,
+          "address_building_number": "3/B",
+          "address_postal_code": "811 08",
+          "address_municipality": "Bratislava-Staré Mesto",
+          "address_country": "Slovenská republika",
+          "address_effective_from": "2013-05-07",
+          "address_effective_to": "2017-01-02",
+          "effective_from": "2013-05-07",
+          "effective_to": "2017-01-02",
+          "created_at": "2016-05-14T19:54:26.926756Z",
+          "updated_at": "2018-08-09T08:05:25.464481Z",
+          "stakeholder_organization_id": null,
+          "cin": null,
+          "address_district": null,
+          "person_given_names": [],
+          "person_family_names": [],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": [],
+          "stakeholder_type": {
+            "id": 5,
+            "name": "Spoločník v.o.s. / s.r.o.",
+            "created_at": "2016-05-12T14:51:00.984798Z",
+            "updated_at": "2016-05-12T14:51:00.984798Z"
+          }
+        },
+        {
+          "id": 1592313,
+          "organization_id": 1049550,
+          "full_name": null,
+          "person_formatted_name": "Mgr. Ivan Štefunko",
+          "address_formatted": null,
+          "address_street": "Grösslingová",
+          "address_reg_number": 0,
+          "address_building_number": "2496/46",
+          "address_postal_code": "81109",
+          "address_municipality": "Bratislava - mestská časť Staré mesto",
+          "address_country": "Slovenská republika",
+          "address_effective_from": null,
+          "address_effective_to": null,
+          "effective_from": "2017-01-03",
+          "effective_to": "2019-03-19",
+          "created_at": "2018-02-28T05:53:54.110358Z",
+          "updated_at": "2019-03-20T05:48:48.070519Z",
+          "stakeholder_organization_id": null,
+          "cin": null,
+          "address_district": null,
+          "person_given_names": [
+            "Ivan"
+          ],
+          "person_family_names": [
+            "Štefunko"
+          ],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": [],
+          "stakeholder_type": {
+            "id": 5,
+            "name": "Spoločník v.o.s. / s.r.o.",
+            "created_at": "2016-05-12T14:51:00.984798Z",
+            "updated_at": "2016-05-12T14:51:00.984798Z"
+          }
+        }
+      ],
+      "statutory_entries": [
+        {
+          "id": 3307321,
+          "organization_id": 1049550,
+          "full_name": null,
+          "person_formatted_name": "Sara Maria Laurell",
+          "address_formatted": null,
+          "address_street": "Karlavägen",
+          "address_reg_number": 0,
+          "address_building_number": "68",
+          "address_postal_code": "11459",
+          "address_municipality": "Štokholm",
+          "address_country": "Švédske kráľovstvo",
+          "effective_from": "2019-03-29",
+          "effective_to": null,
+          "created_at": "2019-10-16T05:58:32.631293Z",
+          "updated_at": "2019-10-16T05:58:32.631293Z",
+          "cin": null,
+          "address_district": null,
+          "person_given_names": [
+            "Sara",
+            "Maria"
+          ],
+          "person_family_names": [
+            "Laurell"
+          ],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": [],
+          "stakeholder_type": {
+            "id": 4,
+            "name": "Konateľ",
+            "created_at": "2016-05-12T14:51:00.975762Z",
+            "updated_at": "2016-05-12T14:51:00.975762Z"
+          }
+        },
+        {
+          "id": 3225534,
+          "organization_id": 1049550,
+          "full_name": null,
+          "person_formatted_name": "Michal Truban",
+          "address_formatted": null,
+          "address_street": "Štúrova",
+          "address_reg_number": 0,
+          "address_building_number": "13/6",
+          "address_postal_code": "81102",
+          "address_municipality": "Bratislava - mestská časť Staré mesto",
+          "address_country": "Slovenská republika",
+          "effective_from": "2004-08-12",
+          "effective_to": "2019-03-29",
+          "created_at": "2019-07-15T23:05:42.084550Z",
+          "updated_at": "2019-07-15T23:05:42.084550Z",
+          "cin": null,
+          "address_district": null,
+          "person_given_names": [
+            "Michal"
+          ],
+          "person_family_names": [
+            "Truban"
+          ],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": [],
+          "stakeholder_type": {
+            "id": 4,
+            "name": "Konateľ",
+            "created_at": "2016-05-12T14:51:00.975762Z",
+            "updated_at": "2016-05-12T14:51:00.975762Z"
+          }
+        },
+        {
+          "id": 3225533,
+          "organization_id": 1049550,
+          "full_name": null,
+          "person_formatted_name": "Pavel Stano",
+          "address_formatted": null,
+          "address_street": null,
+          "address_reg_number": 0,
+          "address_building_number": "170",
+          "address_postal_code": null,
+          "address_municipality": "Dolný Bar",
+          "address_country": "Slovenská republika",
+          "effective_from": "2004-08-12",
+          "effective_to": "2019-03-29",
+          "created_at": "2019-07-15T23:05:41.827097Z",
+          "updated_at": "2019-07-15T23:05:41.827097Z",
+          "cin": null,
+          "address_district": null,
+          "person_given_names": [
+            "Pavel"
+          ],
+          "person_family_names": [
+            "Stano"
+          ],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": [],
+          "stakeholder_type": {
+            "id": 4,
+            "name": "Konateľ",
+            "created_at": "2016-05-12T14:51:00.975762Z",
+            "updated_at": "2016-05-12T14:51:00.975762Z"
+          }
+        },
+        {
+          "id": 3155303,
+          "organization_id": 1049550,
+          "full_name": null,
+          "person_formatted_name": "Pavel Stano",
+          "address_formatted": null,
+          "address_street": null,
+          "address_reg_number": 0,
+          "address_building_number": "170",
+          "address_postal_code": null,
+          "address_municipality": "Dolný Bar",
+          "address_country": "Slovenská republika",
+          "effective_from": "2004-08-12",
+          "effective_to": "2019-03-28",
+          "created_at": "2019-03-29T00:53:39.822815Z",
+          "updated_at": "2019-03-29T00:53:39.822815Z",
+          "cin": null,
+          "address_district": null,
+          "person_given_names": [
+            "Pavel"
+          ],
+          "person_family_names": [
+            "Stano"
+          ],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": [],
+          "stakeholder_type": {
+            "id": 4,
+            "name": "Konateľ",
+            "created_at": "2016-05-12T14:51:00.975762Z",
+            "updated_at": "2016-05-12T14:51:00.975762Z"
+          }
+        },
+        {
+          "id": 3155302,
+          "organization_id": 1049550,
+          "full_name": null,
+          "person_formatted_name": "Michal Truban",
+          "address_formatted": null,
+          "address_street": "Štúrova",
+          "address_reg_number": 0,
+          "address_building_number": "13/6",
+          "address_postal_code": "81102",
+          "address_municipality": "Bratislava - mestská časť Staré mesto",
+          "address_country": "Slovenská republika",
+          "effective_from": "2004-08-12",
+          "effective_to": "2019-03-28",
+          "created_at": "2019-03-29T00:53:39.790760Z",
+          "updated_at": "2019-03-29T00:53:39.790760Z",
+          "cin": null,
+          "address_district": null,
+          "person_given_names": [
+            "Michal"
+          ],
+          "person_family_names": [
+            "Truban"
+          ],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": [],
+          "stakeholder_type": {
+            "id": 4,
+            "name": "Konateľ",
+            "created_at": "2016-05-12T14:51:00.975762Z",
+            "updated_at": "2016-05-12T14:51:00.975762Z"
+          }
+        },
+        {
+          "id": 3154996,
+          "organization_id": 1049550,
+          "full_name": null,
+          "person_formatted_name": "Mgr. Ján Cifra",
+          "address_formatted": null,
+          "address_street": "Zvolenská",
+          "address_reg_number": 0,
+          "address_building_number": "3",
+          "address_postal_code": "81109",
+          "address_municipality": "Bratislava",
+          "address_country": "Slovenská republika",
+          "effective_from": "2019-03-29",
+          "effective_to": null,
+          "created_at": "2019-03-29T00:48:07.098914Z",
+          "updated_at": "2019-03-29T00:48:07.098914Z",
+          "cin": null,
+          "address_district": null,
+          "person_given_names": [
+            "Ján"
+          ],
+          "person_family_names": [
+            "Cifra"
+          ],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": [],
+          "stakeholder_type": {
+            "id": 4,
+            "name": "Konateľ",
+            "created_at": "2016-05-12T14:51:00.975762Z",
+            "updated_at": "2016-05-12T14:51:00.975762Z"
+          }
+        },
+        {
+          "id": 2491566,
+          "organization_id": 1049550,
+          "full_name": null,
+          "person_formatted_name": "RNDr. Ján Jenča",
+          "address_formatted": null,
+          "address_street": "Palárikova",
+          "address_reg_number": 0,
+          "address_building_number": "8680/12",
+          "address_postal_code": "08005",
+          "address_municipality": "Prešov",
+          "address_country": "Slovenská republika",
+          "effective_from": "2013-04-26",
+          "effective_to": "2017-03-06",
+          "created_at": "2017-03-07T05:24:55.855787Z",
+          "updated_at": "2018-09-12T19:31:06.124321Z",
+          "cin": null,
+          "address_district": null,
+          "person_given_names": [
+            "Ján"
+          ],
+          "person_family_names": [
+            "Jenča"
+          ],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": [],
+          "stakeholder_type": {
+            "id": 4,
+            "name": "Konateľ",
+            "created_at": "2016-05-12T14:51:00.975762Z",
+            "updated_at": "2016-05-12T14:51:00.975762Z"
+          }
+        },
+        {
+          "id": 2551938,
+          "organization_id": 1049550,
+          "full_name": null,
+          "person_formatted_name": "RNDr. Ján Jenča",
+          "address_formatted": null,
+          "address_street": "Palárikova",
+          "address_reg_number": 0,
+          "address_building_number": "8680/12",
+          "address_postal_code": "08005",
+          "address_municipality": "Prešov",
+          "address_country": "Slovenská republika",
+          "effective_from": "2013-04-26",
+          "effective_to": "2017-02-23",
+          "created_at": "2017-06-11T06:12:27.331438Z",
+          "updated_at": "2018-09-12T19:38:15.706179Z",
+          "cin": null,
+          "address_district": null,
+          "person_given_names": [
+            "Ján"
+          ],
+          "person_family_names": [
+            "Jenča"
+          ],
+          "person_given_family_names": [],
+          "person_prefixes": [],
+          "person_postfixes": [],
+          "stakeholder_type": {
+            "id": 4,
+            "name": "Konateľ",
+            "created_at": "2016-05-12T14:51:00.975762Z",
+            "updated_at": "2016-05-12T14:51:00.975762Z"
+          }
+        }
+      ],
+      "successor_entries": []
+    }
+  ],
+  "ruz_accounting_entities": [
+    {
+      "id": 96001,
+      "url": "https://datahub.ekosystem.slovensko.digital/api/data/ruz/accounting_entities/96001"
+    }
+  ]
+}</code></pre>
