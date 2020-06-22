@@ -1346,9 +1346,6 @@ sk:
             <<: *timestamp_columns
 
         ruz_enumeration_columns: &ruz_enumeration_columns
-          id:
-            description: Identifikátor
-            note_html: Pochádza zo zdroja.
           name_sk:
             description: Názov v slovenčine
           name_en:
@@ -1359,44 +1356,76 @@ sk:
           description: Číselník okresov
 
           columns:
+            id:
+              description: Identifikátor záznamu
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
             region_id:
-              description: Identifikátor regiónu
+              description: Identifikátor kraja
+            code:
+              description: Kód okresu
+              note_html: Pochádza zo zdroja.
             <<: *ruz_enumeration_columns
 
         legal_forms:
           description: Číselník právnych foriem
 
           columns:
+            id:
+              description: Identifikátor
+              note_html: Pochádza zo zdroja.
             <<: *ruz_enumeration_columns
 
         municipalities:
           description: Číselník sídiel
 
           columns:
+            id:
+              description: Identifikátor záznamu
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            district_id:
+              description: Identifikátor okresu
+            code:
+              description: Kód sídla
+              note_html: Pochádza zo zdroja.
             <<: *ruz_enumeration_columns
 
         organization_sizes:
           description: Číselník veľkosti organizácií
 
           columns:
+            id:
+              description: Identifikátor
+              note_html: Pochádza zo zdroja.
             <<: *ruz_enumeration_columns
 
         ownership_types:
           description: Číselník druhov vlastníctva
 
           columns:
+            id:
+              description: Identifikátor
+              note_html: Pochádza zo zdroja.
             <<: *ruz_enumeration_columns
 
         regions:
           description: Číselník krajov
 
           columns:
+            id:
+              description: Identifikátor záznamu
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            code:
+              description: Kód kraja
+              note_html: Pochádza zo zdroja.
             <<: *ruz_enumeration_columns
 
         sk_nace_categories:
           description: Číselník SK NACE kvalifikácií
 
           columns:
+            id:
+              description: Identifikátor
+              note_html: Pochádza zo zdroja.
             <<: *ruz_enumeration_columns
 
     socpoist:
