@@ -829,8 +829,6 @@ sk:
               description: Identifikátor
             organization_id:
               description: Identifikátor právnickej osoby
-            stakeholder_type_id:
-              description: Identifikátor typu štatutárneho orgánu
             statutory_type_id:
               description: Identifikátor typu štatutárneho orgánu
             ico:
