@@ -1,11 +1,106 @@
 <div class="container">
   <h1><strong>Poznámky k zmenám funkcionality a štruktúry dát</strong></h1>
   <div class="long-text">
+    <h2 class="anchorable">Zmena k 24. 6. 2020</h2>
+    <h3>Otvorené API</h3>
+    <h4>Zmenený endpoint <code>api/data/rpo/organizations/:id</code></h4>
+    <ul>
+      <li>
+        Zmenený objekt <code>statutory_entries</code>
+        <ul>
+          <li>Odstránený objekt <code>stakeholder_type</code></li>
+        </ul>
+      </li>
+    </ul>
+    <h3>Otvorené dáta</h3>
+    <h4>Zmenená tabuľka <code>rpo.organization_statutory_entries</code></h4>
+    <ul>
+      <li>Odstránený stĺpec <code>stakeholder_type_id</code></li>
+    </ul>
+
+    <h2 class="anchorable">Zmena k 23. 6. 2020</h2>
+    <h3>Otvorené API</h3>
+    <h4>Zmenený endpoint <code>api/data/ruz/accounting_entities/:id</code></h4>
+    <ul>
+      <li>
+        Zmenený objekt <code>region</code>
+        <ul>
+          <li>Pridaný atribút <code>code: string</code></li>
+        </ul>
+      </li>
+      <li>
+        Zmenený objekt <code>district</code>
+        <ul>
+          <li>Pridaný atribút <code>code: string</code></li>
+        </ul>
+      </li>
+      <li>
+        Zmenený objekt <code>municipality</code>
+        <ul>
+          <li>Pridaný atribút <code>code: string</code></li>
+          <li>Zmenený atribút <code>parent_id: integer, null</code> &rarr; <code>district_id: integer</code></li>
+        </ul>
+      </li>
+    </ul>
+    <h3>Otvorené dáta</h3>
+    <h4>Zmenená tabuľka <code>ruz.regions</code></h4>
+    <ul>
+      <li>Pridaný stĺpec <code>code: varchar</code></li>
+    </ul>
+    <h4>Zmenená tabuľka <code>ruz.districts</code></h4>
+    <ul>
+      <li>Pridaný stĺpec <code>code: varchar</code></li>
+    </ul>
+    <h4>Zmenená tabuľka <code>ruz.municipalities</code></h4>
+    <ul>
+      <li>Pridaný stĺpec <code>code: varchar</code></li>
+      <li>Zmenený stĺpec <code>parent_id: bigint, NULL</code> &rarr; <code>district_id: bigint</code></li>
+    </ul>
+
+    <h2 class="anchorable">Zmena k 12. 6. 2020</h2>
+    <h3>Otvorené API</h3>
+    <h4>Zmenené endpointy <code>api/datahub/corporate_bodies/*</code></h4>
+    <ul>
+      <li>Pridaný nepovinný parameter <code>expand=rpo_organizations</code></li>
+    </ul>
+
+    <h2 class="anchorable">Zmena k 10. 6. 2020</h2>
+    <h3>Otvorené API</h3>
+    <h4>Zmenený endpoint <code>api/data/rpo/organizations/:id</code></h4>
+    <ul>
+      <li>
+        Zmenený objekt <code>statutory_entries</code>
+        <ul>
+          <li>
+            Pridaný objekt <code>statutory_type, null</code>
+            <ul>
+              <li>Pridaný atribút <code>id: integer</code></li>
+              <li>Pridaný atribút <code>name: string</code></li>
+              <li>Pridaný atribút <code>created_at: timestamp</code></li>
+              <li>Pridaný atribút <code>updated_at: timestamp</code></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h3>Otvorené dáta</h3>
+    <h4>Pridaná tabuľka <code>rpo.statutory_types</code></h4>
+    <ul>
+      <li>Pridaný stĺpec <code>id: bigint</code></li>
+      <li>Pridaný stĺpec <code>name: varchar</code></li>
+      <li>Pridaný stĺpec <code>created_at: timestamp</code></li>
+      <li>Pridaný stĺpec <code>updated_at: timestamp</code></li>
+    </ul>
+    <h4>Zmenená tabuľka <code>rpo.organization_statutory_entries</code></h4>
+    <ul>
+      <li>Pridaný stĺpec <code>statutory_type_id: bigint, NULL</code></li>
+    </ul>
+
     <h2 class="anchorable">Zmena k 16. 1. 2020</h2>
     <h3>Otvorené dáta</h3>
     <h4>Zmenená tabuľka <code>vvo.notice_suppliers</code></h4>
     <ul>
-      <li>Pridaný stĺpec <code>cin_raw: varchar, null</code></li>
+      <li>Pridaný stĺpec <code>cin_raw: varchar, NULL</code></li>
     </ul>
 
     <h2 class="anchorable">Zmena k 13. 8. 2019</h2>
