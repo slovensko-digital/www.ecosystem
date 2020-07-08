@@ -65,7 +65,7 @@
         <h3>Register právnických osôb <span class="label label-success">LIVE</span></h3>
         <p class="lead">Databáza právnických osôb, podnikateľov a&nbsp;orgánov verejnej moci. Viac ako 1.4 milióna právnických osôb s&nbsp;kompletnou históriou.</p>
         <p class="btn-row">
-          <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/rpo.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>rpo.sql.gz.torrent</strong> (~1500MB)</a>
+          <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/rpo.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>rpo.sql.gz.torrent</strong> <%= @dump_sizes[:rpo] %></a>
           <%= link_to 'Dokumentácia', open_data_path(anchor: :rpo), class: 'btn btn-default' %>
           <%= link_to 'API', open_api_path(anchor: :rpo), class: 'btn btn-default' %>
         </p>
@@ -77,7 +77,7 @@
         <h3>ITMS2014+ <span class="label label-success">LIVE</span></h3>
         <p class="lead">Rozsiahle dáta o čerpaní peňazí z európskych operačných programov.</p>
         <p class="btn-row">
-          <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/itms.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>itms.sql.gz.torrent</strong> (~420MB)</a>
+          <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/itms.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>itms.sql.gz.torrent</strong> <%= @dump_sizes[:itms] %></a>
           <%= link_to 'Dokumentácia', open_data_path(anchor: :itms), class: 'btn btn-default' %>
         </p>
         <p>
@@ -91,7 +91,7 @@
         <h3>Vestník verejného obstarávania <span class="label label-danger">ALFA</span></h3>
         <p class="lead">Databáza oznámení vestníka verejného obstarávania od&nbsp;roku 2014. </p>
         <p class="btn-row">
-          <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/vvo.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>vvo.sql.gz.torrent</strong> (~460MB)</a>
+          <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/vvo.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>vvo.sql.gz.torrent</strong> <%= @dump_sizes[:vvo] %></a>
           <%= link_to 'Dokumentácia', open_data_path(anchor: :vvo), class: 'btn btn-default' %>
           <%= link_to 'API', open_api_path(anchor: :vvo), class: 'btn btn-default' %>
         </p>
@@ -103,7 +103,7 @@
         <h3>Obchodný vestník <span class="label label-danger">ALFA</span></h3>
         <p class="lead">Databáza oznámení obchodného vestníka od&nbsp;roku 2011. </p>
         <p class="btn-row">
-          <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/ov.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>ov.sql.gz.torrent</strong> (~2400MB)</a>
+          <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/ov.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>ov.sql.gz.torrent</strong> <%= @dump_sizes[:ov] %></a>
           <%= link_to 'Dokumentácia', open_data_path(anchor: :ov), class: 'btn btn-default' %>
           <%= link_to 'API', open_api_path(anchor: :ov), class: 'btn btn-default' %>
         </p>
@@ -118,7 +118,7 @@
         <h3>Register účtovných závierok <span class="label label-danger">ALFA</span></h3>
         <p class="lead">Databáza účtovných jednotiek registra účtovných závierok.</p>
         <p class="btn-row">
-          <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/ruz.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>ruz.sql.gz.torrent</strong> (~110MB)</a>
+          <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/ruz.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>ruz.sql.gz.torrent</strong> <%= @dump_sizes[:ruz] %></a>
           <%= link_to 'Dokumentácia', open_data_path(anchor: :ruz), class: 'btn btn-default' %>
           <%= link_to 'API', open_api_path(anchor: :ruz), class: 'btn btn-default' %>
         </p>
@@ -130,7 +130,7 @@
         <h3>Dlžníci Sociálnej poisťovne <span class="label label-danger">ALFA</span></h3>
         <p class="lead">Databáza dlžníkov Sociálnej poisťovne.</p>
         <p class="btn-row">
-          <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/socpoist.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>socpoist.sql.gz.torrent</strong> (~5MB)</a>
+          <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/socpoist.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>socpoist.sql.gz.torrent</strong> <%= @dump_sizes[:socpoist] %></a>
           <%= link_to 'Dokumentácia', open_data_path(anchor: :socpoist), class: 'btn btn-default' %>
           <%= link_to 'API', open_api_path(anchor: :socpoist), class: 'btn btn-default' %>
         </p>
@@ -145,7 +145,7 @@
         <h3>Dlžníci Všeobecnej zdravotnej poisťovne <span class="label label-danger">ALFA</span></h3>
         <p class="lead">Databáza dlžníkov Všeobecnej zdravotnej poisťovne.</p>
         <p class="btn-row">
-          <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/vszp.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>vszp.sql.gz.torrent</strong> (~6MB)</a>
+          <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/vszp.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>vszp.sql.gz.torrent</strong> <%= @dump_sizes[:vszp] %></a>
           <%= link_to 'Dokumentácia', open_data_path(anchor: :vszp), class: 'btn btn-default' %>
           <%= link_to 'API', open_api_path(anchor: :vszp), class: 'btn btn-default' %>
         </p>
@@ -157,7 +157,7 @@
         <h3>Centrálny register zmlúv <span class="label label-warning">BETA</span></h3>
         <p class="lead">Databáza zmlúv centrálneho registra zmlúv od&nbsp;roku 2011.</p>
         <p class="btn-row">
-          <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/crz.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>crz.sql.gz.torrent</strong> (~320MB)</a>
+          <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/crz.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>crz.sql.gz.torrent</strong> <%= @dump_sizes[:crz] %></a>
           <%= link_to 'Dokumentácia', open_data_path(anchor: :crz), class: 'btn btn-default' %>
           <%= link_to 'API', open_api_path(anchor: :crz), class: 'btn btn-default' %>
         </p>
