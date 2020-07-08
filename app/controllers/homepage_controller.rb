@@ -1,5 +1,5 @@
 class HomepageController < ContentController
-  before_action :fetch_dump_filesizes, only: :index
+  before_action :fetch_dump_sizes, only: :index
 
   def index
     @page.title = 'Služby. Otvorené dáta &amp; API. &middot; Ekosystém.Slovensko.Digital'.html_safe
@@ -9,7 +9,7 @@ class HomepageController < ContentController
 
   private
 
-  def fetch_dump_filesizes
+  def fetch_dump_sizes
     uri = URI('https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/')
 
     @dump_sizes = Rails.cache.fetch('dump_sizes') do
