@@ -14,15 +14,15 @@ class HomepageController < ContentController
   private
 
   def dump_metadata
-    @dump_urls = SCHEMAS.map do |schema|
+    @dump_urls = SCHEMAS.map { |schema|
       [schema, URI('https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/').merge("#{schema}.sql.gz")]
-    end.to_h
+    }.to_h
 
     @dump_sizes = Rails.cache.fetch('dump_sizes') do
-      SCHEMAS.map do |schema|
+      SCHEMAS.map { |schema|
         size = Net::HTTP.start(@dump_urls[schema].host) { |http| Integer(http.request_head(@dump_urls[schema])['content-length']) rescue nil }
         [schema, size.present? ? "(#{number_to_human_size(size, precision: 2, separator: ',')})" : '(? MB)']
-      end.to_h
+      }.to_h
     end
   end
 end
