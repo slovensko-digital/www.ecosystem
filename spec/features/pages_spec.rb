@@ -22,7 +22,7 @@ RSpec.describe 'Pages' do
       end
     end
 
-    context 'with unsuccessful dump size fetch' do
+    context 'with unsuccessful dump sizes fetch' do
       before(:example) do
         schemas.each { |schema| stub_request(:head, "http://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/#{schema}.sql.gz").to_return(status: 500) }
       end
