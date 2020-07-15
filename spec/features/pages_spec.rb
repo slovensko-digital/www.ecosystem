@@ -6,7 +6,7 @@ RSpec.describe 'Pages' do
 
     context 'with successful dump sizes fetch' do
       before(:example) do
-        schemas.each { |schema| stub_request(:head, "https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/#{schema}.sql.gz").to_return(headers: { 'content-length' => '1000000000' }) }
+        schemas.each { |schema| stub_request(:head, "http://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/#{schema}.sql.gz").to_return(status: 200, headers: { 'content-length' => '1000000000' }) }
       end
 
       it 'works and shows actual dump sizes' do
@@ -22,7 +22,7 @@ RSpec.describe 'Pages' do
 
     context 'with unsuccessful dump size fetch' do
       before(:example) do
-        schemas.each { |schema| stub_request(:head, "https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/#{schema}.sql.gz").to_return(status: 500) }
+        schemas.each { |schema| stub_request(:head, "http://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/#{schema}.sql.gz").to_return(status: 500) }
       end
 
       it 'works and shows question marks instead of dump sizes' do
