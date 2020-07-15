@@ -4,6 +4,8 @@ RSpec.describe 'Pages' do
   describe 'homepage' do
     let(:schemas) { HomepageController::SCHEMAS }
 
+    before(:example) { Rails.cache.delete('dump_sizes') }
+
     context 'with successful dump sizes fetch' do
       before(:example) do
         schemas.each { |schema| stub_request(:head, "http://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/#{schema}.sql.gz").to_return(status: 200, headers: { 'content-length' => '1000000000' }) }
