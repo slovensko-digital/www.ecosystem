@@ -2,12 +2,40 @@ require 'rails_helper'
 
 RSpec.describe 'Pages' do
   describe 'homepage' do
-    it 'works' do
-      visit root_path
+    let(:schemas) { HomepageController::SCHEMAS }
 
-      expect(page).to have_content('Služby')
-      expect(page).to have_content('Autoform')
-      expect(page).to have_content('Datahub')
+    before(:example) { Rails.cache.delete('dump_sizes') }
+
+    context 'with successful dump sizes fetch' do
+      before(:example) do
+        schemas.each { |schema| stub_request(:head, "http://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/#{schema}.sql.gz").to_return(status: 200, headers: { 'content-length' => '1000000000' }) }
+      end
+
+      it 'works and shows actual dump sizes' do
+        visit root_path
+
+        expect(page).to have_content('Služby')
+        expect(page).to have_content('Autoform')
+        expect(page).to have_content('Datahub')
+
+        schemas.each { |schema| expect(page).to have_link("#{schema}.sql.gz.torrent (950 MB)", href: "https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/#{schema}.sql.gz?torrent") }
+      end
+    end
+
+    context 'with unsuccessful dump sizes fetch' do
+      before(:example) do
+        schemas.each { |schema| stub_request(:head, "http://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/#{schema}.sql.gz").to_return(status: 500) }
+      end
+
+      it 'works and shows question marks instead of dump sizes' do
+        visit root_path
+
+        expect(page).to have_content('Služby')
+        expect(page).to have_content('Autoform')
+        expect(page).to have_content('Datahub')
+
+        schemas.each { |schema| expect(page).to have_link("#{schema}.sql.gz.torrent (? MB)", href: "https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/#{schema}.sql.gz?torrent") }
+      end
     end
   end
 
