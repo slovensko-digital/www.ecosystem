@@ -58,7 +58,7 @@ sk:
               note_html: Hodnota zodpovedá identifikátoru v zdroji.
             name:
               description: Názov
-              note_html: Napríklad <code>Úrad podpredsedu vlády SR pre investície a&nbsp;informatizáciu</code>.
+              note_html: Napríklad <code>Ministerstvo investícií, regionálneho rozvoja a informatizácie Slovenskej republiky</code>.
             <<: *timestamp_columns
         attachments:
           description: Prílohy k zmluvám
