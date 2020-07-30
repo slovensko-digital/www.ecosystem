@@ -1,50 +1,40 @@
-<div class="container">
+<div class="container autoform">
   <%= form_tag register_step5_services_govbox_index_path do %>
-    <%= render 'hidden_fields_from_step3' %>
-    <%= hidden_field_tag :referral_code, cookies[:ref] %>
-
-    <div class="row">
-      <div class="col-md-6">
-        <h1 class="form-title">Zabezpečenie konta</h1>
-        <p class="lead form-subtitle"></p>
-        <div class="row">
-          <div class="col-md-7 form-group">
-            <%= label_tag :password, 'Zvoľte si heslo' %> <span class="text-muted">(aspoň 12 znakov)</span>
-            <%= password_field_tag :password, params[:password], class: 'form-control input-lg', required: true, pattern: '.{12,}', title: 'Heslo musí mať aspoň 12 znakov.', data: {'password-confirm': :password_confirmation} %>
-            <span class="form-text text-muted">Pre otváranie správ do vlastných rúk.</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-7 form-group">
-            <%= label_tag :password_confirmation do %>
-              Heslo <span class="text-muted">(znova)</span>
-            <% end %>
-            <%= password_field_tag :password_confirmation, params[:password_confirmation], class: 'form-control input-lg', required: true %>
-          </div>
-        </div>
-      </div>
-    </div>
+    <%= render 'hidden_fields_from_step2' %>
 
     <div class="row">
       <div class="col-lg-8">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="form-check">
-              <label class="form-check-label">
-                <%= check_box_tag :accept_terms, '1', false, class: 'form-check-input', required: true %>
-                <small>Dokončením registrácie udeľujem dobrovoľný súhlas Prevádzkovateľovi služby, spoločnosti Služby Slovensko.Digital, s.r.o., na spracúvanie mojich zadaných osobných údajov na účel ďalšej komunikácie pri zriaďovaní prístupu k službe GovBox. Zaradením do predbežnej registrácie nie je uzatvorená dohoda o poskytovaní služby, ani dané oprávnenie na prístup k elektronickej schránke registrovaného subjektu. Tento súhlas môžem kedykoľvek odvolať zaslaním žiadosti e-mailom na <a href="mailto:podpora@govbox.slovensko.digital">podpora@govbox.slovensko.digital</a>. Potvrdzujem správnosť mnou zadaných osobných údajov. Oboznámil(a) som sa s informáciami v sekcii <%= link_to 'Ochrana osobných údajov', privacy_policy_path, target: :_blank %>.</small>
-              </label>
+        <h1 class="form-title">Výber služby</h1>
+        <div class="row mt-4">
+          <div class="col-lg-12">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input id="dummy" checked="checked" type="checkbox" disabled="disabled" class="form-check-input" />
+                    <span>Mám záujem o <strong> GovBox schránku.</strong></span>
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <%= check_box_tag :mode, 'api_mode', false, class: 'form-check-input' %>
+                    <span>Mám záujem o <strong>GovBox schránku</strong> <u>a</u> <strong> API na integráciu vlastného systému.</strong></span>
+                  </label>
+                </div>
+                <span class="form-text text-muted">GovBox API umožňuje manipuláciu so schránkou prostredníctvom programového rozhrania (API) alebo pomocou iného informačného systému. Ak neviete, čo to znamená, bude vám pravdepodobne stačiť bežná GovBox schránka.</span>
+              </div>
             </div>
-            <p class="form-text text-muted mt-3"></p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="form-navigation">
-      <%= button_tag class: 'btn btn-primary btn-lg' do %>
-        <strong>Dokončiť registráciu</strong>
-      <% end %>
+    <div class="row form-navigation">
+      <div class="col-md-4 form-group">
+        <%= button_tag class: 'btn btn-primary btn-lg' do %>
+          <strong>Ďalej</strong>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>

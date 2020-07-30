@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Govbox registration', type: :feature do
-  scenario 'User registers for govbox' do
+  scenario 'User registers for Govbox' do
     visit '/sluzby/govbox'
     within('#registration') do
       click_on 'Mám záujem o GovBox'
@@ -18,6 +18,9 @@ RSpec.feature 'Govbox registration', type: :feature do
 
     fill_in 'Email', with: 'jan.hargas@slovensko.digital'
     fill_in 'Mobilný telefón', with: '+421903919123'
+    click_on 'Ďalej'
+
+    expect(page.find('#dummy')).to be_disabled and be_checked
     click_on 'Ďalej'
 
     fill_in 'Zvoľte si heslo', with: 'nejakeheslo'
@@ -53,6 +56,9 @@ RSpec.feature 'Govbox registration', type: :feature do
 
     fill_in 'Email', with: 'jan.hargas@slovensko.digital'
     fill_in 'Mobilný telefón', with: '+421903919123'
+    click_on 'Ďalej'
+
+    expect(page.find('#dummy')).to be_disabled and be_checked
     check('mode')
     click_on 'Ďalej'
 
@@ -71,7 +77,7 @@ RSpec.feature 'Govbox registration', type: :feature do
     expect(page).to have_content('Registrácia úspešná!')
   end
 
-  scenario 'User cannot finish registers for govbox' do
+  scenario 'User cannot finish registers for Govbox' do
     visit '/sluzby/govbox'
     within('#header') do
       click_on 'Mám záujem o GovBox'
@@ -88,6 +94,9 @@ RSpec.feature 'Govbox registration', type: :feature do
 
     fill_in 'Email', with: 'jan.hargas@slovensko.digital'
     fill_in 'Mobilný telefón', with: '+421903919123'
+    click_on 'Ďalej'
+
+    expect(page.find('#dummy')).to be_disabled and be_checked
     click_on 'Ďalej'
 
     fill_in 'Zvoľte si heslo', with: 'nejakeheslo'
@@ -129,6 +138,9 @@ RSpec.feature 'Govbox registration', type: :feature do
 
     fill_in 'Email', with: 'jan.hargas@slovensko.digital'
     fill_in 'Mobilný telefón', with: '+421903919123'
+    click_on 'Ďalej'
+
+    expect(page.find('#dummy')).to be_disabled and be_checked
     click_on 'Ďalej'
 
     fill_in 'Zvoľte si heslo', with: 'nejakeheslo'

@@ -6,8 +6,9 @@ Rails.application.routes.draw do
         get :register_step1, path: 'registracia'
         post :register_step2, path: 'registracia-statutar'
         post :register_step3, path: 'registracia-nastavenie'
-        post :register_step4, path: 'registracia-zabezpecenie'
-        post :register_step5, path: 'registracia-odoslanie'
+        post :register_step4, path: 'registracia-sluzba'
+        post :register_step5, path: 'registracia-zabezpecenie'
+        post :register_step6, path: 'registracia-odoslanie'
         get :register_thanks, path: 'registracia-uspesna'
 
         get :terms, path: 'vseobecne-obchodne-podmienky'
