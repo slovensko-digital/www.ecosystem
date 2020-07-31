@@ -1,6 +1,53 @@
 <div class="container">
   <h1><strong>Poznámky k zmenám funkcionality a štruktúry dát</strong></h1>
   <div class="long-text">
+    <h2 class="anchorable">Zmena k 3. 8. 2020</h2>
+    <h3>Otvorené API</h3>
+    <h4>Zmenený endpoint <code>api/data/ruz/accounting_entities/:id</code></h4>
+    <ul>
+      <li>
+        Zmenený objekt <code>legal_form</code>
+        <ul>
+          <li>Pridaný atribút <code>code: string</code></li>
+        </ul>
+      </li>
+      <li>
+        Zmenený objekt <code>sk_nace_category</code>
+        <ul>
+          <li>Pridaný atribút <code>code: string</code></li>
+        </ul>
+      </li>
+      <li>
+        Zmenený objekt <code>organization_size</code>
+        <ul>
+          <li>Pridaný atribút <code>code: string</code></li>
+        </ul>
+      </li>
+      <li>
+        Zmenený objekt <code>ownership_type</code>
+        <ul>
+          <li>Pridaný atribút <code>code: string</code></li>
+        </ul>
+      </li>
+    </ul>
+    <h3>Otvorené dáta</h3>
+    <h4>Zmenená tabuľka <code>ruz.legal_forms</code></h4>
+    <ul>
+      <li>Pridaný stĺpec <code>code: varchar</code></li>
+    </ul>
+    <h4>Zmenená tabuľka <code>ruz.sk_nace_categories</code></h4>
+    <ul>
+      <li>Pridaný stĺpec <code>code: varchar</code></li>
+    </ul>
+    <h4>Zmenená tabuľka <code>ruz.organization_sizes</code></h4>
+    <ul>
+      <li>Pridaný stĺpec <code>code: varchar</code></li>
+    </ul>
+    <h4>Zmenená tabuľka <code>ruz.ownership_types</code></h4>
+    <ul>
+      <li>Pridaný stĺpec <code>code: varchar</code></li>
+    </ul>
+
     <h2 class="anchorable">Zmena k 24. 6. 2020</h2>
     <h3>Otvorené API</h3>
     <h4>Zmenený endpoint <code>api/data/rpo/organizations/:id</code></h4>
