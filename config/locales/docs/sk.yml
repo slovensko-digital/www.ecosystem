@@ -1371,7 +1371,10 @@ sk:
 
           columns:
             id:
-              description: Identifikátor
+              description: Identifikátor záznamu
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            code:
+              description: Kód právnej formy
               note_html: Pochádza zo zdroja.
             <<: *ruz_enumeration_columns
 
@@ -1394,7 +1397,10 @@ sk:
 
           columns:
             id:
-              description: Identifikátor
+              description: Identifikátor záznamu
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            code:
+              description: Kód veľkosti organizácie
               note_html: Pochádza zo zdroja.
             <<: *ruz_enumeration_columns
 
@@ -1403,7 +1409,10 @@ sk:
 
           columns:
             id:
-              description: Identifikátor
+              description: Identifikátor záznamu
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            code:
+              description: Kód druhu vlastníctva
               note_html: Pochádza zo zdroja.
             <<: *ruz_enumeration_columns
 
@@ -1424,7 +1433,10 @@ sk:
 
           columns:
             id:
-              description: Identifikátor
+              description: Identifikátor záznamu
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            code:
+              description: Kód SK NACE kvalifikácie
               note_html: Pochádza zo zdroja.
             <<: *ruz_enumeration_columns
 
