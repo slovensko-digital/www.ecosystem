@@ -11,17 +11,17 @@
               <div class="col-md-12">
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input id="dummy" checked="checked" type="checkbox" disabled="disabled" class="form-check-input" />
-                    <span>Mám záujem o <strong> GovBox schránku.</strong></span>
+                    <%= radio_button :mode, params[:mode], 'sync_mode', checked: true, class: 'form-check-input' %>
+                    <span>Mám záujem o <strong> GovBox</strong> na preposielanie správ zo schránky na email.</span>
                   </label>
                 </div>
                 <div class="form-check">
                   <label class="form-check-label">
-                    <%= check_box_tag :mode, 'api_mode', false, class: 'form-check-input' %>
-                    <span>Mám záujem o <strong>GovBox schránku</strong> <u>a</u> <strong> API na integráciu vlastného systému.</strong></span>
+                    <%= radio_button :mode, params[:mode], 'api_mode', class: 'form-check-input' %>
+                    <span>Mám záujem o <strong>GovBox API</strong> na integráciu vlastného systému.</span>
                   </label>
                 </div>
-                <span class="form-text text-muted">GovBox API umožňuje manipuláciu so schránkou prostredníctvom programového rozhrania (API) alebo pomocou iného informačného systému. Ak neviete, čo to znamená, bude vám pravdepodobne stačiť bežná GovBox schránka.</span>
+                <span class="form-text text-muted">GovBox API umožňuje manipuláciu so schránkou prostredníctvom programového rozhrania (API) alebo pomocou iného informačného systému. Ak neviete, čo to znamená, bude vám pravdepodobne stačiť bežná služba GovBox.</span>
               </div>
             </div>
           </div>

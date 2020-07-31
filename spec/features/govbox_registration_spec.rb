@@ -20,7 +20,9 @@ RSpec.feature 'Govbox registration', type: :feature do
     fill_in 'Mobilný telefón', with: '+421903919123'
     click_on 'Ďalej'
 
-    expect(page.find('#dummy')).to be_disabled and be_checked
+    expect(page.find('#mode__sync_mode')).to be_checked
+    expect(page.find('#mode__api_mode')).not_to be_checked
+    choose('Mám záujem o GovBox na preposielanie správ zo schránky na email.')
     click_on 'Ďalej'
 
     fill_in 'Zvoľte si heslo', with: 'nejakeheslo'
@@ -28,7 +30,7 @@ RSpec.feature 'Govbox registration', type: :feature do
 
     stub_request(:post, ENV.fetch('GOVBOX_FORM_ENDPOINT')).
       with(body: {'cin' => '50 158 635', 'email' => 'jan.hargas@slovensko.digital', 'family_name' => 'Hargaš',
-        'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital',
+        'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital','mode' => 'sync_mode',
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '+421903919123',
         'referral_code' => '',
@@ -58,8 +60,9 @@ RSpec.feature 'Govbox registration', type: :feature do
     fill_in 'Mobilný telefón', with: '+421903919123'
     click_on 'Ďalej'
 
-    expect(page.find('#dummy')).to be_disabled and be_checked
-    check('mode')
+    expect(page.find('#mode__sync_mode')).to be_checked
+    expect(page.find('#mode__api_mode')).not_to be_checked
+    choose('Mám záujem o GovBox API na integráciu vlastného systému.')
     click_on 'Ďalej'
 
     fill_in 'Zvoľte si heslo', with: 'nejakeheslo'
@@ -96,7 +99,9 @@ RSpec.feature 'Govbox registration', type: :feature do
     fill_in 'Mobilný telefón', with: '+421903919123'
     click_on 'Ďalej'
 
-    expect(page.find('#dummy')).to be_disabled and be_checked
+    expect(page.find('#mode__sync_mode')).to be_checked
+    expect(page.find('#mode__api_mode')).not_to be_checked
+    choose('Mám záujem o GovBox na preposielanie správ zo schránky na email.')
     click_on 'Ďalej'
 
     fill_in 'Zvoľte si heslo', with: 'nejakeheslo'
@@ -110,7 +115,7 @@ RSpec.feature 'Govbox registration', type: :feature do
 
     stub_request(:post, ENV.fetch('GOVBOX_FORM_ENDPOINT')).
       with(body: {'cin' => '50 158 635', 'email' => 'jan.hargas@slovensko.digital', 'family_name' => 'Hargaš',
-        'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital',
+        'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital','mode' => 'sync_mode',
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '+421903919123',
         'referral_code' => ''
@@ -140,7 +145,9 @@ RSpec.feature 'Govbox registration', type: :feature do
     fill_in 'Mobilný telefón', with: '+421903919123'
     click_on 'Ďalej'
 
-    expect(page.find('#dummy')).to be_disabled and be_checked
+    expect(page.find('#mode__sync_mode')).to be_checked
+    expect(page.find('#mode__api_mode')).not_to be_checked
+    choose('Mám záujem o GovBox API na integráciu vlastného systému.')
     click_on 'Ďalej'
 
     fill_in 'Zvoľte si heslo', with: 'nejakeheslo'
@@ -152,7 +159,7 @@ RSpec.feature 'Govbox registration', type: :feature do
 
     stub_request(:post, ENV.fetch('GOVBOX_FORM_ENDPOINT')).
       with(body: {'cin' => '50 158 635', 'email' => 'jan.hargas@slovensko.digital', 'family_name' => 'Hargaš',
-        'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital',
+        'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital','mode' => 'api_mode',
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '+421903919123',
         'referral_code' => 'sf',
