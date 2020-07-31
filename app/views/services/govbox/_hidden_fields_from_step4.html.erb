@@ -1,4 +1,2 @@
 <%= render 'hidden_fields_from_step3' %>
-<%= hidden_field_tag :password, params[:password] %>
-<%= hidden_field_tag :password_confirmation, params[:password_confirmation] %>
-<%= hidden_field_tag :referral_code, params[:referral_code] %>
+<%= hidden_field_tag :mode, params[:mode] if params[:mode].present? %>

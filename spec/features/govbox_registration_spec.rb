@@ -38,7 +38,7 @@ RSpec.feature 'Govbox registration', type: :feature do
     expect(page).to have_content('Registrácia úspešná!')
   end
 
-  scenario 'User registers for govbox API' do
+  scenario 'User registers for Govbox API' do
     visit '/sluzby/govbox'
     within('#registration') do
       click_on 'Mám záujem o GovBox'
@@ -64,7 +64,7 @@ RSpec.feature 'Govbox registration', type: :feature do
 
     fill_in 'Zvoľte si heslo', with: 'nejakeheslo'
     fill_in 'Heslo (znova)', with: 'nejakeheslo'
-    
+
     stub_request(:post, ENV.fetch('GOVBOX_FORM_ENDPOINT')).
       with(body: {'cin' => '50 158 635', 'email' => 'jan.hargas@slovensko.digital', 'family_name' => 'Hargaš',
                   'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital', 'mode' => 'api_mode',
@@ -77,7 +77,7 @@ RSpec.feature 'Govbox registration', type: :feature do
     expect(page).to have_content('Registrácia úspešná!')
   end
 
-  scenario 'User cannot finish registers for Govbox' do
+  scenario 'User cannot finish registration for Govbox' do
     visit '/sluzby/govbox'
     within('#header') do
       click_on 'Mám záujem o GovBox'
