@@ -4,26 +4,19 @@
 
     <div class="row">
       <div class="col-lg-8">
-        <h1 class="form-title">Výber služby</h1>
-        <div class="row mt-4">
-          <div class="col-lg-12">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-check">
-                  <label class="form-check-label">
-                    <%= radio_button :mode, params[:mode], 'sync_mode', checked: true, class: 'form-check-input' %>
-                    <span>Mám záujem o <strong> GovBox</strong> na preposielanie správ zo schránky na email.</span>
-                  </label>
-                </div>
-                <div class="form-check">
-                  <label class="form-check-label">
-                    <%= radio_button :mode, params[:mode], 'api_mode', class: 'form-check-input' %>
-                    <span>Mám záujem o <strong>GovBox API</strong> na integráciu vlastného systému.</span>
-                  </label>
-                </div>
-                <span class="form-text text-muted">GovBox API umožňuje manipuláciu so schránkou prostredníctvom programového rozhrania (API) alebo pomocou iného informačného systému. Ak neviete, čo to znamená, bude vám pravdepodobne stačiť bežná služba GovBox.</span>
-              </div>
-            </div>
+        <h1 class="form-title">Nastavenie služby</h1>
+        <p class="lead form-subtitle">Zadajte údaje pre preposielanie správ, SMS upozornenia a vyberte typ služby.</p>
+        <div class="row">
+          <div class="col-md-8 form-group">
+            <%= label_tag :email, 'Email' %>
+            <%= email_field_tag :email, params[:email], class: 'form-control input-lg', required: true %>
+            <span class="form-text text-muted">Kam chcete preposielať správy z elektronickej schránky.</span>
+          </div>
+          <div class="col-md-4 form-group">
+            <%= label_tag :phone, 'Mobilný telefón' %>
+            <i class="fa fa-question-circle" data-toggle="tooltip" data-toggle-class="text-left" data-html="true" title="Budeme ho potrebovať, keď napríklad zabudnete heslo alebo Vám nepôjde doručiť správy na email."></i>
+            <%= phone_field_tag :phone, params[:phone], class: 'form-control input-lg', required: true, pattern: '^\+\d+$', title: 'Číslo v medzinárodnom formáte (napr +421910160880)' %>
+            <span class="form-text text-muted">Napríklad: +421910160880</span>
           </div>
         </div>
       </div>
