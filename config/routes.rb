@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       collection do
         get :faq, path: 'casto-kladene-otazky'
         get :register_step1, path: 'registracia'
-        post :register_step2, path: 'registracia-osoba'
+        post :register_step2, path: 'registracia-subjekt'
         post :register_step3, path: 'registracia-statutar'
         post :register_step4, path: 'registracia-nastavenie'
         post :register_step5, path: 'registracia-zabezpecenie'

@@ -12,7 +12,7 @@ RSpec.feature 'Govbox registration', type: :feature do
     choose('Mám záujem o GovBox na preposielanie správ zo schránky na email.')
     click_on 'Ďalej'
 
-    expect(current_path).to have_content 'registracia-osoba'
+    expect(current_path).to have_content 'registracia-subjekt'
 
     fill_in 'Názov', with: 'Slovensko.Digital'
     fill_in 'IČO', with: '50 158 635'
