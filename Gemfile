@@ -2,11 +2,9 @@ source 'https://rubygems.org'
 
 ruby '2.6.6'
 
-gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
-
 gem 'pg', '~> 0.18'
-
 gem 'puma'
+gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 
 # Styles
 gem 'bootstrap-sass'
@@ -49,6 +47,9 @@ end
 group :test do
   gem 'capybara'
   gem 'launchy'
-  gem 'simplecov'
+  # Workaround for cc-test-reporter with SimpleCov 0.18.
+  # Stop upgrading SimpleCov until the following issue will be resolved.
+  # https://github.com/codeclimate/test-reporter/issues/418
+  gem 'simplecov', '~> 0.10', '< 0.18'
   gem 'webmock'
 end
