@@ -95,9 +95,9 @@ GEM
     json (2.3.1)
     launchy (2.5.0)
       addressable (~> 2.7)
-    listen (3.0.8)
-      rb-fsevent (~> 0.9, >= 0.9.4)
-      rb-inotify (~> 0.9, >= 0.9.7)
+    listen (3.2.1)
+      rb-fsevent (~> 0.10, >= 0.10.3)
+      rb-inotify (~> 0.9, >= 0.9.10)
     loofah (2.6.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -162,23 +162,6 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    redis (4.2.1)
-    redis-actionpack (5.2.0)
-      actionpack (>= 5, < 7)
-      redis-rack (>= 2.1.0, < 3)
-      redis-store (>= 1.1.0, < 2)
-    redis-activesupport (5.2.0)
-      activesupport (>= 3, < 7)
-      redis-store (>= 1.3, < 2)
-    redis-rack (2.1.2)
-      rack (>= 2.0.8, < 3)
-      redis-store (>= 1.2, < 2)
-    redis-rails (5.0.2)
-      redis-actionpack (>= 5.0, < 6)
-      redis-activesupport (>= 5.0, < 6)
-      redis-store (>= 1.2, < 2)
-    redis-store (1.9.0)
-      redis (>= 4, < 5)
     regexp_parser (1.7.1)
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
@@ -262,13 +245,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass
+  bootstrap-sass (~> 3.4.1.0, >= 3.3.7)
   capybara
   coffee-rails
   dotenv-rails
   jquery-rails
   launchy
-  listen (~> 3.0.5)
+  listen
   newrelic_rpm
   pg (~> 0.18)
   pry-byebug
@@ -276,14 +259,13 @@ DEPENDENCIES
   rack-mini-profiler
   rails (~> 5.0.0, >= 5.0.0.1)
   rails_12factor
-  redis-rails
   rest-client
   rollbar
   rspec-rails
   sass-rails
   simplecov (~> 0.10, < 0.18)
   spring
-  spring-watcher-listen (~> 2.0.0)
+  spring-watcher-listen
   turbolinks
   uglifier
   web-console

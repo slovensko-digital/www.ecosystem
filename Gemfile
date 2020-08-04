@@ -2,12 +2,12 @@ source 'https://rubygems.org'
 
 ruby '2.6.6'
 
+gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'pg', '~> 0.18'
 gem 'puma'
-gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 
 # Styles
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.4.1.0', '>= 3.3.7'
 gem 'sass-rails'
 
 # Scripts
@@ -20,9 +20,6 @@ gem 'uglifier'
 gem 'newrelic_rpm'
 gem 'rollbar'
 
-# API
-gem 'redis-rails'
-
 # Utilities
 gem 'rest-client'
 
@@ -34,9 +31,9 @@ group :development, :test do
 end
 
 group :development do
-  gem 'listen', '~> 3.0.5'
+  gem 'listen'
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-watcher-listen'
   gem 'web-console'
 end
 
