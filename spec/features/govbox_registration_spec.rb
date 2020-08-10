@@ -7,6 +7,8 @@ RSpec.feature 'Govbox registration', type: :feature do
       click_on 'Mám záujem o GovBox'
     end
 
+    expect(current_path).to have_content 'registracia'
+
     expect(page.find('#mode__sync_mode')).not_to be_checked
     expect(page.find('#mode__api_mode')).not_to be_checked
     choose('Mám záujem o GovBox na preposielanie správ zo schránky na email.')
@@ -37,8 +39,8 @@ RSpec.feature 'Govbox registration', type: :feature do
     fill_in 'Heslo (znova)', with: 'nejakeheslo'
 
     stub_request(:post, ENV.fetch('GOVBOX_FORM_ENDPOINT')).
-      with(body: {'cin' => '50 158 635', 'email' => 'jan.hargas@slovensko.digital', 'family_name' => 'Hargaš',
-        'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital','mode' => 'sync_mode',
+      with(body: { 'cin' => '50 158 635', 'email' => 'jan.hargas@slovensko.digital', 'family_name' => 'Hargaš',
+        'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital', 'mode' => 'sync_mode',
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '+421903919123',
         'referral_code' => '',
@@ -48,6 +50,13 @@ RSpec.feature 'Govbox registration', type: :feature do
     expect(current_path).to have_content 'registracia-uspesna'
 
     expect(page).to have_content('Registrácia úspešná!')
+  end
+
+  scenario 'Selecting between GovBox and GovBox API is required' do
+    visit '/sluzby/govbox/registracia'
+
+    expect(page.find('#mode__sync_mode')[:required]).to be_present
+    expect(page.find('#mode__sync_mode')[:required]).to be_present
   end
 
   scenario 'User registers for GovBox API' do
@@ -79,11 +88,11 @@ RSpec.feature 'Govbox registration', type: :feature do
     fill_in 'Heslo (znova)', with: 'nejakeheslo'
 
     stub_request(:post, ENV.fetch('GOVBOX_FORM_ENDPOINT')).
-      with(body: {'cin' => '50 158 635', 'email' => 'jan.hargas@slovensko.digital', 'family_name' => 'Hargaš',
-                  'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital', 'mode' => 'api_mode',
-                  'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
-                  'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '+421903919123',
-                  'referral_code' => '',
+      with(body: { 'cin' => '50 158 635', 'email' => 'jan.hargas@slovensko.digital', 'family_name' => 'Hargaš',
+        'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital', 'mode' => 'api_mode',
+        'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
+        'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '+421903919123',
+        'referral_code' => '',
       }).to_return(status: 201)
     click_on 'Dokončiť registráciu'
 
@@ -124,8 +133,8 @@ RSpec.feature 'Govbox registration', type: :feature do
     expect(page).to have_content('momentálne nie je možné dokončiť registráciu')
 
     stub_request(:post, ENV.fetch('GOVBOX_FORM_ENDPOINT')).
-      with(body: {'cin' => '50 158 635', 'email' => 'jan.hargas@slovensko.digital', 'family_name' => 'Hargaš',
-        'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital','mode' => 'sync_mode',
+      with(body: { 'cin' => '50 158 635', 'email' => 'jan.hargas@slovensko.digital', 'family_name' => 'Hargaš',
+        'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital', 'mode' => 'sync_mode',
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '+421903919123',
         'referral_code' => ''
@@ -168,8 +177,8 @@ RSpec.feature 'Govbox registration', type: :feature do
     click_on 'Dokončiť registráciu'
 
     stub_request(:post, ENV.fetch('GOVBOX_FORM_ENDPOINT')).
-      with(body: {'cin' => '50 158 635', 'email' => 'jan.hargas@slovensko.digital', 'family_name' => 'Hargaš',
-        'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital','mode' => 'api_mode',
+      with(body: { 'cin' => '50 158 635', 'email' => 'jan.hargas@slovensko.digital', 'family_name' => 'Hargaš',
+        'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital', 'mode' => 'api_mode',
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '+421903919123',
         'referral_code' => 'sf',
