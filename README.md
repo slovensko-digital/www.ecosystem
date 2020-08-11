@@ -1,10 +1,10 @@
 # Ecosystem
 
-Ecosystem is user facing web app for [ekosystem.slovensko.digital](https://ekosystem.slovensko.digital/), contains mainly  documentation for datasets and APIs from various data sources. App for pushing data to ecosystem is [harvester](https://github.com/slovensko-digital/harvester.ecosystem).
+Ecosystem is user facing web app for [ekosystem.slovensko.digital](https://ekosystem.slovensko.digital), contains mainly  documentation for datasets and APIs from various data sources. App for pushing data to ecosystem is [harvester](https://github.com/slovensko-digital/harvester.ecosystem).
 
-[![CircleCI](https://img.shields.io/circleci/project/github/slovensko-digital/www.ecosystem.svg)](https://circleci.com/gh/slovensko-digital/www.ecosystem)
-[![Code Climate](https://img.shields.io/codeclimate/github/slovensko-digital/www.ecosystem.svg)](https://codeclimate.com/github/slovensko-digital/www.ecosystem)
-[![Test Coverage](https://img.shields.io/codeclimate/coverage/github/slovensko-digital/www.ecosystem.svg)](https://codeclimate.com/github/slovensko-digital/www.ecosystem/coverage)
+[![Build](https://img.shields.io/circleci/build/github/slovensko-digital/www.ecosystem)](https://circleci.com/gh/slovensko-digital/www.ecosystem)
+[![Coverage](https://img.shields.io/codeclimate/coverage/slovensko-digital/www.ecosystem)](https://codeclimate.com/github/slovensko-digital/www.ecosystem)
+[![Maintainability](https://img.shields.io/codeclimate/maintainability/slovensko-digital/www.ecosystem)](https://codeclimate.com/github/slovensko-digital/www.ecosystem)
 
 ## Contributing
 
