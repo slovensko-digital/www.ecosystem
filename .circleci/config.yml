@@ -41,7 +41,7 @@ jobs:
 
     steps:
       - checkout
-      - run: git push dokku@195.210.28.160:www.ecosystem master
+      - run: git push dokku@staging.slovensko.digital:www.ecosystem master
 
 workflows:
   main:
