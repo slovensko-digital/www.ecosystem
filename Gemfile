@@ -2,12 +2,12 @@ source 'https://rubygems.org'
 
 ruby '2.6.6'
 
-gem 'rails', '~> 5.2.0', '>= 5.0.0.1'
+gem 'rails', '~> 5.2.4.3'
 gem 'pg', '~> 0.18'
 gem 'puma'
 
 # Styles
-gem 'bootstrap-sass', '~> 3.4.1.0', '>= 3.3.7'
+gem 'bootstrap-sass', '3.4.1'
 gem 'sass-rails'
 
 # Scripts
