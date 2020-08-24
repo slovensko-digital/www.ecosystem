@@ -7,6 +7,24 @@
         <h1 class="form-title">Údaje štatutára</h1>
         <p class="form-subtitle lead">Zadajte údaje štatutára (napríklad konateľa s.r.o.), ktorý podpíše splnomocnenie na prístup k schránke.</p>
 
+        <% if @statutory %>
+          <h6>Vyberte štatutára zo zoznamu:</h6>
+          <div class="row">
+            <div class="col-md-8 form-group">
+              <%= select_tag :statutory_select_step2, options_for_select(@statutory.map { |index, data| [data[:label], index] }), class: 'form-control input-lg', prompt: '...' %>
+            </div>
+          </div>
+          <p class="lead" style="margin: 30px 0;">alebo zadajte údaje ručne</p>
+          <script>
+            $('#statutory_select_step2').change(e => {
+              let selected = JSON.parse('<%= @statutory.to_json.html_safe %>')[e.target.value] || {};
+              $('#given_name').val(selected.first_name);
+              $('#family_name').val(selected.last_name);
+              $('#person_formatted_address').val(selected.address);
+            });
+          </script>
+        <% end %>
+
         <div class="row">
           <div class="col-md-4 form-group">
             <%= label_tag :given_name, 'Meno' %>

@@ -28,6 +28,31 @@ class Services::GovboxController < ContentController
   end
 
   def register_step2
+    @statutory =
+      begin
+        response = RestClient::Resource.new("#{ENV.fetch('AUTOFORM_URL')}/api/corporate_bodies/search", timeout: 10)
+          .get(params: { q: "cin:#{params[:cin]}", private_access_token: ENV.fetch('AUTOFORM_PRIVATE_ACCESS_TOKEN') } )
+
+        json = JSON.parse(response.body).first
+        return nil unless json
+
+        json.deep_symbolize_keys.fetch(:statutory).each_with_index.map do |person, index|
+          [index,
+            {
+              first_name: person[:first_name],
+              last_name: person[:last_name],
+              address: format_address(person),
+              label: "#{person[:first_name]} #{person[:last_name]}, #{format_address(person)}"
+            }
+          ]
+        end.to_h
+      rescue RestClient::Exceptions::OpenTimeout
+        nil
+      end
+  end
+
+  def format_address(statutory)
+    "#{statutory[:street]}, #{statutory[:postal_code]} #{statutory[:municipality]}"
   end
 
   def register_step3
