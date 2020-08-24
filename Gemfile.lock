@@ -45,7 +45,7 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     arel (9.0.0)
-    autoprefixer-rails (9.8.6.1)
+    autoprefixer-rails (9.8.6.2)
       execjs
     bindex (0.8.1)
     bootstrap-sass (3.4.1)
@@ -129,6 +129,8 @@ GEM
     pry-byebug (3.9.0)
       byebug (~> 11.0)
       pry (~> 0.13.0)
+    pry-rails (0.3.9)
+      pry (>= 0.10.4)
     public_suffix (4.0.5)
     puma (4.3.5)
       nio4r (~> 2.0)
@@ -178,7 +180,7 @@ GEM
     redis-activesupport (5.2.0)
       activesupport (>= 3, < 7)
       redis-store (>= 1.3, < 2)
-    redis-rack (2.1.2)
+    redis-rack (2.1.3)
       rack (>= 2.0.8, < 3)
       redis-store (>= 1.2, < 2)
     redis-rails (5.0.2)
@@ -270,19 +272,19 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass (~> 3.4.1.0, >= 3.3.7)
+  bootstrap-sass (= 3.4.1)
   capybara
   coffee-rails
   dotenv-rails
   jquery-rails
   launchy
-  listen
   newrelic_rpm
   pg (~> 0.18)
   pry-byebug
+  pry-rails
   puma
   rack-mini-profiler
-  rails (~> 5.2.0, >= 5.0.0.1)
+  rails (~> 5.2.4.3)
   rails_12factor
   redis-rails
   rest-client
@@ -290,7 +292,6 @@ DEPENDENCIES
   rspec-rails
   sass-rails
   simplecov (~> 0.10, < 0.18)
-  spring
   spring-watcher-listen
   turbolinks
   uglifier

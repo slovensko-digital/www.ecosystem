@@ -20,22 +20,19 @@ gem 'uglifier'
 gem 'newrelic_rpm'
 gem 'rollbar'
 
-# Api
-gem 'redis-rails'
-
 # Utilities
+gem 'redis-rails'
 gem 'rest-client'
 
 group :development, :test do
   gem 'dotenv-rails'
   gem 'pry-byebug'
+  gem 'pry-rails'
   gem 'rack-mini-profiler'
   gem 'rspec-rails'
 end
 
 group :development do
-  gem 'listen'
-  gem 'spring'
   gem 'spring-watcher-listen'
   gem 'web-console'
 end
