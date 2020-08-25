@@ -10,11 +10,12 @@
         <% if @statutory %>
           <h6>Vyberte štatutára zo zoznamu:</h6>
           <div class="row">
-            <div class="col-md-8 form-group">
+            <div class="col-md-12 form-group">
               <%= select_tag :statutory_select_step2, options_for_select(@statutory.map { |index, data| [data[:label], index] }), class: 'form-control input-lg', prompt: '...' %>
             </div>
           </div>
-          <p class="lead" style="margin: 30px 0;">alebo zadajte údaje ručne</p>
+<!--          <p class="lead" style="margin: 30px 0;">alebo zadajte údaje ručne</p>-->
+          <h6 style="margin: 30px 0;">alebo zadajte údaje ručne</h6>
           <script>
             $('#statutory_select_step2').change(e => {
               let selected = JSON.parse('<%= @statutory.to_json.html_safe %>')[e.target.value] || {};
