@@ -1,0 +1,49 @@
+[
+  {
+    "id": 1358414,
+    "cin": "50 158 635",
+    "tin": 2120264674,
+    "vatin": null,
+    "name": "Slovensko.Digital",
+    "formatted_address": "Staré Grunty 205/18, 841 04 Bratislava - mestská časť Karlova Ves",
+    "street": "Staré Grunty",
+    "reg_number": 205,
+    "building_number": "18",
+    "street_number": "205/18",
+    "formatted_street": "Staré Grunty 205/18",
+    "postal_code": "841 04",
+    "municipality": "Bratislava - mestská časť Karlova Ves",
+    "country": "Slovenská republika",
+    "established_on": "2016-01-29",
+    "terminated_on": null,
+    "vatin_paragraph": null,
+    "registration_office": "MV SR",
+    "registration_number": "VVS/1-900/90-48099",
+    "updated_at": "2019-12-10T08:47:03.195891Z",
+    "legal_form": "Združenie (zväz, spolok, spoločnosť, klub ai.)",
+    "statutory": [
+      {
+        "type": "Iný štatutárny orgán",
+        "first_name": "Ľubor",
+        "last_name": "Illek",
+        "street": "Líščie údolie",
+        "reg_number": 3710,
+        "building_number": "33",
+        "postal_code": null,
+        "municipality": "Bratislava - mestská časť Karlova Ves",
+        "country": "Slovenská republika"
+      },
+      {
+        "type": "Iný štatutárny orgán",
+        "first_name": "Gabriel",
+        "last_name": "Lachmann",
+        "street": "Belániková",
+        "reg_number": 3574,
+        "building_number": "6",
+        "postal_code": null,
+        "municipality": "Bratislava - mestská časť Karlova Ves",
+        "country": "Slovenská republika"
+      }
+    ]
+  }
+]
