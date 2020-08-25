@@ -52,7 +52,7 @@ class Services::GovboxController < ContentController
   end
 
   def format_address(statutory)
-    "#{statutory[:street]}, #{statutory[:postal_code]} #{statutory[:municipality]}"
+    Datahub::Utils.build_formatted_address(OpenStruct.new(statutory))
   end
 
   def register_step3
