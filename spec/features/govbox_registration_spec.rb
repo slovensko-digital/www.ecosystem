@@ -30,7 +30,7 @@ RSpec.feature 'Govbox registration', type: :feature do
     fill_in 'Heslo (znova)', with: 'nejakeheslo'
 
     stub_request(:post, ENV.fetch('GOVBOX_FORM_ENDPOINT')).
-      with(body: {'cin' => '50 158 635', 'email' => 'jan.hargas@slovensko.digital', 'family_name' => 'Hargaš',
+      with(body: { 'cin' => '50 158 635', 'email' => 'jan.hargas@slovensko.digital', 'family_name' => 'Hargaš',
         'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital',
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '+421903919123',
@@ -155,9 +155,5 @@ RSpec.feature 'Govbox registration', type: :feature do
     click_on 'Skúsiť dokončiť registráciu znova'
 
     expect(page).to have_content('Registrácia úspešná!')
-  end
-
-  scenario '' do
-
   end
 end
