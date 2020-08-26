@@ -67,7 +67,7 @@ RSpec.feature 'Govbox registration', type: :feature do
 
     expect(page.find('#mode__sync_mode')).not_to be_checked
     expect(page.find('#mode__api_mode')).not_to be_checked
-    choose('Mám záujem o GovBox API na integráciu vlastného systému.')
+    choose('Mám záujem o GovBox API na integráciu vlastného informačného systému.')
     click_on 'Ďalej'
 
     fill_in 'Názov', with: 'Slovensko.Digital'
@@ -153,7 +153,7 @@ RSpec.feature 'Govbox registration', type: :feature do
 
     expect(page.find('#mode__sync_mode')).not_to be_checked
     expect(page.find('#mode__api_mode')).not_to be_checked
-    choose('Mám záujem o GovBox API na integráciu vlastného systému.')
+    choose('Mám záujem o GovBox API na integráciu vlastného informačného systému.')
     click_on 'Ďalej'
 
     fill_in 'Názov', with: 'Slovensko.Digital'
