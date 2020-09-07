@@ -28,20 +28,20 @@ class Services::GovboxController < ContentController
   end
 
   def register_step2
-    @statutory =
+    @statutory_entries =
       begin
         response = RestClient::Resource.new("#{ENV.fetch('AUTOFORM_URL')}/api/corporate_bodies/search", timeout: 10)
           .get(params: { q: "cin:#{params[:cin]}", private_access_token: ENV.fetch('AUTOFORM_PRIVATE_ACCESS_TOKEN') } )
 
-        json = JSON.parse(response.body).first
+        json = JSON.parse(response.body, symbolize_names: true).first
         return nil unless json
 
-        json.deep_symbolize_keys.fetch(:statutory).each_with_index.map do |person, index|
+        json.fetch(:statutory).each_with_index.map do |person, index|
           [index,
             {
               first_name: person[:first_name],
               last_name: person[:last_name],
-              address: format_address(person),
+              formatted_address: format_address(person),
               label: "#{person[:first_name]} #{person[:last_name]}, #{format_address(person)}"
             }
           ]
@@ -51,8 +51,8 @@ class Services::GovboxController < ContentController
       end
   end
 
-  def format_address(statutory)
-    Datahub::Utils.build_formatted_address(OpenStruct.new(statutory))
+  def fetch_statutory_entries
+
   end
 
   def register_step3
@@ -108,5 +108,9 @@ class Services::GovboxController < ContentController
     unless rollout.active?(:govbox)
       render template: 'errors/not_found', status: 404, layout: 'application'
     end
+  end
+
+  def format_address(statutory_entry)
+    Datahub::Utils.build_formatted_address(OpenStruct.new(statutory_entry))
   end
 end

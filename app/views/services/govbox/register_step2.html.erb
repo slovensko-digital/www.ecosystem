@@ -7,20 +7,20 @@
         <h1 class="form-title">Údaje štatutára</h1>
         <p class="form-subtitle lead">Zadajte údaje štatutára (napríklad konateľa s.r.o.), ktorý podpíše splnomocnenie na prístup k schránke.</p>
 
-        <% if @statutory %>
+        <% if @statutory_entries %>
           <h6 style="margin: 30px 0;">Vyberte štatutára zo zoznamu:</h6>
           <div class="row">
             <div class="col-md-12 form-group">
-              <%= select_tag :statutory_select, options_for_select(@statutory.map { |index, data| [data[:label], index] }), class: 'form-control input-lg', prompt: '...' %>
+              <%= select_tag :statutory_entry_select, options_for_select(@statutory_entries.map { |index, data| [data[:label], index] }), class: 'form-control input-lg', prompt: '...' %>
             </div>
           </div>
           <h6 style="margin: 30px 0;">alebo zadajte údaje ručne</h6>
           <script>
-            $('#statutory_select').change(e => {
-              let selected = JSON.parse('<%= @statutory.to_json.html_safe %>')[e.target.value] || {};
+            $('#statutory_entry_select').change(e => {
+              let selected = JSON.parse('<%= @statutory_entries.to_json.html_safe %>')[e.target.value] || {};
               $('#given_name').val(selected.first_name);
               $('#family_name').val(selected.last_name);
-              $('#person_formatted_address').val(selected.address);
+              $('#person_formatted_address').val(selected.formatted_address);
             });
           </script>
         <% end %>
