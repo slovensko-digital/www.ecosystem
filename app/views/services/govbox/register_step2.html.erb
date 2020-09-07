@@ -10,8 +10,16 @@
         <% if @statutory_entries %>
           <h6 style="margin: 30px 0;">Vyberte štatutára zo zoznamu:</h6>
           <div class="row">
-            <div class="col-md-12 form-group">
-              <%= select_tag :statutory_entry_select, options_for_select(@statutory_entries.map { |index, data| [data[:label], index] }), class: 'form-control input-lg', prompt: '...' %>
+<!--            <div class="col-md-12 form-group">-->
+            <div class="form-check">
+              <label class="form-check-label">
+              <% @statutory_entries.each_with_index do |entry, index| %>
+                <%#= radio_button_tag :statutory_entry, index, class: 'form-control input-lg' %>
+                <%= radio_button_tag :statutory_entry, index, class: 'form-check-input' %>
+                <%= label_tag index, entry[:label] %>
+              <% end %>
+              </label>
+              <%#= select_tag :statutory_entry_select, options_for_select(@statutory_entries.map { |index, data| [data[:label], index] }), class: 'form-control input-lg', prompt: '...' %>
             </div>
           </div>
           <h6 style="margin: 30px 0;">alebo zadajte údaje ručne</h6>
@@ -45,7 +53,9 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <p class="form-text text-muted mt-3"><strong>Poznámka:</strong> Ak za právnickú osobu podpísujú viacerí štatutári naraz, <%= link_to 'kontaktujte nás', 'mailto:podpora@govbox.slovensko.digital' %>.</p>
+            <p class="form-text text-muted mt-3">
+              <strong>Poznámka:</strong> Ak za právnickú osobu podpísujú viacerí štatutári naraz, <%= link_to 'kontaktujte nás', 'mailto:podpora@govbox.slovensko.digital' %>.
+            </p>
           </div>
         </div>
 
