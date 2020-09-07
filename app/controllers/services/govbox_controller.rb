@@ -30,29 +30,27 @@ class Services::GovboxController < ContentController
   def register_step2
     @statutory_entries =
       begin
-        response = RestClient::Resource.new("#{ENV.fetch('AUTOFORM_URL')}/api/corporate_bodies/search", timeout: 10)
-          .get(params: { q: "cin:#{params[:cin]}", private_access_token: ENV.fetch('AUTOFORM_PRIVATE_ACCESS_TOKEN') } )
-
-        json = JSON.parse(response.body, symbolize_names: true).first
-        return nil unless json
-
-        json.fetch(:statutory).each_with_index.map do |person, index|
-          [index,
-            {
-              first_name: person[:first_name],
-              last_name: person[:last_name],
-              formatted_address: format_address(person),
-              label: "#{person[:first_name]} #{person[:last_name]}, #{format_address(person)}"
-            }
-          ]
-        end.to_h
+        fetch_statutory_entries
       rescue RestClient::Exceptions::OpenTimeout
         nil
       end
   end
 
   def fetch_statutory_entries
+    response = RestClient::Resource.new("#{ENV.fetch('AUTOFORM_URL')}/api/corporate_bodies/search", timeout: 10).get(params: { q: "cin:#{params[:cin]}", private_access_token: ENV.fetch('AUTOFORM_PRIVATE_ACCESS_TOKEN') } )
+    json = JSON.parse(response.body, symbolize_names: true).first
+    return nil unless json
 
+    json.fetch(:statutory).each_with_index.map do |person, index|
+      [index,
+        {
+          first_name: person[:first_name],
+          last_name: person[:last_name],
+          formatted_address: format_address(person),
+          label: "#{person[:first_name]} #{person[:last_name]}, #{format_address(person)}"
+        }
+      ]
+    end.to_h
   end
 
   def register_step3
