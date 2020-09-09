@@ -11,10 +11,10 @@
           <h6 style="margin: 30px 0;">Vyberte štatutára zo zoznamu:</h6>
           <div class="row">
             <div class="col-md-12">
-              <% @statutory_entries.each_with_index do |entry, index| %>
+              <% @statutory_entries.each_with_index do |person, index| %>
                 <label class="form-check-label" style="margin: 8px 0;">
-                  <%= radio_button_tag :statutory_entry, index, false, class: 'form-check-input', data: { given_name: entry[:first_name], family_name: entry[:last_name], person_formatted_address: entry[:formatted_address] } %>
-                  <span><%= entry[:label] %></span>
+                  <%= radio_button_tag :statutory_entry, index, false, class: 'form-check-input', data: { given_name: person[:first_name], family_name: person[:last_name], person_formatted_address: format_address(person) } %>
+                  <span><%= "#{person[:first_name]} #{person[:last_name]}, #{format_address(person)}" %></span>
                 </label>
               <% end %>
             </div>

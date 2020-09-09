@@ -1,5 +1,6 @@
 class Services::GovboxController < ContentController
   layout 'application_bs4'
+  include Services::GovboxHelper
 
   before_action :ensure_live, only: [:index, :register_step1, :faq]
 
@@ -28,12 +29,7 @@ class Services::GovboxController < ContentController
   end
 
   def register_step2
-    @statutory_entries =
-      begin
-        fetch_statutory_entries
-      rescue RestClient::Exceptions::OpenTimeout
-        nil
-      end
+    @statutory_entries = fetch_statutory_entries
   end
 
   def register_step3
@@ -93,20 +89,18 @@ class Services::GovboxController < ContentController
 
   def fetch_statutory_entries
     response = RestClient::Resource.new("#{ENV.fetch('AUTOFORM_URL')}/api/corporate_bodies/search", timeout: 10).get(params: { q: "cin:#{params[:cin]}", private_access_token: ENV.fetch('AUTOFORM_PRIVATE_ACCESS_TOKEN') })
-    json = JSON.parse(response.body, symbolize_names: true).first
-    return nil unless json
-
-    json.fetch(:statutory).map do |person|
-      {
-        first_name: person[:first_name],
-        last_name: person[:last_name],
-        formatted_address: format_address(person),
-        label: "#{person[:first_name]} #{person[:last_name]}, #{format_address(person)}"
-      }
-    end
-  end
-
-  def format_address(statutory_entry)
-    Datahub::Utils.build_formatted_address(OpenStruct.new(statutory_entry))
+    JSON.parse(response.body, symbolize_names: true).first&.fetch(:statutory)
+    # return nil unless json
+    #
+    # json.fetch(:statutory).map do |person|
+    #   {
+    #     first_name: person[:first_name],
+    #     last_name: person[:last_name],
+    #     formatted_address: format_address(person),
+    #     label: "#{person[:first_name]} #{person[:last_name]}, #{format_address(person)}"
+    #   }
+    # end
+  rescue RestClient::Exceptions::OpenTimeout
+    nil
   end
 end
