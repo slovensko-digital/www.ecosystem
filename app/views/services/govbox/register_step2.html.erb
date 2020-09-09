@@ -8,36 +8,51 @@
         <p class="form-subtitle lead">Zadajte údaje štatutára (napríklad konateľa s.r.o.), ktorý podpíše splnomocnenie na prístup k schránke.</p>
 
         <% if @statutory_entries %>
-          <h6 style="margin: 30px 0;">Vyberte štatutára zo zoznamu:</h6>
-          <div class="row">
-            <div class="col-md-12">
-              <% @statutory_entries.each_with_index do |person, index| %>
-                <label class="form-check-label" style="margin: 8px 0;">
+          <h6>Vyberte možnosť:</h6>
+          <% @statutory_entries.each_with_index do |person, index| %>
+            <div class="row my-3">
+              <div class="col-md-12">
+                <label class="form-check-label">
                   <%= radio_button_tag :statutory_entry, index, false, class: 'form-check-input', data: { given_name: person[:first_name], family_name: person[:last_name], person_formatted_address: format_address(person) } %>
                   <span><%= "#{person[:first_name]} #{person[:last_name]}, #{format_address(person)}" %></span>
                 </label>
-              <% end %>
+              </div>
+            </div>
+          <% end %>
+          <div class="row my-3">
+            <div class="col-md-12">
+              <label class="form-check-label">
+                <%= radio_button_tag :statutory_entry, nil, false, class: 'form-check-input' %>
+                <span>Chcem zadať údaje štatutára ručne</span>
+              </label>
             </div>
           </div>
-          <h6 style="margin: 30px 0;">
-            <a href="#" data-toggle="collapse" data-target="#form-input-fields">alebo kliknite sem a zadajte údaje ručne</a>
-          </h6>
-
           <script>
-            $('input:radio').change(e => {
-              let selected = e.target.dataset;
-              $('#given_name').val(selected.givenName);
-              $('#family_name').val(selected.familyName);
-              $('#person_formatted_address').val(selected.personFormattedAddress);
-            });
-
             $(document).ready(function () {
               $("#form-input-fields").addClass('collapse hide');
+            });
+
+            function fillFormFields(data) {
+              $('#given_name').val(data.givenName);
+              $('#family_name').val(data.familyName);
+              $('#person_formatted_address').val(data.personFormattedAddress);
+            }
+
+            $('[id^="statutory_entry"]').change(e => {
+              if($('#form-input-fields').is(':visible')) {
+                $('#form-input-fields').collapse('hide').on('hidden.bs.collapse', () => fillFormFields(e.target.dataset));
+              } else {
+                fillFormFields(e.target.dataset);
+              }
+            });
+
+            $('[id^="statutory_entry"]').last().change(e => {
+              $('#form-input-fields').collapse('toggle');
             });
           </script>
         <% end %>
 
-        <div id="form-input-fields">
+        <div id="form-input-fields" class="mt-3">
           <div class="row">
             <div class="col-md-4 form-group">
               <%= label_tag :given_name, 'Meno' %>
@@ -48,6 +63,7 @@
               <%= text_field_tag :family_name, params[:family_name], class: 'form-control input-lg', required: true %>
             </div>
           </div>
+
 
           <div class="row">
             <div class="col-md-12 form-group">
