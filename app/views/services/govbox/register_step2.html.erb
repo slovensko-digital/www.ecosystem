@@ -13,7 +13,7 @@
             <div class="row my-3">
               <div class="col-md-12">
                 <label class="form-check-label">
-                  <%= radio_button_tag :statutory_entry, index, false, class: 'form-check-input', data: { given_name: person[:first_name], family_name: person[:last_name], person_formatted_address: format_address(person) } %>
+                  <%= radio_button_tag :statutory_entry, index, false, class: 'form-check-input', required: true, data: { given_name: person[:first_name], family_name: person[:last_name], person_formatted_address: format_address(person) } %>
                   <span><%= "#{person[:first_name]} #{person[:last_name]}, #{format_address(person)}" %></span>
                 </label>
               </div>
@@ -23,7 +23,7 @@
           <div class="row my-3">
             <div class="col-md-12">
               <label class="form-check-label">
-                <%= radio_button_tag :statutory_entry, nil, false, class: 'form-check-input' %>
+                <%= radio_button_tag :statutory_entry, nil, false, class: 'form-check-input', required: true %>
                 <span>Chcem zadať údaje štatutára ručne</span>
               </label>
             </div>
