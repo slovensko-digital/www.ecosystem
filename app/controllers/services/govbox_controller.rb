@@ -1,6 +1,5 @@
 class Services::GovboxController < ContentController
   layout 'application_bs4'
-  include Services::GovboxHelper
 
   before_action :ensure_live, only: [:index, :register_step1, :faq]
 
