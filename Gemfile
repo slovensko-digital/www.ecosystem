@@ -60,6 +60,8 @@ group :staging, :production do
 end
 
 group :test do
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
   gem 'webmock'
   gem 'capybara'
   gem 'launchy'
