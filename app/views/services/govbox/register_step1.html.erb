@@ -1,6 +1,6 @@
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
-<%= javascript_include_tag ENV.fetch('AUTOFORM_JAVASCRIPT_URL') %>
+<%= javascript_include_tag "#{ENV.fetch('AUTOFORM_URL')}/assets/autoform.js" %>
 
 <div class="container">
   <%= form_tag register_step2_services_govbox_index_path, data: {'slovensko-digital-autoform': ENV.fetch('AUTOFORM_ACCESS_TOKEN')} do %>
