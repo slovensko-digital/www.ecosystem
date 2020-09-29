@@ -1,89 +1,26 @@
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
-<%= javascript_include_tag ENV.fetch('AUTOFORM_JAVASCRIPT_URL') %>
+<%= javascript_include_tag "#{ENV.fetch('AUTOFORM_URL')}/assets/autoform.js" %>
 
 <div class="container">
-  <%= form_tag register_step3_services_govbox_index_path, data: { 'slovensko-digital-autoform': ENV.fetch('AUTOFORM_ACCESS_TOKEN') } do %>
+  <%= form_tag register_step3_services_govbox_index_path, data: {'slovensko-digital-autoform': ENV.fetch('AUTOFORM_ACCESS_TOKEN')} do %>
     <%= render 'hidden_fields_from_step1' %>
 
     <div class="row">
       <div class="col-lg-8">
-        <h1 class="form-title">Údaje štatutára</h1>
-        <p class="form-subtitle lead">Zadajte údaje štatutára (napríklad konateľa s.r.o.), ktorý podpíše splnomocnenie na prístup k schránke.</p>
-
-        <% if @statutory_entries %>
-          <h6>Vyberte možnosť:</h6>
-          <% @statutory_entries.each_with_index do |person, index| %>
-            <div class="row my-3">
-              <div class="col-md-12">
-                <label class="form-check-label">
-                  <%= radio_button_tag :statutory_entry, index, false, class: 'form-check-input', required: true, data: { given_name: person[:first_name], family_name: person[:last_name], person_formatted_address: Datahub::Utils.build_formatted_address(OpenStruct.new(person)) } %>
-                  <span><%= "#{person[:first_name]} #{person[:last_name]}, #{Datahub::Utils.build_formatted_address(OpenStruct.new(person)) }" %></span>
-                </label>
-              </div>
-            </div>
-          <% end %>
-          alebo
-          <div class="row my-3">
-            <div class="col-md-12">
-              <label class="form-check-label">
-                <%= radio_button_tag :statutory_entry, nil, false, class: 'form-check-input', required: true %>
-                <span>zadať údaje štatutára ručne</span>
-              </label>
-            </div>
-          </div>
-          <script>
-            $(document).ready(function () {
-              $("#form-input-fields").addClass('collapse hide');
-            });
-
-            function fillFormFields(data) {
-              $('#given_name').val(data.givenName);
-              $('#family_name').val(data.familyName);
-              $('#person_formatted_address').val(data.personFormattedAddress);
-            }
-
-            $('[id^="statutory_entry"]').change(e => {
-              if($('#form-input-fields').is(':visible')) {
-                $('#form-input-fields').collapse('hide').on('hidden.bs.collapse', () => fillFormFields(e.target.dataset));
-              } else {
-                fillFormFields(e.target.dataset);
-              }
-            });
-
-            $('[id^="statutory_entry"]').last().change(e => {
-              $('#form-input-fields').collapse('toggle');
-            });
-          </script>
-        <% end %>
-
-        <div id="form-input-fields" class="mt-3">
-          <div class="row">
-            <div class="col-md-4 form-group">
-              <%= label_tag :given_name, 'Meno' %>
-              <%= text_field_tag :given_name, params[:given_name], class: 'form-control input-lg', required: true %>
-            </div>
-            <div class="col-md-5 form-group">
-              <%= label_tag :family_name, 'Priezvisko' %>
-              <%= text_field_tag :family_name, params[:family_name], class: 'form-control input-lg', required: true %>
-            </div>
-          </div>
-
-
-          <div class="row">
-            <div class="col-md-12 form-group">
-              <%= label_tag :person_formatted_address, 'Trvalé bydlisko' %>
-              <%= text_field_tag :person_formatted_address, params[:person_formatted_address], class: 'form-control input-lg', required: true %>
-              <span class="form-text text-muted">Napríklad: Koprivnická 9/B, 841 04 Bratislava</span>
-            </div>
-          </div>
-        </div>
+        <h1 class="form-title">Registrácia k službe GovBox</h1>
+        <p class="form-subtitle lead">Zadajte údaje právnickej osoby, pre ktorú máte záujem zriadiť službu.</p>
 
         <div class="row">
-          <div class="col-md-12">
-            <p class="form-text text-muted mt-3">
-              <strong>Poznámka:</strong> Ak za právnickú osobu podpísujú viacerí štatutári naraz, <%= link_to 'kontaktujte nás', 'mailto:podpora@govbox.slovensko.digital' %>.
-            </p>
+          <div class="col-md-8 form-group">
+            <%= label_tag :legal_subject_name, 'Názov právnickej osoby' %>
+            <%= text_field_tag :legal_subject_name, params[:legal_subject_name], class: 'form-control input-lg', required: true, autocomplete: 'off', data: {'slovensko-digital-autoform': 'name'} %>
+            <span class="form-text text-muted">Napríklad: Slovensko.Digital, Martinus</span>
+          </div>
+          <div class="col-md-4 form-group">
+            <%= label_tag :cin, 'IČO' %>
+            <%= text_field_tag :cin, params[:cin], class: 'form-control input-lg', required: true, data: {'slovensko-digital-autoform': 'cin'} %>
+            <span class="form-text text-muted">Napríklad: 36421928</span>
           </div>
         </div>
       </div>
