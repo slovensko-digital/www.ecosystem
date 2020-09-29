@@ -1,50 +1,33 @@
 <div class="container">
   <%= form_tag register_step5_services_govbox_index_path do %>
     <%= render 'hidden_fields_from_step3' %>
-    <%= hidden_field_tag :referral_code, cookies[:ref] %>
-
-    <div class="row">
-      <div class="col-md-6">
-        <h1 class="form-title">Zabezpečenie konta</h1>
-        <p class="lead form-subtitle"></p>
-        <div class="row">
-          <div class="col-md-7 form-group">
-            <%= label_tag :password, 'Zvoľte si heslo' %> <span class="text-muted">(aspoň 12 znakov)</span>
-            <%= password_field_tag :password, params[:password], class: 'form-control input-lg', required: true, pattern: '.{12,}', title: 'Heslo musí mať aspoň 12 znakov.', data: {'password-confirm': :password_confirmation} %>
-            <span class="form-text text-muted">Pre otváranie správ do vlastných rúk.</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-7 form-group">
-            <%= label_tag :password_confirmation do %>
-              Heslo <span class="text-muted">(znova)</span>
-            <% end %>
-            <%= password_field_tag :password_confirmation, params[:password_confirmation], class: 'form-control input-lg', required: true %>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div class="row">
       <div class="col-lg-8">
+        <h1 class="form-title">Nastavenie služby</h1>
+        <p class="lead form-subtitle">Zadajte údaje pre preposielanie správ, SMS upozornenia a vyberte typ služby.</p>
         <div class="row">
-          <div class="col-md-12">
-            <div class="form-check">
-              <label class="form-check-label">
-                <%= check_box_tag :accept_terms, '1', false, class: 'form-check-input', required: true %>
-                <small>Dokončením registrácie udeľujem dobrovoľný súhlas Prevádzkovateľovi služby, spoločnosti Služby Slovensko.Digital, s.r.o., na spracúvanie mojich zadaných osobných údajov na účel ďalšej komunikácie pri zriaďovaní prístupu k službe GovBox. Zaradením do predbežnej registrácie nie je uzatvorená dohoda o poskytovaní služby, ani dané oprávnenie na prístup k elektronickej schránke registrovaného subjektu. Tento súhlas môžem kedykoľvek odvolať zaslaním žiadosti e-mailom na <a href="mailto:podpora@govbox.slovensko.digital">podpora@govbox.slovensko.digital</a>. Potvrdzujem správnosť mnou zadaných osobných údajov. Oboznámil(a) som sa s informáciami v sekcii <%= link_to 'Ochrana osobných údajov', privacy_policy_path, target: :_blank %>.</small>
-              </label>
-            </div>
-            <p class="form-text text-muted mt-3"></p>
+          <div class="col-md-8 form-group">
+            <%= label_tag :email, 'Email' %>
+            <%= email_field_tag :email, params[:email], class: 'form-control input-lg', required: true %>
+            <span class="form-text text-muted">Kam chcete preposielať správy z elektronickej schránky.</span>
+          </div>
+          <div class="col-md-4 form-group">
+            <%= label_tag :phone, 'Mobilný telefón' %>
+            <i class="fa fa-question-circle" data-toggle="tooltip" data-toggle-class="text-left" data-html="true" title="Budeme ho potrebovať, keď napríklad zabudnete heslo alebo Vám nepôjde doručiť správy na email."></i>
+            <%= phone_field_tag :phone, params[:phone], class: 'form-control input-lg', required: true, pattern: '^\+\d+$', title: 'Číslo v medzinárodnom formáte (napr +421910160880)' %>
+            <span class="form-text text-muted">Napríklad: +421910160880</span>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="form-navigation">
-      <%= button_tag class: 'btn btn-primary btn-lg' do %>
-        <strong>Dokončiť registráciu</strong>
-      <% end %>
+    <div class="row form-navigation">
+      <div class="col-md-4 form-group">
+        <%= button_tag class: 'btn btn-primary btn-lg' do %>
+          <strong>Ďalej</strong>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>

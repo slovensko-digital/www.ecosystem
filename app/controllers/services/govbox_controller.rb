@@ -38,6 +38,9 @@ class Services::GovboxController < ContentController
   end
 
   def register_step5
+  end
+
+  def register_step6
     begin
       RestClient.post(ENV.fetch('GOVBOX_FORM_ENDPOINT'), params.permit(PARAMS).to_h)
       redirect_to register_thanks_services_govbox_index_path
