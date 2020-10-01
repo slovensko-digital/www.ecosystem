@@ -20,6 +20,7 @@ Rails.application.routes.draw do
         get :pricing_v1, path: 'cennik-v1'
         get :pricing_v2, path: 'cennik-v2'
         get :pricing_v3, path: 'cennik-v3'
+        get :pricing_v4, path: 'cennik-v4'
 
         # redirects
         get 'registracia-statutar', to: 'govbox#back_to_step1'
