@@ -15,31 +15,19 @@ RSpec.feature 'Govbox registration', type: :feature do
           click_on 'Mám záujem o GovBox'
         end
 
-        expect(current_path).to have_content 'registracia'
-
-        expect(page.find('#mode__sync_mode')).not_to be_checked
-        expect(page.find('#mode__api_mode')).not_to be_checked
         choose('Mám záujem o GovBox na preposielanie správ zo schránky na email.')
         click_on 'Ďalej'
-
-        expect(current_path).to have_content 'registracia-subjekt'
 
         fill_in 'Názov', with: 'Slovensko.Digital'
         fill_in 'IČO', with: '50 158 635'
         click_on 'Ďalej'
 
-        expect(current_path).to have_content 'registracia-statutar'
-
         choose('Ľubor Illek, Líščie údolie 3710/33, Bratislava - mestská časť Karlova Ves')
         click_on 'Ďalej'
-
-        expect(current_path).to have_content 'egistracia-nastavenie'
 
         fill_in 'Email', with: 'lubor.illek@slovensko.digital'
         fill_in 'Mobilný telefón', with: '+421903111111'
         click_on 'Ďalej'
-
-        expect(current_path).to have_content 'registracia-zabezpecenie'
 
         fill_in 'Zvoľte si heslo', with: 'nejakedlheheslo'
         fill_in 'Heslo (znova)', with: 'nejakedlheheslo'
@@ -62,6 +50,9 @@ RSpec.feature 'Govbox registration', type: :feature do
         within('#registration') do
           click_on 'Mám záujem o GovBox'
         end
+
+        choose('Mám záujem o GovBox na preposielanie správ zo schránky na email.')
+        click_on 'Ďalej'
 
         fill_in 'Názov', with: 'Slovensko.Digital'
         fill_in 'IČO', with: '50 158 635'
@@ -106,6 +97,9 @@ RSpec.feature 'Govbox registration', type: :feature do
         within('#registration') do
           click_on 'Mám záujem o GovBox'
         end
+
+        choose('Mám záujem o GovBox na preposielanie správ zo schránky na email.')
+        click_on 'Ďalej'
 
         fill_in 'Názov', with: 'Slovensko.Digital'
         fill_in 'IČO', with: '50 158 635'
@@ -153,6 +147,9 @@ RSpec.feature 'Govbox registration', type: :feature do
           click_on 'Mám záujem o GovBox'
         end
 
+        choose('Mám záujem o GovBox na preposielanie správ zo schránky na email.')
+        click_on 'Ďalej'
+
         fill_in 'Názov', with: 'Slovensko.Digital'
         fill_in 'IČO', with: '50 158 635'
         click_on 'Ďalej'
@@ -190,8 +187,39 @@ RSpec.feature 'Govbox registration', type: :feature do
   scenario 'Selecting between GovBox and GovBox API is required' do
     visit '/sluzby/govbox/registracia'
 
+    expect(page.find('#mode__sync_mode')).not_to be_checked
+    expect(page.find('#mode__api_mode')).not_to be_checked
+
     expect(page.find('#mode__sync_mode')[:required]).to be_present
     expect(page.find('#mode__sync_mode')[:required]).to be_present
+  end
+
+  scenario 'Navigation paths are correct' do
+    visit '/sluzby/govbox/registracia'
+
+    expect(current_path).to have_content 'registracia'
+
+    choose('Mám záujem o GovBox na preposielanie správ zo schránky na email.')
+    click_on 'Ďalej'
+
+    expect(current_path).to have_content 'registracia-subjekt'
+
+    fill_in 'Názov', with: 'Slovensko.Digital'
+    fill_in 'IČO', with: '50 158 635'
+    click_on 'Ďalej'
+
+    expect(current_path).to have_content 'registracia-statutar'
+
+    choose('Ľubor Illek, Líščie údolie 3710/33, Bratislava - mestská časť Karlova Ves')
+    click_on 'Ďalej'
+
+    expect(current_path).to have_content 'egistracia-nastavenie'
+
+    fill_in 'Email', with: 'lubor.illek@slovensko.digital'
+    fill_in 'Mobilný telefón', with: '+421903111111'
+    click_on 'Ďalej'
+
+    expect(current_path).to have_content 'registracia-zabezpecenie'
   end
 
   scenario 'User registers for GovBox API' do
@@ -200,8 +228,6 @@ RSpec.feature 'Govbox registration', type: :feature do
       click_on 'Mám záujem o GovBox'
     end
 
-    expect(page.find('#mode__sync_mode')).not_to be_checked
-    expect(page.find('#mode__api_mode')).not_to be_checked
     choose('Mám záujem o GovBox API na integráciu vlastného informačného systému.')
     click_on 'Ďalej'
 
@@ -241,8 +267,6 @@ RSpec.feature 'Govbox registration', type: :feature do
       click_on 'Mám záujem o GovBox'
     end
 
-    expect(page.find('#mode__sync_mode')).not_to be_checked
-    expect(page.find('#mode__api_mode')).not_to be_checked
     choose('Mám záujem o GovBox na preposielanie správ zo schránky na email.')
     click_on 'Ďalej'
 
@@ -288,8 +312,6 @@ RSpec.feature 'Govbox registration', type: :feature do
       click_on 'Mám záujem o GovBox'
     end
 
-    expect(page.find('#mode__sync_mode')).not_to be_checked
-    expect(page.find('#mode__api_mode')).not_to be_checked
     choose('Mám záujem o GovBox API na integráciu vlastného informačného systému.')
     click_on 'Ďalej'
 
