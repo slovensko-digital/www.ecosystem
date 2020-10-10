@@ -1,9 +1,7 @@
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
-<%= javascript_include_tag ENV.fetch('AUTOFORM_JAVASCRIPT_URL') %>
-
 <div class="container">
-  <%= form_tag register_step4_services_govbox_index_path, data: { 'slovensko-digital-autoform': ENV.fetch('AUTOFORM_ACCESS_TOKEN') } do %>
+  <%= form_tag register_step4_services_govbox_index_path do %>
     <%= render 'hidden_fields_from_step2' %>
 
     <div class="row">
