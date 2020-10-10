@@ -91,7 +91,6 @@ class Services::GovboxController < ContentController
 
   def fetch_statutory_entries
     response = RestClient::Resource.new("#{ENV.fetch('AUTOFORM_URL')}/api/corporate_bodies/search", timeout: 10).get(params: { q: "cin:#{params[:cin]}", private_access_token: ENV.fetch('AUTOFORM_PRIVATE_ACCESS_TOKEN') })
-    puts response
     JSON.parse(response.body, symbolize_names: true).first&.fetch(:statutory)
   rescue RestClient::ExceptionWithResponse => e
     Rollbar.error(e, "GB registration: Autoform request failed for CIN #{params['cin']}, subject name #{params['legal_subject_name']}: HTTP status code #{e.http_code}")
