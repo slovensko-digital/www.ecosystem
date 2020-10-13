@@ -9,7 +9,7 @@ RSpec.feature 'GovBox registration', type: :feature do
 
   context 'User registers for GovBox' do
     context 'with statutory entries found' do
-      scenario 'user selects statutory body from available entries' do
+      scenario 'user selects statutory body from available entries', js: true do
         visit '/sluzby/govbox'
         within('#registration') do
           click_on 'Mám záujem o GovBox'
@@ -21,6 +21,9 @@ RSpec.feature 'GovBox registration', type: :feature do
         fill_in 'Názov', with: 'Slovensko.Digital'
         fill_in 'IČO', with: '50 158 635'
         click_on 'Ďalej'
+
+        expect(page.find('#statutory_entry_0')).not_to be_checked
+        expect(page.find('#statutory_entry_0')).to be_present
 
         choose('Ľubor Illek, Líščie údolie 3710/33, Bratislava - mestská časť Karlova Ves')
         click_on 'Ďalej'
@@ -45,7 +48,7 @@ RSpec.feature 'GovBox registration', type: :feature do
         expect(page).to have_content('Registrácia úspešná!')
       end
 
-      scenario 'user enters statutory body manually' do
+      scenario 'user enters statutory body manually', js: true do
         visit '/sluzby/govbox'
         within('#registration') do
           click_on 'Mám záujem o GovBox'
@@ -222,7 +225,7 @@ RSpec.feature 'GovBox registration', type: :feature do
     expect(current_path).to have_content 'registracia-zabezpecenie'
   end
 
-  scenario 'User registers for GovBox API' do
+  scenario 'User registers for GovBox API', js: true do
     visit '/sluzby/govbox'
     within('#registration') do
       click_on 'Mám záujem o GovBox'
@@ -233,7 +236,6 @@ RSpec.feature 'GovBox registration', type: :feature do
 
     fill_in 'Názov', with: 'Slovensko.Digital'
     fill_in 'IČO', with: '50 158 635'
-
     click_on 'Ďalej'
 
     choose('zadať údaje štatutára ručne')
@@ -246,13 +248,14 @@ RSpec.feature 'GovBox registration', type: :feature do
     fill_in 'Mobilný telefón', with: '+421903919123'
     click_on 'Ďalej'
 
-    fill_in 'Zvoľte si heslo', with: 'nejakeheslo'
-    fill_in 'Heslo (znova)', with: 'nejakeheslo'
+    fill_in 'Zvoľte si heslo', with: 'nejakedlheheslo'
+    fill_in 'Heslo (znova)', with: 'nejakedlheheslo'
+    check 'accept_terms'
 
     stub_request(:post, ENV.fetch('GOVBOX_FORM_ENDPOINT')).
       with(body: { 'cin' => '50 158 635', 'email' => 'jan.hargas@slovensko.digital', 'family_name' => 'Hargaš',
         'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital', 'mode' => 'api_mode',
-        'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
+        'password' => 'nejakedlheheslo', 'password_confirmation' => 'nejakedlheheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '+421903919123',
         'referral_code' => '',
       }).to_return(status: 201)
