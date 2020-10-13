@@ -14,7 +14,7 @@
     <h4>Ukážka</h4>
     <pre class="language-markup"><code class="highlight">&lt;script src=&quot;https://code.jquery.com/jquery-1.10.2.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;https://code.jquery.com/ui/1.11.4/jquery-ui.js&quot;&gt;&lt;/script&gt;
-      <%= h "<script async src=\"#{ENV.fetch('AUTOFORM_JAVASCRIPT_URL')}\"></script>" %></code>
+      <%= h "<script async src=\"#{ENV.fetch('AUTOFORM_URL')}/assets/autoform.js\"></script>" %></code>
 
 <code class="highlight">&lt;form data-slovensko-digital-autoform=&quot;SEM_JAVASCRIPT_KĽÚČ&quot; action=&quot;...&quot;&gt;</code><code>
   &lt;p&gt;
@@ -278,7 +278,7 @@
       "terminated_on": null,
       "vatin_paragraph": null,
       "registration_office": "MV SR",
-      "registration_number": "VVS/1-900/90-48099"
+      "registration_number": "VVS/1-900/90-48099",
       "updated_at": "2019-12-10T08:47:03.195891Z",
       "legal_form": "Združenie (zväz, spolok, spoločnosť, klub ai.)",
       "statutory": [

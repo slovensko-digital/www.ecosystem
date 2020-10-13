@@ -31,6 +31,7 @@ class Services::GovboxController < ContentController
   end
 
   def register_step3
+    @statutory_entries = fetch_statutory_entries
   end
 
   def register_step4
@@ -79,12 +80,20 @@ class Services::GovboxController < ContentController
     @page.title = 'Cenník &middot; GovBox'.html_safe
     @page.og.image = view_context.image_url('services/govbox/facebook_share.png')
   end
-
+  SocketError
   private
 
   def ensure_live
     unless rollout.active?(:govbox)
       render template: 'errors/not_found', status: 404, layout: 'application'
     end
+  end
+
+  def fetch_statutory_entries
+    response = RestClient::Resource.new("#{ENV.fetch('AUTOFORM_URL')}/api/corporate_bodies/search", timeout: 10).get(params: { q: "cin:#{params[:cin]}", private_access_token: ENV.fetch('AUTOFORM_PRIVATE_ACCESS_TOKEN') })
+    JSON.parse(response.body, symbolize_names: true).first&.fetch(:statutory)
+  rescue RestClient::ExceptionWithResponse => e
+    Rollbar.error(e, params)
+    nil
   end
 end
