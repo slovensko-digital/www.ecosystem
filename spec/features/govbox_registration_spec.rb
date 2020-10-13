@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-RSpec.feature 'Govbox registration', type: :feature do
+RSpec.feature 'GovBox registration', type: :feature do
   background do
     stub_request(:get, "#{ENV.fetch('AUTOFORM_URL')}/api/corporate_bodies/search").
       with(query: hash_including(q: "cin:50 158 635", private_access_token: ENV.fetch('AUTOFORM_PRIVATE_ACCESS_TOKEN')))
       .to_return(status: 200, body: file_fixture('autoform_api_response.json').read)
   end
 
-  context 'User registers for govbox' do
+  context 'User registers for GovBox' do
     context 'with statutory entries found' do
       scenario 'user selects statutory body from available entries' do
         visit '/sluzby/govbox'
@@ -141,7 +141,7 @@ RSpec.feature 'Govbox registration', type: :feature do
           .to_return(status: 500)
       end
 
-      scenario 'user is able to register for Govbox and error is handled properly' do
+      scenario 'user is able to register for GovBox and error is handled properly' do
         visit '/sluzby/govbox'
         within('#registration') do
           click_on 'Mám záujem o GovBox'
