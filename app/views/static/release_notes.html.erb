@@ -1,6 +1,23 @@
 <div class="container">
   <h1><strong>Poznámky k zmenám funkcionality a štruktúry dát</strong></h1>
   <div class="long-text">
+    <h2 class="anchorable">Zmena k 25. 10. 2020</h2>
+    <h3>Otvorené API</h3>
+    <h4>Zmenený endpoint <code>api/data/rpo/organizations/:id</code></h4>
+    <ul>
+      <li>
+        Zmenený objekt <code>statutory_entries</code>
+        <ul>
+          <li>Pridaný atribút <code>statutory_body_member: string, null</code></li>
+        </ul>
+      </li>
+    </ul>
+    <h3>Otvorené dáta</h3>
+    <h4>Zmenená tabuľka <code>rpo.organization_statutory_entries</code></h4>
+    <ul>
+      <li>Pridaný stĺpec <code>statutory_body_member: varchar, NULL</code></li>
+    </ul>
+
     <h2 class="anchorable">Zmena k 4. 8. 2020</h2>
     <h3>Otvorené API</h3>
     <h4>Zmenený endpoint <code>api/data/ruz/accounting_entities/:id</code></h4>

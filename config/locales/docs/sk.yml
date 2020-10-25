@@ -769,7 +769,7 @@ sk:
               description: Identifikátor
             organization_id:
               description: Identifikátor právnickej osoby
-            ico:
+            cin:
               description: Identifikátor právnickej osoby predchodcu
             full_name:
               description: Plné meno predchodcu
@@ -800,6 +800,7 @@ sk:
               description: Popis prevoditeľnosti akcií
             <<: *timestamp_columns
             <<: *effective_range_columns
+
         organization_stakeholder_entries:
           description: Zainteresované osoby právnických osôb
           columns:
@@ -813,7 +814,7 @@ sk:
               description: Dátum začiatku platnosti záznamu adresy
             address_effective_to:
               description: Dátum konca platnosti záznamu adresy
-            ico:
+            cin:
               description: Identifikátor právnickej osoby
             stakeholder_organization_id:
               note_html: Význam neznámy.
@@ -831,12 +832,15 @@ sk:
               description: Identifikátor právnickej osoby
             statutory_type_id:
               description: Identifikátor typu štatutárneho orgánu
-            ico:
+            cin:
               description: Identifikátor právnickej osoby
+            statutory_body_member:
+              description: Typ členstva štatutárneho orgánu
             <<: *person_columns
             <<: *address_columns
             <<: *timestamp_columns
             <<: *effective_range_columns
+
         organization_successor_entries:
           description: Následníci právnických osôb
           columns:
@@ -844,7 +848,7 @@ sk:
               description: Identifikátor
             organization_id:
               description: Identifikátor právnickej osoby
-            ico:
+            cin:
               description: Identifikátor právnickej osoby následníka
             full_name:
               description: Plné meno následníka
