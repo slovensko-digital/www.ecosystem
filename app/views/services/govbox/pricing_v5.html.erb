@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="row legal">
+  <div class="row legal pricing">
     <div class="col-lg-8">
       <h1>Cenník GovBox</h1>
-      <p class="mb-5"><small>Platný od 28.9.2019</small></p>
+      <p class="mb-5"><small>Platný od 1.10.2020</small></p>
 
       <div class="alert alert-warning">
         <strong>Upozornenie: </strong> Táto verzia cenníka je stará a bola nahradená <%= link_to 'novým cenníkom', pricing_services_govbox_index_path %>.
@@ -70,6 +70,10 @@
           Tento cenník služby GovBox alebo GovBox API predstavuje neoddeliteľnú súčasť zmluvy medzi Služby Slovensko.Digital s.r.o. a Používateľom týkajúceho sa využívania služby GovBox alebo GovBox API. Všetky sumy sú uvádzané bez DPH, ktorá bude účtovaná Používateľovi v súlade s aktuálne platnými právnymi predpismi.
         </em>
       </p>
+    </div>
+
+    <div class="col-lg-3 offset-lg-1">
+      <%= render 'old_pricing_versions_list' %>
     </div>
   </div>
 </div>
