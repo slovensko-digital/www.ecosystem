@@ -146,7 +146,11 @@
 
   <section>
     <h2>Registrácia</h2>
-    <p class="lead">Jednoduchá registrácia, <em>až 256 vyhľadávaní mesačne <strong>pre kohokoľvek</strong></em>. Viac vyhľadávaní po dohode.</p>
+    <p class="lead">Jednoduchá registrácia, <em>až 256 vyhľadávaní mesačne <strong>zadarmo</strong></em>. Viac vyhľadávaní podľa       
+      <%= link_to pricing_path(:anchor => "autoform") do %>
+        cenníka.
+      <% end %>
+    </p>
 
     <div id="autoform-error" style="display: none;">
       <%= render 'services/share/flash_message', {type: :alert, message: 'Niektoré údaje ste nezadali správne. Opravte ich prosím a skúste znova.'} %>
@@ -197,5 +201,13 @@
     <%= link_to integration_manual_services_autoform_index_path , class: 'btn btn-default btn-lg' do %>
       <strong>Integračný manuál</strong>
     <% end %>
+  </section>
+
+  <section>
+    <h2>
+      <%= link_to pricing_path(:anchor => "autoform") do %>
+        Cenník
+      <% end %>
+    </h2>
   </section>
 </div>
