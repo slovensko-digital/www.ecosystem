@@ -43,14 +43,15 @@ jobs:
 
     strategy:
       matrix:
-        env:
-          - name: staging
-            host: ${{secrets.STAGING_HOST}}
-            key: ${{secrets.STAGING_KEY}}
-            app: ${{github.event.repository.name}}
-          - name: production
-            host: ${{secrets.SSD_PRODUCTION_HOST}}
-            key: ${{secrets.SSD_PRODUCTION_KEY}}
+        env: [staging, production]
+        include:
+          - env: staging
+            host: STAGING_HOST
+            key: STAGING_KEY
+            app: www.ecosystem
+          - env: production
+            host: SSD_PRODUCTION_HOST
+            key: SSD_PRODUCTION_KEY
             app: ecosystem
 
     steps:
@@ -59,5 +60,5 @@ jobs:
           fetch-depth: 0
       - uses: dokku/github-action@master
         with:
-          git_remote_url: ssh://dokku@${{matrix.env.host}}/${{matrix.env.app}}
-          ssh_private_key: ${{matrix.env.key}}
+          git_remote_url: ssh://dokku@${{secrets[matrix.host]}}/${{secrets[matrix.app]}}
+          ssh_private_key: ${{secrets[matrix.key]}}
