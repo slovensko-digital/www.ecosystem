@@ -41,11 +41,15 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        env: [{host: SSD_STAGING_HOST, key: SSD_STAGING_KEY}, {host: SSD_PRODUCTION_HOST, key: SSD_PRODUCTION_KEY}]
+
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - uses: dokku/github-action@master
         with:
-          git_remote_url: ssh://dokku@${{secrets.SSD_PRODUCTION_HOST}}/ecosystem
-          ssh_private_key: ${{secrets.SSD_PRODUCTION_KEY}}
+          git_remote_url: ssh://dokku@${{matrix.env.host}}/ecosystem
+          ssh_private_key: ${{matrix.env.key}}
