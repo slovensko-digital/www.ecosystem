@@ -44,17 +44,16 @@ jobs:
 
     strategy:
       matrix:
-        env: [staging]
-#        env: [staging, production]
+        env: [staging, production]
         include:
           - env: staging
             host: STAGING_HOST
             key: STAGING_KEY
             app: www.ecosystem
-#          - env: production
-#            host: SSD_PRODUCTION_HOST
-#            key: SSD_PRODUCTION_KEY
-#            app: ecosystem
+          - env: production
+            host: SSD_PRODUCTION_HOST
+            key: SSD_PRODUCTION_KEY
+            app: ecosystem
 
     steps:
       - uses: actions/checkout@v2
@@ -62,5 +61,5 @@ jobs:
           fetch-depth: 0
       - uses: dokku/github-action@master
         with:
-          git_remote_url: ssh://dokku@${{secrets[matrix.host]}}/www.ecosystem
+          git_remote_url: ssh://dokku@${{secrets[matrix.host]}}/${{matrix.app}}
           ssh_private_key: ${{secrets[matrix.key]}}
