@@ -48,7 +48,7 @@ jobs:
           - env: staging
             host: STAGING_HOST
             key: STAGING_KEY
-            app: www.ecosystem
+            app: 'www.ecosystem'
           - env: production
             host: SSD_PRODUCTION_HOST
             key: SSD_PRODUCTION_KEY
