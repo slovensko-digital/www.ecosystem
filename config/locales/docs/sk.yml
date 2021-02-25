@@ -1522,6 +1522,243 @@ sk:
               description: Mesto
             <<: *timestamp_columns
 
+    ra:
+      change_columns: &change_columns
+        id:
+          description: Identifikátor záznamu
+          note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+        change_id:
+          description: Identifikátor zmeny
+        changed_at:
+          description: Dátum a čas vykonania zmeny v registri adries
+        database_operation:
+          description: Vykonaná databázová operácia
+          note_html: 'Možné hodnoty: <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>'
+        version_id:
+          description: Identifikátor verzie záznamu
+        created_reason:
+          description: Dôvod vytvorenia záznamu
+          note_html: 'Možné hodnoty: <code>IMPORT</code>, <code>CREATE</code>, <code>UPDATE</code>, <code>CANCEL</code>, <code>CORRECT</code>, <code>REVERT</code>'
+        valid_from:
+          description: Dátum a čas platnosti od
+          note_html: Hodnota <code>NULL</code> znamená dátum platnosti od 1.1.1000.
+        valid_to:
+          description: Dátum a čas platnosti do
+          note_html: Hodnota <code>NULL</code> znamená dátum platnosti do 31.12.3000.
+        effective_on:
+          description: Dátum účinnosti
+        <<: *timestamp_columns
+
+      tables:
+        region_changes:
+          description: Kraje – zmenové záznamy
+          columns:
+            region_id:
+              description: Identifikátor kraja
+            region_code_id:
+              description: Identifikátor záznamu v číselníku krajov CL000023
+            <<: *change_columns
+        county_changes:
+          description: Okresy – zmenové záznamy
+          columns:
+            county_id:
+              description: Identifikátor okresu
+            county_code_id:
+              description: Identifikátor záznamu v číselníku okresov CL000024
+            region_id:
+              description: Identifikátor nadradeného kraja
+            <<: *change_columns
+        municipality_changes:
+          description: Obce – zmenové záznamy
+          columns:
+            municipality_id:
+              description: Identifikátor obce
+            county_id:
+              description: Identifikátor nadradeného okresu
+            municipality_code_id:
+              description: Identifikátor záznamu v číselníku obcí CL000025
+            municipality_status:
+              description: Štatút obce
+            city_id:
+              description: Identifikátor nadradeného mesta pre mestskú časť
+              note_html: Položka je vyplnená ak je <code>municipality_status</code> == <code>MESTSKA_CAST</code>
+            <<: *change_columns
+        district_changes:
+          description: Časti obcí – zmenové záznamy
+          columns:
+            district_id:
+              description: Identifikátor časti obce
+            unique_numbering:
+              description: Atribút pre jedinečné číslovanie budov v časti obce
+              note_html: <code>true</code> = jedinečné číslovanie<br/><code>false</code> = bez jedinečného číslovania
+            district_code_id:
+              description: Identifikátor záznamu v číselníku častí obcí CL010141
+            municipality_id:
+              description: Identifikátor nadradenej obce
+            <<: *change_columns
+        street_name_changes:
+          description: Ulice – zmenové záznamy
+          columns:
+            street_name_id:
+              description: Identifikátor ulice
+            street_name:
+              description: Názov ulice
+            <<: *change_columns
+        property_registration_number_changes:
+          description: Budovy (súpisné čísla) – zmenové záznamy
+          columns:
+            property_registration_number_id:
+              description: Identifikátor budovy (súpisného čísla)
+            property_registration_number:
+              description: Súpisné číslo
+            building_contains_flats:
+              description: Atribút, nachádzajú sa v budove byty
+              note_html: <code>true</code> = v budove sa nachádzajú byty<br/><code>false</code> = v budove sa byty nenachádzajú
+            building_purpose_code_id:
+              description: Identifikátor záznamu v číselníku účelov budov CL010142
+            building_type_code_id:
+              description: Identifikátor záznamu v číselníku druhov stavieb (budov) CL010143
+            municipality_id:
+              description: Identifikátor nadradenej obce
+            district_id:
+              description: Identifikátor nadradenej časti obce
+            <<: *change_columns
+        building_number_changes:
+          description: Vchody (orientačné čísla) – zmenové záznamy
+          columns:
+            building_number_id:
+              description: Identifikátor vchodu (orientačného čísla)
+            property_registration_number_id:
+              description: Identifikátor budovy
+            street_name_id:
+              description: Identifikátor ulice
+            building_number:
+              description: Orientačné číslo vchodu
+            building_index:
+              description: Identifikátor adresy
+            postal_code:
+              description: Poštové smerovacie číslo
+            address_point:
+              description: Súradnice vchodu
+            verified_at:
+              description: Dátum a čas verifikovania adresy
+            <<: *change_columns
+        building_unit_changes:
+          description: Byty – zmenové záznamy
+          columns:
+            building_unit_id:
+              description: Identifikátor bytu
+            building_unit_number:
+              description: Číslo bytu
+            building_unit_floor:
+              description: Podlažie
+            building_unit_label:
+              description: Označenie bytu
+              note_html: Uvádza sa iba hodnota "byt"
+            building_number_id:
+              description: Identifikátor vchodu (orientačného čísla)
+            <<: *change_columns
+
+        street_name_changes_districts:
+          description: Ulice – zmenové záznamy – prepojovacia tabuľka na časti obce, cez ktoré ulica prechádza
+          columns:
+            street_name_change_id:
+              description: Identifikátor záznamu zmeny ulice
+            district_id:
+              description: Identifikátor časti obce
+
+        street_name_changes_municipalities:
+          description: Ulice – zmenové záznamy – prepojovacia tabuľka na mestské, cez ktoré ulica prechádza
+          columns:
+            street_name_change_id:
+              description: Identifikátor záznamu zmeny ulice
+            municipality_id:
+              description: Identifikátor obce
+
+        regions:
+          description: Kraje – identifikátory
+          columns: &consolidated_table_columns
+            id:
+              description: Identifikátor záznamu
+              note_html: Pochádza zo zdroja.
+            <<: *timestamp_columns
+        counties:
+          description: Okresy – identifikátory
+          columns:
+            <<: *consolidated_table_columns
+        municipalities:
+          description: Obce – identifikátory
+          columns:
+            <<: *consolidated_table_columns
+        districts:
+          description: Časti obcí – identifikátory
+          columns:
+            <<: *consolidated_table_columns
+        street_names:
+          description: Ulice – identifikátory
+          columns:
+            <<: *consolidated_table_columns
+        property_registration_numbers:
+          description: Budovy (súpisné čísla) – identifikátory
+          columns:
+            <<: *consolidated_table_columns
+        building_numbers:
+          description: Vchody (orientačné čísla) – identifikátory
+          columns:
+            <<: *consolidated_table_columns
+        building_units:
+          description: Byty – identifikátory
+          columns:
+            <<: *consolidated_table_columns
+
+        changes:
+          description: Zmenové záznamy – identifikátory
+          columns:
+            id:
+              description: Identifikátor záznamu
+              note_html: Pochádza zo zdroja.
+        changes_batches:
+          description: Zmenové dávky
+          columns:
+            id:
+              description: Identifikátor záznamu
+              note_html: Pochádza zo zdroja.
+            generated_at:
+              description: Dátum a čas vytvorenia zmenovej dávky
+            <<: *timestamp_columns
+
+        building_purpose_codes:
+          description: Číselník účelov budov CL010142
+          columns: &codelist_table_columns
+            id:
+              description: Identifikátor záznamu
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            code:
+              description: Kód v číselníku
+            name:
+              description: Meno v číselníku
+            <<: *timestamp_columns
+        building_type_codes:
+          description: Číselník druhov stavieb (budov) CL010143
+          columns:
+            <<: *codelist_table_columns
+        district_codes:
+          description: Číselník častí obcí CL010141
+          columns:
+            <<: *codelist_table_columns
+        municipality_codes:
+          description: Číselník obcí CL000025
+          columns:
+            <<: *codelist_table_columns
+        county_codes:
+          description: Číselník okresov CL000024
+          columns:
+            <<: *codelist_table_columns
+        region_codes:
+          description: Číselník krajov CL000023
+          columns:
+            <<: *codelist_table_columns
+
     datahub:
       tables:
         corporate_bodies:
