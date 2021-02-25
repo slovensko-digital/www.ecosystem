@@ -7,6 +7,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
     env:
       PGHOST: localhost
       RAILS_ENV: test
@@ -48,11 +49,11 @@ jobs:
           - env: staging
             host: STAGING_HOST
             key: STAGING_KEY
-            app: 'www.ecosystem'
+            #app: 'www.ecosystem'
           - env: production
             host: SSD_PRODUCTION_HOST
             key: SSD_PRODUCTION_KEY
-            app: ecosystem
+            #app: ecosystem
 
     steps:
       - uses: actions/checkout@v2
@@ -60,5 +61,5 @@ jobs:
           fetch-depth: 0
       - uses: dokku/github-action@master
         with:
-          git_remote_url: ssh://dokku@${{secrets[matrix.host]}}/${{secrets[matrix.app]}}
+          git_remote_url: ssh://dokku@${{secrets[matrix.host]}}/www.ecosystem
           ssh_private_key: ${{secrets[matrix.key]}}
