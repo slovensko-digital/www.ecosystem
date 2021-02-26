@@ -7,6 +7,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
     env:
       PGHOST: localhost
       RAILS_ENV: test
@@ -43,16 +44,17 @@ jobs:
 
     strategy:
       matrix:
-        env:
-          - name: staging
+        env: [staging, production]
+        include:
+          - env: staging
             flag: '--force'
-            host: ${{secrets.STAGING_HOST}}
-            key: ${{secrets.STAGING_KEY}}
-            app: ${{github.event.repository.name}}
-          - name: production
+            host: STAGING_HOST
+            key: STAGING_KEY
+            app: www.ecosystem
+          - env: production
             flag: ''
-            host: ${{secrets.SSD_PRODUCTION_HOST}}
-            key: ${{secrets.SSD_PRODUCTION_KEY}}
+            host: SSD_PRODUCTION_HOST
+            key: SSD_PRODUCTION_KEY
             app: ecosystem
 
     steps:
@@ -61,6 +63,6 @@ jobs:
           fetch-depth: 0
       - uses: dokku/github-action@master
         with:
-          git_push_flags: ${{matrix.env.flag}}
-          git_remote_url: ssh://dokku@${{matrix.env.host}}/${{matrix.env.app}}
-          ssh_private_key: ${{matrix.env.key}}
+          git_push_flags: ${{secrets[matrix.flag]}}
+          git_remote_url: ssh://dokku@${{secrets[matrix.host]}}/${{matrix.app}}
+          ssh_private_key: ${{secrets[matrix.key]}}
