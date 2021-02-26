@@ -47,10 +47,12 @@ jobs:
         env: [staging, production]
         include:
           - env: staging
+            flag: '--force'
             host: STAGING_HOST
             key: STAGING_KEY
             app: www.ecosystem
           - env: production
+            flag: ''
             host: SSD_PRODUCTION_HOST
             key: SSD_PRODUCTION_KEY
             app: ecosystem
@@ -61,5 +63,6 @@ jobs:
           fetch-depth: 0
       - uses: dokku/github-action@master
         with:
+          git_push_flags: ${{secrets[matrix.flag]}}
           git_remote_url: ssh://dokku@${{secrets[matrix.host]}}/${{matrix.app}}
           ssh_private_key: ${{secrets[matrix.key]}}
