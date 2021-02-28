@@ -12,7 +12,7 @@
       <h3>Aktualizácia</h3>
       <p>SQL dumpy sú vytvárané raz týždenne v nedeľu od 4:00. Dáta prístupné cez API sú aktualizované priebežne. Štruktúra dát podlieha <%= link_to 'zmenám', release_notes_path %>.</p>
 
-      <h3 id="rpo">Register právnických osôb <span class="label label-success">LIVE</span></h3>
+      <h3 id="rpo">Register právnických osôb</h3>
       <p>Register právnických osôb je jedným z kľúčových referenčných registrov vo verejnej správe. Obsahuje informácie o právnických osobách z viacerých zdrojových registrov (napr. obchodný register, živnostenský register, register občianskych združení&hellip;)</p>
       <p class="btn-row">
         <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/rpo.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>rpo.sql.gz.torrent</strong></a>
@@ -23,7 +23,7 @@
       <%= render partial: 'tables', object: tables %>
       <%= render partial: 'table', collection: tables %>
 
-      <h3 id="crz">Centrálny register zmlúv <span class="label label-warning">BETA</span></h3>
+      <h3 id="crz">Centrálny register zmlúv</h3>
       <p>Centrálny register zmlúv je jedným z najdôležitejších registrov z hľadiska transparetnosti narábania s verejnými zdrojmi. Obsahuje metadáta zmlúv a odkazy na zmluvy samotné.</p>
       <p class="btn-row">
         <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/crz.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>crz.sql.gz.torrent</strong></a>
@@ -34,7 +34,7 @@
       <%= render partial: 'tables', object: tables %>
       <%= render partial: 'table', collection: tables %>
 
-      <h3 id="vvo">Vestník verejného obstarávania <span class="label label-danger">ALFA</span></h3>
+      <h3 id="vvo">Vestník verejného obstarávania</h3>
       <p>Vestník verejného obstarávania je zdrojom dát o pripravovaných, prebiehajúcich ako aj ukončených verejných obstarávaní. Obsahuje oznámenia o verejných obstarávaniach.</p>
       <p>Oznámenia o výsledkoch verejných obstarávaní sú v štruktúrovanej forme, v neupravenej forme sú dostupné všetky oznámenia.</p>
       <p class="btn-row">
@@ -46,7 +46,7 @@
       <%= render partial: 'tables', object: tables %>
       <%= render partial: 'table', collection: tables %>
 
-      <h3 id="ov">Obchodný vestník <span class="label label-danger">ALFA</span></h3>
+      <h3 id="ov">Obchodný vestník</h3>
       <p>Obchodný vestník obsahuje údaje o zmenách právnických osôb. Poskytované sú kompletné dáta pochádzajúce zo zdroja. Aktuálne sú do štrukturovanej podoby spracované iba niektoré z nich (vestník obchodného registra, konkurzy, likvidácie, reštrukturalizácie a zníženie základného imania).</p>
       <p class="btn-row">
         <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/ov.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>ov.sql.gz.torrent</strong></a>
@@ -57,7 +57,7 @@
       <%= render partial: 'tables', object: tables %>
       <%= render partial: 'table', collection: tables %>
 
-      <h3 id="fs">Informačné zoznamy Finančnej správy <span class="label label-danger">ALFA</span></h3>
+      <h3 id="fs">Informačné zoznamy Finančnej správy</h3>
       <p>Informačné zoznamy Finančnej správy obsahujú informácie o daňových subjektoch na Slovensku. Momentálne poskytujeme len zoznam daňových subjektov registrovaných pre DPH a zoznam daňových subjektov s výškou nadmerného odpočtu a výškou vlastnej daňovej povinnosti.</p>
       <p class="btn-row">
         <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/fs.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>fs.sql.gz.torrent</strong></a>
@@ -67,7 +67,7 @@
       <%= render partial: 'tables', object: tables %>
       <%= render partial: 'table', collection: tables %>
 
-      <h3 id="ruz">Register účtovných závierok <span class="label label-danger">ALFA</span></h3>
+      <h3 id="ruz">Register účtovných závierok</h3>
       <p>Register účtovných závierok obsahuje dôležité informácie o hospodárení firiem na Slovensku. Momentálne poskytujeme len účtovné jednotky a číselníky.</p>
       <p class="btn-row">
         <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/ruz.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>ruz.sql.gz.torrent</strong></a>
@@ -78,7 +78,7 @@
       <%= render partial: 'tables', object: tables %>
       <%= render partial: 'table', collection: tables %>
 
-      <h3 id="socpoist">Dlžníci Sociálnej poisťovne <span class="label label-danger">ALFA</span></h3>
+      <h3 id="socpoist">Dlžníci Sociálnej poisťovne</h3>
       <p>Zoznamy dlžníkov obsahujú informácie o dlžobách fyzických a právnických osôb voči Sociálnej poisťovni.</p>
       <p class="btn-row">
         <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/socpoist.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>socpoist.sql.gz.torrent</strong></a>
@@ -89,7 +89,7 @@
       <%= render partial: 'tables', object: tables %>
       <%= render partial: 'table', collection: tables %>
 
-      <h3 id="vszp">Dlžníci Všeobecnej zdravotnej poisťovne <span class="label label-danger">ALFA</span></h3>
+      <h3 id="vszp">Dlžníci Všeobecnej zdravotnej poisťovne</h3>
       <p>Zoznamy dlžníkov obsahujú informácie o dlžobách fyzických a právnických osôb voči Všeobecnej zdravotnej poisťovni.</p>
       <p class="btn-row">
         <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/vszp.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>vszp.sql.gz.torrent</strong></a>
@@ -100,7 +100,7 @@
       <%= render partial: 'tables', object: tables %>
       <%= render partial: 'table', collection: tables %>
 
-      <h3 id="upvs">Zoznam inštitúcií so zriadenou elektronickou schránkou <span class="label label-danger">ALFA</span></h3>
+      <h3 id="upvs">Zoznam inštitúcií so zriadenou elektronickou schránkou</h3>
       <p>Zoznam inštitúcií so zriadenou elektronickou schránkou.</p>
       <p class="btn-row">
         <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/upvs.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>upvs.sql.gz.torrent</strong></a>
@@ -110,7 +110,7 @@
       <%= render partial: 'tables', object: tables %>
       <%= render partial: 'table', collection: tables %>
 
-      <h3 id="itms">ITMS2014+ <span class="label label-danger">ALFA</span></h3>
+      <h3 id="itms">ITMS2014+</h3>
       <p>Projekt ITMS2014+ obsahuje rozsiahle dáta o čerpaní peňazí z európskych operačných programov.</p>
       <p>Zdrojová dokumentácia sa nachádza na <a href="https://opendata.itms2014.sk/swagger/?url=/v2/swagger.json">https://opendata.itms2014.sk/swagger/?url=/v2/swagger.json</a></p>
       <p class="btn-row">

@@ -22,17 +22,17 @@
         <h2 id="data">Dáta</h2>
         <p>API pre údaje z <%= link_to 'centrálneho registra zmlúv', '#crz' %>, <%= link_to 'registra právnických osôb', '#rpo' %>, <%= link_to 'vestníka verejného obstarávania', '#vvo' %>, <%= link_to 'obchodného vestníka', '#ov' %> a <%= link_to 'registra účtovných závierok', '#ruz' %>.</p>
 
-        <h3 id="rpo">Register právnických osôb <span class="label label-warning">BETA</span></h3>
+        <h3 id="rpo">Register právnických osôb</h3>
         <p>Register právnických osôb je jedným z kľúčových referenčných registrov vo verejnej správe. Obsahuje informácie o právnických osobách z viacerých zdrojových registrov (napr. obchodný register, živnostenský register, register občianskych združení&hellip;)</p>
         <%= render 'rpo_api' %>
 
-        <h3 id="crz">Centrálny register zmlúv <span class="label label-warning">BETA</span></h3>
+        <h3 id="crz">Centrálny register zmlúv</h3>
         <%= render 'crz_api' %>
 
-        <h3 id="vvo">Vestník verejného obstarávania <span class="label label-danger">ALFA</span></h3>
+        <h3 id="vvo">Vestník verejného obstarávania</h3>
         <%= render 'vvo_api' %>
 
-        <h3 id="ov">Obchodný vestník <span class="label label-danger">ALFA</span></h3>
+        <h3 id="ov">Obchodný vestník</h3>
         <%= render 'ov_bulletin_issues' %>
         <%= render 'ov_raw_issues' %>
         <%= render 'ov_or_podanie_issues' %>
@@ -41,13 +41,13 @@
         <%= render 'ov_likvidator_issues' %>
         <%= render 'ov_znizenie_imania_issues' %>
 
-        <h3 id="ruz">Register účtovných závierok <span class="label label-danger">ALFA</span></h3>
+        <h3 id="ruz">Register účtovných závierok</h3>
         <%= render 'ruz_api' %>
 
-        <h3 id="socpoist">Dlžníci Sociálnej poisťovne <span class="label label-danger">ALFA</span></h3>
+        <h3 id="socpoist">Dlžníci Sociálnej poisťovne</h3>
         <%= render 'socpoist_api' %>
 
-        <h3 id="vszp">Dlžníci Všeobecnej zdravotnej poisťovne <span class="label label-danger">ALFA</span></h3>
+        <h3 id="vszp">Dlžníci Všeobecnej zdravotnej poisťovne</h3>
         <%= render 'vszp_api' %>
 
         <h2 id="licencia">Licencia</h2>
