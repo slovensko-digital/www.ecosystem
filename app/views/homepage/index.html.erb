@@ -3,7 +3,7 @@
     <h2>Služby a produkty</h2>
       <div class="row">
         <div class="col-md-5">
-          <h3><%= link_to 'GovBox', services_govbox_index_path %> <span class="label label-success">LIVE</span></h3>
+          <h3><%= link_to 'GovBox', services_govbox_index_path %></h3>
           <p class="lead">Jednoduchý prístup k štátnej elektronickej schránke
             <em>priamo cez Váš email a&nbsp;bez elektronického občianskeho preukazu</em>.</p>
         </div>
@@ -14,12 +14,12 @@
       </div>
       <div class="row">
         <div class="col-md-5">
-          <h3><%= link_to 'Autoform', services_autoform_index_path %> <span class="label label-success">LIVE</span></h3>
+          <h3><%= link_to 'Autoform', services_autoform_index_path %></h3>
           <p class="lead">Automatické dopĺňanie kontaktných a&nbsp;fakturačných údajov o&nbsp;právnických osobách. Denne aktualizované.
             <em>Integrácia na pár riadkov HTML kódu.</em></p>
         </div>
         <div class="col-md-5 col-md-offset-1">
-          <h3><%= link_to 'Datahub', services_datahub_index_path %> <span class="label label-warning">BETA</span></h3>
+          <h3><%= link_to 'Datahub', services_datahub_index_path %></h3>
           <p class="lead">Prístup ku konsolidovaným a&nbsp;prepojeným štruktúrovaným dátam cez
             <em>jednoduché REST API</em> a&nbsp;rozhranie pre <em>analytické reporty cez SQL</em>.</p>
         </div>
@@ -34,7 +34,7 @@
 
     <div class="row">
       <div class="col-md-5">
-        <h3>Právnické osoby <span class="label label-warning">BETA</span></h3>
+        <h3>Právnické osoby</h3>
         <p class="lead">Databáza konsolidovaných údajov o&nbsp;právnických osobách. Aktuálny názov, adresa, IČO, DIČ, IČ&nbsp;DPH a prepojenia na kompletné záznamy v&nbsp;zdrojových registroch.</p>
         <p class="btn-row">
           <%= link_to 'Dokumentácia', premium_data_path, class: 'btn btn-default' %>
@@ -42,7 +42,7 @@
         </p>
       </div>
       <div class="col-md-5 col-md-offset-1">
-        <h3><%= link_to 'Autoform API', services_autoform_index_path %> <span class="label label-success">LIVE</span></h3>
+        <h3><%= link_to 'Autoform API', services_autoform_index_path %></h3>
         <p class="lead">Vyhľadávanie právnických osôb podľa IČO alebo názvu.</p>
         <p class="btn-row">
           <%= link_to 'Dokumentácia', integration_manual_services_autoform_index_path, class: 'btn btn-default' %>
@@ -62,7 +62,7 @@
 
     <div class="row">
       <div class="col-md-5">
-        <h3>Register právnických osôb <span class="label label-success">LIVE</span></h3>
+        <h3>Register právnických osôb</h3>
         <p class="lead">Databáza právnických osôb, podnikateľov a&nbsp;orgánov verejnej moci. Viac ako 1.4 milióna právnických osôb s&nbsp;kompletnou históriou.</p>
         <p class="btn-row">
           <a href="<%= @dump_urls[:rpo] %>?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>rpo.sql.gz.torrent</strong> <%= @dump_sizes[:rpo] %></a>
@@ -74,7 +74,7 @@
         </p>
       </div>
       <div class="col-md-5 col-md-offset-1">
-        <h3>ITMS2014+ <span class="label label-success">LIVE</span></h3>
+        <h3>ITMS2014+</h3>
         <p class="lead">Rozsiahle dáta o čerpaní peňazí z európskych operačných programov.</p>
         <p class="btn-row">
           <a href="<%= @dump_urls[:itms] %>?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>itms.sql.gz.torrent</strong> <%= @dump_sizes[:itms] %></a>
@@ -88,7 +88,7 @@
 
     <div class="row">
       <div class="col-md-5">
-        <h3>Vestník verejného obstarávania <span class="label label-danger">ALFA</span></h3>
+        <h3>Vestník verejného obstarávania</h3>
         <p class="lead">Databáza oznámení vestníka verejného obstarávania od&nbsp;roku 2014. </p>
         <p class="btn-row">
           <a href="<%= @dump_urls[:vvo] %>?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>vvo.sql.gz.torrent</strong> <%= @dump_sizes[:vvo] %></a>
@@ -100,7 +100,7 @@
         </p>
       </div>
       <div class="col-md-5 col-md-offset-1">
-        <h3>Obchodný vestník <span class="label label-danger">ALFA</span></h3>
+        <h3>Obchodný vestník</h3>
         <p class="lead">Databáza oznámení obchodného vestníka od&nbsp;roku 2011. </p>
         <p class="btn-row">
           <a href="<%= @dump_urls[:ov] %>?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>ov.sql.gz.torrent</strong> <%= @dump_sizes[:ov] %></a>
@@ -115,7 +115,7 @@
 
     <div class="row">
       <div class="col-md-5">
-        <h3>Register účtovných závierok <span class="label label-danger">ALFA</span></h3>
+        <h3>Register účtovných závierok</h3>
         <p class="lead">Databáza účtovných jednotiek registra účtovných závierok.</p>
         <p class="btn-row">
           <a href="<%= @dump_urls[:ruz] %>?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>ruz.sql.gz.torrent</strong> <%= @dump_sizes[:ruz] %></a>
@@ -127,7 +127,7 @@
         </p>
       </div>
       <div class="col-md-5 col-md-offset-1">
-        <h3>Dlžníci Sociálnej poisťovne <span class="label label-danger">ALFA</span></h3>
+        <h3>Dlžníci Sociálnej poisťovne</h3>
         <p class="lead">Databáza dlžníkov Sociálnej poisťovne.</p>
         <p class="btn-row">
           <a href="<%= @dump_urls[:socpoist] %>?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>socpoist.sql.gz.torrent</strong> <%= @dump_sizes[:socpoist] %></a>
@@ -142,7 +142,7 @@
 
     <div class="row">
       <div class="col-md-5">
-        <h3>Dlžníci Všeobecnej zdravotnej poisťovne <span class="label label-danger">ALFA</span></h3>
+        <h3>Dlžníci Všeobecnej zdravotnej poisťovne</h3>
         <p class="lead">Databáza dlžníkov Všeobecnej zdravotnej poisťovne.</p>
         <p class="btn-row">
           <a href="<%= @dump_urls[:vszp] %>?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>vszp.sql.gz.torrent</strong> <%= @dump_sizes[:vszp] %></a>
@@ -154,7 +154,7 @@
         </p>
       </div>
       <div class="col-md-5 col-md-offset-1">
-        <h3>Centrálny register zmlúv <span class="label label-warning">BETA</span></h3>
+        <h3>Centrálny register zmlúv</h3>
         <p class="lead">Databáza zmlúv centrálneho registra zmlúv od&nbsp;roku 2011.</p>
         <p class="btn-row">
           <a href="<%= @dump_urls[:crz] %>?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>crz.sql.gz.torrent</strong> <%= @dump_sizes[:crz] %></a>
