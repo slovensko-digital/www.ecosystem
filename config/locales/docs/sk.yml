@@ -866,14 +866,14 @@ sk:
             <<: *effective_range_columns
             <<: *timestamp_columns
         organization_registration_office_entries:
-          description: Registrátori právnických osôb
+          description: Registrové úrady právnických osôb
           columns:
             id:
               description: Identifikátor
             organization_id:
               description: Identifikátor právnickej osoby
             registration_office:
-              description: Registrátor
+              description: Registrový úrad
             <<: *effective_range_columns
             <<: *timestamp_columns
         share_forms:
@@ -938,8 +938,6 @@ sk:
             source_register:
               description: Názov zdrojového registra
               note_html: V zdroji existuje veľa právnických osôb s hodnotou <code>NULL</code>. Sú to pravdepodobne pomocné záznamy používané pre prepojenia právnických osôb. Nie sú však nijako normalizované a vzniká veľké množstvo duplicít, ktoré je možné ignorovať.
-            registration_office:
-              description: Registrátor
             registration_number:
               description: Registračné číslo
               note_html: Zastaralý stĺpec. Obsahuje najnovší záznam z <a href="#rpo.organization_registration_number_entries">rpo.organization_registration_number_entries</a>.
@@ -1208,7 +1206,7 @@ sk:
               description: Registrátor
               note_html: Vypĺňané v prípade ak spoločnosť nie je v OR. Môže obsahovať registrátora prípadne názov registra.
             other_registration_number:
-              description: Registračné čílo
+              description: Registračné číslo
               note_html: Vypĺňané napríklad pre občianske združenia.
             debtee_legal_form_code:
               description: Kód právnej formy veriteľa
