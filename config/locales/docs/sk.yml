@@ -314,7 +314,7 @@ sk:
             name:
               description: Názov
             cin:
-              description: IČO
+              description: Identifikačné číslo organizácie (IČO)
             cin_raw:
               description: IČO v nespracovanej forme
               note_html: Hodnota zo zdroja. Napríklad <code>57-015-188</code> alebo <code>HR15645</code>.
@@ -764,7 +764,7 @@ sk:
             organization_id:
               description: Identifikátor právnickej osoby
             cin:
-              description: Identifikátor právnickej osoby predchodcu
+              description: Identifikačné číslo organizácie (IČO) predchodcu
             full_name:
               description: Plné meno predchodcu
             <<: *address_columns
@@ -809,7 +809,7 @@ sk:
             address_effective_to:
               description: Dátum konca platnosti záznamu adresy
             cin:
-              description: Identifikátor právnickej osoby
+              description: Identifikačné číslo organizácie (IČO)
             stakeholder_organization_id:
               note_html: Význam neznámy.
             <<: *person_columns
@@ -827,7 +827,7 @@ sk:
             statutory_type_id:
               description: Identifikátor typu štatutárneho orgánu
             cin:
-              description: Identifikátor právnickej osoby
+              description: Identifikačné číslo organizácie (IČO)
             statutory_body_member:
               description: Typ členstva štatutárneho orgánu
             <<: *person_columns
@@ -843,7 +843,7 @@ sk:
             organization_id:
               description: Identifikátor právnickej osoby
             cin:
-              description: Identifikátor právnickej osoby následníka
+              description: Identifikačné číslo organizácie (IČO) následníka
             full_name:
               description: Plné meno následníka
             <<: *address_columns
@@ -866,7 +866,7 @@ sk:
             <<: *effective_range_columns
             <<: *timestamp_columns
         organization_registration_office_entries:
-          description: Registrátor právnických osôb
+          description: Registrátory právnických osôb
           columns:
             id:
               description: Identifikátor
@@ -1008,7 +1008,7 @@ sk:
             kind_name:
               description: Názov typu podania
             cin:
-              description: IČO
+              description: Identifikačné číslo organizácie (IČO)
               note_html: Nachádza sa iba v podaniach, kde bolo IČO uvedené a bolo v správnom formáte. V opačnom prípade je hodnota <code>NULL</code>.
             registration_date:
               description: Deň zápisu spoločnosti do OR
@@ -1097,7 +1097,7 @@ sk:
             corporate_body_name:
               description: Názov spoločnosti / osoby
             cin:
-              description: IČO
+              description: Identifikačné číslo organizácie (IČO)
             street:
               description: Ulica
             building_number:
@@ -1142,7 +1142,7 @@ sk:
             corporate_body_name:
               description: Názov právnickej osoby
             cin:
-              description: IČO
+              description: Identifikačné číslo organizácie (IČO)
               note_html: V prípade nesprávneho formátu je hodnota <code>NULL</code>.
             street:
               description: Ulica
@@ -1181,7 +1181,7 @@ sk:
             corporate_body_name:
               description: Názov právnickej osoby
             cin:
-              description: IČO
+              description: Identifikačné číslo organizácie (IČO)
             sid:
               description: SID
             street:
@@ -1238,7 +1238,7 @@ sk:
             corporate_body_name:
               description: Názov právnickej osoby
             cin:
-              description: IČO
+              description: Identifikačné číslo organizácie (IČO)
             street:
               description: Ulica
             building_number:
@@ -1312,7 +1312,7 @@ sk:
             id:
               description: Identifikátor
             cin:
-              description: IČO
+              description: Identifikačné číslo organizácie (IČO)
             tin:
               description: DIČ
             vatin:
@@ -1330,7 +1330,7 @@ sk:
             taxable_period:
               description: Zdaňovacie obdobie
             excessive_deduction:
-              description: Presahujúci odpočet
+              description: Nadmerný odpočet
             own_tax_liability:
               description: Daňové povinnosti subjektu
             <<: *effective_range_columns
@@ -1343,7 +1343,7 @@ sk:
             id:
               description: Identifikátor
             cin:
-              description: IČO
+              description: Identifikačné číslo organizácie (IČO)
             vatin:
               description: IČ DPH
             name:
@@ -1374,7 +1374,7 @@ sk:
               description: Identifikátor
               note_html: Pochádza zo zdroja.
             cin:
-              description: IČO
+              description: Identifikačné číslo organizácie (IČO)
             tin:
               description: DIČ
             sid:
@@ -1541,7 +1541,7 @@ sk:
               description: Identifikátor záznamu
               note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
             cin:
-              description: IČO
+              description: Identifikačné číslo organizácie (IČO)
             cin_raw:
               description: IČO v nespracovanej forme
               note_html: Hodnota zo zdroja. Napríklad <code>00 585 441</code> alebo <code>bez ičo</code>.
@@ -1572,7 +1572,7 @@ sk:
               description: Identifikátor záznamu
               note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
             cin:
-              description: IČO
+              description: Identifikačné číslo organizácie (IČO)
             uri:
               description: Identifikátor schránky
             name:
@@ -1631,7 +1631,7 @@ sk:
               description: Identifikátor záznamu
               note_html: Interný systémový identifikátor.
             cin:
-              description: IČO
+              description: Identifikačné číslo organizácie (IČO)
             tin:
               description: DIČ
             vatin:
