@@ -866,7 +866,7 @@ sk:
             <<: *effective_range_columns
             <<: *timestamp_columns
         organization_registration_office_entries:
-          description: Registrátory právnických osôb
+          description: Registrátori právnických osôb
           columns:
             id:
               description: Identifikátor
