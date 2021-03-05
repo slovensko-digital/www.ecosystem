@@ -938,9 +938,6 @@ sk:
             source_register:
               description: Názov zdrojového registra
               note_html: V zdroji existuje veľa právnických osôb s hodnotou <code>NULL</code>. Sú to pravdepodobne pomocné záznamy používané pre prepojenia právnických osôb. Nie sú však nijako normalizované a vzniká veľké množstvo duplicít, ktoré je možné ignorovať.
-            registration_number:
-              description: Registračné číslo
-              note_html: Zastaralý stĺpec. Obsahuje najnovší záznam z <a href="#rpo.organization_registration_number_entries">rpo.organization_registration_number_entries</a>.
             main_organization_id:
               description: Identifikátor nadradenej právnickej osoby
               note_html: Vyplnené len pre organizačné zložky alebo prevádzkárne, inak <code>NULL</code>.
