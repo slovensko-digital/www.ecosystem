@@ -18,11 +18,11 @@ sk:
         note_html: Používa sa pokiaľ ide o právnickú osobu.
       person_formatted_name:
         description: Plné formátované meno - fyzická osoba
-      person_given_name:
+      person_given_names:
         description: Rodné meno
-      person_family_name:
+      person_family_names:
         description: Priezvisko
-      person_given_family_name:
+      person_given_family_names:
         description:
         note_html: Význam neznámy.
       person_prefixes:
@@ -648,13 +648,6 @@ sk:
               note_html: Používa sa pokiaľ je vkladateľom právnická osoba.
             person_formatted_name:
               description: Plné formátované meno vkladateľa - fyzická osoba
-            person_given_name:
-              description: Rodné meno
-            person_family_name:
-              description: Priezvisko
-            person_given_family_name:
-              description:
-              note_html: Význam neznámy.
             person_prefixes:
               description: Tituly pred menom
             person_postfixes:
@@ -666,6 +659,7 @@ sk:
             deposit_type:
               description: Typ vkladu
               note_html: Napríklad <code>(peňažný vklad)</code>.
+            <<: *person_columns
             <<: *timestamp_columns
             <<: *effective_range_columns
         organization_economic_activity_entries:
@@ -869,6 +863,18 @@ sk:
               description: Registračné číslo
             effective_from:
               description: Dátum začiatku platnosti záznamu
+            <<: *effective_range_columns
+            <<: *timestamp_columns
+        organization_registration_office_entries:
+          description: Registrátor právnických osôb
+          columns:
+            id:
+              description: Identifikátor
+            organization_id:
+              description: Identifikátor právnickej osoby
+            registration_office:
+              description: Registrátor
+            <<: *effective_range_columns
             <<: *timestamp_columns
         share_forms:
           description: Číselník druhov akcií
@@ -1297,6 +1303,67 @@ sk:
               description: PSČ
             <<: *timestamp_columns
 
+    fs:
+      tables:
+        tax_liabilities:
+          description: Daňové povinnosti
+
+          columns:
+            id:
+              description: Identifikátor
+            cin:
+              description: IČO
+            tin:
+              description: DIČ
+            vatin:
+              description: IČ DPH
+            name:
+              description: Názov subjektu
+            street:
+              description: Ulica
+            municipality:
+              description: Obec
+            postal_code:
+              description: PSČ
+            country:
+              description: Krajina
+            taxable_period:
+              description: Zdaňovacie obdobie
+            excessive_deduction:
+              description: Presahujúci odpočet
+            own_tax_liability:
+              description: Daňové povinnosti subjektu
+            <<: *effective_range_columns
+            <<: *timestamp_columns
+        
+        vat_subjects:
+          description: Daňové subjekty
+
+          columns:
+            id:
+              description: Identifikátor
+            cin:
+              description: IČO
+            vatin:
+              description: IČ DPH
+            name:
+              description: Názov subjektu
+            street:
+              description: Ulica
+            municipality:
+              description: Obec
+            postal_code:
+              description: PSČ
+            country:
+              description: Krajina
+            registration_kind:
+              description: Druh registrácie
+            registration_kind_updated_on:
+              description: Dátum poslednej zmeny druhu registrácie
+            registered_on:
+              description: Dátum registrácie
+            <<: *effective_range_columns
+            <<: *timestamp_columns
     ruz:
       tables:
         accounting_entities:
@@ -1521,6 +1588,39 @@ sk:
             city:
               description: Mesto
             <<: *timestamp_columns
+            
+        services_with_forms:
+          description: Formulárové služby
+          columns:
+            id:
+              description: Identifikátor záznamu
+            instance_id:
+              description: Identifikátor inštancie
+            external_code:
+              description: Externý kód
+            meta_is_code:
+              description: Meta kód
+            name:
+              description: Názov služby
+            type:
+              description: Druh služby
+            institution_uri:
+              description: Identifikátor inštitúcie
+            institution_name:
+              description: Názov inštitúcie
+            valid_from:
+              description: Čas začiatku platnosti
+            valid_to:
+              description: Čas konca platnosti
+            url:
+              description: Odkaz na službu
+            info_url:
+              description: Odkaz na informácie o službe
+            schema_url:
+              description: Odkaz na schému
+            changed_at:
+              description: Čas poslednej zmeny záznamu
+            <<: *timestamp_columns
 
     datahub:
       tables:
@@ -1576,181 +1676,171 @@ sk:
         itms_identifier:
           description: Identifikátor
           note_html: Hodnota zodpovedá identifikátoru v zdroji.
+        deleted_at:
+          description: Čas zmazania záznamu
         <<: *timestamp_columns
 
       tables:
+        aktivity:
+          columns:
+            <<: *itms_columns
+        ciselniky:
+          columns:
+            <<: *itms_columns
+        deklarovane_vydavky:
+          columns:
+            <<: *itms_columns
+        deklarovane_vydavky_sumy_neschvalene_na_preplatenie:
+          columns:
+            <<: *itms_columns
+        deklarovane_vydavky_sumy_neziadane_na_preplatenie:
+          columns:
+            <<: *itms_columns
         dodavatelia:
+          columns:
+            <<: *itms_columns
+        hodnoty_ciselnikov:
+          columns:
+            <<: *itms_columns
+        intenzity:
+          columns:
+            <<: *itms_columns
+        intenzity_zdroje:
           columns:
             <<: *itms_columns
         konkretne_ciele:
           columns:
             <<: *itms_columns
-        konkretne_ciele_prioritna_os:
+        konkretne_ciele_hodnoty_ciselnikov:
+          columns:
+            <<: *itms_columns
+        konkretne_ciele_typy_aktivit:
+          columns:
+            <<: *itms_columns
+        miesta_realizacie:
+          columns:
+            <<: *itms_columns
+        monitorovacie_terminy:
+          columns:
+            <<: *itms_columns
+        nezrovnalosti:
+          columns:
+            <<: *itms_columns
+        nezrovnalosti_subjekty_ktore_sposobili_nezrovnalost:
+          columns:
+            <<: *itms_columns 
+        nezrovnalosti_subjekty_ktore_zistili_nezrovnalost:
+          columns:
+            <<: *itms_columns
+        nezrovnalosti_subjekty_zodpovedne_za_nasledne_konanie:
+          columns:
+            <<: *itms_columns
+        nezrovnalosti_suvisiace_nezrovnalosti:
+          columns:
+            <<: *itms_columns
+        nezrovnalosti_suvisiace_pohladavkove_doklady:
+          columns:
+            <<: *itms_columns
+        nezrovnalosti_suvisiace_verejne_obstaravania:
+          columns:
+            <<: *itms_columns
+        nezrovnalosti_suvisiace_zop:
+          columns:
+            <<: *itms_columns
+        nezrovnalosti_typy_nezrovnalosti:
+          columns:
+            <<: *itms_columns
+        nuts_kody:
           columns:
             <<: *itms_columns
         operacne_programy:
           columns:
             <<: *itms_columns
-        operacne_programy_subjekty:
+        organizacne_zlozky:
           columns:
             <<: *itms_columns
-        prioritna_os_operacne_programy:
+        osoby:
+          columns:
+            <<: *itms_columns
+        pohladavkove_doklady:
+          columns:
+            <<: *itms_columns
+        pohladavkove_doklady_suvisiace_verejne_obstaravania:
+          columns:
+            <<: *itms_columns
+        pohladavkove_doklady_suvisiace_zop:
           columns:
             <<: *itms_columns
         prioritne_osi:
           columns:
             <<: *itms_columns
-        projekty_ukoncene:
+        polozky_rozpoctu:
           columns:
             <<: *itms_columns
-        projekty_ukoncene_aktivity:
+        projektove_ukazovatele:
           columns:
             <<: *itms_columns
-        projekty_ukoncene_aktivity_subjekty:
+        projektove_ukazovatele_casy_plnenia:
           columns:
             <<: *itms_columns
-        projekty_ukoncene_formy_financovania:
+        projektove_ukazovatele_fondy:
           columns:
             <<: *itms_columns
-        projekty_ukoncene_formy_financovania_ciele:
+        projekty:
           columns:
             <<: *itms_columns
-        projekty_ukoncene_hospodarske_cinnosti:
+        projekty_aktivity:
           columns:
             <<: *itms_columns
-        projekty_ukoncene_hospodarske_cinnosti_ciele:
+        projekty_formy_financovania:
           columns:
             <<: *itms_columns
-        projekty_ukoncene_intenzity:
+        projekty_hospodarske_cinnosti:
           columns:
             <<: *itms_columns
-        projekty_ukoncene_intenzity_subjekty:
+        projekty:
           columns:
             <<: *itms_columns
-        projekty_ukoncene_intenzity_zdroje:
+        projekty_intenzity:
           columns:
             <<: *itms_columns
-        projekty_ukoncene_meratelne_ukazovatele:
+        projekty_meratelne_ukazovatele:
           columns:
             <<: *itms_columns
-        projekty_ukoncene_miesta_realizacie:
+        projekty_miesta_realizacie:
+          columns:
+            <<: *itms_columns         
+        projekty_miesta_realizacie_mimo_uzemia_op:
           columns:
             <<: *itms_columns
-        projekty_ukoncene_miesta_realizacie_units:
+        projekty_oblasti_intervencie:
           columns:
             <<: *itms_columns
-        projekty_ukoncene_monitorovacie_terminy:
+        projekty_organizacne_zlozky:
           columns:
             <<: *itms_columns
-        projekty_ukoncene_oblasti_intervencie:
+        projekty_partneri:
           columns:
             <<: *itms_columns
-        projekty_ukoncene_oblasti_intervencie_ciele:
+        projekty_polozky_rozpoctu:
           columns:
             <<: *itms_columns
-        projekty_ukoncene_organizacne_zlozky:
+        projekty_sekundarne_tematicke_okruhy:
+          columns:
+            <<: *itms_columns 
+        projekty_typy_uzemia:
           columns:
             <<: *itms_columns
-        projekty_ukoncene_partneri:
-          columns:
-            <<: *itms_columns
-        projekty_ukoncene_prijimatel:
-          columns:
-            <<: *itms_columns
-        projekty_ukoncene_typy_uzemia:
-          columns:
-            <<: *itms_columns
-        projekty_ukoncene_typy_uzemia_ciele:
-          columns:
-            <<: *itms_columns
-        projekty_ukoncene_uzemne_mechanizmy:
-          columns:
-            <<: *itms_columns
-        projekty_ukoncene_uzemne_mechanizmy_ciele:
-          columns:
-            <<: *itms_columns
-        projekty_ukoncene_vyzva:
-          columns:
-            <<: *itms_columns
-        projekty_vrealizacii:
-          columns:
-            <<: *itms_columns
-        projekty_vrealizacii_aktivity:
-          columns:
-            <<: *itms_columns
-        projekty_vrealizacii_aktivity_subjekty:
-          columns:
-            <<: *itms_columns
-        projekty_vrealizacii_formy_financovania:
-          columns:
-            <<: *itms_columns
-        projekty_vrealizacii_formy_financovania_ciele:
-          columns:
-            <<: *itms_columns
-        projekty_vrealizacii_hospodarske_cinnosti:
-          columns:
-            <<: *itms_columns
-        projekty_vrealizacii_hospodarske_cinnosti_ciele:
-          columns:
-            <<: *itms_columns
-        projekty_vrealizacii_intenzity:
-          columns:
-            <<: *itms_columns
-        projekty_vrealizacii_intenzity_subjekty:
-          columns:
-            <<: *itms_columns
-        projekty_vrealizacii_intenzity_zdroje:
-          columns:
-            <<: *itms_columns
-        projekty_vrealizacii_meratelne_ukazovatele:
-          columns:
-            <<: *itms_columns
-        projekty_vrealizacii_miesta_realizacie:
-          columns:
-            <<: *itms_columns
-        projekty_vrealizacii_miesta_realizacie_units:
-          columns:
-            <<: *itms_columns
-        projekty_vrealizacii_monitorovacie_terminy:
-          columns:
-            <<: *itms_columns
-        projekty_vrealizacii_oblasti_intervencie:
-          columns:
-            <<: *itms_columns
-        projekty_vrealizacii_oblasti_intervencie_ciele:
-          columns:
-            <<: *itms_columns
-        projekty_vrealizacii_organizacne_zlozky:
-          columns:
-            <<: *itms_columns
-        projekty_vrealizacii_partneri:
-          columns:
-            <<: *itms_columns
-        projekty_vrealizacii_prijimatel:
-          columns:
-            <<: *itms_columns
-        projekty_vrealizacii_typy_uzemia:
-          columns:
-            <<: *itms_columns
-        projekty_vrealizacii_typy_uzemia_ciele:
-          columns:
-            <<: *itms_columns
-        projekty_vrealizacii_uzemne_mechanizmy:
-          columns:
-            <<: *itms_columns
-        projekty_vrealizacii_uzemne_mechanizmy_ciele:
-          columns:
-            <<: *itms_columns
-        projekty_vrealizacii_vyzva:
+        projekty_uzemne_mechanizmy:
           columns:
             <<: *itms_columns
         subjekty:
           columns:
-            <<: *itms_columns
-        uctovne_doklady:
+            <<: *itms_columns 
+        typy_aktivit:
           columns:
-            <<: *itms_columns
-        uctovne_doklady_dodavatel:
+            <<: *itms_columns        
+        uctovne_doklady:
           columns:
             <<: *itms_columns
         uctovne_doklady_polozky_dokladu:
@@ -1759,34 +1849,19 @@ sk:
         uctovne_doklady_projekty:
           columns:
             <<: *itms_columns
-        uctovne_doklady_verejne_obstaravania:
-          columns:
-            <<: *itms_columns
-        uctovne_doklady_vlastnik_dokladu:
-          columns:
-            <<: *itms_columns
         verejne_obstaravania:
           columns:
-            <<: *itms_columns
-        verejne_obstaravania_druh_zakazky:
+            <<: *itms_columns 
+        verejne_obstaravania_doplnujuce_predmety_doplnkovy_slovnik:
           columns:
             <<: *itms_columns
-        verejne_obstaravania_hlavny_predmet_doplnkovy_slovniky:
+        verejne_obstaravania_doplnujuce_predmety_hlavny_slovnik:
           columns:
             <<: *itms_columns
-        verejne_obstaravania_hlavny_predmet_hlavny_slovniky:
-          columns:
-            <<: *itms_columns
-        verejne_obstaravania_metody_vo:
-          columns:
-            <<: *itms_columns
-        verejne_obstaravania_obstaravatel:
+        verejne_obstaravania_hlavne_predmety_doplnkovy_slovnik:
           columns:
             <<: *itms_columns
         verejne_obstaravania_operacne_programy:
-          columns:
-            <<: *itms_columns
-        verejne_obstaravania_postup_obstaravania:
           columns:
             <<: *itms_columns
         verejne_obstaravania_projekty:
@@ -1795,28 +1870,19 @@ sk:
         verejne_obstaravania_uctovne_doklady:
           columns:
             <<: *itms_columns
-        verejne_obstaravania_zadavatel:
-          columns:
-            <<: *itms_columns
         vyzvy_planovane:
           columns:
             <<: *itms_columns
-        vyzvy_planovane_ciele:
-          columns:
-            <<: *itms_columns
         vyzvy_planovane_doplnujuce_info:
+          columns:
+            <<: *itms_columns 
+        vyzvy_planovane_konkretne_ciele:
           columns:
             <<: *itms_columns
         vyzvy_planovane_poskytovatelia:
           columns:
             <<: *itms_columns
-        vyzvy_planovane_vyhlasovatel:
-          columns:
-            <<: *itms_columns
         vyzvy_vyhlasene:
-          columns:
-            <<: *itms_columns
-        vyzvy_vyhlasene_ciele:
           columns:
             <<: *itms_columns
         vyzvy_vyhlasene_doplnujuce_info:
@@ -1825,43 +1891,34 @@ sk:
         vyzvy_vyhlasene_fondy:
           columns:
             <<: *itms_columns
+        vyzvy_vyhlasene_konkretne_ciele_typy_aktivit:
+          columns:
+            <<: *itms_columns
+        vyzvy_vyhlasene_kontaktne_osoby:
+          columns:
+            <<: *itms_columns
         vyzvy_vyhlasene_poskytovatelia:
           columns:
             <<: *itms_columns
-        vyzvy_vyhlasene_vyhlasovatel:
+        vyzvy_vyhlasene_posudzovane_obdobia:
           columns:
             <<: *itms_columns
-        vzvy_vyhlasene_kontaktne_osoby:
+        vyzvy_vyhlasene_vyzvy_planovane:
           columns:
             <<: *itms_columns
-        vzvy_vyhlasene_planovane_vyzvy:
+        zmluvy_verejne_obstaravania:
           columns:
             <<: *itms_columns
-        vzvy_vyhlasene_posudzovane_obdobia:
+        zmluvy_verejne_obstaravania_dalsie_url:
           columns:
             <<: *itms_columns
-        zmluvy_verejne_obstaravanie:
-          columns:
-            <<: *itms_columns
-        zmluvy_verejne_obstaravanie_dalsie_url:
-          columns:
-            <<: *itms_columns
-        zmluvy_verejne_obstaravanie_dodavatelia:
-          columns:
-            <<: *itms_columns
-        zmluvy_verejne_obstaravanie_dodavatelia_dodavatel:
-          columns:
-            <<: *itms_columns
-        zmluvy_verejne_obstaravanie_hlavny_dodavatel:
+        zmluvy_verejne_obstaravania_dodavatelia:
           columns:
             <<: *itms_columns
         zonfp_prijate:
           columns:
             <<: *itms_columns
-        zonfp_prijate_aktivity_projekt_subjekty:
-          columns:
-            <<: *itms_columns
-        zonfp_prijate_aktivity_projekty:
+        zonfp_prijate_aktivity_projekt:
           columns:
             <<: *itms_columns
         zonfp_prijate_formy_financovania:
@@ -1873,22 +1930,16 @@ sk:
         zonfp_prijate_hospodarske_cinnosti:
           columns:
             <<: *itms_columns
-        zonfp_prijate_hospodarske_cinnosti_ciele:
-          columns:
-            <<: *itms_columns
         zonfp_prijate_meratelne_ukazovatele:
           columns:
             <<: *itms_columns
         zonfp_prijate_miesta_realizacie:
           columns:
             <<: *itms_columns
-        zonfp_prijate_miesta_realizacie_units:
+        zonfp_prijate_miesta_realizacie_mimo_uzemia_op:
           columns:
             <<: *itms_columns
         zonfp_prijate_oblasti_intervencie:
-          columns:
-            <<: *itms_columns
-        zonfp_prijate_oblasti_intervencie_ciele:
           columns:
             <<: *itms_columns
         zonfp_prijate_organizacne_zlozky:
@@ -1897,192 +1948,66 @@ sk:
         zonfp_prijate_partneri:
           columns:
             <<: *itms_columns
-        zonfp_prijate_typy_uzemia:
+        zonfp_prijate_polozky_rozpoctu:
           columns:
             <<: *itms_columns
-        zonfp_prijate_typy_uzemia_ciele:
+        zonfp_prijate_sekundarne_tematicke_okruhy:
+          columns:
+            <<: *itms_columns
+        zonfp_prijate_typy_uzemia:
           columns:
             <<: *itms_columns
         zonfp_prijate_uzemne_mechanizmy:
           columns:
             <<: *itms_columns
-        zonfp_prijate_uzemne_mechanizmy_ciele:
+        zonfp_spracovane:
           columns:
             <<: *itms_columns
-        zonfp_prijate_vyzvy:
+        zonfp_spracovane_formy_financovania:
           columns:
             <<: *itms_columns
-        zonfp_prijate_ziadatel:
+        zonfp_spracovane_aktivity_projekt:
           columns:
             <<: *itms_columns
-        zonfp_schvalene:
+        zonfp_spracovane_hodnotitelia:
           columns:
             <<: *itms_columns
-        zonfp_schvalene_aktivity_projekt_subjekty:
+        zonfp_spracovane_hospodarske_cinnosti:
           columns:
             <<: *itms_columns
-        zonfp_schvalene_aktivity_projekty:
+        zonfp_spracovane_meratelne_ukazovatele:
           columns:
             <<: *itms_columns
-        zonfp_schvalene_formy_financovania:
+        zonfp_spracovane_miesta_realizacie:
           columns:
             <<: *itms_columns
-        zonfp_schvalene_formy_financovania_ciele:
+        zonfp_spracovane_miesta_realizacie_mimo_uzemia_op:
           columns:
             <<: *itms_columns
-        zonfp_schvalene_hodnotitelia:
+        zonfp_spracovane_oblasti_intervencie:
           columns:
             <<: *itms_columns
-        zonfp_schvalene_hospodarske_cinnosti:
+        zonfp_spracovane_organizacne_zlozky:
           columns:
             <<: *itms_columns
-        zonfp_schvalene_hospodarske_cinnosti_ciele:
+        zonfp_spracovane_partneri:
           columns:
             <<: *itms_columns
-        zonfp_schvalene_meratelne_ukazovatele:
+        zonfp_spracovane_polozky_rozpoctu:
           columns:
             <<: *itms_columns
-        zonfp_schvalene_miesta_realizacie:
+        zonfp_spracovane_sekundarne_tematicke_okruhy:
           columns:
             <<: *itms_columns
-        zonfp_schvalene_miesta_realizacie_units:
+        zonfp_spracovane_typy_uzemia:
           columns:
             <<: *itms_columns
-        zonfp_schvalene_oblasti_intervencie:
+        zonfp_spracovane_uzemne_mechanizmy:
           columns:
             <<: *itms_columns
-        zonfp_schvalene_oblasti_intervencie_ciele:
+        zop:
           columns:
             <<: *itms_columns
-        zonfp_schvalene_organizacne_zlozky:
-          columns:
-            <<: *itms_columns
-        zonfp_schvalene_partneri:
-          columns:
-            <<: *itms_columns
-        zonfp_schvalene_typy_uzemia:
-          columns:
-            <<: *itms_columns
-        zonfp_schvalene_typy_uzemia_ciele:
-          columns:
-            <<: *itms_columns
-        zonfp_schvalene_uzemne_mechanizmy:
-          columns:
-            <<: *itms_columns
-        zonfp_schvalene_uzemne_mechanizmy_ciele:
-          columns:
-            <<: *itms_columns
-        zonfp_schvalene_vyzvy:
-          columns:
-            <<: *itms_columns
-        zonfp_schvalene_ziadatel:
-          columns:
-            <<: *itms_columns
-        zonfp_zamietnute:
-          columns:
-            <<: *itms_columns
-        zonfp_zamietnute_aktivity_projekt_subjekty:
-          columns:
-            <<: *itms_columns
-        zonfp_zamietnute_aktivity_projekty:
-          columns:
-            <<: *itms_columns
-        zonfp_zamietnute_formy_financovania:
-          columns:
-            <<: *itms_columns
-        zonfp_zamietnute_formy_financovania_ciele:
-          columns:
-            <<: *itms_columns
-        zonfp_zamietnute_hospodarske_cinnosti:
-          columns:
-            <<: *itms_columns
-        zonfp_zamietnute_hospodarske_cinnosti_ciele:
-          columns:
-            <<: *itms_columns
-        zonfp_zamietnute_meratelne_ukazovatele:
-          columns:
-            <<: *itms_columns
-        zonfp_zamietnute_miesta_realizacie:
-          columns:
-            <<: *itms_columns
-        zonfp_zamietnute_miesta_realizacie_units:
-          columns:
-            <<: *itms_columns
-        zonfp_zamietnute_oblasti_intervencie:
-          columns:
-            <<: *itms_columns
-        zonfp_zamietnute_oblasti_intervencie_ciele:
-          columns:
-            <<: *itms_columns
-        zonfp_zamietnute_organizacne_zlozky:
-          columns:
-            <<: *itms_columns
-        zonfp_zamietnute_partneri:
-          columns:
-            <<: *itms_columns
-        zonfp_zamietnute_typy_uzemia:
-          columns:
-            <<: *itms_columns
-        zonfp_zamietnute_typy_uzemia_ciele:
-          columns:
-            <<: *itms_columns
-        zonfp_zamietnute_uzemne_mechanizmy:
-          columns:
-            <<: *itms_columns
-        zonfp_zamietnute_uzemne_mechanizmy_ciele:
-          columns:
-            <<: *itms_columns
-        zonfp_zamietnute_vysledok_konania:
-          columns:
-            <<: *itms_columns
-        zonfp_zamietnute_vyzvy:
-          columns:
-            <<: *itms_columns
-        zonfp_zamietnute_ziadatel:
-          columns:
-            <<: *itms_columns
-        zop_predlozene:
-          columns:
-            <<: *itms_columns
-        zop_predlozene_predfinancovanie:
-          columns:
-            <<: *itms_columns
-        zop_predlozene_predkladana_za:
-          columns:
-            <<: *itms_columns
-        zop_predlozene_prijimatel:
-          columns:
-            <<: *itms_columns
-        zop_predlozene_projekt:
-          columns:
-            <<: *itms_columns
-        zop_uhradene:
-          columns:
-            <<: *itms_columns
-        zop_uhradene_predfinancovanie:
-          columns:
-            <<: *itms_columns
-        zop_uhradene_predkladana_za:
-          columns:
-            <<: *itms_columns
-        zop_uhradene_prijimatel:
-          columns:
-            <<: *itms_columns
-        zop_uhradene_projekt:
-          columns:
-            <<: *itms_columns
-        zop_zamietnute:
-          columns:
-            <<: *itms_columns
-        zop_zamietnute_predfinancovanie:
-          columns:
-            <<: *itms_columns
-        zop_zamietnute_predkladana_za:
-          columns:
-            <<: *itms_columns
-        zop_zamietnute_prijimatel:
-          columns:
-            <<: *itms_columns
-        zop_zamietnute_projekt:
+        zop_predkladane_za_subjekty:
           columns:
             <<: *itms_columns
