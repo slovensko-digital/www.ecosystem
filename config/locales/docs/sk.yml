@@ -23,8 +23,7 @@ sk:
       person_family_names:
         description: Priezvisko
       person_given_family_names:
-        description:
-        note_html: Význam neznámy.
+        description: Rodné priezvisko
       person_prefixes:
         description: Tituly pred menom
       person_postfixes:
@@ -811,7 +810,7 @@ sk:
             cin:
               description: Identifikačné číslo organizácie (IČO)
             stakeholder_organization_id:
-              note_html: Význam neznámy.
+              description: Identifikátor organizácie zainteresovanej osoby
             <<: *person_columns
             <<: *address_columns
             <<: *timestamp_columns
@@ -1643,6 +1642,8 @@ sk:
               description: Orientačné číslo
             street_number:
               description: Číslo domu
+            main_corporate_body_id:
+              description: Identifikátor nadradenej právnickej osoby
             formatted_street:
               description: Ulica a číslo
             postal_code:
