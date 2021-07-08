@@ -132,30 +132,8 @@
     <p class="lead">Jednoduchá registrácia na prístup k SQL rozhraniu a API.
       <em>Kompletné dáta zdrojových registrov.</em> API na konsolidované a&nbsp;prepojené dáta. <em>256 dopytov mesačne pre <strong>kohokoľvek</strong></em>, viac po dohode.</p>
 
-    <div id="datahub-error" style="display: none;">
-      <%= render 'services/share/flash_message', {type: :alert, message: 'Vyplňte prosím email a skúste znova.'} %>
-    </div>
-    <div id="datahub-form-sent" style="display: none;">
-      <%= render 'services/share/flash_message', {type: :notice, message: 'Ďakujeme, za Váš záujem. Budeme Vás kontaktovať cez zadaný email.'} %>
-    </div>
+    <%= render_registration_form %>
 
-    <iframe name="form-result" style="display: none;"></iframe>
-    <div class="row">
-      <%= form_tag 'https://docs.google.com/forms/d/e/1FAIpQLSdgW4Hf2fEhX3cpTkoYJTaIVs8pWrTFrItt9Hj_9ZD36yPLZQ/formResponse', target: 'form-result', id: 'datahub-form' do %>
-        <div class="col-md-3 col-md-pad">
-          <div class="form-group">
-            <%= label_tag 'entry.1902802364', 'Email', class: 'control-label' %>
-            <%= email_field_tag 'entry.1902802364', nil, class: 'form-control input-lg', id: 'datahub-email' %>
-          </div>
-        </div>
-        <div class="col-md-4 col-md-pad">
-          <%= label_tag :a, '&nbsp'.html_safe %> <br>
-          <%= button_tag id: 'submit_to_datahub', class: 'btn btn-default btn-lg btn-strong' do %>
-            <strong>Zaregistrovať</strong>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
     <div class="row">
       <div class="col-md-7 col-md-pad">
         <br>
