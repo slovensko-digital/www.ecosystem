@@ -1,4 +1,8 @@
 sk:
+  registrations:
+    email: Email
+    domain: Doména
+
   docs:
     timestamp_columns: &timestamp_columns
       created_at:

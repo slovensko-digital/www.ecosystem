@@ -42,6 +42,8 @@ Rails.application.routes.draw do
     resources :slovensko_sk_api, path: 'slovensko-sk-api'
   end
 
+  resources :registrations
+
   resource 'open_data', path: 'otvorene-data'
   resource 'open_api', path: 'otvorene-api'
 

@@ -1,4 +1,6 @@
 class Services::DatahubController < ContentController
+  include RegistrationsHelper
+
   def index
     @page.title = 'Vyčistené, štruktúrované dáta nielen o firmách. &middot; Datahub'.html_safe
     @page.og.image = view_context.image_url('fb-datahub.png')
