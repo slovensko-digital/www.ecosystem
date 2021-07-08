@@ -23,6 +23,7 @@ gem 'rollbar'
 # Utilities
 gem 'redis-rails'
 gem 'rest-client'
+gem 'recaptcha'
 
 group :development, :test do
   gem 'dotenv-rails'

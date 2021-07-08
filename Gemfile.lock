@@ -172,6 +172,8 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    recaptcha (5.5.0)
+      json
     redis (4.2.2)
     redis-actionpack (5.2.0)
       actionpack (>= 5, < 7)
@@ -293,6 +295,7 @@ DEPENDENCIES
   rack-mini-profiler
   rails (~> 5.2.4.4)
   rails_12factor
+  recaptcha
   redis-rails
   rest-client
   rollbar
