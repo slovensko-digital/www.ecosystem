@@ -1,6 +1,5 @@
 class Registration
   include ActiveModel::Model
-  include ActiveModel::Attributes
 
   FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScswqdDYxXtjUDW7Crw0aro3Au87R1dVmHIYyA5UH4jrZNZ5g/formResponse'
 
@@ -13,7 +12,6 @@ class Registration
   attr_accessor :email, :service, :score
 
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, on: :submit
-  validates :service, inclusion: %w(datahub autoform slovensko_sk_api), on: :render
 
   def save
     return false unless valid?(:submit)
@@ -42,4 +40,19 @@ class Registration
   end
 
   private_constant :REQUEST_MAPPING
+
+  def self.from(args)
+    class_for(args[:service]).new(args)
+  end
+
+  def self.class_for(service)
+    case service
+    when 'autoform'
+      AutoformRegistration
+    when 'datahub', 'slovensko_sk_api'
+      Registration
+    else
+      raise "Service is nil or unknown: #{service}"
+    end
+  end
 end
