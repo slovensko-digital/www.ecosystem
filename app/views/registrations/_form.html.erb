@@ -1,37 +1,35 @@
-<div class="row" id="<%= registration_form_id %>">
-  <div class="col-md-12">
-    <%= form_with model: form do |f| %>
-      <% if form.errors.any? %>
-        <% form.errors.values.flatten.each do |message| %>
-          <%= render 'services/share/flash_message', { type: :alert, message: message } %>
-        <% end %>
-      <% end %>
-
-      <% if form.checkbox_captcha %>
-        <%= recaptcha_tags(site_key: ENV.fetch('RECAPTCHA_SITE_KEY_V2_CHECKBOX')) %>
-      <% else %>
-        <%= recaptcha_v3(action: recaptcha_action) %>
-      <% end %>
-
-      <div class="form-group">
-        <% form.mappings.keys.each do |field| %>
-          <div class="row">
-            <%= f.label field, translate_field(field), class: 'control-label' %>
-            <div class="col-md-3">
-              <%= f.text_field field, class: 'form-control input-lg' %>
-            </div>
-          </div>
-        <% end %>
-
-        <%= f.hidden_field :service, value: form.service %>
-        <%= f.hidden_field :checkbox_captcha, value: form.checkbox_captcha %>
-
-        <div class="col-md-4 col-md-pad">
-          <%= button_tag :submit, class: 'btn btn-default btn-lg btn-strong', id: 'submit-button' do %>
-            <strong>Zaregistrovať</strong>
+<div id="<%= form.html_id %>">
+  <div class="row">
+    <div class="col-md-12">
+      <%= form_with model: form, scope: :registration do |f| %>
+        <% if form.errors.any? %>
+          <% form.errors.full_messages.each do |message| %>
+            <%= render 'services/share/flash_message', { type: :alert, message: message } %>
           <% end %>
+        <% end %>
+
+        <%= recaptcha_v3(action: recaptcha_action(form.service)) %>
+
+        <div class="row">
+          <% form.user_input_fields.each do |field| %>
+            <div class="col-md-3">
+              <div class="form-group">
+                <%= f.label field, t(field), class: 'control-label' %>
+                <%= f.text_field field, class: 'form-control input-lg' %>
+              </div>
+            </div>
+          <% end %>
+
+          <%= f.hidden_field :service %>
+
+          <div class="col-md-4 col-md-pad">
+            <%= label_tag :a, '&nbsp'.html_safe %><br>
+            <%= button_tag :submit, class: 'btn btn-default btn-lg btn-strong', id: 'submit-button' do %>
+              <strong>Zaregistrovať</strong>
+            <% end %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

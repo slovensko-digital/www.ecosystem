@@ -1,1 +1,1 @@
-$('#<%= registration_form_id(@registration.service) %>').html("<%= j render partial: 'registrations/form', object: @registration %>");
+$('#<%= @registration.html_id %>').replaceWith("<%= j render 'services/share/flash_message', { type: :notice, message: 'Ďakujeme za Váš záujem. Budeme Vás kontaktovať cez zadaný email.' } %>");

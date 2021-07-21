@@ -2,50 +2,44 @@ class Registration
   include ActiveModel::Model
   include ActiveModel::Attributes
 
-  SUBMIT_MAPPINGS = HashWithIndifferentAccess.new(
-    autoform: {
-      url: 'https://docs.google.com/forms/d/1TpYNJfBQVGt4lmKP-wrXGkok2bo-Y6mzpmeUsJTnRis/formResponse',
-      email: 'entry.204431983',
-      other: { domain: 'entry.1349114640' }
-    },
-    slovensko_sk_api: {
-      url: 'https://docs.google.com/forms/d/e/1FAIpQLSfUuAjnqGjDvSc-Miy6bP0xODXsjr6g04hGAeYlYkJo-3Iu1Q/formResponse',
-      email: 'emailAddress',
-    },
-    datahub: {
-      url: 'https://docs.google.com/forms/d/e/1FAIpQLSdgW4Hf2fEhX3cpTkoYJTaIVs8pWrTFrItt9Hj_9ZD36yPLZQ/formResponse',
-      email: 'entry.1902802364',
-    }
-  )
+  FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScswqdDYxXtjUDW7Crw0aro3Au87R1dVmHIYyA5UH4jrZNZ5g/formResponse'
 
-  attr_accessor :email, :service, :other_fields
-  attribute :checkbox_captcha, :boolean, default: false
+  REQUEST_MAPPING = {
+    email: 'entry.1908289207',
+    service: 'entry.1504702132',
+    score: 'entry.324492615',
+  }.freeze
 
-  validates :service, inclusion: SUBMIT_MAPPINGS.keys, on: :render
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: 'Zadajte email v správnom tvare' }, on: :submit
-  # validates :other_fields, each: { presence: true }, on: :submit
+  attr_accessor :email, :service, :score
 
-  def mappings
-    data[:other].reverse_merge(email: data[:email])
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, on: :submit
+  validates :service, inclusion: %w(datahub autoform slovensko_sk_api), on: :render
+
+  def save
+    return false unless valid?(:submit)
+
+    if block_given?
+      return false unless yield
+    end
+
+    RestClient.post(FORM_URL, **build_request_params)
   end
 
-  def finish
-    args = attributes.transform_keys { |key| mappings[key] }.symbolize_keys!
-
-    RestClient.post(data[:url], **args)
+  def build_request_params
+    mapping.transform_keys { |attr| send(attr) }.invert.symbolize_keys
   end
 
-  private
-
-  def checkbox_captcha!
-    checkbox_captcha = true
+  def user_input_fields
+    [:email]
   end
 
-  def data
-    SUBMIT_MAPPINGS[service]
+  def html_id
+    "#{service}_registration_form"
   end
 
-  def attributes
-    other_fields.reverse_merge(email: email)
+  def mapping
+    REQUEST_MAPPING
   end
+
+  private_constant :REQUEST_MAPPING
 end

@@ -1,25 +1,21 @@
 module RegistrationsHelper
-  def registration_form_id(service = controller_name)
-    "#{service}_registration_form"
+  def recaptcha_action(service = controller_name)
+    "#{service}_registration"
   end
 
-  def recaptcha_action
-    "#{controller_name}_registration"
+  def new_registration(args)
+    raise unless args[:service]
+
+    klass = (args[:service] == 'autoform') ? AutoformRegistration : Registration
+    klass.new(args)
   end
 
-  def controller_specific_register_path
-    polymorphic_path([:services, controller_name, :index])
-  end
-
-  def render_registration_form(service: controller_name, registration: nil)
-    registration ||= Registration.new(service: service)
-
-    if registration.valid?(:render)
-      render partial: 'registrations/form', object: registration
+  def render_registration_form(service: controller_name, model: nil)
+    unless model
+      model = new_registration(service: service)
+      return if model.invalid?(:render)
     end
-  end
 
-  def translate_field(field_name)
-    translate "registrations.#{field_name}", default: ''
+    render partial: 'registrations/form', object: model
   end
 end

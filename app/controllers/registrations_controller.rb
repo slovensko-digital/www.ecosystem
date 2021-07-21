@@ -2,38 +2,25 @@ class RegistrationsController < ApplicationController
   include RegistrationsHelper
 
   def create
-    render :create and return unless registration.valid?(:submit)
+    @registration ||= new_registration(registration_params)
 
-    if recaptcha_valid?
-      registration.finish and render :success
+    if @registration.save { validate_captcha! }
+      render :create
     else
-      registration.checkbox_captcha! and render :create
+      render :new
     end
   end
 
   private
 
-  def recaptcha_valid?
-    if registration.checkbox_captcha
-      verify_checkbox_captcha
-    else
-      verify_invisible_captcha
-    end
-  end
+  def validate_captcha!
+    captcha_result = verify_recaptcha(minimum_score: 0.5, action: recaptcha_action(@registration.service), model: @registration, message: 'Nastala chyba. Ak problém pretrváva aj v inom prehliadači alebo zariadení, kontaktujte nás.')
+    @registration.score = recaptcha_reply['score']
 
-  def verify_checkbox_captcha
-    verify_recaptcha(message: 'Skúste to ešte raz.', secret_key: ENV.fetch('RECAPTCHA_SECRET_KEY_V2_CHECKBOX'), model: registration)
-  end
-
-  def verify_invisible_captcha
-    verify_recaptcha(message: 'Potvrďte, prosím, že nie ste robot.', minimum_score: 0.5, action: recaptcha_action, model: registration)
+    captcha_result
   end
 
   def registration_params
-    params.require(:registration).permit(:service, :email, :checkbox_captcha)
-  end
-
-  def registration
-    @registration ||= Registration.new(registration_params)
+    params.require(:registration).permit(:email, :service, :score, :domain)
   end
 end
