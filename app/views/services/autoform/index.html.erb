@@ -146,7 +146,7 @@
 
   <section>
     <h2>Registrácia</h2>
-    <p class="lead">Jednoduchá registrácia, <em>až 256 vyhľadávaní mesačne <strong>pre kohokoľvek</strong></em>. Viac vyhľadávaní po dohode.</p>
+    <p class="lead">Jednoduchá registrácia, <em>až 256 vyhľadávaní mesačne <strong>zadarmo</strong></em>. Viac vyhľadávaní podľa <%= link_to 'cenníka', pricing_path(anchor: 'autoform') %>.</p>
 
     <%= render_registration_form %>
 
@@ -167,5 +167,9 @@
     <%= link_to integration_manual_services_autoform_index_path , class: 'btn btn-default btn-lg' do %>
       <strong>Integračný manuál</strong>
     <% end %>
+  </section>
+
+  <section>
+    <h2><%= link_to 'Cenník', pricing_path(anchor: 'autoform') %></h2>
   </section>
 </div>

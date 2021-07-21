@@ -61,9 +61,9 @@
 <p class="docs-endpoint"><code>GET <%= sync_api_datahub_corporate_bodies_url(host: api_host) %></code></p>
 <p>Zmenené záznamy od určeného času je možné získať pomocou <%= link_to 'synchronizačného API', '#sync-api' %>. </p>
 
-<h4>Vyhľadanie právnickej osôby</h4>
+<h4>Vyhľadanie právnickej osoby</h4>
 <p class="docs-endpoint"><code>GET <%= search_api_datahub_corporate_bodies_url(host: api_host) %>?q=cin:12314</code></p>
-<p>Podporované je vyhľadanie iba podľa IČO <code>cin</code>. Odpoveď obsahuje jednu právnicku osobu. V prípade, že sa právnicka osoba podľa zadaného IČO v databáze nenachádza, odpoveď vracia kód <code>404</code></p>
+<p>Podporované je vyhľadanie iba podľa IČO <code>cin</code>. Odpoveď obsahuje jednu právnickú osobu. V prípade, že sa právnická osoba podľa zadaného IČO v databáze nenachádza, odpoveď vracia kód <code>404</code></p>
 
 <h4>Rozšírenie odpovede o dáta z Registra právnických osôb</h4>
 <p>Prémiové dáta umožňujú rozšíriť odpoveď požiadavky o podrobné údaje o prepojených organizáciách z RPO pridaním parametra <code>expand=rpo_organizations</code>.</p>
