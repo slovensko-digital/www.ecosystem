@@ -9,11 +9,13 @@ class ApplicationController < ActionController::Base
     r.activate!(params[:rollout].to_sym) if params[:rollout]
     r
   end
+
   helper_method :rollout
 
   def api_host
     Environment.api_host
   end
+
   helper_method :api_host
 
   def store_referral
