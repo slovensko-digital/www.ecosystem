@@ -1,6 +1,6 @@
 class RegistrationsController < ApplicationController
   def create
-    @registration ||= Registration.from(registration_params)
+    @registration = Registration.build_from(registration_params)
 
     if @registration.save { validate_captcha! }
       render :create

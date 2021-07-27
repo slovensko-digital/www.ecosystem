@@ -41,7 +41,7 @@ class Registration
 
   private_constant :REQUEST_MAPPING
 
-  def self.from(args)
+  def self.build_from(args)
     class_for(args[:service]).new(args)
   end
 
