@@ -6,6 +6,6 @@ module RegistrationsHelper
   def render_registration_form(service: controller_name, model: nil)
     model ||= Registration.build_from(service: service)
 
-    render model
+    render partial: 'registrations/form', object: model
   end
 end

@@ -1,17 +1,17 @@
-<div id="<%= registration.html_id %>">
+<div id="<%= form.html_id %>">
   <div class="row">
     <div class="col-md-12">
-      <%= form_with model: registration, scope: :registration do |f| %>
-        <% if registration.errors.any? %>
-          <% registration.errors.full_messages.each do |message| %>
+      <%= form_with model: form, scope: :registration do |f| %>
+        <% if form.errors.any? %>
+          <% form.errors.full_messages.each do |message| %>
             <%= render 'services/share/flash_message', { type: :alert, message: message } %>
           <% end %>
         <% end %>
 
-        <%= recaptcha_v3(action: recaptcha_action(registration.service)) %>
+        <%= recaptcha_v3(action: recaptcha_action(form.service)) %>
 
         <div class="row">
-          <% registration.user_input_fields.each do |field| %>
+          <% form.user_input_fields.each do |field| %>
             <div class="col-md-3">
               <div class="form-group">
                 <%= f.label field, t(field), class: 'control-label' %>
