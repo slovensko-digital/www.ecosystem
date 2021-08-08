@@ -97,6 +97,20 @@
             <%= label_tag :country, 'Krajina' %>
             <%= text_field_tag :country, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'country'} %>
           </div>
+
+          <div class="col-md-3 col-md-offset-3 col-md-pad">
+            <label>Hlavná ekonomická činnosť</label>
+          </div>
+
+          <div class="col-md-1 col-md-offset-3 col-md-pad">
+            <%= label_tag :main_economic_activity_code, 'Kód' %>
+            <%= text_field_tag :main_economic_activity_code, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'main-economic-activity-code'} %>
+          </div>
+
+          <div class="col-md-4 col-md-pad">
+            <%= label_tag :main_economic_activity_name, 'Názov' %>
+            <%= text_field_tag :main_economic_activity_name, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'main-economic-activity-name'} %>
+          </div>
         </div>
       </section>
   <% end %>
