@@ -11,15 +11,26 @@
   <h2>Ukážkové použitie</h2>
   <p class="lead"><em>Začnite písať názov právnickej osoby prípadne SZČO, alebo zadajte IČO.</em> Zvyšok sa doplní automaticky.</p>
   <%= form_tag '#', data: {'slovensko-digital-autoform': ENV.fetch('AUTOFORM_ACCESS_TOKEN') } do %>
+    <!-- First row -->
     <div class="row">
-      <!-- First column -->
-      <div class="col-md-5">
-        <section>
+      <section>
+        <div class="col-md-5 col-md-pad">
           <%= label_tag :name, 'Názov' %>
           <%= text_field_tag :name, nil, class: 'form-control input-lg', autocomplete: 'off', data: {'slovensko-digital-autoform': 'name'} %>
           <p class="help-block">Napríklad: Slovensko.Digital, Martinus</p>
-        </section>
+        </div>
+        <div class="col-md-2 col-md-offset-1 col-md-pad">
+          <%= label_tag :cin, 'IČO' %>
+          <%= text_field_tag :cin, nil, class: 'form-control input-lg', data: {'slovensko-digital-autoform': 'cin'} %>
+          <p class="help-block">Napríklad: 36421928</p>
+        </div>
+      </section>
+    </div>
 
+    <!-- Other rows -->
+    <div class="row">
+      <!-- First column -->
+      <div class="col-md-5">
         <section>
           <%= label_tag :formatted_address, 'Adresa' %>
           <%= text_field_tag :formatted_address, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'formatted-address'} %>
@@ -70,16 +81,6 @@
 
       <!-- Second column -->
       <div class="col-md-5 col-md-offset-1">
-        <section>
-          <div class="row">
-            <div class="col-md-5 col-md-pad">
-              <%= label_tag :cin, 'IČO' %>
-              <%= text_field_tag :cin, nil, class: 'form-control input-lg', data: {'slovensko-digital-autoform': 'cin'} %>
-              <p class="help-block">Napríklad: 36421928</p>
-            </div>
-          </div>
-        </section>
-
         <section>
           <div class="row">
             <div class="col-md-5 col-md-pad">
