@@ -11,108 +11,133 @@
   <h2>Ukážkové použitie</h2>
   <p class="lead"><em>Začnite písať názov právnickej osoby prípadne SZČO, alebo zadajte IČO.</em> Zvyšok sa doplní automaticky.</p>
   <%= form_tag '#', data: {'slovensko-digital-autoform': ENV.fetch('AUTOFORM_ACCESS_TOKEN') } do %>
+    <!-- First row -->
+    <div class="row">
       <section>
-        <div class="row">
-          <div class="col-md-5 col-md-pad">
-            <%= label_tag :name, 'Názov' %>
-            <%= text_field_tag :name, nil, class: 'form-control input-lg', autocomplete: 'off', data: {'slovensko-digital-autoform': 'name'} %>
-            <p class="help-block">Napríklad: Slovensko.Digital, Martinus</p>
-          </div>
-          <div class="col-md-2 col-md-offset-1 col-md-pad">
-            <%= label_tag :cin, 'IČO' %>
-            <%= text_field_tag :cin, nil, class: 'form-control input-lg', data: {'slovensko-digital-autoform': 'cin'} %>
-            <p class="help-block">Napríklad: 36421928</p>
-          </div>
+        <div class="col-md-5 col-md-pad">
+          <%= label_tag :name, 'Názov' %>
+          <%= text_field_tag :name, nil, class: 'form-control input-lg', autocomplete: 'off', data: {'slovensko-digital-autoform': 'name'} %>
+          <p class="help-block">Napríklad: Slovensko.Digital, Martinus</p>
+        </div>
+        <div class="col-md-2 col-md-offset-1 col-md-pad">
+          <%= label_tag :cin, 'IČO' %>
+          <%= text_field_tag :cin, nil, class: 'form-control input-lg', data: {'slovensko-digital-autoform': 'cin'} %>
+          <p class="help-block">Napríklad: 36421928</p>
         </div>
       </section>
+    </div>
 
-      <section>
-        <div class="row">
-          <div class="col-md-5 col-md-pad">
-            <%= label_tag :formatted_address, 'Adresa' %>
-            <%= text_field_tag :formatted_address, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'formatted-address'} %>
-          </div>
-          <div class="col-md-2 col-md-offset-1 col-md-pad">
-            <%= label_tag :tin, 'DIČ' %>
-            <%= text_field_tag :tin, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'tin'} %>
-          </div>
-          <div class="col-md-2 col-md-pad">
-            <%= label_tag :vatin, 'IČ-DPH' %>
-            <%= text_field_tag :vatin, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'vatin'} %>
-          </div>
-        </div>
-      </section>
+    <!-- Other rows -->
+    <div class="row">
+      <!-- First column -->
+      <div class="col-md-5">
+        <section>
+          <%= label_tag :formatted_address, 'Adresa' %>
+          <%= text_field_tag :formatted_address, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'formatted-address'} %>
+        </section>
 
-      <section>
-        <div class="row">
-          <div class="col-md-3 col-md-pad">
-            <%= label_tag :street, 'Ulica' %>
-            <%= text_field_tag :street, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'street'} %>
-          </div>
+        <section>
+          <div class="row">
+            <div class="col-md-8 col-md-pad">
+              <%= label_tag :street, 'Ulica' %>
+              <%= text_field_tag :street, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'street'} %>
+            </div>
 
-          <div class="col-md-1 col-md-pad">
-            <%= label_tag :reg_number, 'Súpisné&nbsp;č.'.html_safe %>
-            <%= text_field_tag :reg_number, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'reg-number'} %>
-          </div>
+            <div class="col-md-2 col-md-pad">
+              <%= label_tag :reg_number, 'Súpisné&nbsp;č.'.html_safe %>
+              <%= text_field_tag :reg_number, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'reg-number'} %>
+            </div>
 
-          <div class="col-md-1 col-md-pad">
-            <%= label_tag :building_number, 'Orient.&nbsp;č.'.html_safe %>
-            <%= text_field_tag :building_number, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'building-number'} %>
+            <div class="col-md-2 col-md-pad">
+              <%= label_tag :building_number, 'Orient.&nbsp;č.'.html_safe %>
+              <%= text_field_tag :building_number, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'building-number'} %>
+            </div>
           </div>
+        </section>
 
-          <div class="col-md-3 col-md-offset-1 col-md-pad">
-            <%= label_tag :registration_office, 'Registrátor' %>
-            <%= text_field_tag :registration_office, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'registration-office'} %>
-          </div>
+        <section>
+          <div class="row">
+            <div class="col-md-5 col-md-pad">
+              <%= label_tag :postal_code, 'PSČ' %>
+              <%= text_field_tag :postal_code, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'postal-code'} %>
+            </div>
 
-          <div class="col-md-2 col-md-pad">
-            <%= label_tag :registration_number, 'Registračné číslo' %>
-            <%= text_field_tag :registration_number, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'registration-number'} %>
+            <div class="col-md-7 col-md-pad">
+              <%= label_tag :municipality, 'Obec' %>
+              <%= text_field_tag :municipality, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'municipality'} %>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section>
-        <div class="row">
-          <div class="col-md-2 col-md-pad">
-            <%= label_tag :postal_code, 'PSČ' %>
-            <%= text_field_tag :postal_code, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'postal-code'} %>
+        <section>
+          <div class="row">
+            <div class="col-md-7">
+              <%= label_tag :country, 'Krajina' %>
+              <%= text_field_tag :country, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'country'} %>
+            </div>
           </div>
+        </section>
+      </div>
 
-          <div class="col-md-3 col-md-pad">
-            <%= label_tag :municipality, 'Obec' %>
-            <%= text_field_tag :municipality, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'municipality'} %>
+      <!-- Second column -->
+      <div class="col-md-5 col-md-offset-1">
+        <section>
+          <div class="row">
+            <div class="col-md-5 col-md-pad">
+              <%= label_tag :tin, 'DIČ' %>
+              <%= text_field_tag :tin, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'tin'} %>
+            </div>
+            <div class="col-md-5 col-md-pad">
+              <%= label_tag :vatin, 'IČ-DPH' %>
+              <%= text_field_tag :vatin, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'vatin'} %>
+            </div>
           </div>
+        </section>
 
-          <div class="col-md-4 col-md-offset-1 col-md-pad">
-            <%= label_tag :legal_form, 'Právna forma' %>
-            <%= text_field_tag :legal_form, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'legal-form'} %>
-          </div>
-        </div>
-      </section>
+        <section>
+          <div class="row">
+            <div class="col-md-7 col-md-pad">
+              <%= label_tag :registration_office, 'Registrátor' %>
+              <%= text_field_tag :registration_office, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'registration-office'} %>
+            </div>
 
-      <section>
-        <div class="row">
-          <div class="col-md-3 col-md-pad">
-            <%= label_tag :country, 'Krajina' %>
-            <%= text_field_tag :country, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'country'} %>
+            <div class="col-md-5 col-md-pad">
+              <%= label_tag :registration_number, 'Registračné číslo' %>
+              <%= text_field_tag :registration_number, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'registration-number'} %>
+            </div>
           </div>
+        </section>
 
-          <div class="col-md-3 col-md-offset-3 col-md-pad">
-            <label>Hlavná ekonomická činnosť</label>
+        <section>
+          <div class="row">
+            <div class="col-md-10 col-md-pad">
+              <%= label_tag :legal_form, 'Právna forma' %>
+              <%= text_field_tag :legal_form, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'legal-form'} %>
+            </div>
           </div>
+        </section>
 
-          <div class="col-md-1 col-md-offset-3 col-md-pad">
-            <%= label_tag :main_economic_activity_code, 'Kód' %>
-            <%= text_field_tag :main_economic_activity_code, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'main-economic-activity-code'} %>
+        <section>
+          <div class="row">
+            <div class="col-md-7 col-md-pad">
+              <label>Hlavná ekonomická činnosť</label>
+            </div>
           </div>
+          
+          <div class="row">
+            <div class="col-md-2 col-md-pad">
+              <%= label_tag :main_economic_activity_code, 'Kód' %>
+              <%= text_field_tag :main_economic_activity_code, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'main-economic-activity-code'} %>
+            </div>
 
-          <div class="col-md-4 col-md-pad">
-            <%= label_tag :main_economic_activity_name, 'Názov' %>
-            <%= text_field_tag :main_economic_activity_name, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'main-economic-activity-name'} %>
+            <div class="col-md-10 col-md-pad">
+              <%= label_tag :main_economic_activity_name, 'Názov' %>
+              <%= text_field_tag :main_economic_activity_name, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'main-economic-activity-name'} %>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
+    </div>
   <% end %>
 
   <section id="clients">
