@@ -221,11 +221,11 @@ table.table-pricing {
   margin: 0 auto;
 }
 
-#registration {
+.registration {
   text-align: center;
 }
 
-#registration .number {
+.registration .number {
   box-shadow: 0 0 4px #ababab;
   display: inline-block;
   padding: 10px 19px;
@@ -237,7 +237,7 @@ table.table-pricing {
   line-height: 38px;
 }
 
-#registration .what {
+.registration .what {
   color: #3e3e3e;
   font-size: 1.2rem;
   max-width: 248px;
@@ -245,7 +245,7 @@ table.table-pricing {
   margin: 28px auto 35px;
 }
 
-#registration .horizontal {
+.registration .horizontal {
   border-color: #376ee5;
   position: relative;
   z-index: -2;
@@ -253,7 +253,7 @@ table.table-pricing {
   width: 67%;
 }
 
-#registration .last {
+.registration .last {
   box-shadow: 0 0 17px #cccccc;
   padding: 46px 2rem 10px;
   position: relative;
@@ -262,7 +262,7 @@ table.table-pricing {
 
 }
 
-#registration .last .number {
+.registration .last .number {
   background: #376ee5;
   color: white;
   width: 74px;
@@ -403,9 +403,5 @@ table.table-pricing {
     #header .flight {
       background-position: 14rem 3rem;
     }
-  }
-
-  #testimonials {
-    font-size: 1rem;
   }
 }
