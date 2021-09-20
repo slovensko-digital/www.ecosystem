@@ -154,7 +154,7 @@
     </div>
   </div>
 
-  <div class="registration container">
+  <div id="registration" class="container">
     <div class="row">
       <div class="col-md-12">
         <br/><br/><br/>
@@ -181,6 +181,12 @@
           <span class="what"><strong>Hotovo!</strong> Onedlho Vám začnú na zvolený email chodiť všetky správy zo štátnej schránky.</span>
         </div>
       </div>
+    </div>
+
+    <div class="mt-5 mb-5">
+      <%= link_to register_step1_services_govbox_index_path, class: 'btn btn-success btn-xl' do %>
+        <strong>Mám záujem o GovBox</strong>
+      <% end %>
     </div>
   </div>
 
@@ -219,10 +225,4 @@
         </div>
       </div>
     </section>
-
-    <div class="registration mt-5 mb-5">
-      <%= link_to register_step1_services_govbox_index_path, class: 'btn btn-success btn-xl' do %>
-        <strong>Mám záujem o GovBox</strong>
-      <% end %>
-    </div>
 </div>
