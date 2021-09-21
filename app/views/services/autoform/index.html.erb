@@ -10,7 +10,7 @@
 
   <h2>Ukážkové použitie</h2>
   <p class="lead"><em>Začnite písať názov právnickej osoby prípadne SZČO, alebo zadajte IČO.</em> Zvyšok sa doplní automaticky.</p>
-  <%= form_tag '#', data: {'slovensko-digital-autoform': ENV.fetch('AUTOFORM_ACCESS_TOKEN') } do %>
+  <%= form_tag '#', id: 'autoform', data: {'slovensko-digital-autoform': ENV.fetch('AUTOFORM_ACCESS_TOKEN') } do %>
     <!-- First row -->
     <div class="row">
       <div class="col-md-5 col-md-pad">
