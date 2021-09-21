@@ -183,36 +183,46 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col">
-        <br/><br/><br/>
-        <h2>Spokojní zákazníci</h2><br/>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8 offset-md-2 text-left py-4">
-        <div id="testimonials" class="blockquote mb-0">
-          <p>
-            Prihlasovanie a preberanie správ cez GovBox je oveľa <strong>jednoduchšie a rýchlejšie</strong> ako cez štátnu schránku.
-            Obzvlášť oceňujeme funkciu týždenného sumáru, vďaka ktorému máme vždy <strong>prehľad o prijatých a prevzatých správach</strong>.
-          </p>
-          <p class="mb-0">
-            Chceli by sme oceniť <strong>proklientský prístup</strong> a promptné riešenie problémov zo strany prevádzkovateľa GovBoxu
-            Slovensko.Digital, s ktorymi sme sa obrátili na ich tím.
-          </p>
-        </div>
-
-        <div class="text-right text-muted">
-          <a href="https://www.vnet.sk/sk/" target="_blank"><img src="<%= path_to_image('services/govbox/testimonials/vnet.jpg') %>" style="height: 8ex"></a>
-          <p class="mr-3">VNET, a.s.</p>
-        </div>
-      </div>
-    </div>
-
     <div class="mt-5 mb-5">
       <%= link_to register_step1_services_govbox_index_path, class: 'btn btn-success btn-xl' do %>
         <strong>Mám záujem o GovBox</strong>
       <% end %>
     </div>
   </div>
+
+    <section id="clients" class="container">
+      <h2 class="text-center">Spokojní zákazníci</h2>
+
+      <div class="row">
+        <div id="carousel-testimonials" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="col-md-8 col-md-offset-2">
+                <div>
+                  <img src="<%= path_to_image('clients/people/dan_kollar_cyklokoalicia.png') %>" style="height: 15ex" alt="Dan Kollár">
+                    <p class="text-center">&quot;<b>V Cyklokoalícii nám služba GovBox velmi zjednodušuje život.</b>
+                      Veľa vecí súvisiacich s rozvojom pešej a cyklistickej dopravy sa totiž deje cez podania a úrady, ktoré nám denne posielajú množstvo informácií o konaniach a podobne.
+                      <b>Takto ich dostaneme jednoducho do emailu a vieme s nimi následne ďalej efektívne pracovať.</b>&quot;
+                    </p>
+                    <p class="client-name"><i>Dan Kollár</i></p>
+                    <p><i>Prezident Cyklokoalícia</i></p>
+                  <%= link_to 'https://www.cyklokoalicia.sk', target: '_blank', title: 'Crystal Consulting' do %>
+                    <%= image_tag 'clients/cyklokoalicia.png', width: '200', alt: 'Cyklokoalícia' %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+<!--          <a class="carousel-control-prev" href="#carousel-testimonials" role="button" data-slide="prev">-->
+<!--            <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+<!--            <span class="sr-only">Previous</span>-->
+<!--          </a>-->
+<!--          <a class="carousel-control-next" href="#carousel-testimonials" role="button" data-slide="next">-->
+<!--            <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+<!--            <span class="sr-only">Next</span>-->
+<!--          </a>-->
+        </div>
+      </div>
+    </section>
 </div>

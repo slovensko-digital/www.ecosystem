@@ -76,6 +76,44 @@
     </div>
   </section>
 
+  <section id="clients">
+    <h2 class="text-center">Spokojní zákazníci</h2>
+
+    <div class="row">
+      <div id="carousel-testimonials" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="item active">
+            <div class="col-md-8 col-md-offset-2">
+              <div>
+                <img src="<%= path_to_image('clients/people/tibor_badura_crystal_consulting.png') %>" style="height: 15ex" alt="Tibor Baďura">
+                <p class="text-center">&quot;Potrebovali sme vyriešiť integrácie na slovensko.sk. S našou podporou a so zanietením Slovensko.Digital vzniklo "slovensko.sk API", ktoré sme zverejnili ako Open Source.
+                  <b>Vďaka tomu sme otvorili cestu pre integráciu na slovensko.sk aj ďalším firmám.</b>
+                  Po tejto skúsenosti sme si objednali vývoj komponentu na pokročilú integráciu na ÚPVS.
+                  Vďaka tomu naše cloudové riešenie registratúrneho systému spoľahlivo komunikuje s elektronickými schránkami ÚPVS.&quot;
+                </p>
+                <p class="client-name"><i>Tibor Baďura</i></p>
+                <p><i>Crystal Consulting</i></p>
+                <%= link_to 'https://www.crystalconsulting.sk', target: '_blank', title: 'Crystal Consulting' do %>
+                  <%= image_tag 'clients/crystal-consulting.png', width: '200', alt: 'Crystal Consulting' %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<!--        <a class="left carousel-control" href="#carousel-testimonials" role="button" data-slide="prev">-->
+<!--          <span class="icon-prev" aria-hidden="true"></span>-->
+<!--          <span class="sr-only">Previous</span>-->
+<!--        </a>-->
+<!--        <a class="right carousel-control" href="#carousel-testimonials" role="button" data-slide="next">-->
+<!--          <span class="icon-next" aria-hidden="true"></span>-->
+<!--          <span class="sr-only">Next</span>-->
+<!--        </a>-->
+      </div>
+    </div>
+  </section>
+
+
   <section id="kontakt">
     <h2>Kontaktný formulár</h2>
     <p class="lead">
@@ -114,7 +152,7 @@
     <div class="row">
       <div class="col-md-3 col-md-offset-5 text-center">
         <%= link_to 'https://www.crystalconsulting.sk', target: '_blank', title: 'Crystal Consulting' do %>
-          <%= image_tag 'clients/crystal-consulting.webp', width: '200', alt: 'Crystal Consulting' %>
+          <%= image_tag 'clients/crystal-consulting.png', width: '200', alt: 'Crystal Consulting' %>
         <% end %>
       </div>
     </div>
