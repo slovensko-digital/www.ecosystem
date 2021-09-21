@@ -26,6 +26,78 @@
       </div>
   </section>
 
+  <section id="clients">
+    <h2 class="text-center">Spokojní zákazníci</h2>
+
+    <div class="row">
+      <div id="carousel-testimonials" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="item active">
+            <div class="col-md-8 col-md-offset-2">
+              <div>
+                <img src="<%= path_to_image('clients/people/katarina_jandova_profesia.png') %>" style="height: 15ex" alt="Katarína Jandová">
+                <div>
+                  <p class="text-center">&quot;V Profesii využívame službu Autoform už niekoľko rokov.
+                    <b>Vďaka nej stačí zákazníkom Profesie pri registrácií vyplniť iba názov spoločnosti, o zvyšok sa postará Autoform.</b>
+                    Nielenže sme tým <b>zvýšili počet úspešných registrácií</b>, tiež sme tým <b>znížili chybovosť firiem pri vypĺňaní dôležitých údajov.</b>&quot;</p>
+                  <p class="client-name"><i>Katarína Jandová</i></p>
+                  <p><i>Produktová manažérka Profesia.sk</i></p>
+                  <%= link_to 'https://www.profesia.sk', target: '_blank', title: 'Profesia.sk' do %>
+                    <%= image_tag 'clients/profesia.png', width: '100', alt: 'Profesia.sk' %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="col-md-8 col-md-offset-2">
+              <div>
+                <img src="<%= path_to_image('clients/people/tibor_badura_crystal_consulting.png') %>" style="height: 15ex" alt="Tibor Baďura">
+                <p class="text-center">&quot;Potrebovali sme vyriešiť integrácie na slovensko.sk. S našou podporou a so zanietením Slovensko.Digital vzniklo "slovensko.sk API", ktoré sme zverejnili ako Open Source.
+                  <b>Vďaka tomu sme otvorili cestu pre integráciu na slovensko.sk aj ďalším firmám.</b>
+                  Po tejto skúsenosti sme si objednali vývoj komponentu na pokročilú integráciu na ÚPVS.
+                  Vďaka tomu naše cloudové riešenie registratúrneho systému spoľahlivo komunikuje s elektronickými schránkami ÚPVS.&quot;
+                </p>
+                <p class="client-name"><i>Tibor Baďura</i></p>
+                <p><i>Crystal Consulting</i></p>
+                <%= link_to 'https://www.crystalconsulting.sk', target: '_blank', title: 'Crystal Consulting' do %>
+                  <%= image_tag 'clients/crystal-consulting.png', width: '200', alt: 'Crystal Consulting' %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="col-md-8 col-md-offset-2">
+              <div>
+                <img src="<%= path_to_image('clients/people/dan_kollar_cyklokoalicia.png') %>" style="height: 15ex" alt="Dan Kollár">
+                <p class="text-center">&quot;<b>V Cyklokoalícii nám služba GovBox velmi zjednodušuje život.</b>
+                  Veľa vecí súvisiacich s rozvojom pešej a cyklistickej dopravy sa totiž deje cez podania a úrady, ktoré nám denne posielajú množstvo informácií o konaniach a podobne.
+                  <b>Takto ich dostaneme jednoducho do emailu a vieme s nimi následne ďalej efektívne pracovať.</b>&quot;
+                </p>
+                <p class="client-name"><i>Dan Kollár</i></p>
+                <p><i>Prezident Cyklokoalícia</i></p>
+                <%= link_to 'https://www.cyklokoalicia.sk', target: '_blank', title: 'Crystal Consulting' do %>
+                  <%= image_tag 'clients/cyklokoalicia.png', width: '200', alt: 'Cyklokoalícia' %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a class="left carousel-control" href="#carousel-testimonials" role="button" data-slide="prev">
+          <span class="icon-prev" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-testimonials" role="button" data-slide="next">
+          <span class="icon-next" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <hr>
 
   <section>

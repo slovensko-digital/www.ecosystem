@@ -2,6 +2,7 @@
 @import "bootstrap";
 
 @import "autoform";
+@import "testimonials";
 @import "services/slovensko_sk_api";
 @import "prism";
 @import "static";
@@ -280,4 +281,37 @@ fieldset {
 
 .btn-xlg {
 
+}
+
+#clients {
+  #carousel-testimonials {
+    .carousel-control, .carousel-control {
+      background-image: none;
+      filter: none;
+      color: black;
+
+      @media screen and (max-width: 992px) {
+        visibility: hidden;
+        display: none;
+      }
+    }
+
+    .carousel-inner {
+      .item {
+        > div {
+          height: 450px;
+          display: flex;
+          flex-direction: column;
+
+          > div {
+            margin: auto;
+          }
+
+          img:first-of-type {
+            margin-bottom: 1em;
+          }
+        }
+      }
+    }
+  }
 }
