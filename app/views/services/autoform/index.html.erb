@@ -116,29 +116,10 @@
             </div>
           </div>
         </section>
-
-        <section>
-          <div class="row">
-            <div class="col-md-7 col-md-pad">
-              <label>Hlavná ekonomická činnosť</label>
-            </div>
-          </div>
-          
-          <div class="row">
-            <div class="col-md-2 col-md-pad">
-              <%= label_tag :main_economic_activity_code, 'Kód' %>
-              <%= text_field_tag :main_economic_activity_code, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'main-economic-activity-code'} %>
-            </div>
-
-            <div class="col-md-10 col-md-pad">
-              <%= label_tag :main_economic_activity_name, 'Názov' %>
-              <%= text_field_tag :main_economic_activity_name, nil, class: 'form-control', disabled: true, data: {'slovensko-digital-autoform': 'main-economic-activity-name'} %>
-            </div>
-          </div>
-        </section>
       </div>
     </div>
   <% end %>
+  <p class="lead">Úplný zoznam údajov, ktoré sú dostupné <%= link_to 'nájdete v dokumentácii', integration_manual_services_autoform_index_path(anchor: 'postup-integrácie') %>.</p>
 
   <section id="clients">
     <h2 class="text-center">Spokojní zákazníci</h2>
