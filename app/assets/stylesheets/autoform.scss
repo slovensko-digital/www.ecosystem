@@ -40,3 +40,10 @@
 .ui-helper-hidden-accessible {
   display: none;
 }
+
+@media(min-width: $screen-md) {
+  .col-md-pad {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
