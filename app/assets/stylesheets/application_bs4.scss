@@ -203,6 +203,10 @@ h1 .badge {
           flex-direction: column;
           margin: auto;
 
+          @media screen and (max-width: 992px) {
+            height: 500px;
+          }
+
           > div {
             margin: auto;
           }
