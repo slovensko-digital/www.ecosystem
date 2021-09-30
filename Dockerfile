@@ -1,7 +1,7 @@
 FROM ruby:2.7.2
 
 # Install packages
-RUN apt-get update && apt-get install -y build-essential libpq-dev
+RUN apt-get update && apt-get install -y build-essential nodejs libpq-dev
 
 # Set working directory
 RUN mkdir /app
