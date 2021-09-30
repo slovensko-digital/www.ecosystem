@@ -1,1 +1,11 @@
 /health/all_env_set
+/health/services
+/sluzby/govbox?rollout=govbox
+/sluzby/govbox/registracia?rollout=govbox
+/sluzby/autoform
+/sluzby/datahub
+/otvorene-data
+/otvorene-api
+/premiove-data
+/premiove-api
+/
