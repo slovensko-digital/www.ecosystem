@@ -306,7 +306,7 @@ RSpec.feature 'GovBox registration', type: :feature do
 
     stub_request(:post, ENV.fetch('GOVBOX_FORM_ENDPOINT')).
       with(body: { 'cin' => '50 158 635', 'email' => 'jan.hargas@slovensko.digital', 'family_name' => 'Hargaš',
-        'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital', 'mode' => 'api_mode',
+        'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital', 'mode' => 'sync_mode',
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '+421903919123',
         'referral_code' => 'sf',
