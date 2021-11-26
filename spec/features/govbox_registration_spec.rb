@@ -15,9 +15,6 @@ RSpec.feature 'GovBox registration', type: :feature do
           click_on 'Mám záujem o GovBox'
         end
 
-        choose('Mám záujem o GovBox na preposielanie správ zo schránky na email.')
-        click_on 'Ďalej'
-
         fill_in 'Názov', with: 'Slovensko.Digital'
         fill_in 'IČO', with: '50 158 635'
         click_on 'Ďalej'
@@ -43,7 +40,7 @@ RSpec.feature 'GovBox registration', type: :feature do
             'person_formatted_address' => 'Líščie údolie 3710/33, Bratislava - mestská časť Karlova Ves', 'phone' => '+421903111111',
             'referral_code' => '',
           }).to_return(status: 201)
-        click_on 'Dokončiť registráciu'
+        click_on 'Objednať'
 
         expect(page).to have_content('Registrácia úspešná!')
       end
@@ -53,9 +50,6 @@ RSpec.feature 'GovBox registration', type: :feature do
         within('#registration') do
           click_on 'Mám záujem o GovBox'
         end
-
-        choose('Mám záujem o GovBox na preposielanie správ zo schránky na email.')
-        click_on 'Ďalej'
 
         fill_in 'Názov', with: 'Slovensko.Digital'
         fill_in 'IČO', with: '50 158 635'
@@ -82,7 +76,7 @@ RSpec.feature 'GovBox registration', type: :feature do
             'person_formatted_address' => 'Líščie údolie 3710/33, Bratislava - mestská časť Karlova Ves', 'phone' => '+421903111111',
             'referral_code' => '',
           }).to_return(status: 201)
-        click_on 'Dokončiť registráciu'
+        click_on 'Objednať'
 
         expect(page).to have_content('Registrácia úspešná!')
       end
@@ -101,9 +95,6 @@ RSpec.feature 'GovBox registration', type: :feature do
           click_on 'Mám záujem o GovBox'
         end
 
-        choose('Mám záujem o GovBox na preposielanie správ zo schránky na email.')
-        click_on 'Ďalej'
-
         fill_in 'Názov', with: 'Slovensko.Digital'
         fill_in 'IČO', with: '50 158 635'
         click_on 'Ďalej'
@@ -131,7 +122,7 @@ RSpec.feature 'GovBox registration', type: :feature do
             'person_formatted_address' => 'Líščie údolie 3710/33, Bratislava - mestská časť Karlova Ves', 'phone' => '+421903111111',
             'referral_code' => '',
           }).to_return(status: 201)
-        click_on 'Dokončiť registráciu'
+        click_on 'Objednať'
 
         expect(page).to have_content('Registrácia úspešná!')
       end
@@ -150,9 +141,6 @@ RSpec.feature 'GovBox registration', type: :feature do
           click_on 'Mám záujem o GovBox'
         end
 
-        choose('Mám záujem o GovBox na preposielanie správ zo schránky na email.')
-        click_on 'Ďalej'
-
         fill_in 'Názov', with: 'Slovensko.Digital'
         fill_in 'IČO', with: '50 158 635'
         click_on 'Ďalej'
@@ -180,32 +168,15 @@ RSpec.feature 'GovBox registration', type: :feature do
             'person_formatted_address' => 'Líščie údolie 3710/33, Bratislava - mestská časť Karlova Ves', 'phone' => '+421903111111',
             'referral_code' => '',
           }).to_return(status: 201)
-        click_on 'Dokončiť registráciu'
+        click_on 'Objednať'
 
         expect(page).to have_content('Registrácia úspešná!')
       end
     end
   end
 
-  scenario 'Selecting between GovBox and GovBox API is required' do
-    visit '/sluzby/govbox/registracia'
-
-    expect(page.find('#mode__sync_mode')).not_to be_checked
-    expect(page.find('#mode__api_mode')).not_to be_checked
-
-    expect(page.find('#mode__sync_mode')[:required]).to be_present
-    expect(page.find('#mode__sync_mode')[:required]).to be_present
-  end
-
   scenario 'Navigation paths are correct' do
     visit '/sluzby/govbox/registracia'
-
-    expect(current_path).to have_content 'registracia'
-
-    choose('Mám záujem o GovBox na preposielanie správ zo schránky na email.')
-    click_on 'Ďalej'
-
-    expect(current_path).to have_content 'registracia-subjekt'
 
     fill_in 'Názov', with: 'Slovensko.Digital'
     fill_in 'IČO', with: '50 158 635'
@@ -225,7 +196,7 @@ RSpec.feature 'GovBox registration', type: :feature do
     expect(current_path).to have_content 'registracia-zabezpecenie'
   end
 
-  scenario 'User registers for GovBox API', js: true do
+  xscenario 'User registers for GovBox API', js: true do
     visit '/sluzby/govbox'
     within('#registration') do
       click_on 'Mám záujem o GovBox'
@@ -270,9 +241,6 @@ RSpec.feature 'GovBox registration', type: :feature do
       click_on 'Mám záujem o GovBox'
     end
 
-    choose('Mám záujem o GovBox na preposielanie správ zo schránky na email.')
-    click_on 'Ďalej'
-
     fill_in 'Názov', with: 'Slovensko.Digital'
     fill_in 'IČO', with: '50 158 635'
     click_on 'Ďalej'
@@ -292,7 +260,7 @@ RSpec.feature 'GovBox registration', type: :feature do
 
     stub_request(:post, ENV.fetch('GOVBOX_FORM_ENDPOINT')).to_return(status: [500, 'Internal Server Error'])
 
-    click_on 'Dokončiť registráciu'
+    click_on 'Objednať'
 
     expect(page).to have_content('momentálne nie je možné dokončiť registráciu')
 
@@ -315,9 +283,6 @@ RSpec.feature 'GovBox registration', type: :feature do
       click_on 'Mám záujem o GovBox'
     end
 
-    choose('Mám záujem o GovBox API na integráciu vlastného informačného systému.')
-    click_on 'Ďalej'
-
     fill_in 'Názov', with: 'Slovensko.Digital'
     fill_in 'IČO', with: '50 158 635'
     click_on 'Ďalej'
@@ -337,11 +302,11 @@ RSpec.feature 'GovBox registration', type: :feature do
 
     stub_request(:post, ENV.fetch('GOVBOX_FORM_ENDPOINT')).to_return(status: [500, 'Internal Server Error'])
 
-    click_on 'Dokončiť registráciu'
+    click_on 'Objednať'
 
     stub_request(:post, ENV.fetch('GOVBOX_FORM_ENDPOINT')).
       with(body: { 'cin' => '50 158 635', 'email' => 'jan.hargas@slovensko.digital', 'family_name' => 'Hargaš',
-        'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital', 'mode' => 'api_mode',
+        'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital', 'mode' => 'sync_mode',
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '+421903919123',
         'referral_code' => 'sf',

@@ -1,28 +1,38 @@
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+<%= javascript_include_tag "#{ENV.fetch('AUTOFORM_URL')}/assets/autoform.js" %>
+
 <div class="container">
-  <%= form_tag register_step2_services_govbox_index_path do %>
+  <%= form_tag register_step2_services_govbox_index_path, data: {'slovensko-digital-autoform': ENV.fetch('AUTOFORM_ACCESS_TOKEN')} do %>
 
     <div class="row">
       <div class="col-lg-8">
-        <h1 class="form-title">Výber služby</h1>
-        <div class="row mt-4">
-          <div class="col-lg-12">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-check">
-                  <label class="form-check-label">
-                    <%= radio_button :mode, params[:mode], 'sync_mode', class: 'form-check-input', required: true %>
-                    <span>Mám záujem o <strong>GovBox</strong> na preposielanie správ zo schránky na email.</span>
-                  </label>
-                </div>
-                <div class="form-check">
-                  <label class="form-check-label">
-                    <%= radio_button :mode, params[:mode], 'api_mode', class: 'form-check-input', required: true %>
-                    <span>Mám záujem o <strong>GovBox API</strong> na integráciu vlastného informačného systému.</span>
-                  </label>
-                </div>
-                <span class="form-text text-muted">GovBox API nepreposiela správy zo schránky na email, ale umožňuje manipuláciu so schránkou prostredníctvom programového rozhrania (API). Ak neviete, čo to znamená, neváhajte <%= link_to 'nás kontaktovať', 'mailto:podpora@govbox.slovensko.digital' %>.</span>
-              </div>
-            </div>
+        <h1 class="form-title">Registrácia k službe GovBox</h1>
+        <p class="lead">GovBox vám umožní jednoduchý prístup k štátnej elektronickej schránke.</p>
+        <section>
+          <p class="lead">Hlavné výhody GovBoxu:</p>
+          <ul>
+            <li>Automatické preposielanie správ zo štátnej schránky na súkromný mail.</li>
+            <li>Prístup k správam aj v mobile.</li>
+            <li>Bez prihlásenia s eID.</li>
+            <li>Týždenný sumár.</li>
+          </ul>
+        </section>
+
+          <p>A navyše - ak nedostanete žiadne správy, za GovBox neplatíte, pozrite si <%= link_to 'kompletný cenník', pricing_services_govbox_index_path %>.</p>
+
+        <p class="form-subtitle lead">Zadajte údaje právnickej osoby, pre ktorú máte záujem zriadiť službu.</p>
+
+        <div class="row">
+          <div class="col-md-8 form-group">
+            <%= label_tag :legal_subject_name, 'Názov právnickej osoby' %>
+            <%= text_field_tag :legal_subject_name, params[:legal_subject_name], class: 'form-control input-lg', required: true, autocomplete: 'off', data: {'slovensko-digital-autoform': 'name'} %>
+            <span class="form-text text-muted">Napríklad: Slovensko.Digital, Martinus</span>
+          </div>
+          <div class="col-md-4 form-group">
+            <%= label_tag :cin, 'IČO' %>
+            <%= text_field_tag :cin, params[:cin], class: 'form-control input-lg', required: true, data: {'slovensko-digital-autoform': 'cin'} %>
+            <span class="form-text text-muted">Napríklad: 36421928</span>
           </div>
         </div>
       </div>
