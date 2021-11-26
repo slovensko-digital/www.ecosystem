@@ -176,7 +176,7 @@ RSpec.feature 'GovBox registration', type: :feature do
   end
 
   scenario 'Navigation paths are correct' do
-    visit '/sluzby/govbox/registracia-subjekt'
+    visit '/sluzby/govbox/registracia'
 
     fill_in 'Názov', with: 'Slovensko.Digital'
     fill_in 'IČO', with: '50 158 635'
