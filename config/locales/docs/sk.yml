@@ -1299,6 +1299,31 @@ sk:
 
     fs:
       tables:
+        income_tax_subjects:
+          description: Dane z príjmov
+
+          columns:
+            id:
+              description: Identifikátor
+            cin:
+              description: Identifikačné číslo organizácie (IČO)
+            tin:
+              description: DIČ
+            name:
+              description: Názov subjektu
+            street:
+              description: Ulica
+            municipality:
+              description: Obec
+            postal_code:
+              description: PSČ
+            country:
+              description: Krajina
+            effective_to:
+              description: Dátum konca platnosti záznamu
+              note_html: Systémový stĺpec. Nepochádza zo zdroja.
+            <<: *timestamp_columns
+
         tax_liabilities:
           description: Daňové povinnosti
 
