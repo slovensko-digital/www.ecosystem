@@ -22,25 +22,19 @@ class Services::GovboxController < ContentController
   end
 
   def register_step1
-    @page.title = 'Jednoduchý prístup k štátnej elektronickej schránke &middot; GovBox'.html_safe
-    @page.og.image = view_context.image_url('services/govbox/facebook_share.png')
-    @page.og.description = 'Preposielanie správ zo štátnej elektronickej schránky priamo na Váš email. Bez elektronického občianskeho preukazu, bez prihlasovania. Od Slovensko.Digital.'
   end
 
   def register_step2
+    @statutory_entries = fetch_statutory_entries
   end
 
   def register_step3
-    @statutory_entries = fetch_statutory_entries
   end
 
   def register_step4
   end
 
   def register_step5
-  end
-
-  def register_step6
     begin
       RestClient.post(ENV.fetch('GOVBOX_FORM_ENDPOINT'), params.permit(PARAMS).to_h)
       redirect_to register_thanks_services_govbox_index_path
