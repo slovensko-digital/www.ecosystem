@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :govbox do
       collection do
         get :faq, path: 'casto-kladene-otazky'
-        get :register_step1, path: 'registracia-subjekt'
+        get :register_step1, path: 'registracia'
         post :register_step2, path: 'registracia-statutar'
         post :register_step3, path: 'registracia-nastavenie'
         post :register_step4, path: 'registracia-zabezpecenie'
