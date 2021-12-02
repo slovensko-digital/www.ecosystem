@@ -12,7 +12,7 @@ RSpec.feature 'GovBox registration', type: :feature do
       scenario 'user selects statutory body from available entries', js: true do
         visit '/sluzby/govbox'
         within('#registration') do
-          click_on 'Mám záujem o GovBox'
+          click_on 'Kúpiť GovBox'
         end
 
         fill_in 'Názov', with: 'Slovensko.Digital'
@@ -48,7 +48,7 @@ RSpec.feature 'GovBox registration', type: :feature do
       scenario 'user enters statutory body manually', js: true do
         visit '/sluzby/govbox'
         within('#registration') do
-          click_on 'Mám záujem o GovBox'
+          click_on 'Kúpiť GovBox'
         end
 
         fill_in 'Názov', with: 'Slovensko.Digital'
@@ -92,7 +92,7 @@ RSpec.feature 'GovBox registration', type: :feature do
       scenario 'user enters statutory body manually and view is rendered correctly' do
         visit '/sluzby/govbox'
         within('#registration') do
-          click_on 'Mám záujem o GovBox'
+          click_on 'Kúpiť GovBox'
         end
 
         fill_in 'Názov', with: 'Slovensko.Digital'
@@ -138,7 +138,7 @@ RSpec.feature 'GovBox registration', type: :feature do
       scenario 'user is able to register for GovBox and error is handled properly' do
         visit '/sluzby/govbox'
         within('#registration') do
-          click_on 'Mám záujem o GovBox'
+          click_on 'Kúpiť GovBox'
         end
 
         fill_in 'Názov', with: 'Slovensko.Digital'
@@ -199,7 +199,7 @@ RSpec.feature 'GovBox registration', type: :feature do
   xscenario 'User registers for GovBox API', js: true do
     visit '/sluzby/govbox'
     within('#registration') do
-      click_on 'Mám záujem o GovBox'
+      click_on 'Kúpiť GovBox'
     end
 
     choose('Mám záujem o GovBox API na integráciu vlastného informačného systému.')
@@ -238,7 +238,7 @@ RSpec.feature 'GovBox registration', type: :feature do
   scenario 'User cannot finish registration for GovBox' do
     visit '/sluzby/govbox'
     within('#header') do
-      click_on 'Mám záujem o GovBox'
+      click_on 'Kúpiť GovBox'
     end
 
     fill_in 'Názov', with: 'Slovensko.Digital'
@@ -280,7 +280,7 @@ RSpec.feature 'GovBox registration', type: :feature do
   scenario 'We track referral code' do
     visit '/sluzby/govbox?ref=sf'
     within('#registration') do
-      click_on 'Mám záujem o GovBox'
+      click_on 'Kúpiť GovBox'
     end
 
     fill_in 'Názov', with: 'Slovensko.Digital'
