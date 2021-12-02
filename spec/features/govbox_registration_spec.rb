@@ -199,7 +199,7 @@ RSpec.feature 'GovBox registration', type: :feature do
   xscenario 'User registers for GovBox API', js: true do
     visit '/sluzby/govbox'
     within('#registration') do
-      click_on 'Mám záujem o GovBox'
+      click_on 'Kúpiť GovBox'
     end
 
     choose('Mám záujem o GovBox API na integráciu vlastného informačného systému.')
@@ -238,7 +238,7 @@ RSpec.feature 'GovBox registration', type: :feature do
   scenario 'User cannot finish registration for GovBox' do
     visit '/sluzby/govbox'
     within('#header') do
-      click_on 'Mám záujem o GovBox'
+      click_on 'Kúpiť GovBox'
     end
 
     fill_in 'Názov', with: 'Slovensko.Digital'

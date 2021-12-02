@@ -10,7 +10,7 @@
             <mark>Vedeli ste, že od 1.júla 2017 štát posiela právnickým osobám zapísaným v&nbsp;obchodnom registri úradné zásielky do&nbsp;elektronickej schránky? GovBox ich pošle na&nbsp;Váš email.</mark>
           </p>
           <%= link_to register_step1_services_govbox_index_path, class: 'btn btn-primary btn-lg' do %>
-            <strong>Mám záujem o GovBox</strong>
+            <strong>Kúpiť GovBox</strong>
           <% end %>
         </div>
         <div class="col-md-6 text-center">
@@ -25,8 +25,14 @@
   <div id="how" class="container">
     <div class="row">
       <div class="col-sm-12 text-center">
+        <h2>Kto môže GovBox používať?</h2>
+        <p class="lead text-muted">Všetky právnické osoby ako sú firmy, živnostníci, či neziskové</br> organizácie.
+        Pre fyzické osoby GovBox neposkytujeme.</p>
+        <p class="lead text-muted">Ak si nie ste istí, či môžete GovBox používať, napíšte nám a radi Vám poradíme.</p>
+      </div>
+      <div class="col-sm-12 text-center">
         <h2>Ako funguje GovBox?</h2>
-        <p class="lead text-muted">Porovnajte si ponuku štátu s našou ponukou sami:</p>
+        <p class="lead text-muted">Pozrite si prečo je GovBox lepší ako slovensko.sk:</p>
         <div class="weirdo"></div>
       </div>
     </div>
@@ -105,7 +111,7 @@
             <td class="text-right"><i class="fa fa-thumbs-o-up"></i></td>
             <td class="text-left">
               <mark>NAVYŠE</mark>
-              týždenný <strong>sumár</strong></td>
+              týždenný <strong>sumár</strong> Vám pripomenie neprebratú správu</td>
           </tr>
           <tr>
             <td class="text-right"><i class="fa fa-thumbs-o-up"></i></td>
@@ -141,19 +147,24 @@
         </tr>
         <tr>
           <th><strong>Prvý mesiac</strong></th>
-          <td><em>zadarmo</em></td>
+          <td>bezplatne</td>
         </tr>
         <tr>
           <th><strong>Mesačný poplatok</strong><br/><span class="text-muted">do 20 správ mesačne</span></th>
           <td class="w-50">
-            <em>8€ / mesiac</em> <br> alebo <br> <em>zadarmo</em>
-            <span class="text-muted text-small">ak nedostanete žiadne správy</span></p>
+            <em>8€ / mesiac</em>
+          </td>
+        </tr>
+        <tr>
+          <th><strong>Mesačný poplatok</strong><br/><span class="text-muted">do 0 správ za mesiac</span></th>
+          <td class="w-50">
+            0€ / mesiac
           </td>
         </tr>
         <tr>
           <td colspan="2" class="text-center pricing-more">
-            <p>Potrebujete viac ako 20 správ mesačne?<br/> Integráciu na Váš interný systém cez API?<br> Máte ďalšie otázky?</p>
-            <p><%= link_to 'Kontaktujte nás', 'https://slovensko.digital/kontakt', class: 'font-weight-bold' %> alebo si prečítajte <%= link_to 'odpovede na časté otázky', faq_services_govbox_index_path, class: 'text-muted' %>.</p>
+            <p>Ak Vám prichádza viac ako 20 správ mesačne, pozrite si <%= link_to 'kompletný cenník', pricing_services_govbox_index_path %>.<br/> Potrebujete integráciu na Váš interný systém cez API?<br><%= link_to 'Kontaktujte nás', 'https://slovensko.digital/kontakt', class: 'font-weight-bold' %></p>
+             <p>Máte ďalšie otázky? Prečítajte si <%= link_to 'odpovede na časté otázky', faq_services_govbox_index_path, class: 'text-muted' %>.</p>
           </td>
         </tr>
       </table>
@@ -218,12 +229,12 @@
                 </div>
               </div>
             </div>
-            
+
             <div class="carousel-item">
               <div class="col-md-8 col-md-offset-2">
                 <div>
                   <img src="<%= path_to_image('clients/people/martina_hanulova_benu.png') %>" style="height: 15ex" alt="Mgr. Martina Hanulová">
-                  <p class="text-center">&quot;So službou GovBox máme ako spoločnosť BENU Slovensko, a.s. len pozitívne skúsenosti, <b>príjímanie a odosielanie správ je rýchle a bezproblémové</b>.
+                  <p class="text-center">&quot;So službou GovBox máme ako spoločnosť BENU Slovensko, a.s. len pozitívne skúsenosti, <b>príjímanie správ je rýchle a bezproblémové</b>.
                     Počas používania sme sa nestretli s negatívnymi skúsenosťami. Určite by som GoxBox odporučila, nakoľko zamestnanec pri svojej práci nemá možnosť ani šancu každý deň sledovať príjem správ do elektronickej schránky.
                     <b>Preposielanie z GovBoxu je pri súčasnej elektronizácii veľkou pomocou</b>.&quot;
                     </p>
