@@ -13,7 +13,7 @@ $(document).ready(function() {
             $('#sk-api-form').hide();
             $('#sk-api-form-sent').show();
 
-            ga('send', 'event', 'slovensko.sk API', 'Registration');
+            plausible('Registration', {props: {product: 'slovensko.sk API'}});
             return true;
         }
     });

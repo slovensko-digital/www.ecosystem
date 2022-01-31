@@ -15,7 +15,7 @@ $(document).ready(function () {
                         form.remove();
                         $('.newsletter .newsletter-success').removeClass('hidden');
 
-                        ga('send', 'event', 'Newsletter', 'Registration');
+                        plausible('NewsletterSignup');
                     }
                 },
                 complete: function () {
