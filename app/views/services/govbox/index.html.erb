@@ -143,7 +143,7 @@
       <table class="table table-pricing table-responsive">
         <tr>
           <th><strong>Pripojenie na schránku</strong><br><span class="text-muted">Jednorázový poplatok</span></th>
-          <% if cookies[:ref] == 'firmaren-api' %>
+          <% if ENV['GOVBOX_REFERRAL_CODES'].split(',').include? cookies[:ref] %>
             <td><em><strike>9€</strike>&emsp;ZADARMO</em></td>
           <% else %>
             <td><em>9€</em></td>
