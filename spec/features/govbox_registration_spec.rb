@@ -278,11 +278,12 @@ RSpec.feature 'GovBox registration', type: :feature do
   end
 
   scenario 'We track referral code' do
-    visit '/sluzby/govbox?ref=sf'
+    visit '/sluzby/govbox?ref=firmaren-api'
     within('#registration') do
       click_on 'Mám záujem o GovBox'
     end
 
+    expect(page).to have_content('AKCIA: Aktivácia zadarmo.')
     fill_in 'Názov', with: 'Slovensko.Digital'
     fill_in 'IČO', with: '50 158 635'
     click_on 'Ďalej'
