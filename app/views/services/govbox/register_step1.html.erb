@@ -25,6 +25,7 @@
 
         <div class="row">
           <div class="col-md-8 form-group">
+            <%= hidden_field_tag :mode, params[:mode], :value => params[:mode] || 'sync_mode' %>
             <%= label_tag :legal_subject_name, 'Názov právnickej osoby' %>
             <%= text_field_tag :legal_subject_name, params[:legal_subject_name], class: 'form-control input-lg', required: true, autocomplete: 'off', data: {'slovensko-digital-autoform': 'name'} %>
             <span class="form-text text-muted">Napríklad: Slovensko.Digital, Martinus</span>
