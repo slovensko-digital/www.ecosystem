@@ -196,14 +196,11 @@ RSpec.feature 'GovBox registration', type: :feature do
     expect(current_path).to have_content 'registracia-zabezpecenie'
   end
 
-  xscenario 'User registers for GovBox API', js: true do
-    visit '/sluzby/govbox'
-    within('#registration') do
-      click_on 'Kúpiť GovBox'
+  scenario 'User registers for GovBox API', js: true do
+    visit '/sluzby/govbox-api'
+    within('#header') do
+      click_on 'Kúpiť GovBox API'
     end
-
-    choose('Mám záujem o GovBox API na integráciu vlastného informačného systému.')
-    click_on 'Ďalej'
 
     fill_in 'Názov', with: 'Slovensko.Digital'
     fill_in 'IČO', with: '50 158 635'
@@ -230,7 +227,7 @@ RSpec.feature 'GovBox registration', type: :feature do
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '+421903919123',
         'referral_code' => '',
       }).to_return(status: 201)
-    click_on 'Dokončiť registráciu'
+    click_on 'Objednať'
 
     expect(page).to have_content('Registrácia úspešná!')
   end
