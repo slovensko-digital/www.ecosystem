@@ -202,7 +202,7 @@ table.table-pricing {
   margin: 3rem 0 1rem;
 }
 
-#pricing em {
+#pricing em, #free_activation em {
   color: #8fcd46;
   font-weight: 800;
   font-style: normal;
@@ -219,6 +219,10 @@ table.table-pricing {
   padding-bottom: 0;
   max-width: 50rem;
   margin: 0 auto;
+}
+
+#free_activation {
+  padding: 1em 0;
 }
 
 #registration {

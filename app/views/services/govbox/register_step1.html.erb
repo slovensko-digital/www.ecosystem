@@ -8,6 +8,13 @@
     <div class="row">
       <div class="col-lg-8">
         <h1 class="form-title">Registrácia k službe GovBox</h1>
+        <% if ENV['GOVBOX_REFERRAL_CODES'].split(',').include? cookies[:ref] %>
+          <section>
+            <div id="free_activation">
+              <p><em>AKCIA: Aktivácia zadarmo.</em></p>
+            </div>
+          </section>
+        <% end %>
         <p class="lead">GovBox vám umožní jednoduchý prístup k štátnej elektronickej schránke.</p>
         <section>
           <p class="lead">Hlavné výhody GovBoxu:</p>

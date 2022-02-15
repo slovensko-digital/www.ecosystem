@@ -278,11 +278,12 @@ RSpec.feature 'GovBox registration', type: :feature do
   end
 
   scenario 'We track referral code' do
-    visit '/sluzby/govbox?ref=sf'
+    visit '/sluzby/govbox?ref=registracia_zdarma'
     within('#registration') do
       click_on 'Mám záujem o GovBox'
     end
 
+    expect(page).to have_content('AKCIA: Aktivácia zadarmo.')
     fill_in 'Názov', with: 'Slovensko.Digital'
     fill_in 'IČO', with: '50 158 635'
     click_on 'Ďalej'
@@ -309,7 +310,7 @@ RSpec.feature 'GovBox registration', type: :feature do
         'given_name' => 'Ján', 'legal_subject_name' => 'Slovensko.Digital', 'mode' => 'sync_mode',
         'password' => 'nejakeheslo', 'password_confirmation' => 'nejakeheslo',
         'person_formatted_address' => 'Koprivnická 9/B, 841 04 Bratislava', 'phone' => '+421903919123',
-        'referral_code' => 'sf',
+        'referral_code' => 'registracia_zdarma',
       }).to_return(status: 201)
 
     click_on 'Skúsiť dokončiť registráciu znova'
