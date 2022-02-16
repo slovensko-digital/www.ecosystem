@@ -14,6 +14,7 @@
         </div>
         <div id="api-image" class="col-md-6 text-center">
           <%= image_tag 'services/govbox_api/device.png', srcset: "#{path_to_image('services/govbox_api/device@2x.png')} 2x", class: 'hidden-sm-down' %>
+          <%= image_tag 'services/govbox_api/device.png', srcset: "#{path_to_image('services/govbox_api/device@2x.png')} 2x", class: 'img-fluid hidden-md-up' %>
         </div>
       </div>
     </div>
@@ -72,6 +73,14 @@
           </td>
         </tr>
       </table>
+    </div>
+  </div>
+
+  <div id="registration" class="container">
+    <div class="mt-5 mb-5">
+      <%= link_to register_step1_services_govbox_index_path(mode: "api_mode" ), class: 'btn btn-success btn-xl' do %>
+        <strong>Mám záujem o GovBox API</strong>
+      <% end %>
     </div>
   </div>
 

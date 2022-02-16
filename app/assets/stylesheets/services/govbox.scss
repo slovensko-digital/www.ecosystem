@@ -115,11 +115,14 @@ table.table-pricing {
 
 #api-image {
   display: flex;
-  justify-content: center;
+  position: relative;
 
-  img {
+  img:first-child {
+    margin-top: auto;
+  }
+
+  img:nth-child(2) {
     margin: auto;
-    height: 75%;
   }
 }
 
@@ -374,7 +377,7 @@ table.table-pricing {
       border-right: 0;
     }
 
-    #header .titles {
+    #header .titles, .govbox_api #header .titles {
       margin-top: 3rem;
       margin-bottom: 1rem;
     }
@@ -433,7 +436,7 @@ table.table-pricing {
   }
 
   @media (max-width: 1199px) {
-    #header .titles {
+    #header .titles, .govbox_api #header .titles {
       margin-top: 3rem;
       margin-bottom: 1rem;
     }
