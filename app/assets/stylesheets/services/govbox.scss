@@ -117,12 +117,8 @@ table.table-pricing {
   display: flex;
   position: relative;
 
-  img:first-child {
-    margin-top: auto;
-  }
-
-  img:nth-child(2) {
-    margin: auto;
+  img {
+    margin: auto auto 0 auto;
   }
 }
 
