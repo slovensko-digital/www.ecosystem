@@ -103,9 +103,24 @@ table.table-pricing {
   margin-top: 6rem;
 }
 
+.govbox_api #header .titles {
+  margin-top: 6rem;
+  margin-bottom: 3rem;
+}
+
 #header h1 {
   margin-bottom: 2rem;
   display: inline-block;
+}
+
+#api-image {
+  display: flex;
+  justify-content: center;
+
+  img {
+    margin: auto;
+    height: 75%;
+  }
 }
 
 #how, #pricing {

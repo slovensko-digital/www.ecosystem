@@ -1,4 +1,4 @@
-<div class="govbox">
+<div class="govbox_api">
   <div id="header">
     <div class="container">
       <div class="row">
@@ -12,9 +12,8 @@
             <strong>Kúpiť GovBox API</strong>
           <% end %>
         </div>
-        <div class="col-md-6 text-center">
-          <%= image_tag 'services/govbox/header.png', srcset: "#{path_to_image('services/govbox/header@2x.png')} 2x", class: 'hidden-sm-down' %>
-          <%= image_tag 'services/govbox/device.png', srcset: "#{path_to_image('services/govbox/device@2x.png')} 2x", class: 'img-fluid hidden-md-up' %>
+        <div id="api-image" class="col-md-6 text-center">
+          <%= image_tag 'services/govbox_api/device.png', srcset: "#{path_to_image('services/govbox_api/device@2x.png')} 2x", class: 'hidden-sm-down' %>
         </div>
       </div>
     </div>
@@ -31,19 +30,22 @@
       <h2 class="text-center">Výhody integrácie cez GovBox API</h2>
     </div>
     <table class="table api">
-        <tr>
-          <td class="text-right"><i class="fa fa-thumbs-o-up"></i></td>
-          <td class="text-left">automatizované preberanie správ zo štátnej schránky priamo do Vášho interného systému</td>
-        </tr>
-        <tr>
-          <td class="text-right"><i class="fa fa-thumbs-o-up"></i></td>
-          <td class="text-left">hromadné podania bez prihlasovania na slovensko.sk</td>
-        </tr>
-        <tr>
-          <td class="text-right"><i class="fa fa-thumbs-o-up"></i></td>
-          <td class="text-left">jeden prístup pre viacerých používateľov</td>
-        </tr>
-      </table>
+      <tr>
+        <td class="text-right"><i class="fa fa-thumbs-o-up"></i></td>
+        <td class="text-left">automatizované preberanie správ zo štátnej schránky priamo do Vášho interného systému</td>
+      </tr>
+      <tr>
+        <td class="text-right"><i class="fa fa-thumbs-o-up"></i></td>
+        <td class="text-left">hromadné podania bez prihlasovania na slovensko.sk</td>
+      </tr>
+      <tr>
+        <td class="text-right"><i class="fa fa-thumbs-o-up"></i></td>
+        <td class="text-left">jeden prístup pre viacerých používateľov</td>
+      </tr>
+    </table>
+    <div class="mt-5 text-center">
+      <p class="lead">Podporované API volania nájdete v <a href="https://generator3.swagger.io/index.html?url=https://govbox.slovensko.digital/openapi.yaml">dokumentácii</a>.</p>
+    </div>
   </div>
 
   <div id="pricing" class="container">
