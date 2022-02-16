@@ -4,8 +4,8 @@
       <div class="row flight">
         <div class="col-md-6 titles">
           <h1>GovBox</h1>
-          <p class="lead lead-short">Jednoduchý prístup k štátnej elektronickej schránke
-            <strong>priamo cez Váš email a&nbsp;bez elektronického občianskeho preukazu.</strong></p>
+          <p class="lead lead-short">Jednoduchý prístup k&nbsp;štátnej elektronickej schránke
+            <strong>priamo cez Váš email a&nbsp;bez&nbsp;elektronického občianskeho preukazu.</strong></p>
           <p class="lead">
             <mark>Vedeli ste, že od 1.júla 2017 štát posiela právnickým osobám zapísaným v&nbsp;obchodnom registri úradné zásielky do&nbsp;elektronickej schránky? GovBox ich pošle na&nbsp;Váš email.</mark>
           </p>
@@ -55,7 +55,7 @@
           </tr>
           <tr>
             <td class="text-right"><i class="fa fa-clock-o text-danger"></i></td>
-            <td class="text-left"><strong>2 návštevy</strong> na polícii</td>
+            <td class="text-left"><strong>2 návštevy</strong> na&nbsp;polícii</td>
           </tr>
           <tr>
             <td class="text-right"><i class="fa fa-clock-o text-danger"></i></td>
@@ -93,19 +93,19 @@
           </tr>
           <tr>
             <td class="text-right"><i class="fa fa-thumbs-o-up"></i></td>
-            <td class="text-left">preposielanie správ <strong>bez prihlasovania</strong></td>
+            <td class="text-left">preposielanie správ <strong>bez&nbsp;prihlasovania</strong></td>
           </tr>
           <tr>
             <td class="text-right"><i class="fa fa-thumbs-o-up"></i></td>
             <td class="text-left">
               <mark>NAVYŠE</mark>
-              zobrazenie <strong>na mobile</strong></td>
+              zobrazenie <strong>na&nbsp;mobile</strong></td>
           </tr>
           <tr>
             <td class="text-right"><i class="fa fa-thumbs-o-up"></i></td>
             <td class="text-left">
               <mark>NAVYŠE</mark>
-              <strong>platby priamo z mobilu</strong> cez appku vašej banky alebo QR kód na mobile</td>
+              <strong>platby priamo z&nbsp;mobilu</strong> cez appku vašej banky alebo QR kód na&nbsp;mobile</td>
           </tr>
           <tr>
             <td class="text-right"><i class="fa fa-thumbs-o-up"></i></td>
@@ -129,20 +129,24 @@
       </div>
       <div class="weirdo2"></div>
     </div>
+    <br/>
+    <div class="text-center">
+      <p>Potrebujete integráciu na&nbsp;Váš interný systém cez&nbsp;API? Pozrite si našu službu <%= link_to 'GovBox API', services_govbox_api_index_path, class: 'font-weight-bold' %>.</p>
+    </div>
   </div>
 
   <div id="pricing" class="container">
     <div class="mt-5 text-center">
       <h2>Cenník</h2>
       <p class="lead text-muted">
-        <strong>Platíte iba ak GovBox naozaj používate.</strong><br/> Príjmy idú na aktivity občianskeho združenia Slovensko.Digital.
+        <strong>Platíte iba ak GovBox naozaj používate.</strong><br/> Príjmy idú na&nbsp;aktivity občianskeho združenia Slovensko.Digital.
       </p><br/>
     </div>
 
     <div class="shadow">
       <table class="table table-pricing table-responsive">
         <tr>
-          <th><strong>Pripojenie na schránku</strong><br><span class="text-muted">Jednorázový poplatok</span></th>
+          <th><strong>Pripojenie na&nbsp;schránku</strong><br><span class="text-muted">Jednorázový poplatok</span></th>
           <% if ENV['GOVBOX_REFERRAL_CODES'].split(',').include? cookies[:ref] %>
             <td><em><strike>9€</strike>&emsp;ZADARMO</em></td>
           <% else %>
@@ -160,15 +164,15 @@
           </td>
         </tr>
         <tr>
-          <th><strong>Mesačný poplatok</strong><br/><span class="text-muted">do 0 správ za mesiac</span></th>
+          <th><strong>Mesačný poplatok</strong><br/><span class="text-muted">do 0 správ za&nbsp;mesiac</span></th>
           <td class="w-50">
             0€ / mesiac
           </td>
         </tr>
         <tr>
           <td colspan="2" class="text-center pricing-more">
-            <p>Ak Vám prichádza viac ako 20 správ mesačne, pozrite si <%= link_to 'kompletný cenník', pricing_services_govbox_index_path %>.<br/> Potrebujete integráciu na Váš interný systém cez API?<br><%= link_to 'Kontaktujte nás', 'https://slovensko.digital/kontakt', class: 'font-weight-bold' %></p>
-             <p>Máte ďalšie otázky? Prečítajte si <%= link_to 'odpovede na časté otázky', faq_services_govbox_index_path, class: 'text-muted' %>.</p>
+            <p>Ak Vám prichádza viac ako 20 správ mesačne, pozrite si <%= link_to 'kompletný cenník', pricing_services_govbox_index_path %>.</p>
+             <p>Máte ďalšie otázky? Prečítajte si <%= link_to 'odpovede na časté otázky', faq_services_govbox_index_path, class: 'text-muted' %><br/>alebo&nbsp;<%= link_to 'nás kontaktujte', 'https://slovensko.digital/kontakt' %>.</p>
           </td>
         </tr>
       </table>
@@ -180,7 +184,7 @@
       <div class="col-md-12">
         <br/><br/><br/>
         <h2>Ako získam GovBox?</h2><br/>
-        <p class="lead text-muted">Jednoduchá registrácia a jedna návšteva notára:
+        <p class="lead text-muted">Jednoduchá registrácia a&nbsp;jedna návšteva notára:
           <span class="desktop"><br/></span><strong>všetky potrebné dokumenty vyplníme za Vás</strong>.</p>
       </div>
     </div>
@@ -199,7 +203,7 @@
       <div class="col-md-4">
         <div class="last">
           <div class="number"><i class="fa fa-check"></i></div>
-          <span class="what"><strong>Hotovo!</strong> Onedlho Vám začnú na zvolený email chodiť všetky správy zo štátnej schránky.</span>
+          <span class="what"><strong>Hotovo!</strong> Onedlho Vám začnú na&nbsp;zvolený email chodiť všetky správy zo&nbsp;štátnej schránky.</span>
         </div>
       </div>
     </div>
@@ -222,8 +226,8 @@
                 <div>
                   <img src="<%= path_to_image('clients/people/dan_kollar_cyklokoalicia.png') %>" style="height: 15ex" alt="Dan Kollár">
                     <p class="text-center">&quot;<b>V Cyklokoalícii nám služba GovBox velmi zjednodušuje život.</b>
-                      Veľa vecí súvisiacich s rozvojom pešej a cyklistickej dopravy sa totiž deje cez podania a úrady, ktoré nám denne posielajú množstvo informácií o konaniach a podobne.
-                      <b>Takto ich dostaneme jednoducho do emailu a vieme s nimi následne ďalej efektívne pracovať.</b>&quot;
+                      Veľa vecí súvisiacich s rozvojom pešej a&nbsp;cyklistickej dopravy sa totiž deje cez&nbsp;podania a&nbsp;úrady, ktoré nám denne posielajú množstvo informácií o&nbsp;konaniach a&nbsp;podobne.
+                      <b>Takto ich dostaneme jednoducho do&nbsp;emailu a&nbsp;vieme s&nbsp;nimi následne ďalej efektívne pracovať.</b>&quot;
                     </p>
                     <p class="client-name"><i>Dan Kollár</i></p>
                     <p><i>Prezident Cyklokoalícia</i></p>
@@ -238,9 +242,9 @@
               <div class="col-md-8 col-md-offset-2">
                 <div>
                   <img src="<%= path_to_image('clients/people/martina_hanulova_benu.png') %>" style="height: 15ex" alt="Mgr. Martina Hanulová">
-                  <p class="text-center">&quot;So službou GovBox máme ako spoločnosť BENU Slovensko, a.s. len pozitívne skúsenosti, <b>príjímanie správ je rýchle a bezproblémové</b>.
-                    Počas používania sme sa nestretli s negatívnymi skúsenosťami. Určite by som GoxBox odporučila, nakoľko zamestnanec pri svojej práci nemá možnosť ani šancu každý deň sledovať príjem správ do elektronickej schránky.
-                    <b>Preposielanie z GovBoxu je pri súčasnej elektronizácii veľkou pomocou</b>.&quot;
+                  <p class="text-center">&quot;So službou GovBox máme ako spoločnosť BENU Slovensko, a.s. len pozitívne skúsenosti, <b>príjímanie správ je rýchle a&nbsp;bezproblémové</b>.
+                    Počas používania sme sa nestretli s&nbsp;negatívnymi skúsenosťami. Určite by som GoxBox odporučila, nakoľko zamestnanec pri&nbsp;svojej práci nemá možnosť ani šancu každý deň sledovať príjem správ do&nbsp;elektronickej schránky.
+                    <b>Preposielanie z&nbsp;GovBoxu je pri&nbsp;súčasnej elektronizácii veľkou pomocou</b>.&quot;
                     </p>
                     <p class="client-name"><i>Mgr. Martina Hanulová</i></p>
                     <p><i>Operations & Project Manager, BENU Slovensko, a.s.</i></p>
