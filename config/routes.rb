@@ -13,7 +13,7 @@ Rails.application.routes.draw do
         get :terms, path: 'vseobecne-obchodne-podmienky'
         get :terms_v1, path: 'vseobecne-obchodne-podmienky-v1'
         get :terms_v2, path: 'vseobecne-obchodne-podmienky-v2'
-        get :terms_api, path: 'vseobecne-obchodne-podmienky-api'
+        get :terms_api, path: 'vseobecne-obchodne-podmienky-api', to: 'govbox_api#terms'
         get :service_provider, path: 'prevadzkovatel'
         get :pricing, path: 'cennik'
         get :pricing_v1, path: 'cennik-v1'
@@ -29,6 +29,12 @@ Rails.application.routes.draw do
         get 'registracia-zabezpecenie', to: 'govbox#back_to_step1'
         get 'registracia-odoslanie', to: 'govbox#back_to_step1'
         get 'ochrana-osobnych-udajov', to: '/static#privacy_policy'
+      end
+    end
+
+    resources :govbox_api, path: 'govbox-api' do
+      collection do
+        get :terms, path: 'vseobecne-obchodne-podmienky'
       end
     end
 

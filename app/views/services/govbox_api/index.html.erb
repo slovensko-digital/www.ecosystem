@@ -1,0 +1,116 @@
+<div class="govbox_api">
+  <div id="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 titles">
+          <h1>GovBox API</h1>
+          <p class="lead lead-short">Správy zo slovensko.sk <br/><strong>integrované na&nbsp;interný systém.</strong></p>
+          <p class="lead">
+            Ideálne riešenie pre firmy, ktoré <strong>intenzívne využívajú schránku</strong> na&nbsp;slovensko.sk, potrebujú zasielať hromadné podania alebo uvažujú o&nbsp;<strong>automatizácii procesov</strong>.
+          </p>
+          <%= link_to register_step1_services_govbox_index_path(mode: "api_mode" ), class: 'btn btn-primary btn-lg' do %>
+            <strong>Kúpiť GovBox API</strong>
+          <% end %>
+        </div>
+        <div id="api-image" class="col-md-6 text-center">
+          <%= image_tag 'services/govbox_api/device.png', srcset: "#{path_to_image('services/govbox_api/device@2x.png')} 2x", class: 'img-fluid' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="how" class="container">
+    <br/><br/>
+    <div class="col-sm-12 text-center">
+      <p class="lead">Integrácia cez GovBox API je ideálnym riešením, ak máte vlastný informačný systém<br/>a&nbsp;intenzívne využívate firemnú schránku na&nbsp;slovensko.sk.</p>
+      <p class="lead"><b>Integráciu pripravíme&nbsp;na mieru podľa vašich požiadaviek a&nbsp;možností vášho systému.</b></p>
+    </div>
+
+    <div class="col-sm-12">
+      <h2 class="text-center">Výhody integrácie cez GovBox API</h2>
+    </div>
+    <table class="table api">
+      <tr>
+        <td class="text-right"><i class="fa fa-thumbs-o-up"></i></td>
+        <td class="text-left">automatizované preberanie správ zo&nbsp;štátnej schránky priamo do&nbsp;Vášho interného systému</td>
+      </tr>
+      <tr>
+        <td class="text-right"><i class="fa fa-thumbs-o-up"></i></td>
+        <td class="text-left">hromadné podania bez&nbsp;prihlasovania na&nbsp;slovensko.sk</td>
+      </tr>
+      <tr>
+        <td class="text-right"><i class="fa fa-thumbs-o-up"></i></td>
+        <td class="text-left">jeden prístup pre&nbsp;viacerých používateľov</td>
+      </tr>
+    </table>
+    <div class="mt-5 text-center">
+      <p class="lead">Podporované API volania nájdete v&nbsp;<a href="https://generator3.swagger.io/index.html?url=https://govbox.slovensko.digital/openapi.yaml">dokumentácii</a>.</p>
+    </div>
+  </div>
+
+  <div id="pricing" class="container">
+    <div class="mt-5 text-center">
+      <h2>Cenník</h2>
+      <p class="lead text-muted">
+        <strong>Platíte iba ak GovBox API naozaj používate.</strong><br/> Príjmy idú aj na&nbsp;aktivity občianskeho združenia Slovensko.Digital.
+      </p><br/>
+    </div>
+
+    <div class="shadow">
+      <table class="table table-pricing table-responsive">
+        <tr>
+          <th><strong>Aktivácia služby</strong><br><span class="text-muted">Jednorázový poplatok</span></th>
+          <td><em>200€</em></td>
+        </tr>
+        <tr>
+          <th><strong>Prvý mesiac</strong></th>
+          <td>ZADARMO</td>
+        </tr>
+        <tr>
+          <td colspan="2" class="text-center pricing-more">
+            <p>Pozrite si <%= link_to 'kompletný cenník', pricing_services_govbox_index_path %> podľa mesačného množstva API volaní alebo&nbsp;<%= link_to 'nás kontaktujte', 'https://slovensko.digital/kontakt', class: 'font-weight-bold' %>.</p>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div id="registration" class="container">
+    <div class="mt-5 mb-5">
+      <%= link_to register_step1_services_govbox_index_path(mode: "api_mode" ), class: 'btn btn-success btn-xl' do %>
+        <strong>Mám záujem o&nbsp;GovBox API</strong>
+      <% end %>
+    </div>
+  </div>
+
+  <div id="how-to-use" class="col-sm-12 mt-5 text-center">
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>Ako môže GovBox API pomôcť vašej firme</h2><br/>
+        <div class="use-case">
+          <i class="fa fa-balance-scale fa-5x"></i>
+          <h3>Advokátska firma</h3>
+          <ul>
+            <li>preberanie a spracovanie tisícov správ denne v&nbsp;internom CRM systéme</li>
+            <li>zasielanie hromadných podaní</li>
+            <li>odkladanie pošty do&nbsp;interného archívu pre&nbsp;archiváciu a&nbsp;zníženie poplatkov za&nbsp;priestor na&nbsp;slovensko.sk</li>
+          </ul>
+        </div>
+        <div  class="use-case">
+          <i class="fa fa-eur fa-5x"></i>
+          <h3>Účtovnícka firma</h3>
+          <ul>
+            <li>napojenie na tiketovaci systém</li>
+            <li>rozdeľovanie úloh</li>
+            <li>spracovanie agendy slovensko.sk pre&nbsp;viacero firiem na&nbsp;jednom mieste</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-5 text-center">
+    <p class="lead"><b>Ak sa chcete dozvedieť viac o&nbsp;tom, ako môže<br /> GovBox API pomôcť Vašej firme, <%= link_to 'kontaktujte nás', 'https://slovensko.digital/kontakt' %>.</b></p>
+  </div>
+  <br /><br />
+</div>

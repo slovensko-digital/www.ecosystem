@@ -103,9 +103,23 @@ table.table-pricing {
   margin-top: 6rem;
 }
 
+.govbox_api #header .titles {
+  margin-top: 6rem;
+  margin-bottom: 3rem;
+}
+
 #header h1 {
   margin-bottom: 2rem;
   display: inline-block;
+}
+
+#api-image {
+  display: flex;
+  position: relative;
+
+  img {
+    margin: auto auto 0 auto;
+  }
 }
 
 #how, #pricing {
@@ -150,10 +164,14 @@ table.table-pricing {
   border-color: #adadad transparent transparent transparent;
 }
 
-#how ul, #how li {
+#how ul, #how li, #how-to-use ul {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+#how-to-use li {
+  padding-bottom: 1rem;
 }
 
 #how tr td:first-child {
@@ -168,7 +186,7 @@ table.table-pricing {
   border-right: 1px solid #adadad;
 }
 
-#how .ours .fa-thumbs-o-up {
+#how .ours .fa-thumbs-o-up, #how .api .fa-thumbs-o-up {
   color: #366ce6;
 }
 
@@ -182,8 +200,15 @@ table.table-pricing {
   margin: 3rem 1rem 0;
 }
 
-#how .ours .bordered {
+#how .ours .bordered, #how .api .bordered {
   box-shadow: 0 0 4px #bfbfbf;
+}
+
+#how .api {
+  padding: 2rem;
+  padding-bottom: 0;
+  max-width: 50rem;
+  margin: 0 auto;
 }
 
 #how small {
@@ -276,6 +301,14 @@ table.table-pricing {
   margin-top: -15px;
 }
 
+.use-case {
+  margin-bottom: 1rem;
+}
+
+.use-case i {
+  margin: 1.5rem;
+}
+
 .footer {
   text-align: left;
   padding: 2rem 0 3rem;
@@ -340,7 +373,7 @@ table.table-pricing {
       border-right: 0;
     }
 
-    #header .titles {
+    #header .titles, .govbox_api #header .titles {
       margin-top: 3rem;
       margin-bottom: 1rem;
     }
@@ -399,7 +432,7 @@ table.table-pricing {
   }
 
   @media (max-width: 1199px) {
-    #header .titles {
+    #header .titles, .govbox_api #header .titles {
       margin-top: 3rem;
       margin-bottom: 1rem;
     }
