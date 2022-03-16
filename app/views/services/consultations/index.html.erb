@@ -1,0 +1,61 @@
+<div class="consultations">
+  <div id="header">
+    <div class="container">
+      <div class="row consultations">
+        <div class="col-md-6 titles">
+          <h1>Konzultačné služby</h1>
+          <p class="lead">
+            Analýza a konzultácie projektov podľa vášho individuálneho zadania.
+          </p>
+<!--          TODO-->
+          <%= link_to register_step1_services_govbox_index_path(mode: "api_mode" ), class: 'btn btn-primary btn-lg' do %>
+            <strong>Objednať konzultačné služby</strong>
+          <% end %>
+        </div>
+<!--        <div id="api-image" class="col-md-6 text-center">-->
+          <%#= image_tag 'services/govbox_api/device.png', srcset: "#{path_to_image('services/govbox_api/device@2x.png')} 2x", class: 'img-fluid' %>
+<!--        </div>-->
+      </div>
+    </div>
+  </div>
+
+  <div id="how" class="container">
+    <br/><br/>
+    <div class="col-sm-12 text-center">
+      <p class="lead">Všetky konzultačné či analytické služby poskytujeme vždy na&nbsp;mieru podľa vašej potreby a&nbsp;na&nbsp;základe individuálneho zadania. Kontaktujte nás pre&nbsp;ponuku šitú na&nbsp;mieru práve pre&nbsp;vás.</p>
+    </div>
+
+    <div class="col-sm-12">
+      <h2 class="text-center">Príklady konzultačných služieb</h2>
+    </div>
+    <table class="table api">
+      <tr>
+        <td class="text-right"><i class="fa fa-check"></i></td>
+        <td class="text-left">Zmapovanie možností a&nbsp;legislatívneho rámca pre&nbsp;váš projekt (napr. podpisovanie, prihlasovanie, obstarávanie)</td>
+      </tr>
+      <tr>
+        <td class="text-right"><i class="fa fa-check"></i></td>
+        <td class="text-left">Dátove služby - zmapovanie dostupnosti údajov, možností integrácie</td>
+      </tr>
+      <tr>
+        <td class="text-right"><i class="fa fa-check"></i></td>
+        <td class="text-left">Optimalizácia procesov - konzultácie k&nbsp;zjednodušeniu agendy</td>
+      </tr>
+      <tr>
+        <td class="text-right"><i class="fa fa-check"></i></td>
+        <td class="text-left">Pripomienkovanie projektov pred&nbsp;spustením (UX, bezpečnosť)</td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="pricing" class="container">
+    <div class="mt-5 text-center">
+      <h2>Cenník</h2>
+      <p class="lead text-muted">
+        V prípade záujmu o&nbsp;konzultačné služby <%= link_to 'nás kontaktujte', 'https://slovensko.digital/kontakt' %>. Spoločne si prejdeme Vašu situáciu a&nbsp;potreby a&nbsp;pripravíme vám cenovú ponuku na&nbsp;mieru. Hodinová sadzba našej práce je 50€/hodinu.
+      </p><br/>
+    </div>
+  </div>
+
+  <br /><br />
+</div>
