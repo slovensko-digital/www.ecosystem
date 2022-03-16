@@ -60,6 +60,7 @@ Rails.application.routes.draw do
   get 'podmienky-v1', to: 'static#datasets_terms_v1', as: :datasets_terms_v1
   get 'podmienky-v2', to: 'static#datasets_terms_v2', as: :datasets_terms_v2
   get 'podmienky-sluzieb', to: 'static#services_terms', as: :services_terms
+  get 'podmienky-sluzieb-v1', to: 'static#services_terms_v1', as: :services_terms_v1
   get 'cennik', to: 'static#pricing', as: :pricing
   get 'cennik-v1', to: 'static#pricing_v1', as: :pricing_v1
   get 'ochrana-osobnych-udajov', to: 'static#privacy_policy', as: :privacy_policy
