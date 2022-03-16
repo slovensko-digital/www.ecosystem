@@ -13,6 +13,7 @@ Rails.application.routes.draw do
         get :terms, path: 'vseobecne-obchodne-podmienky'
         get :terms_v1, path: 'vseobecne-obchodne-podmienky-v1'
         get :terms_v2, path: 'vseobecne-obchodne-podmienky-v2'
+        get :terms_v3, path: 'vseobecne-obchodne-podmienky-v3'
         get :terms_api, path: 'vseobecne-obchodne-podmienky-api', to: 'govbox_api#terms'
         get :service_provider, path: 'prevadzkovatel'
         get :pricing, path: 'cennik'
@@ -35,6 +36,7 @@ Rails.application.routes.draw do
     resources :govbox_api, path: 'govbox-api' do
       collection do
         get :terms, path: 'vseobecne-obchodne-podmienky'
+        get :terms_v1, path: 'vseobecne-obchodne-podmienky-v1'
       end
     end
 
@@ -58,6 +60,7 @@ Rails.application.routes.draw do
   get 'podmienky-v1', to: 'static#datasets_terms_v1', as: :datasets_terms_v1
   get 'podmienky-v2', to: 'static#datasets_terms_v2', as: :datasets_terms_v2
   get 'podmienky-sluzieb', to: 'static#services_terms', as: :services_terms
+  get 'podmienky-sluzieb-v1', to: 'static#services_terms_v1', as: :services_terms_v1
   get 'cennik', to: 'static#pricing', as: :pricing
   get 'cennik-v1', to: 'static#pricing_v1', as: :pricing_v1
   get 'ochrana-osobnych-udajov', to: 'static#privacy_policy', as: :privacy_policy
