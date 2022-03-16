@@ -1,0 +1,103 @@
+<div class="footer">
+  <div class="newsletter">
+    <div class="container">
+      <form role="form" action="https://my.sendinblue.com/users/subscribe/js_id/29wti/id/2" data-action="https://my.sendinblue.com/users/subscribeembed/js_id/29wti/id/2" method="post">
+        <div class="row">
+          <div class="col-md-4 col-md-pad">
+            <p><strong>Newsletter Ekosystém.Slovensko.Digital</strong></p>
+            <p>Novinky emailom sem-tam, žiadny spam.</p>
+          </div>
+          <div class="col-md-3 col-md-pad">
+            <div class="form-group">
+              <%= label_tag 'entry.204431983', 'Email', class: 'control-label' %>
+              <input type="hidden" name="js_id" id="js_id" value="29wti">
+              <input type="hidden" name="listid" id="listid" value="14">
+              <input type="hidden" name="from_url" id="from_url" value="yes">
+              <input type="hidden" name="hdn_email_txt" id="hdn_email_txt" value="">
+              <input type="email" required name="email" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-4 col-md-pad">
+            <%= label_tag :a, '&nbsp'.html_safe %> <br>
+            <%= button_tag 'Prihlásiť', class: 'btn btn-default' %>
+          </div>
+        </div>
+        <div class="row">
+          <p class="offset-md-4 col-md-5 col-md-pad legal">
+            Prihlásením dávam dobrovoľný súhlas spoločnosti Služby Slovensko.Digital s.r.o. na zasielanie bezplatného newslettera na mnou zadaný e-mail. Tento súhlas môžem kedykoľvek odvolať na
+            <a href="mailto:podpora@slovensko.digital">podpora@slovensko.digital</a>. Oboznámil(a) som sa s informáciami v sekcii
+            <%= link_to 'Ochrana osobných údajov', privacy_policy_path, target: '_blank' %>.
+          </p>
+        </div>
+      </form>
+      <div class="row hidden newsletter-success">
+        <div class="col-md-12">
+          <p>Na zadanú adresu sme poslali email pre potvrdenie odberu. Ďakujeme za Váš záujem.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <address>
+          <a href="https://slovensko.digital/"><strong>Služby Slovensko.Digital, s.r.o.</strong></a><br>
+          Staré grunty 18<br>
+          841 04 Bratislava<br>
+        </address>
+        <p><a href="mailto:ekosystem@slovensko.digital">ekosystem@slovensko.digital</a></p>
+      </div>
+
+      <div class="col-md-3">
+        <ul class="list-unstyled">
+          <li>
+            <%= link_to root_path do %>
+              <strong>Ekosystém</strong>
+            <% end %>
+          </li>
+          <li><%= link_to 'Služby', root_path %></li>
+          <li><%= link_to 'Otvorené dáta', open_data_path %></li>
+          <li><%= link_to 'Otvorené API', open_api_path %></li>
+          <li><%= link_to 'Prémiové dáta', premium_data_path %></li>
+          <li><%= link_to 'Prémiové API', premium_api_path %></li>
+          <li><%= link_to 'Podmienky používania', '/podmienky' %></li>
+          <li><%= link_to 'Novinky', 'https://platforma.slovensko.digital/t/ekosystem-slovensko-digital-novinky/2326' %></li>
+        </ul>
+      </div>
+
+      <div class="col-md-3">
+        <ul class="list-unstyled">
+          <li>
+            <%= link_to 'https://slovensko.digital' do %>
+              <strong>Občianske združenie</strong>
+            <% end %>
+          </li>
+          <li><%= link_to 'O nás', 'https://slovensko.digital/o-nas' %></li>
+          <li><%= link_to 'Podpora', 'https://slovensko.digital/podpora' %></li>
+        </ul>
+      </div>
+
+      <div class="col-md-2">
+        <p class="pull-right icons">
+          <a href="https://www.facebook.com/slovensko.digital/" target="_blank">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+              </span></a>
+          <a href="https://github.com/slovensko-digital/ekosystem" target="_blank">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span></a>
+          <a href="https://www.youtube.com/channel/UCbpnKa1XOIpQLYUQ2dz7Sng" target="_blank">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+              </span>
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
