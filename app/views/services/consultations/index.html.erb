@@ -1,21 +1,15 @@
 <div class="consultations">
   <div id="header">
     <div class="container">
-      <div class="row consultations">
-        <div class="col-md-6 titles">
-          <h1>Konzultačné služby</h1>
-          <p class="lead">
-            Analýza a konzultácie projektov podľa vášho individuálneho zadania.
-          </p>
-<!--          TODO-->
-          <%= link_to register_step1_services_govbox_index_path(mode: "api_mode" ), class: 'btn btn-primary btn-lg' do %>
-            <strong>Objednať konzultačné služby</strong>
-          <% end %>
-        </div>
-<!--        <div id="api-image" class="col-md-6 text-center">-->
-          <%#= image_tag 'services/govbox_api/device.png', srcset: "#{path_to_image('services/govbox_api/device@2x.png')} 2x", class: 'img-fluid' %>
-<!--        </div>-->
+      <div class="col-md-6 titles">
+        <h1>
+          <strong>Konzultačné služby</strong>
+        </h1>
+        <p class="lead">
+          Analýza a konzultácie projektov podľa vášho individuálneho zadania.
+        </p>
       </div>
+      <hr />
     </div>
   </div>
 
@@ -54,6 +48,42 @@
       <p class="lead text-muted">
         V prípade záujmu o&nbsp;konzultačné služby <%= link_to 'nás kontaktujte', 'https://slovensko.digital/kontakt' %>. Spoločne si prejdeme Vašu situáciu a&nbsp;potreby a&nbsp;pripravíme vám cenovú ponuku na&nbsp;mieru. Hodinová sadzba našej práce je 50€/hodinu.
       </p><br/>
+    </div>
+  </div>
+
+
+  <div id="kontakt" class="container">
+    <h2>Kontaktný formulár</h2>
+    <p class="lead">
+      Nechajte nám Váš emailový kontakt alebo nám napíšte na <a href="mailto:ekosystem@slovensko.digital">ekosystem@slovensko.digital</a>. <em>Tešíme sa na spoluprácu.</em>
+    </p>
+
+    <div id="consultations-error" style="display: none;">
+      <%= render 'services/share/flash_message', {type: :alert, message: 'Vyplňte prosím email a skúste znova.'} %>
+    </div>
+    <div id="consultations-form-sent" style="display: none;">
+      <%= render 'services/share/flash_message', {type: :notice, message: 'Ďakujeme, za Váš záujem. Budeme Vás kontaktovať cez zadaný email.'} %>
+    </div>
+
+    <iframe name="form-result" style="display: none;"></iframe>
+    <div>
+<!--      TODO spravny link-->
+      <%= form_tag 'https://docs.google.com/forms/d/e/1FAIpQLSfUuAjnqGjDvSc-Miy6bP0xODXsjr6g04hGAeYlYkJo-3Iu1Q/formResponse', target: 'form-result', id: 'consultations-form' do %>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <b><%= label_tag 'emailAddress', 'Email', class: 'control-label' %></b>
+              <%= email_field_tag 'emailAddress', nil, class: 'form-control form-control-lg', id: 'consultations-email' %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <%= label_tag :a, '&nbsp'.html_safe %> <br>
+            <%= button_tag id: 'submit_to_consultations', class: 'btn btn-default btn-lg btn-strong' do %>
+              <strong>Odoslať</strong>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 
