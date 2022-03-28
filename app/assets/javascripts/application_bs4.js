@@ -15,6 +15,7 @@
 //= require tether.min
 //= require bootstrap.min
 //= require newsletter_form
+//= require consultations_form
 //= require password_confirmation_validator
 
 $(document).on("ready page:change", function () {
