@@ -1,12 +1,12 @@
 <div class="consultations">
   <div id="header">
     <div class="container">
-      <div class="col-md-6 titles">
+      <div class="col-md-12 titles">
         <h1>
           <strong>Konzultačné služby</strong>
         </h1>
         <p class="lead">
-          Analýza a konzultácie projektov podľa vášho individuálneho zadania.
+          <em>Analýza a konzultácie projektov na mieru</em>.
         </p>
       </div>
       <hr />
@@ -14,49 +14,43 @@
   </div>
 
   <div id="how" class="container">
-    <br/><br/>
-    <div class="col-sm-12 text-center">
-      <p class="lead">Všetky konzultačné či analytické služby poskytujeme vždy na&nbsp;mieru podľa vašej potreby a&nbsp;na&nbsp;základe individuálneho zadania. Kontaktujte nás pre&nbsp;ponuku šitú na&nbsp;mieru práve pre&nbsp;vás.</p>
-    </div>
+    <h2 class="mb-4">Príklady konzultačných služieb</h2>
+    <ul>
+      <li>
+        <p><i class="fa fa-check"></i> <strong>Zmapovanie možností a&nbsp;legislatívneho rámca</strong> - zákonné povinnosti a&nbsp;možnosti, obstarávanie.</p>
+      </li>
+      <li>
+        <p><i class="fa fa-check"></i> <strong>Dátove služby</strong> - zmapovanie dostupnosti údajov, možností integrácie.</p>
+      </li>
+      <li>
+        <p><i class="fa fa-check"></i> <strong>Optimalizácia procesov</strong> - konzultácie k&nbsp;zjednodušeniu agendy.</p>
+      </li>
+      <li>
+        <p><i class="fa fa-check"></i> <strong>Pripomienkovanie projektov</strong> - koncept, UX, bezpečnosť</p>
+      </li>
+    </ul>
 
-    <div class="col-sm-12">
-      <h2 class="text-center">Príklady konzultačných služieb</h2>
-    </div>
-    <table class="table api">
-      <tr>
-        <td class="text-right"><i class="fa fa-check"></i></td>
-        <td class="text-left">Zmapovanie možností a&nbsp;legislatívneho rámca pre&nbsp;váš projekt (napr. podpisovanie, prihlasovanie, obstarávanie)</td>
-      </tr>
-      <tr>
-        <td class="text-right"><i class="fa fa-check"></i></td>
-        <td class="text-left">Dátove služby - zmapovanie dostupnosti údajov, možností integrácie</td>
-      </tr>
-      <tr>
-        <td class="text-right"><i class="fa fa-check"></i></td>
-        <td class="text-left">Optimalizácia procesov - konzultácie k&nbsp;zjednodušeniu agendy</td>
-      </tr>
-      <tr>
-        <td class="text-right"><i class="fa fa-check"></i></td>
-        <td class="text-left">Pripomienkovanie projektov pred&nbsp;spustením (UX, bezpečnosť)</td>
-      </tr>
-    </table>
+    <p class="lead text-muted">Všetky konzultačné či analytické služby poskytujeme na&nbsp;mieru podľa vašej potreby <br> a&nbsp;na&nbsp;základe individuálneho zadania.</p>
   </div>
 
   <div id="pricing" class="container">
-    <div class="mt-5 text-center">
-      <h2>Cenník</h2>
-      <p class="lead text-muted">
-        V prípade záujmu o&nbsp;konzultačné služby nás kontaktujte. Spoločne si prejdeme Vašu situáciu a&nbsp;potreby a&nbsp;pripravíme vám cenovú ponuku na&nbsp;mieru. Hodinová sadzba našej práce je 50€/hodinu.
-      </p><br/>
+    <div class="row">
+        <div class="col-md-8">
+          <div class="mt-5">
+            <h2>Cenník</h2>
+            <p class="lead text-muted">Hodinová sadzba našej práce je <strong>50€/hodinu</strong> bez DPH.</p>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
 
-  <div id="kontakt" class="container">
+  <div id="kontakt" class="mt-5 mb-5 container">
+
     <h2>Kontaktný formulár</h2>
-    <p class="lead">
-      Nechajte nám Váš emailový kontakt alebo nám napíšte na <a href="mailto:ekosystem@slovensko.digital">ekosystem@slovensko.digital</a>. <em>Tešíme sa na spoluprácu.</em>
-    </p>
+    <p class="lead">Nechajte nám Váš emailový kontakt alebo nám napíšte na <a href="mailto:ekosystem@slovensko.digital">ekosystem@slovensko.digital</a>.</p>
 
     <div id="consultations-error" style="display: none;">
       <%= render 'services/share/flash_message', {type: :alert, message: 'Vyplňte prosím email a skúste znova.'} %>
@@ -86,5 +80,4 @@
     </div>
   </div>
 
-  <br /><br />
 </div>
