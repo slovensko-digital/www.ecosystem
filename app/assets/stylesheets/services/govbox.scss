@@ -63,7 +63,7 @@ table.table-pricing {
   font-size: 1.2rem;
 }
 
-#header {
+.govbox #header, .govbox_api #header {
   background: #292524;
   color: white;
 }
@@ -99,7 +99,7 @@ table.table-pricing {
   color: rgba(255, 255, 255, 0.82);
 }
 
-#header .titles {
+.govbox #header .titles {
   margin-top: 6rem;
 }
 
@@ -309,12 +309,8 @@ table.table-pricing {
   margin: 1.5rem;
 }
 
-.footer {
-  text-align: left;
+.govbox.footer {
   padding: 2rem 0 3rem;
-  font-size: 1.1rem;
-  background-color: #f9f9f9;
-  color: #777;
 }
 
 .footer a {
@@ -373,7 +369,7 @@ table.table-pricing {
       border-right: 0;
     }
 
-    #header .titles, .govbox_api #header .titles {
+    .govbox #header .titles, .govbox_api #header .titles {
       margin-top: 3rem;
       margin-bottom: 1rem;
     }
@@ -432,7 +428,7 @@ table.table-pricing {
   }
 
   @media (max-width: 1199px) {
-    #header .titles, .govbox_api #header .titles {
+    .govbox #header .titles, .govbox_api #header .titles {
       margin-top: 3rem;
       margin-bottom: 1rem;
     }

@@ -2,6 +2,7 @@ class Services::GovboxController < ContentController
   layout 'application_bs4'
 
   before_action :ensure_live, only: [:index, :register_step1, :faq]
+  before_action :set_up_footer_template
 
   PARAMS = [
     :legal_subject_name, :cin, :mode, :vatin, :formatted_address,
@@ -92,5 +93,9 @@ class Services::GovboxController < ContentController
   rescue RestClient::ExceptionWithResponse => e
     Rollbar.error(e, params)
     nil
+  end
+
+  def set_up_footer_template
+    @footer_template = 'services/govbox/footer'
   end
 end
