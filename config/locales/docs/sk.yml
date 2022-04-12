@@ -165,7 +165,7 @@ sk:
             reference:
               description: Referencia zmluvy
               note_html: Najčastejšie referencia dodatku na zmluvu. Neštruktúrované dáta bez záruk integrity.
-            uvo:
+            procurement_url:
               description: Odkaz na verejné obstarávanie
             <<: *timestamp_columns
 
