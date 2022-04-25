@@ -7,28 +7,44 @@
 
     <div class="row">
       <div class="col-lg-8">
-        <h1 class="form-title">Registrácia k službe GovBox</h1>
-        <% if ENV['GOVBOX_REFERRAL_CODES'].split(',').include? cookies[:ref] %>
+        <% if params[:mode] == 'api_mode' %>
+          <h1 class="form-title">Registrácia k službe GovBox API</h1>
+          <p class="lead">GovBox API vám umožní používať štátnú elektronickú schránku cez váš interný systém.</p>
           <section>
-            <div id="free_activation">
-              <p><em>AKCIA: Aktivácia zadarmo.</em></p>
-            </div>
+            <p class="lead">Hlavné výhody GovBox API:</p>
+            <ul>
+              <li>Automatizované preberanie správ zo&nbsp;štátnej schránky priamo do&nbsp;Vášho interného systému.</li>
+              <li>Hromadné podania bez&nbsp;prihlasovania na&nbsp;slovensko.sk.</li>
+              <li>Jeden prístup pre&nbsp;viacerých používateľov.</li>
+            </ul>
           </section>
+
+          <p>A navyše - ak nestiahnete alebo neodošlete žiadne správy, za GovBox API neplatíte, pozrite si <%= link_to 'kompletný cenník', pricing_services_govbox_index_path(anchor: 'api') %>.</p>
+          <p>Nepotrebujete API? Kúpte si službu <%= link_to 'GovBox', register_step1_services_govbox_index_path, class: 'font-weight-bold' %>.</p>
+        <% else %>
+          <h1 class="form-title">Registrácia k službe GovBox</h1>
+          <% if ENV['GOVBOX_REFERRAL_CODES'].split(',').include? cookies[:ref] %>
+            <section>
+              <div id="free_activation">
+                <p><em>AKCIA: Aktivácia zadarmo.</em></p>
+              </div>
+            </section>
+          <% end %>
+          <p class="lead">GovBox vám umožní jednoduchý prístup k štátnej elektronickej schránke.</p>
+          <section>
+            <p class="lead">Hlavné výhody GovBoxu:</p>
+            <ul>
+              <li>Automatické preposielanie správ zo štátnej schránky na súkromný mail.</li>
+              <li>Prístup k správam aj v mobile.</li>
+              <li>Bez prihlásenia s eID.</li>
+              <li>Týždenný sumár.</li>
+            </ul>
+          </section>
+
+            <p>A navyše - ak nedostanete žiadne správy, za GovBox neplatíte, pozrite si <%= link_to 'kompletný cenník', pricing_services_govbox_index_path %>.</p>
+
+          <p class="form-subtitle lead">Zadajte údaje právnickej osoby, pre ktorú máte záujem zriadiť službu.</p>
         <% end %>
-        <p class="lead">GovBox vám umožní jednoduchý prístup k štátnej elektronickej schránke.</p>
-        <section>
-          <p class="lead">Hlavné výhody GovBoxu:</p>
-          <ul>
-            <li>Automatické preposielanie správ zo štátnej schránky na súkromný mail.</li>
-            <li>Prístup k správam aj v mobile.</li>
-            <li>Bez prihlásenia s eID.</li>
-            <li>Týždenný sumár.</li>
-          </ul>
-        </section>
-
-          <p>A navyše - ak nedostanete žiadne správy, za GovBox neplatíte, pozrite si <%= link_to 'kompletný cenník', pricing_services_govbox_index_path %>.</p>
-
-        <p class="form-subtitle lead">Zadajte údaje právnickej osoby, pre ktorú máte záujem zriadiť službu.</p>
 
         <div class="row">
           <div class="col-md-8 form-group">
