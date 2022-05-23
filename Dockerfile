@@ -16,7 +16,7 @@ RUN bundle install
 # Cache everything
 COPY . .
 
-RUN SECRET_KEY_BASE=NONE RAILS_ENV=production bundle exec rails assets:precompile
+RUN SECRET_KEY_BASE=NONE RAILS_ENV=production REDIS_URL=redis://:fake@redis:6379/15 bundle exec rails assets:precompile
 
 # Run application by default
 CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
