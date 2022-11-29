@@ -217,38 +217,8 @@
     <h2>Registrácia</h2>
     <p class="lead">Jednoduchá registrácia, <em>až 256 vyhľadávaní mesačne <strong>zadarmo</strong></em>. Viac vyhľadávaní podľa <%= link_to 'cenníka', pricing_path(anchor: 'autoform') %>.</p>
 
-    <div id="autoform-error" style="display: none;">
-      <%= render 'services/share/flash_message', {type: :alert, message: 'Niektoré údaje ste nezadali správne. Opravte ich prosím a skúste znova.'} %>
-    </div>
-    <div id="autoform-form-sent" style="display: none;">
-      <%= render 'services/share/flash_message', {type: :notice, message: 'Žiadosť o registráciu bola odoslaná na schválenie. Ďakujeme za Váš záujem a budeme Vás kontaktovať.'} %>
-    </div>
+    <%= render_registration_form %>
 
-    <div id="autoform_flash"></div>
-    <div class="row" id="autoform_client_form_wrapper">
-      <iframe name="form-result" style="display: none;"></iframe>
-      <%= form_tag 'https://docs.google.com/forms/d/1TpYNJfBQVGt4lmKP-wrXGkok2bo-Y6mzpmeUsJTnRis/formResponse', target: 'form-result', id: 'autoform-form' do %>
-        <div class="col-md-3 col-md-pad">
-          <div class="form-group">
-            <%= label_tag 'entry.204431983', 'Email', class: 'control-label' %>
-            <%= email_field_tag 'entry.204431983', nil, class: 'form-control input-lg', id: 'autoform-email' %>
-          </div>
-        </div>
-        <div class="col-md-3 col-md-pad">
-          <div class="form-group">
-            <%= label_tag 'entry.1349114640', 'Doména', class: 'control-label' %>
-            <%= text_field_tag 'entry.1349114640', nil, class: 'form-control input-lg', id: 'autoform-domain' %>
-            <p class="help-block">Napríklad: www.websupport.sk</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-md-pad">
-          <%= label_tag :a, '&nbsp'.html_safe %> <br>
-          <%= button_tag id: 'submit_to_autoform', class: 'btn btn-default btn-lg' do %>
-            <strong>Zaregistrovať</strong>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
     <div class="row">
       <div class="col-md-10 col-md-pad">
         <br>

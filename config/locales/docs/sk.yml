@@ -1,4 +1,26 @@
 sk:
+  email: Email
+  domain: Doména
+
+  activemodel:
+    attributes:
+      registration:
+        email: Email
+      autoform_registration:
+        domain: Doména
+    errors:
+      models:
+        registration:
+          attributes:
+            email:
+              invalid: je v nesprávnom tvare
+        autoform_registration:
+          attributes:
+            domain:
+              blank: nie je uvedená
+
+
+
   docs:
     timestamp_columns: &timestamp_columns
       created_at:

@@ -119,31 +119,7 @@
     <p class="lead">
       Nechajte nám Váš emailový kontakt alebo nám napíšte na <a href="mailto:ekosystem@slovensko.digital">ekosystem@slovensko.digital</a>. <em>Tešíme sa na spoluprácu.</em>
     </p>
-
-    <div id="sk-api-error" style="display: none;">
-      <%= render 'services/share/flash_message', {type: :alert, message: 'Vyplňte prosím email a skúste znova.'} %>
-    </div>
-    <div id="sk-api-form-sent" style="display: none;">
-      <%= render 'services/share/flash_message', {type: :notice, message: 'Ďakujeme, za Váš záujem. Budeme Vás kontaktovať cez zadaný email.'} %>
-    </div>
-
-    <iframe name="form-result" style="display: none;"></iframe>
-    <div class="row">
-      <%= form_tag 'https://docs.google.com/forms/d/e/1FAIpQLSfUuAjnqGjDvSc-Miy6bP0xODXsjr6g04hGAeYlYkJo-3Iu1Q/formResponse', target: 'form-result', id: 'sk-api-form' do %>
-        <div class="col-md-3 col-md-pad">
-          <div class="form-group">
-            <%= label_tag 'emailAddress', 'Email', class: 'control-label' %>
-            <%= email_field_tag 'emailAddress', nil, class: 'form-control input-lg', id: 'sk-api-email' %>
-          </div>
-        </div>
-        <div class="col-md-4 col-md-pad">
-          <%= label_tag :a, '&nbsp'.html_safe %> <br>
-          <%= button_tag id: 'submit_to_datahub', class: 'btn btn-default btn-lg btn-strong' do %>
-            <strong>Odoslať</strong>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
+    <%= render_registration_form %>
   </section>
 
   <section id="clients">

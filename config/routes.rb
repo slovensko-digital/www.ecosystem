@@ -52,6 +52,9 @@ Rails.application.routes.draw do
     resources :consultations, path: 'konzultacie'
   end
 
+  resources :registrations
+  resources :autoform_registrations, controller: :registrations, path: 'registrations'
+
   resource 'open_data', path: 'otvorene-data'
   resource 'open_api', path: 'otvorene-api'
 
@@ -81,8 +84,8 @@ Rails.application.routes.draw do
   get '422', to: 'errors#unacceptable'
   get '500', to: 'errors#internal_error'
 
-  # redirect all /api request to to datahub.ekosystem
-  match '/api/(*endpoint)', to: redirect(host: 'datahub.ekosystem.slovensko.digital'), via: :all
+  # redirect all /api request to proper datahub.ekosystem api
+  match '/api/(*endpoint)', to: redirect(host: Environment.api_host), via: :all
 
   # backward compatibility for generating url in views
   concern :syncable do
