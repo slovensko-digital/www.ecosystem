@@ -266,6 +266,20 @@
         </p>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-5">
+        <h3>Register projektov v MetaIS</h3>
+        <p class="lead">Informácie o projektoch rozvoja IT z centrálneho metainformačného systému verejnej správy.</p>
+        <p class="btn-row">
+          <a href="<%= @dump_urls[:metais] %>?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>metais.sql.gz.torrent</strong> <%= @dump_sizes[:metais] %></a>
+          <%= link_to 'Dokumentácia', open_data_path(anchor: :metais), class: 'btn btn-default' %>
+        </p>
+        <p>
+          <small>Zdroj: Centrálny metainformačný systém verejnej správy</small>
+        </p>
+      </div>
+    </div>
   </section>
 
   <hr>

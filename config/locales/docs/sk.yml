@@ -2034,3 +2034,329 @@ sk:
         zop_predkladane_za_subjekty:
           columns:
             <<: *itms_columns
+    metais:
+      tables:
+        codelist_investment_type:
+          description: Číselník typu investície
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Interný systémový identifikátor.
+            code:
+              description: Kód číselínka
+              note_html: Hodnota zodpovedá identifikátoru v zdroji.
+            nazov:
+              description: Hodnota číselníka
+            order_list:
+              description: Poradie hodnoty číselníka
+            <<: *timestamp_columns
+        codelist_program:
+          description: Číselník programov
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Interný systémový identifikátor.
+            nazov:
+              description: Názov programu SK
+            nazov_en:
+              description: Názov programu EN
+            kod_metais:
+              description: Identifikátor
+              note_html: Hodnota zodpovedá identifikátoru v zdroji.
+            ref_id:
+              description: URL adresa programu v MetaIS
+              note_html: V zdrojových dátach niekedy chýba
+            zdroj:
+              description: Zdroj informácií pre MetaIS
+              note_html: <code>codelist_source -> code</code>
+            raw_data:
+              description: Nespracované dáta o programe
+              note_html: Presná odpoveď zo zdroja.
+            uuid:
+              description: Identifikátor
+              note_html: Hodnota zodpovedá identifikátoru v zdroji.
+            <<: *timestamp_columns
+        codelist_project_phase:
+          description: Číselník fázy projektu
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Interný systémový identifikátor.
+            code:
+              description: Kód číselínka
+              note_html: Hodnota zodpovedá identifikátoru v zdroji.
+            nazov:
+              description: Hodnota číselníka
+            order_list:
+              description: Poradie hodnoty číselníka
+            <<: *timestamp_columns
+        codelist_project_state:
+          description: Číselník stavu projektu
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Interný systémový identifikátor.
+            code:
+              description: Kód číselínka
+              note_html: Hodnota zodpovedá identifikátoru v zdroji.
+            nazov:
+              description: Hodnota číselníka
+            order_list:
+              description: Poradie hodnoty číselníka
+            <<: *timestamp_columns
+        codelist_source:
+          description: Číselník zdroja dát pre MetaIS
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Interný systémový identifikátor.
+            code:
+              description: Kód číselínka
+              note_html: Hodnota zodpovedá identifikátoru v zdroji.
+            nazov:
+              description: Hodnota číselníka
+            order_list:
+              description: Poradie hodnoty číselníka
+            <<: *timestamp_columns
+        isvs:
+          description: Informačné systémy verejnej správy
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Interný systémový identifikátor.
+            project_id:
+              description: Projekt, ku ktorému sa ISVS viaže
+              note_html: Projekt a ISVS majú v našich dátach kardinalitu 1:N, čo nezodpovedá zdroju
+            uuid:
+              description: Idnetifikátor
+              note_html: Hodnota zodpovedá identifikátoru v zdroji.
+            latest_version_id:
+              description: Aktuálna verzia informácií o ISVS
+            <<: *timestamp_columns
+        isvs_document_versions:
+          description: Verzie informácií o dokumentoch k ISVS
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Interný systémový identifikátor.
+            document_id:
+              description: Dokument, ktorého verziou je tento záznam
+            nazov:
+            kod_metais:
+              description: Identifikátor
+              note_html: Hodnota zodpovedá identifikátoru v zdroji.
+            ref_id:
+              description: URL adresa dokumentu v MetaIS
+              note_html: V zdrojových dátach niekedy chýba
+            mime_type:
+            content_length:
+              description: Content-Length v bajtoch podľa metadát zo zdroja
+            status:
+              description: Či bola posledná operácia s dokumentom CREATED alebo UPDATED
+              note_html: Hodnota prebratá zo zdroja.
+            poznamka:
+            typ_dokumentu:
+            filename:
+            metais_created_at:
+              description: Čas vytvorenia dokumentu podľa zdroja
+            metais_updated_at:
+              description: Čas poslednej zmeny dokumentu podľa zdroja
+            raw_data:
+              description: Nespracované dáta o dokumente
+              note_html: Presná odpoveď zo zdroja.
+            raw_meta:
+              description: Nespracované metadáta o dokumente
+              note_html: Presná odpoveď zo zdroja.
+            <<: *timestamp_columns
+        isvs_documents:
+          description: Dokumenty k ISVS
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Interný systémový identifikátor.
+            isvs_id:
+              description: ISVS, ku ktorému sa dokument viaže
+            uuid:
+              description: Identifikátor
+              note_html: Hodnota zodpovedá identifikátoru v zdroji.
+            latest_version_id:
+              description: Aktuálna verzia informácií o dokumente
+            <<: *timestamp_columns
+        isvs_versions:
+          description: Verzie informácií o ISVS
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Interný systémový identifikátor.
+            isvs_id:
+              description: ISVS, ktorého verziou je tento záznam
+            nazov:
+            kod_metais:
+              description: Identifikátor
+              note_html: Hodnota zodpovedá identifikátoru v zdroji.
+            ref_id:
+              description: URL adresa ISVS v MetaIS
+              note_html: V zdrojových dátach niekedy chýba
+            popis:
+            popis_as_is:
+              description: Konkrétnejší popis aktuálneho stavu
+            poznamka:
+            zdroj:
+              description: Zdroj informácií pre MetaIS
+              note_html: <code>codelist_source -> code</code>
+            stav_isvs:
+              note_html: Nesledovaný číselník
+            typ_isvs:
+              note_html: Nesledovaný číselník
+            raw_data:
+              description: Nespracované dáta o dokumente
+              note_html: Presná odpoveď zo zdroja.
+            metais_created_at:
+              description: Čas vytvorenia ISVS podľa zdroja
+            <<: *timestamp_columns
+        project_changes:
+          description: Zistené zmeny v projektoch
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Interný systémový identifikátor.
+            project_version_id:
+              description: Verzia projektu, v ktorej vznikla daná zmena
+            field:
+              description: Zmenený atribút
+            old_value:
+              description: Pôvodná hodnota zmeneného atribútu
+            new_value:
+              description: Nová hodnota zmeneného atribútu
+            <<: *timestamp_columns
+        project_document_versions:
+          description: Verzie informácií o dokumentoch k projektom
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Interný systémový identifikátor.
+            document_id:
+              description: Dokument, ktorého verziou je tento záznam
+            nazov:
+            kod_metais:
+              description: Identifikátor
+              note_html: Hodnota zodpovedá identifikátoru v zdroji.
+            ref_id:
+              description: URL adresa dokumentu v MetaIS
+              note_html: V zdrojových dátach niekedy chýba
+            content_length:
+              description: Content-Length v bajtoch podľa metadát zo zdroja
+            status:
+              description: Či bola posledná operácia s dokumentom CREATED alebo UPDATED
+              note_html: Hodnota prebratá zo zdroja.
+            poznamka:
+            typ_dokumentu:
+            filename:
+            metais_created_at:
+              description: Čas vytvorenia dokumentu podľa zdroja
+            metais_updated_at:
+              description: Čas poslednej zmeny dokumentu podľa zdroja
+            raw_data:
+              description: Nespracované dáta o dokumente
+              note_html: Presná odpoveď zo zdroja.
+            raw_meta:
+              description: Nespracované metadáta o dokumente
+              note_html: Presná odpoveď zo zdroja.
+            <<: *timestamp_columns
+        project_documents:
+          description: Dokumenty k projektom
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Interný systémový identifikátor.
+            project_id:
+              description: Projekt, ku ktorému sa dokument viaže
+            uuid:
+              description: Identifikátor
+              note_html: Hodnota zodpovedá identifikátoru v zdroji.
+            latest_version_id:
+              description: Aktuálna verzia informácií o dokumente
+            <<: *timestamp_columns
+        project_versions:
+          description: Verzie informácií o projektoch
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Interný systémový identifikátor.
+            project_id:
+              description: Projekt, ktorého verziou je tento záznam
+            nazov:
+            kod_metais:
+              description: Identifikátor
+              note_html: Hodnota zodpovedá identifikátoru v zdroji.
+            typ_investicie:
+              description: Číselník typu investície
+              note_html: <code>codelist_investment_type -> code</code>
+            prijimatel:
+              description: Gestor projektu
+            faza_projektu:
+              description: Číselník fázy projektu
+              note_html: <code>codelist_project_phase -> code</code>
+            program:
+              description: Číselník prorgamu, do ktorého je projekt zaradený
+              note_html: <code>codelist_program -> uuid</code>
+            popis:
+            datum_zacatia:
+              description: Plánovaný dátum začiatku realizačnej fázy
+            termin_ukoncenia:
+              description: Plánovaná dátum konca ukončovacej fázy
+            schvalovaci_proces:
+              note_html: Nesledovaný číselník
+            zdroj:
+              description: Číselník zdroja informácií pre MetaIS
+              note_html: <code>codelist_source -> code</code>
+            financna_skupina:
+              note_html: Nesledovaný číselník
+            suma_vydavkov:
+              description: Plánovaný rozpočet
+            rocne_naklady:
+              description: Plánované ročné náklady
+            ref_id:
+              description: URL adresa projektu v MetaIS
+              note_html: V zdrojových dátach niekedy chýba
+            status:
+              description: Číselínk stavu projektu
+              note_html: <code>codelist_project_state -> code</code>
+            zmena_stavu:
+              description: Čas poslednej zmeny podľa zdroja
+            schvalene_rocne_naklady:
+              description: Schválené ročné náklady
+            schvaleny_rozpocet:
+              description: Schválený rozpočet
+            datum_nfp:
+              description: Dátum účinnosti zmluvy o poskytnutí NFP
+            link_nfp:
+              description: Link na zmluvu o NFP v CRZ
+            vyhlasenie_vo:
+              description: Dátum zverejnenia verejného obstarávania
+            vo:
+              description: Link na vestník verejného obstarávania
+            zmluva_o_dielo:
+              description: Dátum účinnosti zmluvy o dielo
+            zmluva_o_dielo_crz:
+              description: Link na zmluvu o dielo v CRZ
+            raw_data:
+              description: Nespracované dáta o dokumente
+              note_html: Presná odpoveď zo zdroja.
+            metais_created_at:
+              description: Čas vytvorenia projektu podľa zdroja
+            <<: *timestamp_columns
+        projects:
+          description: Projekty
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Interný systémový identifikátor.
+            project_id:
+              description: Projekt, ku ktorému sa dokument viaže
+            uuid:
+              description: Identifikátor
+              note_html: Hodnota zodpovedá identifikátoru v zdroji.
+            latest_version_id:
+              description: Aktuálna verzia informácií o projekte
+            <<: *timestamp_columns

@@ -3,7 +3,7 @@ class HomepageController < ContentController
 
   before_action :dump_urls, :dump_sizes, only: :index
 
-  SCHEMAS = [:crz, :itms, :ov, :rpo, :ruz, :socpoist, :vszp, :vvo]
+  SCHEMAS = [:crz, :itms, :metais, :ov, :rpo, :ruz, :socpoist, :vszp, :vvo]
 
   def index
     @page.title = 'Služby. Otvorené dáta &amp; API. &middot; Ekosystém.Slovensko.Digital'.html_safe

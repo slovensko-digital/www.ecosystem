@@ -120,6 +120,17 @@
       <% tables = PgCatalog::PgTable.find_by_schema(:itms) %>
       <%= render partial: 'tables', object: tables %>
       <%= render partial: 'table', collection: tables %>
+
+      <h3 id="metais">Register projektov v MetaIS</h3>
+      <p>Centrálny metainformačný systém verejnej správy obsahuje, okrem iného, informácie o projektoch rozvoja IT v štáte.</p>
+      <p>Poskytované sú dáta o projektoch a dokumnetoch pochádzajúce zo zdroja doplnené o naše sledovanie zmien v týchto projektoch.</p>
+      <p class="btn-row">
+        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/metais.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>metais.sql.gz.torrent</strong></a>
+        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/metais.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> metais.sql.gz</a>
+      </p>
+      <% tables = PgCatalog::PgTable.find_by_schema(:metais) %>
+      <%= render partial: 'tables', object: tables %>
+      <%= render partial: 'table', collection: tables %>
     </div>
   </div>
 <% end %>
