@@ -36,33 +36,6 @@ jobs:
       - run: bundle exec rails db:create db:structure:load --trace
       - run: bundle exec rspec
 
-  deploy:
-    needs: test
-    if: ${{github.ref == 'refs/heads/master'}}
-
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        env: [production]
-        include:
-          - env: production
-            host: SSD_PRODUCTION_HOST
-            key: SSD_PRODUCTION_KEY
-            app: ecosystem
-            flags: ''
-      fail-fast: false
-
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - uses: dokku/github-action@master
-        with:
-          git_push_flags: ${{matrix.flags}}
-          git_remote_url: ssh://dokku@${{secrets[matrix.host]}}/${{matrix.app}}
-          ssh_private_key: ${{secrets[matrix.key]}}
-
   gitlab-push:
     needs: test
     if: ${{github.ref == 'refs/heads/master'}}
