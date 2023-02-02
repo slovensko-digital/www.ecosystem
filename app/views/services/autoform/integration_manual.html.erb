@@ -391,5 +391,143 @@
       }
     }
 ]</code></pre>
+    <h4>Vyhľadanie právnickej osoby podľa IČO</h4>
+    <p class="docs-endpoint"><code>GET https://autoform.ekosystem.slovensko.digital/api/corporate_bodies/search?q=<strong>cin:50158635</strong>&private_access_token=<strong>SEM_API_KĽÚČ</strong></code></p>
+
+    <h5>Parametre</h5>
+
+    <table class="table table-bordered table-nonfluid">
+      <thead>
+        <tr>
+          <th>Názov</th>
+          <th>Typ</th>
+          <th>Popis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>private_access_token</code></td>
+          <td><code>string</code></td>
+          <td>Prístupový kľúč k API. Odlišný od kľúču k JavaScript integrácii.</td>
+        </tr>
+        <tr>
+          <td><code>q</code></td>
+          <td><code>string</code></td>
+          <td>
+            Vyhľadávaný výraz v tvare <code>pole:výraz</code>. Platné hodnoty pre pole sú <code>cin:</code> alebo
+            <code>name:</code> pre IČO alebo názov.
+            <br>
+            Vyhľadáva začiatok názvu/IČO.
+          </td>
+        </tr>
+        <tr>
+          <td><code>limit</code></td>
+          <td><code>integer</code></td>
+          <td>Počet zobrazených výsledkov. Hodnotu atribútu je potrebné nastaviť v rozmedzí 1 až 20. Predvolená hodnota je 5 výsledkov.</td>
+        </tr>
+        <tr>
+          <td><code>filter</code></td>
+          <td><code>string</code></td>
+          <td>Ak má tento atribút hodnotu <code>active</code>, vyhľadávanie vráti iba existujúce (nezaniknuté) subjekty.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h5>Odpoveď</h5>
+    <p><%= link_to 'Popis atribútov', '#popis-atributov', class: 'btn btn-default btn-sm' %></p>
+    <pre class="pre-scrollable"><code class="language-json">[
+    {
+      "id": 1358414,
+      "cin": "50158635",
+      "tin": 2120264674,
+      "vatin": null,
+      "name": "Slovensko.Digital",
+      "formatted_address": "Staré Grunty 205/18, 841 04 Bratislava - mestská časť Karlova Ves",
+      "street": "Staré Grunty",
+      "reg_number": 205,
+      "building_number": "18",
+      "street_number": "205/18",
+      "formatted_street": "Staré Grunty 205/18",
+      "postal_code": "841 04",
+      "municipality": "Bratislava - mestská časť Karlova Ves",
+      "country": "Slovenská republika",
+      "established_on": "2016-01-29",
+      "terminated_on": null,
+      "vatin_paragraph": null,
+      "registration_office": "MV SR",
+      "registration_number": "VVS/1-900/90-48099",
+      "main_corporate_body": null,
+      "updated_at": "2021-05-11T02:10:10.697067Z",
+      "legal_form": "Združenie (zväz, spolok, spoločnosť, klub ai.)",
+      "main_economic_activity": {
+        "code": "94992",
+        "name": "Činnosti záujmových organizácií"
+      },
+      "statutory_bodies": [
+        {
+          "type": "Iný štatutárny orgán",
+          "first_name": "Peter",
+          "last_name": "Kulich",
+          "prefixes": "",
+          "postfixes": "",
+          "formatted_name": "Peter Kulich",
+          "street": "Vajnorská",
+          "reg_number": 1306,
+          "building_number": "7",
+          "postal_code": null,
+          "municipality": "Bratislava - mestská časť Nové Mesto",
+          "country": "Slovenská republika"
+        },
+        {
+          "type": "Iný štatutárny orgán",
+          "first_name": "Ľubor",
+          "last_name": "Illek",
+          "prefixes": "",
+          "postfixes": "",
+          "formatted_name": "Ľubor Illek",
+          "street": "Líščie údolie",
+          "reg_number": 3710,
+          "building_number": "33",
+          "postal_code": null,
+          "municipality": "Bratislava - mestská časť Karlova Ves",
+          "country": "Slovenská republika"
+        }
+      ],
+      "statutory": [
+        {
+          "type": "Iný štatutárny orgán",
+          "first_name": "Peter",
+          "last_name": "Kulich",
+          "prefixes": "",
+          "postfixes": "",
+          "formatted_name": "Peter Kulich",
+          "street": "Vajnorská",
+          "reg_number": 1306,
+          "building_number": "7",
+          "postal_code": null,
+          "municipality": "Bratislava - mestská časť Nové Mesto",
+          "country": "Slovenská republika"
+        },
+        {
+          "type": "Iný štatutárny orgán",
+          "first_name": "Ľubor",
+          "last_name": "Illek",
+          "prefixes": "",
+          "postfixes": "",
+          "formatted_name": "Ľubor Illek",
+          "street": "Líščie údolie",
+          "reg_number": 3710,
+          "building_number": "33",
+          "postal_code": null,
+          "municipality": "Bratislava - mestská časť Karlova Ves",
+          "country": "Slovenská republika"
+        }
+      ],
+      "datahub_corporate_body": {
+        "id": 1358414,
+        "url": "https://datahub.ekosystem.slovensko.digital/api/datahub/corporate_bodies/1358414"
+      }
+    }
+]</code></pre>
   </section>
 </div>
