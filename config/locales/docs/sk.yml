@@ -1578,8 +1578,8 @@ sk:
               description: Výška dlhu
             payer_type:
               description: Typ platiteľa
-            full_health_care_claim:
-              description: Nárok na plnú zdravotnú starostlivosť
+            health_care_claim:
+              description: Rozsah poskytovanej zdravotnej starostlivosti
             published_on:
               description: Dátum publikovania
             <<: *timestamp_columns
