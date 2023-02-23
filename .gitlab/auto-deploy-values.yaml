@@ -7,3 +7,9 @@ image:
 livenessProbe.initialDelaySeconds: 20
 readinessProbe.initialDelaySeconds: 20 
 application.migrateCommand: ["bundle", "exec", "rails", "db:migrate"]
+resources:
+  requests:
+    cpu: 20m
+    memory: 250Mi
+  limits:
+    memory: 400Mi
