@@ -24,6 +24,7 @@ Rails.application.routes.draw do
         get :pricing_v5, path: 'cennik-v5'
         get :pricing_v6, path: 'cennik-v6'
         get :pricing_v7, path: 'cennik-v7'
+        get :pricing_v8, path: 'cennik-v8'
 
         # redirects
         get 'registracia-statutar', to: 'govbox#back_to_step1'
@@ -38,6 +39,7 @@ Rails.application.routes.draw do
       collection do
         get :terms, path: 'vseobecne-obchodne-podmienky'
         get :terms_v1, path: 'vseobecne-obchodne-podmienky-v1'
+        get :terms_v2, path: 'vseobecne-obchodne-podmienky-v2'
       end
     end
 
