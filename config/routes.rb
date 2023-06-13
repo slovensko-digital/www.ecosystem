@@ -25,6 +25,7 @@ Rails.application.routes.draw do
         get :pricing_v6, path: 'cennik-v6'
         get :pricing_v7, path: 'cennik-v7'
         get :pricing_v8, path: 'cennik-v8'
+        get :pricing_v9, path: 'cennik-v9'
 
         # redirects
         get 'registracia-statutar', to: 'govbox#back_to_step1'
@@ -67,6 +68,7 @@ Rails.application.routes.draw do
   get 'podmienky-sluzieb-v1', to: 'static#services_terms_v1', as: :services_terms_v1
   get 'cennik', to: 'static#pricing', as: :pricing
   get 'cennik-v1', to: 'static#pricing_v1', as: :pricing_v1
+  get 'cennik-v2', to: 'static#pricing_v2', as: :pricing_v2
   get 'ochrana-osobnych-udajov', to: 'static#privacy_policy', as: :privacy_policy
   get 'poznamky-k-zmenam', to: 'static#release_notes', as: :release_notes
 
