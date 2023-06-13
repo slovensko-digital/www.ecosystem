@@ -3,6 +3,13 @@
     <div class="col-lg-8">
       <h1><strong>Cenník</strong></h1>
       <br><br>
+
+      <div class="row">
+        <div class="alert alert-warning col-md-7">
+          <strong>Upozornenie: </strong> Táto verzia cenníka je stará a bola nahradená <%= link_to 'novým cenníkom', pricing_path %>.
+        </div>
+      </div>
+
       <p class="lead"><a href="#autoform">Cenník služby Autoform</a></p>
       <p class="lead"><a href="#datahub">Cenník služby Datahub</a></p>
     </div>
@@ -15,19 +22,14 @@
   <div class="row">
     <div class="anchors long-text col-lg-12">
       <h2 id="autoform">Cenník služby Autoform</h2>
-      <p>Platný od 01.07.2023</p>
+      <p>Platný od 01.10.2019</p>
       <div class="list-legal">
         <p>Odmena za poskytnutie služby Autoform sa stanovuje na základe počtu Requestov definovaných v <%= link_to 'Podmienkach používania služieb Ekosystému Slovensko.Digital', services_terms_path %>, ktoré Používateľ odošle v súvislosti s využívaním služby Autoform, pričom: </p>
         <ul>
-          <li>počítanie Requestov začína po uplynutí 30 dní od zaslania prístupových údajov Poskytovateľom,</li>
-          <li>v nasledujúcom období je služba účtovaná na základe kategórie, do ktorej spadá, a to podľa počtu Requestov, ktoré Používateľ odošle nasledovne:</li>
-          <ul>
-            <li>v prípade ak v kalendárnom mesiaci nebude odoslaný žiaden Request, tak je služba za tento mesiac poskytovaná bezodplatne</li>
-            <li>pri počte Requestov od 1 do 255 predstavuje odmena 9,00 EUR / mesačne</li>
-            <li>pri počte Requestov od 256 do 1.000 predstavuje odmena 36,00 EUR / mesačne</li>
-            <li>pri počte Requestov od 1.001 do 2.000 predstavuje odmena 72,00 EUR / mesačne</li>
-            <li>pri počte Requestov nad 2.001 vzniká odmena dohodou EUR / mesačne</li>
-          </ul>
+          <li>pri počte Requestov od 1 do 255 je poskytovanie služby Autoform bezplatné</li>
+          <li>pri počte Requestov od 256 do 1.000 predstavuje odmena 32,00 EUR / mesačne</li>
+          <li>pri počte Requestov od 1.001 do 2.000 predstavuje odmena 64,00 EUR / mesačne</li>
+          <li>pri počte Requestov nad 2.001 vzniká odmena dohodou EUR / mesačne</li>
         </ul>
 
         <p>V prípade, ak počet Requestov presiahne 2.000 dohodnú sa Poskytovateľ a Používateľ na výške odmeny individuálne. Ak počet Requestov za kalendárny mesiac dosiahne 1.800 môže Poskytovateľ Používateľa na túto skutočnosť upozorniť prostredníctvom emailovej správy a vyzve Používateľa, aby ho kontaktoval a cenu s ním individuálne dohodol. Pokiaľ ho Používateľ kontaktovať nebude a/alebo sa na cene nedohodnú, môže Poskytovateľ obmedziť alebo zastaviť poskytovanie tak, že neumožní Používateľovi Requesty nad počet 2.000.</p>
@@ -38,20 +40,15 @@
       </div>
 
       <h2 id="datahub">Cenník služby Datahub</h2>
-      <p>Platný od 01.07.2023</p>
+      <p>Platný od 01.10.2019</p>
       <div class="list-legal">
         <p>Odmena za poskytnutie služby Datahub sa stanovuje na základe počtu Requestov definovaných v <%= link_to 'Podmienkach používania služieb Ekosystému Slovensko.Digital', services_terms_path %>, ktoré Používateľ odošle v súvislosti s využívaním služby Datahub, pričom:</p>
 
         <ul>
-          <li>počítanie Requestov začína po uplynutí 30 dní od zaslania prístupových údajov Poskytovateľom,</li>
-          <li>v nasledujúcom období je služba účtovaná na základe kategórie, do ktorej spadá, a to podľa počtu Requestov, ktoré Používateľ odošle nasledovne:</li>
-          <ul>
-            <li>v prípade ak v kalendárnom mesiaci nebude odoslaný žiaden Request, tak je služba za tento mesiac poskytovaná bezodplatne</li>
-            <li>pri počte Requestov od 1 do 255 predstavuje odmena 9,00 EUR / mesačne</li>
-            <li>pri počte Requestov od 256 do 1.000 predstavuje odmena 36,00 EUR / mesačne</li>
-            <li>pri počte Requestov od 1.001 do 2.000 predstavuje odmena 72,00 EUR / mesačne</li>
-            <li>pri počte Requestov nad 2.001 vzniká odmena dohodou EUR / mesačne</li>
-          </ul>
+          <li>pri počte Requestov od 1 do 255 je poskytovanie služby Datahub bezplatné</li>
+          <li>pri počte Requestov od 256 do 1.000 predstavuje odmena 32,00 EUR / mesačne</li>
+          <li>pri počte Requestov od 1.001 do 2.000 predstavuje odmena 64,00 EUR / mesačne</li>
+          <li>pri počte Requestov nad 2.001 vzniká odmena dohodou EUR / mesačne</li>
         </ul>
 
         <p>Po dosiahnutí maximálneho počtu Requestov pre bezplatné fungovanie služby služba nie je automaticky zablokovaná. Nie je potrebné povolenie na presiahnutie bezplatného počtu Requestov.</p>
