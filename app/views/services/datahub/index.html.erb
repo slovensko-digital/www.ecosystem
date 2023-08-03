@@ -128,7 +128,10 @@
   <section>
     <h2>Registrácia</h2>
     <p class="lead">Jednoduchá registrácia na prístup k SQL rozhraniu a API.
-      <em>Kompletné dáta zdrojových registrov.</em> API na konsolidované a&nbsp;prepojené dáta. <em>Prvý mesiac <strong>zadarmo</strong></em>. Následne podľa <%= link_to 'cenníka', pricing_path(anchor: 'datahub') %>.</p>
+      <em>Kompletné dáta zdrojových registrov.</em> API na konsolidované a&nbsp;prepojené dáta.
+      <em>Prvý mesiac <strong>zadarmo</strong></em>. Následne podľa <%= link_to 'cenníka', pricing_path(anchor: 'datahub') %>.
+      Na výskumné a dobročinné účely zadarmo.
+    </p>
 
     <div id="datahub-error" style="display: none;">
       <%= render 'services/share/flash_message', {type: :alert, message: 'Vyplňte prosím email a skúste znova.'} %>
