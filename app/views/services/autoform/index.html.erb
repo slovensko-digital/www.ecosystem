@@ -224,8 +224,11 @@
     <div id="autoform-error" style="display: none;">
       <%= render 'services/share/flash_message', {type: :alert, message: 'Niektoré údaje ste nezadali správne. Opravte ich prosím a skúste znova.'} %>
     </div>
+    <div id="autoform-form-error" style="display: none;">
+      <%= render 'services/share/flash_message', {type: :alert, message: 'Nastala chyba pri spracovaní formuláru. Výskušajte to opäť neskôr prosím.'} %>
+    </div>
     <div id="autoform-form-sent" style="display: none;">
-      <%= render 'services/share/flash_message', {type: :notice, message: 'Žiadosť o registráciu bola odoslaná na schválenie. Ďakujeme za Váš záujem a budeme Vás kontaktovať.'} %>
+      <%= render 'services/share/flash_message', {type: :notice, message: 'Žiadosť o registráciu bola odoslaná na schválenie. Ďakujeme za Váš záujem, budeme Vás kontaktovať.'} %>
     </div>
 
     <div id="autoform_flash"></div>
