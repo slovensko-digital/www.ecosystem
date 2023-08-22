@@ -220,15 +220,25 @@
       Na výskumné a dobročinné účely zadarmo.
     </p>
 
-
-    <div id="autoform-error" style="display: none;">
-      <%= render 'services/share/flash_message', {type: :alert, message: 'Niektoré údaje ste nezadali správne. Opravte ich prosím a skúste znova.'} %>
-    </div>
-    <div id="autoform-form-error" style="display: none;">
-      <%= render 'services/share/flash_message', {type: :alert, message: 'Nastala chyba pri spracovaní formuláru. Výskušajte to opäť neskôr prosím.'} %>
-    </div>
-    <div id="autoform-form-sent" style="display: none;">
-      <%= render 'services/share/flash_message', {type: :notice, message: 'Žiadosť o registráciu bola odoslaná na schválenie. Ďakujeme za Váš záujem, budeme Vás kontaktovať.'} %>
+    <div id="flash-message-wrapper">
+      <div id="autoform-error" style="display: none;">
+        <div class="alert alert-danger alert-dismissible" role="alert">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true" class="error">&times;</span></button>
+          <%= 'Niektoré údaje ste nezadali správne. Opravte ich prosím a skúste znova.' %>
+        </div>
+      </div>
+      <div id="autoform-form-error" style="display: none;">
+        <div class="alert alert-danger alert-dismissible" role="alert">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true" class="form-error">&times;</span></button>
+          <%= 'Nastala chyba pri spracovaní formuláru. Výskušajte to opäť neskôr prosím alebo nás kontaktujte <a href="mailto:podpora@slovensko.digital">podpora@slovensko.digital</a>.'.html_safe %>
+        </div>
+      </div>
+      <div id="autoform-form-sent" style="display: none;">
+        <div class="alert alert-success alert-dismissible" role="alert">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true" class="success">&times;</span></button>
+          <%= 'Žiadosť o registráciu bola odoslaná na schválenie. Ďakujeme za Váš záujem, budeme Vás kontaktovať.' %>
+        </div>
+      </div>
     </div>
 
     <div id="autoform_flash"></div>
