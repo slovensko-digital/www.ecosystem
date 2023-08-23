@@ -40,37 +40,36 @@ $(document).ready(function() {
         }
     });
 
-    const wrapper = document.getElementById('flash-message-wrapper')
-    wrapper.addEventListener('click', (event) => {
-        const isButton = event.target.nodeName === 'SPAN';
-        if (!isButton) {return;}
+    const autoformError = document.getElementById('autoform-error');
+    addCloseButtonListener(autoformError);
 
-        $('#autoform-email').parent('.form-group').removeClass('has-error');
-        $('#autoform-domain').parent('.form-group').removeClass('has-error');
-
-        if(event.target.className === 'error') {
-            $('#autoform-error').hide();
-        }
-        else if(event.target.className === 'form-error') {
-            $('#autoform-form-error').hide();
-        }
-        else if(event.target.className === 'success') {
-            $('#autoform-form-sent').hide();
-        }
-    });
+    const autoformFormError = document.getElementById('autoform-form-error');
+    addCloseButtonListener(autoformFormError);
 
     const emailInputField = document.getElementById('autoform-email');
-    emailInputField.addEventListener('click', removeErrors);
+    emailInputField.addEventListener('click', function (){
+        removeErrors(autoformError, autoformFormError)
+    });
 
     const domainInputField = document.getElementById('autoform-domain');
-    domainInputField.addEventListener('click', removeErrors);
+    domainInputField.addEventListener('click', function (){
+        removeErrors(autoformError, autoformFormError)
+    });
 });
 
-function removeErrors() {
+function addCloseButtonListener(node) {
+    const closeButton = node.querySelector('.alert .close');
+    closeButton.addEventListener("click", function (){
+        removeErrors(node);
+    });
+}
+
+function removeErrors(...nodes) {
     $('#autoform-email').parent('.form-group').removeClass('has-error');
     $('#autoform-domain').parent('.form-group').removeClass('has-error');
-    $('#autoform-error').hide();
-    $('#autoform-form-error').hide();
+    nodes.forEach(function(node) {
+        $('#' + node.id).hide();
+    });
 }
 
 
