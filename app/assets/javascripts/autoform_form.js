@@ -22,27 +22,20 @@ $(document).ready(function() {
         else {
             var formData = $(this).serialize();
 
-            $.ajax($(this).attr('action'), {
-                data: formData,
-                dataType: "jsonp",
-                complete: function(response) {
-                    if (response.status === 200) {
-                        $('#autoform-error').hide();
-                        $('#autoform-form-error').hide();
-                        $('#autoform-email').parent('.form-group').removeClass('has-error');
-                        $('#autoform-domain').parent('.form-group').removeClass('has-error');
-                        $('#autoform-form').hide();
-                        $('#autoform-form-sent').show();
+            $.post('https://cors-proxy-bypass.fly.dev/'+$(this).attr('action'), formData, function(response) {
 
-                    }
-                    else {
-                        $('#autoform-form-error').show();
-                    }
-                },
-                error: function() {
+            }).complete(function(response) {
+                if (response.status === 200) {
+                    $('#autoform-error').hide();
+                    $('#autoform-form-error').hide();
+                    $('#autoform-email').parent('.form-group').removeClass('has-error');
+                    $('#autoform-domain').parent('.form-group').removeClass('has-error');
+                    $('#autoform-form').hide();
+                    $('#autoform-form-sent').show();
+                }
+                else {
                     $('#autoform-form-error').show();
-                },
-                timeout: 5000
+                }
             });
 
             plausible('Registration', {props: {product: 'Autoform'}});
