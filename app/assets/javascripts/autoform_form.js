@@ -20,56 +20,61 @@ $(document).ready(function() {
             return false;
         }
         else {
-            const formData = $(this).serialize();
+            var formData = $(this).serialize();
 
-            $.post($(this).attr('action'), formData)
-                .done(function() {
+            $.post('https://cors-proxy-bypass.fly.dev/'+$(this).attr('action'), formData, function(response) {
+
+            }).complete(function(response) {
+                if (response.status === 200) {
                     $('#autoform-error').hide();
                     $('#autoform-form-error').hide();
                     $('#autoform-email').parent('.form-group').removeClass('has-error');
                     $('#autoform-domain').parent('.form-group').removeClass('has-error');
                     $('#autoform-form').hide();
                     $('#autoform-form-sent').show();
-                })
-                .fail(function() {
+
+                }
+                else {
                     $('#autoform-form-error').show();
-                });
+                }
+            });
 
             plausible('Registration', {props: {product: 'Autoform'}});
             return true;
         }
     });
 
-    const autoformError = document.getElementById('autoform-error');
+    var autoformError = $('#autoform-error').get(0);
     addCloseButtonListener(autoformError);
 
-    const autoformFormError = document.getElementById('autoform-form-error');
+    var autoformFormError = $('#autoform-form-error').get(0);
     addCloseButtonListener(autoformFormError);
 
-    const emailInputField = document.getElementById('autoform-email');
+    var emailInputField = $('#autoform-email').get(0);
     emailInputField.addEventListener('click', function (){
         removeErrors(autoformError, autoformFormError)
     });
 
-    const domainInputField = document.getElementById('autoform-domain');
+    var domainInputField = $('#autoform-domain').get(0);
     domainInputField.addEventListener('click', function (){
         removeErrors(autoformError, autoformFormError)
     });
 });
 
 function addCloseButtonListener(node) {
-    const closeButton = node.querySelector('.alert .close');
+    var closeButton = node.querySelector('.alert .close');
     closeButton.addEventListener("click", function (){
         removeErrors(node);
     });
 }
 
-function removeErrors(...nodes) {
+function removeErrors() {
     $('#autoform-email').parent('.form-group').removeClass('has-error');
     $('#autoform-domain').parent('.form-group').removeClass('has-error');
-    nodes.forEach(function(node) {
-        $('#' + node.id).hide();
-    });
+
+    for(var node = 0; node < arguments.length; node++) {
+        $('#' + arguments[node].id).hide();
+    }
 }
 
 
