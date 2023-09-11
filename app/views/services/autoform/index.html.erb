@@ -220,12 +220,18 @@
       Na výskumné a dobročinné účely zadarmo.
     </p>
 
-
     <div id="autoform-error" style="display: none;">
-      <%= render 'services/share/flash_message', {type: :alert, message: 'Niektoré údaje ste nezadali správne. Opravte ich prosím a skúste znova.'} %>
+      <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" aria-label="Close"><span aria-hidden="true" class="error">&times;</span></button>
+        <%= 'Niektoré údaje ste nezadali správne. Opravte ich prosím a skúste znova.' %>
+      </div>
     </div>
     <div id="autoform-form-sent" style="display: none;">
-      <%= render 'services/share/flash_message', {type: :notice, message: 'Žiadosť o registráciu bola odoslaná na schválenie. Ďakujeme za Váš záujem a budeme Vás kontaktovať.'} %>
+      <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" class="success">&times;</span>
+        </button>
+        <%= 'Registrácia bola odoslaná na schválenie. Ďakujeme za Váš záujem a budeme Vás v priebehu najbližších pracovných dní kontaktovať.' %>
+      </div>
     </div>
 
     <div id="autoform_flash"></div>

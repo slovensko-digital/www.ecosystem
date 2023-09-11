@@ -29,4 +29,33 @@ $(document).ready(function() {
             return true;
         }
     });
+
+    var autoformError = $('#autoform-error').get(0);
+    addCloseButtonListener(autoformError);
+
+    var emailInputField = $('#autoform-email').get(0);
+    emailInputField.addEventListener('click', function (){
+        removeErrors(autoformError)
+    });
+
+    var domainInputField = $('#autoform-domain').get(0);
+    domainInputField.addEventListener('click', function (){
+        removeErrors(autoformError)
+    });
 });
+
+function addCloseButtonListener(node) {
+    var closeButton = node.querySelector('.alert .close');
+    closeButton.addEventListener("click", function (){
+        removeErrors(node);
+    });
+}
+
+function removeErrors(node) {
+    $('#autoform-email').parent('.form-group').removeClass('has-error');
+    $('#autoform-domain').parent('.form-group').removeClass('has-error');
+    $('#' + node.id).hide();
+}
+
+
+

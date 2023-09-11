@@ -43,7 +43,7 @@ end
 
 group :test do
   gem 'selenium-webdriver'
-  gem 'webdrivers'
+  gem "webdrivers", "= 5.3.0"
   gem 'capybara'
   gem 'launchy'
   gem 'simplecov', '~> 0.10', '< 0.18'
