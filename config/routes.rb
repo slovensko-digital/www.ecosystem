@@ -64,8 +64,10 @@ Rails.application.routes.draw do
   get 'podmienky', to: 'static#datasets_terms', as: :datasets_terms
   get 'podmienky-v1', to: 'static#datasets_terms_v1', as: :datasets_terms_v1
   get 'podmienky-v2', to: 'static#datasets_terms_v2', as: :datasets_terms_v2
+  get 'podmienky-v3', to: 'static#datasets_terms_v3', as: :datasets_terms_v3
   get 'podmienky-sluzieb', to: 'static#services_terms', as: :services_terms
   get 'podmienky-sluzieb-v1', to: 'static#services_terms_v1', as: :services_terms_v1
+  get 'podmienky-sluzieb-v2', to: 'static#services_terms_v2', as: :services_terms_v2
   get 'cennik', to: 'static#pricing', as: :pricing
   get 'cennik-v1', to: 'static#pricing_v1', as: :pricing_v1
   get 'cennik-v2', to: 'static#pricing_v2', as: :pricing_v2
