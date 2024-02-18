@@ -1598,16 +1598,20 @@ sk:
               description: Identifikátor schránky
             name:
               description: Názov schránky inštitúcie
-            street:
-              description: Ulica
-            street_number:
-              description: Číslo domu
-            formatted_street:
-              description: Ulica a číslo
-            postal_code:
-              description: PSČ
-            city:
-              description: Mesto
+            <<: *timestamp_columns
+
+        public_authority_active_edesks:
+          description: Aktivované elektronické schránky inštitúcii
+          columns:
+            id:
+              description: Identifikátor záznamu
+              note_html: Interný systémový identifikátor. Nepochádza zo zdroja.
+            cin:
+              description: Identifikačné číslo organizácie (IČO)
+            uri:
+              description: Identifikátor schránky
+            name:
+              description: Názov schránky inštitúcie
             <<: *timestamp_columns
             
         services_with_forms:
