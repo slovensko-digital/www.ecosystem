@@ -1,4 +1,4 @@
 <%= hidden_field_tag :mode, params[:mode], value: params[:mode] || 'sync_mode' %>
-<%= hidden_field_tag :referral_code, params[:referral_code] %>
+<%= hidden_field_tag :referral_code, params[:referral_code], value: params[:referral_code] || cookies[:ref] %>
 <%= hidden_field_tag :legal_subject_name, params[:legal_subject_name] %>
 <%= hidden_field_tag :cin, params[:cin] %>
