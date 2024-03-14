@@ -71,7 +71,6 @@ RSpec.describe 'Pages' do
       expect(page).to have_content('Synchronizačné API')
       expect(page).to have_content('Register právnických osôb')
       expect(page).to have_content('Centrálny register zmlúv')
-      expect(page).to have_content('Vestník verejného obstarávania')
       expect(page).to have_content('Obchodný vestník')
       expect(page).to have_content('Register účtovných závierok')
     end
@@ -85,7 +84,6 @@ RSpec.describe 'Pages' do
 
       expect(page).to have_content('rpo.')
       expect(page).to have_content('crz.')
-      expect(page).to have_content('vvo.')
       expect(page).to have_content('ov.')
       expect(page).to have_content('fs.')
       expect(page).to have_content('ruz.')

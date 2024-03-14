@@ -20,7 +20,7 @@
         <p>Štruktúra dát podlieha <%= link_to 'zmenám', release_notes_path %>.</p>
 
         <h2 id="data">Dáta</h2>
-        <p>API pre údaje z <%= link_to 'centrálneho registra zmlúv', '#crz' %>, <%= link_to 'registra právnických osôb', '#rpo' %>, <%= link_to 'vestníka verejného obstarávania', '#vvo' %>, <%= link_to 'obchodného vestníka', '#ov' %> a <%= link_to 'registra účtovných závierok', '#ruz' %>.</p>
+        <p>API pre údaje z <%= link_to 'centrálneho registra zmlúv', '#crz' %>, <%= link_to 'registra právnických osôb', '#rpo' %>, <%= link_to 'obchodného vestníka', '#ov' %> a <%= link_to 'registra účtovných závierok', '#ruz' %>.</p>
 
         <h3 id="rpo">Register právnických osôb</h3>
         <p>Register právnických osôb je jedným z kľúčových referenčných registrov vo verejnej správe. Obsahuje informácie o právnických osobách z viacerých zdrojových registrov (napr. obchodný register, živnostenský register, register občianskych združení&hellip;)</p>
@@ -28,9 +28,6 @@
 
         <h3 id="crz">Centrálny register zmlúv</h3>
         <%= render 'crz_api' %>
-
-        <h3 id="vvo">Vestník verejného obstarávania</h3>
-        <%= render 'vvo_api' %>
 
         <h3 id="ov">Obchodný vestník</h3>
         <%= render 'ov_bulletin_issues' %>
@@ -68,7 +65,6 @@
             <ul class="list-group">
               <li class="list-group-item"><%= link_to 'Register právnických osôb', '#rpo' %></li>
               <li class="list-group-item"><%= link_to 'Centrálny register zmlúv', '#crz' %></li>
-              <li class="list-group-item"><%= link_to 'Vestník verejného obstarávania', '#vvo' %></li>
               <li class="list-group-item"><%= link_to 'Obchodný vestník', '#ov' %></li>
               <li class="list-group-item"><%= link_to 'Register účtovných závierok', '#ruz' %></li>
               <li class="list-group-item"><%= link_to 'Dlžníci Sociálnej poisťovne', '#socpoist' %></li>
