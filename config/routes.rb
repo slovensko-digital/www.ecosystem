@@ -125,11 +125,6 @@ Rails.application.routes.draw do
         resources :znizenie_imania_issues, concerns: :syncable
       end
 
-      namespace :vvo do
-        resources :raw_notices, concerns: :syncable
-        resources :notices, concerns: :syncable
-      end
-
       namespace :socpoist do
         resources :debtors, concerns: :syncable
         resources :debts_lists, concerns: :syncable
