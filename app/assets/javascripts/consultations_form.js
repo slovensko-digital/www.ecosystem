@@ -1,4 +1,14 @@
 $(document).ready(function() {
+    var consultationsError = $('#consultations-error').get(0);
+    if (consultationsError) {
+        consultations.addCloseButtonListener(consultationsError);
+
+        var emailInputField = $('#consultations-email').get(0);
+        emailInputField.addEventListener('click', function (){
+            $('#' + consultationsError.id).hide();
+        });
+    }
+
     $('#consultations-form').submit(function() {
         if ($('#consultations-email').val() == '') {
             $('#consultations-sent').hide();
@@ -18,3 +28,12 @@ $(document).ready(function() {
         }
     });
 });
+
+var consultations = {
+    addCloseButtonListener: function(node) {
+        var closeButton = node.querySelector('.alert .close');
+        closeButton.addEventListener("click", function (){
+            $('#' + node.id).hide();
+        });
+    }
+};
