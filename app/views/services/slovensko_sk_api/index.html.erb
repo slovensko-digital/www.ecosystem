@@ -121,10 +121,17 @@
     </p>
 
     <div id="sk-api-error" style="display: none;">
-      <%= render 'services/share/flash_message', {type: :alert, message: 'Vyplňte prosím email a skúste znova.'} %>
+      <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" aria-label="Close"><span aria-hidden="true" class="error">&times;</span></button>
+        <%= 'Vyplňte prosím email a skúste znova.' %>
+      </div>
     </div>
     <div id="sk-api-form-sent" style="display: none;">
-      <%= render 'services/share/flash_message', {type: :notice, message: 'Ďakujeme, za Váš záujem. Budeme Vás kontaktovať cez zadaný email.'} %>
+      <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" class="success">&times;</span>
+        </button>
+        <%= 'Ďakujeme, za Váš záujem. Budeme Vás kontaktovať cez zadaný email.' %>
+      </div>
     </div>
 
     <iframe name="form-result" style="display: none;"></iframe>
