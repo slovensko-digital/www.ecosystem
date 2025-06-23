@@ -18,7 +18,7 @@ RSpec.describe 'Pages' do
         expect(page).to have_content('Autoform')
         expect(page).to have_content('Datahub')
 
-        schemas.each { |schema| expect(page).to have_link("#{schema}.sql.gz.torrent (950 MB)", href: "https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/#{schema}.sql.gz?torrent") }
+        schemas.each { |schema| expect(page).to have_link("#{schema}.sql.gz (950 MB)", href: "https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/#{schema}.sql.gz") }
       end
     end
 
@@ -34,7 +34,7 @@ RSpec.describe 'Pages' do
         expect(page).to have_content('Autoform')
         expect(page).to have_content('Datahub')
 
-        schemas.each { |schema| expect(page).to have_link("#{schema}.sql.gz.torrent (? MB)", href: "https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/#{schema}.sql.gz?torrent") }
+        schemas.each { |schema| expect(page).to have_link("#{schema}.sql.gz (? MB)", href: "https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/#{schema}.sql.gz") }
       end
     end
   end
