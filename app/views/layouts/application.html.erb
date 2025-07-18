@@ -58,7 +58,7 @@
 <footer>
   <div class="newsletter">
     <div class="container">
-      <form role="form" action="https://my.sendinblue.com/users/subscribe/js_id/29wti/id/2" data-action="https://my.sendinblue.com/users/subscribeembed/js_id/29wti/id/2" method="post">
+      <form role="form" method="POST" action="https://8ae9bea9.sibforms.com/serve/MUIFAN-0msek17rOg37uYRtZPMMpjVb6LFy-fSI7pzQWr5qjW9sVhSfRKuo-_6NlM4abg6wq5RXiu9Jep0P1E2etJpjtknA-RZ1jIMHBnSHI0eusRkVjkR0dRMKUy4LPSwrTS7aoGUaMl2DNa4Aqj_Op6OWbCxdB8-rqKWo1gNRsGDJ0gb4Xv7tuWAjsnl6enTbOHh7r35_WPZcb" data-action="https://8ae9bea9.sibforms.com/serve/MUIFAN-0msek17rOg37uYRtZPMMpjVb6LFy-fSI7pzQWr5qjW9sVhSfRKuo-_6NlM4abg6wq5RXiu9Jep0P1E2etJpjtknA-RZ1jIMHBnSHI0eusRkVjkR0dRMKUy4LPSwrTS7aoGUaMl2DNa4Aqj_Op6OWbCxdB8-rqKWo1gNRsGDJ0gb4Xv7tuWAjsnl6enTbOHh7r35_WPZcb">
         <div class="row">
           <div class="col-md-4 col-md-pad">
             <p><strong>Newsletter Ekosystém.Slovensko.Digital</strong></p>
@@ -66,26 +66,28 @@
           </div>
           <div class="col-md-3 col-md-pad">
             <div class="form-group">
-              <%= label_tag 'entry.204431983', 'Email', class: 'control-label' %>
-              <input type="hidden" name="js_id" id="js_id" value="29wti">
-              <input type="hidden" name="listid" id="listid" value="14">
-              <input type="hidden" name="from_url" id="from_url" value="yes">
-              <input type="hidden" name="hdn_email_txt" id="hdn_email_txt" value="">
-              <input type="email" required name="email" class="form-control">
+              <input type="email" id="EMAIL" name="EMAIL" class="form-control" autocomplete="off" placeholder="Zadajte email*" data-required="true" required>
             </div>
           </div>
           <div class="col-md-4 col-md-pad">
             <%= label_tag :a, '&nbsp'.html_safe %> <br>
-            <%= button_tag 'Prihlásiť', class: 'btn btn-default' %>
+            <%= button_tag 'Prihlásiť', class: 'btn btn-default', type: 'submit' %>
           </div>
         </div>
         <div class="row">
-          <p class="col-md-offset-4 col-md-5 col-md-pad legal">
-            Prihlásením dávam dobrovoľný súhlas spoločnosti Služby Slovensko.Digital s.r.o. na zasielanie bezplatného newslettera na mnou zadaný e-mail. Tento súhlas môžem kedykoľvek odvolať na
-            <a href="mailto:podpora@slovensko.digital">podpora@slovensko.digital</a>. Oboznámil(a) som sa s informáciami v sekcii
-            <%= link_to 'Ochrana osobných údajov', privacy_policy_path, target: '_blank' %>.
-          </p>
+          <div class="col-md-offset-4 col-md-6 col-md-pad legal">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" class="input_replaced" value="1" id="OPT_IN" name="OPT_IN" required>
+                Súhlasím so zasielaním bezplatného newslettera na mnou zadaný e-mail. Tento súhlas môžem kedykoľvek odvolať na
+                <a href="mailto:podpora@slovensko.digital">podpora@slovensko.digital</a>. Oboznámil(a) som sa s informáciami v sekcii
+                <a href="https://ekosystem.slovensko.digital/ochrana-osobnych-udajov" target="_blank">Ochrana osobných údajov</a>.
+              </label>
+            </div>
+          </div>
         </div>
+        <input type="text" name="email_address_check" value="" class="input--hidden sr-only">
+        <input type="hidden" name="locale" value="en">
       </form>
       <div class="row hidden newsletter-success">
         <div class="col-md-12">

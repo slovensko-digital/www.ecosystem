@@ -9,14 +9,11 @@ $(document).ready(function () {
                 type: 'POST',
                 url: form.data('action'),
                 data: data,
-                dataType: 'json',
-                success: function (data) {
-                    if (data.result != undefined && data.result.result == 'success') {
-                        form.remove();
-                        $('.newsletter .newsletter-success').removeClass('hidden');
+                success: function () {
+                    form.remove();
+                    $('.newsletter .newsletter-success').removeClass('hidden');
 
-                        plausible('NewsletterSignup');
-                    }
+                    plausible('NewsletterSignup');
                 },
                 complete: function () {
                     button.innerHTML = 'Prihlásiť'
