@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require tether.min
 //= require bootstrap.min
-//= require newsletter_form
 //= require consultations_form
 //= require password_confirmation_validator
 

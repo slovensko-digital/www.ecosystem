@@ -1,0 +1,35 @@
+<%= form_tag newsletter_subscribe_path, method: :post, remote: true, id: "newsletter-form", role: "form" do %>
+  <div class="row">
+    <div class="col-md-4 col-md-pad">
+      <p><strong>Newsletter Ekosystém.Slovensko.Digital</strong></p>
+      <p>Novinky emailom sem-tam, žiadny spam.</p>
+    </div>
+
+    <div class="col-md-3 col-md-pad">
+      <div class="form-group">
+        <b><%= label_tag :email, 'Email', class: 'control-label' %></b>
+        <%= email_field_tag :email, '', class: 'form-control', required: true, autocomplete: :email %>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-md-pad">
+      <%= label_tag nil, '&nbsp;'.html_safe %><br>
+      <%= submit_tag 'Prihlásiť', class: 'btn btn-default' %>
+    </div>
+  </div>
+
+  <div id="newsletter-success" class="row hidden">
+    <p class="col-md-offset-4 col-md-8 col-md-pad">Na zadanú adresu sme poslali email pre potvrdenie odberu. Ďakujeme za Váš záujem.</p>
+  </div>
+
+  <div id="newsletter-error" class="row hidden">
+    <p class="col-md-offset-4 col-md-8 col-md-pad text-danger">Nepodarilo sa prihlásiť na odber noviniek. Skúste to prosím znova.</p>
+  </div>
+
+  <div class="row">
+    <p class="col-md-offset-4 col-md-5 col-md-pad legal">
+      Prihlásením dávam dobrovoľný súhlas spoločnosti Služby Slovensko.Digital s.r.o. na zasielanie bezplatného newslettera na mnou zadaný e-mail. Tento súhlas môžem kedykoľvek odvolať na
+      <a href="mailto:podpora@slovensko.digital">podpora@slovensko.digital</a>. Oboznámil(a) som sa s informáciami v&nbsp;sekcii <a target="_blank" href="/ochrana-osobnych-udajov">Ochrana osobných údajov</a>.
+    </p>
+  </div>
+<% end %>

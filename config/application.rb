@@ -34,5 +34,19 @@ module Ecosystem
 
     # use custom errors
     config.exceptions_app = self.routes
+    
+    app_config = Rails.application.config_for(:app)
+    app_host = app_config["host"]
+    app_port = app_config["port"]
+    app_protocol = app_config["protocol"]
+
+    options = {
+      host: app_host,
+      protocol: app_protocol
+    }
+
+    if app_port.present?
+      options[:port] = app_port.to_i
+    end
   end
 end
