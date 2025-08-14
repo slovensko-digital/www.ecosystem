@@ -49,3 +49,5 @@ group :test do
   gem 'simplecov', '~> 0.10', '< 0.18'
   gem 'webmock'
 end
+
+gem "brevo", "~> 4.0"
