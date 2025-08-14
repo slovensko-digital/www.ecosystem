@@ -83,6 +83,9 @@ Rails.application.routes.draw do
 
   root to: 'homepage#index'
 
+  post 'newsletter/subscribe', to: 'newsletter_subscriptions#subscribe', as: :newsletter_subscribe
+  get 'newsletter/confirmed', to: 'newsletter_subscriptions#confirmed', as: :newsletter_confirmed
+
   get '404', to: 'errors#not_found'
   get '422', to: 'errors#unacceptable'
   get '500', to: 'errors#internal_error'

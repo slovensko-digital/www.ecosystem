@@ -18,7 +18,6 @@
 //= require datahub_form
 //= require autoform_form
 //= require slovensko_sk_api_form
-//= require newsletter_form
 //= require password_confirmation_validator
 
 $(document).on("ready page:change", function() {
