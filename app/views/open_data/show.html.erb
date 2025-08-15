@@ -16,8 +16,7 @@
       <h3 id="rpo">Register právnických osôb</h3>
       <p>Register právnických osôb je jedným z kľúčových referenčných registrov vo verejnej správe. Obsahuje informácie o právnických osobách z viacerých zdrojových registrov (napr. obchodný register, živnostenský register, register občianskych združení&hellip;)</p>
       <p class="btn-row">
-        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/rpo.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>rpo.sql.gz.torrent</strong></a>
-        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/rpo.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> rpo.sql.gz</a>
+        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/rpo.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> <strong>rpo.sql.gz</strong> </a>
         <%= link_to 'API', open_api_path(anchor: :rpo), class: 'btn btn-default' %>
       </p>
       <% tables = PgCatalog::PgTable.find_by_schema(:rpo) %>
@@ -27,8 +26,7 @@
       <h3 id="crz">Centrálny register zmlúv</h3>
       <p>Centrálny register zmlúv je jedným z najdôležitejších registrov z hľadiska transparetnosti narábania s verejnými zdrojmi. Obsahuje metadáta zmlúv a odkazy na zmluvy samotné.</p>
       <p class="btn-row">
-        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/crz.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>crz.sql.gz.torrent</strong></a>
-        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/crz.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> crz.sql.gz</a>
+        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/crz.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> <strong>crz.sql.gz</strong> </a>
         <%= link_to 'API', open_api_path(anchor: :crz), class: 'btn btn-default' %>
       </p>
       <% tables = PgCatalog::PgTable.find_by_schema(:crz) %>
@@ -38,8 +36,7 @@
       <h3 id="ov">Obchodný vestník</h3>
       <p>Obchodný vestník obsahuje údaje o zmenách právnických osôb. Poskytované sú kompletné dáta pochádzajúce zo zdroja. Aktuálne sú do štrukturovanej podoby spracované iba niektoré z nich (vestník obchodného registra, konkurzy, likvidácie, reštrukturalizácie a zníženie základného imania).</p>
       <p class="btn-row">
-        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/ov.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>ov.sql.gz.torrent</strong></a>
-        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/ov.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> ov.sql.gz</a>
+        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/ov.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> <strong>ov.sql.gz</strong> </a>
         <%= link_to 'API', open_api_path(anchor: :ov), class: 'btn btn-default' %>
       </p>
       <% tables = PgCatalog::PgTable.find_by_schema(:ov) %>
@@ -49,8 +46,7 @@
       <h3 id="fs">Informačné zoznamy Finančnej správy</h3>
       <p>Informačné zoznamy Finančnej správy obsahujú informácie o daňových subjektoch na Slovensku. Momentálne poskytujeme len zoznam daňových subjektov registrovaných pre DPH a zoznam daňových subjektov s výškou nadmerného odpočtu a výškou vlastnej daňovej povinnosti.</p>
       <p class="btn-row">
-        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/fs.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>fs.sql.gz.torrent</strong></a>
-        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/fs.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> fs.sql.gz</a>
+        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/fs.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> <strong>fs.sql.gz</strong> </a>
       </p>
       <% tables = PgCatalog::PgTable.find_by_schema(:fs) %>
       <%= render partial: 'tables', object: tables %>
@@ -59,8 +55,7 @@
       <h3 id="ruz">Register účtovných závierok</h3>
       <p>Register účtovných závierok obsahuje dôležité informácie o hospodárení firiem na Slovensku. Momentálne poskytujeme len účtovné jednotky a číselníky.</p>
       <p class="btn-row">
-        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/ruz.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>ruz.sql.gz.torrent</strong></a>
-        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/ruz.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> ruz.sql.gz</a>
+        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/ruz.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> <strong>ruz.sql.gz</strong> </a>
         <%= link_to 'API', open_api_path(anchor: :ruz), class: 'btn btn-default' %>
       </p>
       <% tables = PgCatalog::PgTable.find_by_schema(:ruz) %>
@@ -70,8 +65,7 @@
       <h3 id="socpoist">Dlžníci Sociálnej poisťovne</h3>
       <p>Zoznamy dlžníkov obsahujú informácie o dlžobách fyzických a právnických osôb voči Sociálnej poisťovni.</p>
       <p class="btn-row">
-        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/socpoist.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>socpoist.sql.gz.torrent</strong></a>
-        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/socpoist.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> socpoist.sql.gz</a>
+        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/socpoist.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> <strong>socpoist.sql.gz</strong></a>
         <%= link_to 'API', open_api_path(anchor: :socpoist), class: 'btn btn-default' %>
       </p>
       <% tables = PgCatalog::PgTable.find_by_schema(:socpoist) %>
@@ -81,8 +75,7 @@
       <h3 id="vszp">Dlžníci Všeobecnej zdravotnej poisťovne</h3>
       <p>Zoznamy dlžníkov obsahujú informácie o dlžobách fyzických a právnických osôb voči Všeobecnej zdravotnej poisťovni.</p>
       <p class="btn-row">
-        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/vszp.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>vszp.sql.gz.torrent</strong></a>
-        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/vszp.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> vszp.sql.gz</a>
+        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/vszp.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> <strong>vszp.sql.gz</strong> </a>
         <%= link_to 'API', open_api_path(anchor: :vszp), class: 'btn btn-default' %>
       </p>
       <% tables = PgCatalog::PgTable.find_by_schema(:vszp) %>
@@ -92,8 +85,7 @@
       <h3 id="upvs">Zoznam inštitúcií so zriadenou elektronickou schránkou</h3>
       <p>Zoznam inštitúcií so zriadenou elektronickou schránkou.</p>
       <p class="btn-row">
-        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/upvs.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>upvs.sql.gz.torrent</strong></a>
-        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/upvs.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> upvs.sql.gz</a>
+        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/upvs.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> <strong>upvs.sql.gz</strong> </a>
       </p>
       <% tables = PgCatalog::PgTable.find_by_schema(:upvs) %>
       <%= render partial: 'tables', object: tables %>
@@ -103,8 +95,7 @@
       <p>Projekt ITMS2014+ obsahuje rozsiahle dáta o čerpaní peňazí z európskych operačných programov.</p>
       <p>Zdrojová dokumentácia sa nachádza na <a href="https://opendata.itms2014.sk/swagger/?url=/v2/swagger.json">https://opendata.itms2014.sk/swagger/?url=/v2/swagger.json</a></p>
       <p class="btn-row">
-        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/itms.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>itms.sql.gz.torrent</strong></a>
-        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/itms.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> itms.sql.gz</a>
+        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/itms.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> <strong>itms.sql.gz</strong> </a>
       </p>
       <% tables = PgCatalog::PgTable.find_by_schema(:itms) %>
       <%= render partial: 'tables', object: tables %>
@@ -114,8 +105,7 @@
       <p>Centrálny metainformačný systém verejnej správy obsahuje, okrem iného, informácie o projektoch rozvoja IT v štáte.</p>
       <p>Poskytované sú dáta o projektoch a dokumnetoch pochádzajúce zo zdroja doplnené o naše sledovanie zmien v týchto projektoch.</p>
       <p class="btn-row">
-        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/metais.sql.gz?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>metais.sql.gz.torrent</strong></a>
-        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/metais.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> metais.sql.gz</a>
+        <a href="https://s3.eu-central-1.amazonaws.com/ekosystem-slovensko-digital-dumps/metais.sql.gz" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> <strong>metais.sql.gz</strong> </a>
       </p>
       <% tables = PgCatalog::PgTable.find_by_schema(:metais) %>
       <%= render partial: 'tables', object: tables %>

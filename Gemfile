@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.7.2'
+ruby '2.7.8'
 
 gem 'rails', '~> 5.2.4.4'
 gem 'pg', '~> 0.18'
@@ -49,3 +49,5 @@ group :test do
   gem 'simplecov', '~> 0.10', '< 0.18'
   gem 'webmock'
 end
+
+gem "brevo", "~> 4.0"

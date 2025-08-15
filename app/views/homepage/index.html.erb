@@ -10,7 +10,7 @@
         </div>
         <div class="col-md-5 col-md-offset-1">
           <h3><%= link_to 'Autogram v mobile', 'https://sluzby.slovensko.digital/autogram-v-mobile' %> <span class="label label-success">NOVÉ</span></h3>
-          <p class="lead">Nový, krajší a <em>lepší nástroj na podpisovanie</em> dokumentov priamo z mobilu, <em>bez čítačky</em> a úplne <em>zadarmo</em>.</p>
+          <p class="lead">Nový, krajší a <em>lepší nástroj na podpisovanie a overovanie</em> dokumentov priamo z mobilu, <em>bez čítačky</em> a úplne <em>zadarmo</em>.</p>
         </div>
       </div>
       <div class="row">
@@ -183,7 +183,7 @@
         <h3>Register právnických osôb</h3>
         <p class="lead">Databáza právnických osôb, podnikateľov a&nbsp;orgánov verejnej moci. Viac ako 1.4 milióna právnických osôb s&nbsp;kompletnou históriou.</p>
         <p class="btn-row">
-          <a href="<%= @dump_urls[:rpo] %>?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>rpo.sql.gz.torrent</strong> <%= @dump_sizes[:rpo] %></a>
+          <a href="<%= @dump_urls[:rpo] %>" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> <strong>rpo.sql.gz</strong> <%= @dump_sizes[:rpo] %></a>
           <%= link_to 'Dokumentácia', open_data_path(anchor: :rpo), class: 'btn btn-default' %>
           <%= link_to 'API', open_api_path(anchor: :rpo), class: 'btn btn-default' %>
         </p>
@@ -195,7 +195,7 @@
         <h3>ITMS2014+</h3>
         <p class="lead">Rozsiahle dáta o čerpaní peňazí z európskych operačných programov.</p>
         <p class="btn-row">
-          <a href="<%= @dump_urls[:itms] %>?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>itms.sql.gz.torrent</strong> <%= @dump_sizes[:itms] %></a>
+          <a href="<%= @dump_urls[:itms] %>" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> <strong>itms.sql.gz</strong> <%= @dump_sizes[:itms] %></a>
           <%= link_to 'Dokumentácia', open_data_path(anchor: :itms), class: 'btn btn-default' %>
         </p>
         <p>
@@ -209,7 +209,7 @@
         <h3>Obchodný vestník</h3>
         <p class="lead">Databáza oznámení obchodného vestníka od&nbsp;roku 2011. </p>
         <p class="btn-row">
-          <a href="<%= @dump_urls[:ov] %>?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>ov.sql.gz.torrent</strong> <%= @dump_sizes[:ov] %></a>
+          <a href="<%= @dump_urls[:ov] %>" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> <strong>ov.sql.gz</strong> <%= @dump_sizes[:ov] %></a>
           <%= link_to 'Dokumentácia', open_data_path(anchor: :ov), class: 'btn btn-default' %>
           <%= link_to 'API', open_api_path(anchor: :ov), class: 'btn btn-default' %>
         </p>
@@ -221,7 +221,7 @@
         <h3>Register účtovných závierok</h3>
         <p class="lead">Databáza účtovných jednotiek registra účtovných závierok.</p>
         <p class="btn-row">
-          <a href="<%= @dump_urls[:ruz] %>?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>ruz.sql.gz.torrent</strong> <%= @dump_sizes[:ruz] %></a>
+          <a href="<%= @dump_urls[:ruz] %>" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> <strong>ruz.sql.gz</strong> <%= @dump_sizes[:ruz] %></a>
           <%= link_to 'Dokumentácia', open_data_path(anchor: :ruz), class: 'btn btn-default' %>
           <%= link_to 'API', open_api_path(anchor: :ruz), class: 'btn btn-default' %>
         </p>
@@ -236,7 +236,7 @@
         <h3>Dlžníci Sociálnej poisťovne</h3>
         <p class="lead">Databáza dlžníkov Sociálnej poisťovne.</p>
         <p class="btn-row">
-          <a href="<%= @dump_urls[:socpoist] %>?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>socpoist.sql.gz.torrent</strong> <%= @dump_sizes[:socpoist] %></a>
+          <a href="<%= @dump_urls[:socpoist] %>" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> <strong>socpoist.sql.gz</strong> <%= @dump_sizes[:socpoist] %></a>
           <%= link_to 'Dokumentácia', open_data_path(anchor: :socpoist), class: 'btn btn-default' %>
           <%= link_to 'API', open_api_path(anchor: :socpoist), class: 'btn btn-default' %>
         </p>
@@ -248,7 +248,7 @@
         <h3>Dlžníci Všeobecnej zdravotnej poisťovne</h3>
         <p class="lead">Databáza dlžníkov Všeobecnej zdravotnej poisťovne.</p>
         <p class="btn-row">
-          <a href="<%= @dump_urls[:vszp] %>?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>vszp.sql.gz.torrent</strong> <%= @dump_sizes[:vszp] %></a>
+          <a href="<%= @dump_urls[:vszp] %>" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> <strong>vszp.sql.gz</strong> <%= @dump_sizes[:vszp] %></a>
           <%= link_to 'Dokumentácia', open_data_path(anchor: :vszp), class: 'btn btn-default' %>
           <%= link_to 'API', open_api_path(anchor: :vszp), class: 'btn btn-default' %>
         </p>
@@ -263,7 +263,7 @@
         <h3>Centrálny register zmlúv</h3>
         <p class="lead">Databáza zmlúv centrálneho registra zmlúv od&nbsp;roku 2011.</p>
         <p class="btn-row">
-          <a href="<%= @dump_urls[:crz] %>?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>crz.sql.gz.torrent</strong> <%= @dump_sizes[:crz] %></a>
+          <a href="<%= @dump_urls[:crz] %>" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> <strong>crz.sql.gz</strong> <%= @dump_sizes[:crz] %></a>
           <%= link_to 'Dokumentácia', open_data_path(anchor: :crz), class: 'btn btn-default' %>
           <%= link_to 'API', open_api_path(anchor: :crz), class: 'btn btn-default' %>
         </p>
@@ -275,7 +275,7 @@
         <h3>Register projektov v MetaIS</h3>
         <p class="lead">Informácie o projektoch rozvoja IT z centrálneho metainformačného systému verejnej správy.</p>
         <p class="btn-row">
-          <a href="<%= @dump_urls[:metais] %>?torrent" class="btn btn-default"><i class="glyphicon glyphicon-cloud-download"></i> <strong>metais.sql.gz.torrent</strong> <%= @dump_sizes[:metais] %></a>
+          <a href="<%= @dump_urls[:metais] %>" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> <strong>metais.sql.gz</strong> <%= @dump_sizes[:metais] %></a>
           <%= link_to 'Dokumentácia', open_data_path(anchor: :metais), class: 'btn btn-default' %>
         </p>
         <p>
