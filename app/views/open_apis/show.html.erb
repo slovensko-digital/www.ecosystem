@@ -20,7 +20,12 @@
         <p>Štruktúra dát podlieha <%= link_to 'zmenám', release_notes_path %>.</p>
 
         <h2 id="data">Dáta</h2>
-        <p>API pre údaje z <%= link_to 'centrálneho registra zmlúv', '#crz' %>, <%= link_to 'registra právnických osôb', '#rpo' %>, <%= link_to 'obchodného vestníka', '#ov' %> a <%= link_to 'registra účtovných závierok', '#ruz' %>.</p>
+        <p>API pre údaje z <%= link_to 'centrálneho registra zmlúv', '#crz' %>, <%= link_to 'registra právnických osôb V2', '#rpo2' %>, <%= link_to 'registra právnických osôb', '#rpo' %>, <%= link_to 'obchodného vestníka', '#ov' %> a <%= link_to 'registra účtovných závierok', '#ruz' %>.</p>
+
+        <h3 id="rpo2">Register právnických osôb V2</h3>
+        <p>Register právnických osôb je jedným z kľúčových referenčných registrov vo verejnej správe. Verzia V2 obsahuje údaje z oficiálneho REST API a informácie o právnických osobách z viacerých zdrojových registrov (napr. obchodný register, živnostenský register, register občianskych združení&hellip;).</p>
+        <p>Pre RPO V2 vraciame len právnické osoby. Organizačné zložky nie sú samostatné záznamy. Ak chcete sledovať zmeny v organizačných zložkách, sledujte zmeny príslušnej hlavnej právnickej osoby, v ktorej sú uložené.</p>
+        <%= render 'rpo2_api' %>
 
         <h3 id="rpo">Register právnických osôb</h3>
         <p>Register právnických osôb je jedným z kľúčových referenčných registrov vo verejnej správe. Obsahuje informácie o právnických osobách z viacerých zdrojových registrov (napr. obchodný register, živnostenský register, register občianskych združení&hellip;)</p>
@@ -63,6 +68,7 @@
           <li class="list-group-item">
             <%= link_to 'Dáta', '#data' %>
             <ul class="list-group">
+              <li class="list-group-item"><%= link_to 'Register právnických osôb V2', '#rpo2' %></li>
               <li class="list-group-item"><%= link_to 'Register právnických osôb', '#rpo' %></li>
               <li class="list-group-item"><%= link_to 'Centrálny register zmlúv', '#crz' %></li>
               <li class="list-group-item"><%= link_to 'Obchodný vestník', '#ov' %></li>

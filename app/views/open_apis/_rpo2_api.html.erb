@@ -1,0 +1,148 @@
+<h4>Získanie právnickej osoby</h4>
+<p class="docs-endpoint"><code>GET <%= api_data_rpo2_organization_url(id: ':id', host: api_host) %></code></p>
+<h5>Parametre</h5>
+<table class="table table-bordered table-nonfluid">
+  <thead>
+  <tr>
+    <th>Názov</th>
+    <th>Typ</th>
+    <th>Popis</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><code>id</code></td>
+    <td><code>integer</code></td>
+    <td>Identifikátor právnickej osoby</td>
+  </tr>
+  </tbody>
+</table>
+<h5>Odpoveď</h5>
+<p><%= link_to 'Popis atribútov', open_data_path(anchor: 'rpo2.organizations'), class: 'btn btn-default btn-sm' %></p>
+<pre class="pre-scrollable"><code class="language-json">{
+  "id": 6562824,
+  "data": {
+    "id": 6562824,
+    "dbModificationDate": "2025-07-07",
+    "identifiers": [
+      { "value": "50158635", "validFrom": "2016-01-29" }
+    ],
+    "fullNames": [
+      { "value": "Slovensko.Digital", "validFrom": "2016-01-29" }
+    ],
+    "addresses": [
+      {
+        "validFrom": "2016-01-29",
+        "street": "Staré Grunty",
+        "regNumber": 205,
+        "buildingNumber": "18",
+        "postalCodes": ["84104"],
+        "municipality": { "value": "Bratislava - mestská časť Karlova Ves", "code": "SK0104529397", "codelistCode": "CL000025" },
+        "country": { "value": "Slovenská republika", "code": "703", "codelistCode": "CL000086" },
+        "buildingIndex": "6242280"
+      }
+    ],
+    "legalForms": [
+      {
+        "value": { "value": "Združenie (zväz, spolok, spoločnosť, klub ai.)", "code": "701", "codelistCode": "CL000056" },
+        "validFrom": "2016-01-29"
+      }
+    ],
+    "establishment": "2016-01-29",
+    "activities": [
+      { "economicActivityDescription": "IT, PC", "validFrom": "2016-01-29" }
+    ],
+    "statutoryBodies": [
+      {
+        "stakeholderType": { "value": "Iný štatutárny orgán", "code": "17", "codelistCode": "CL010113" },
+        "validFrom": "2023-04-01",
+        "address": {
+          "regNumber": 290,
+          "municipality": { "value": "Žilina", "code": "SK031B517402", "codelistCode": "CL000025" },
+          "country": { "value": "Slovenská republika", "code": "703", "codelistCode": "CL000086" },
+          "district": { "value": "Vranie" },
+          "buildingIndex": "7102553392"
+        },
+        "personName": { "familyNames": ["Steinhübl"], "prefixes": [ { "value": "Mgr.", "code": "16", "codelistCode": "CL000062" }, { "value": "Mgr.", "code": "16", "codelistCode": "CL000062" } ], "givenNames": ["Peter"] }
+      },
+      {
+        "stakeholderType": { "value": "Iný štatutárny orgán", "code": "17", "codelistCode": "CL010113" },
+        "validFrom": "2024-10-28",
+        "address": {
+          "street": "Belániková",
+          "regNumber": 3574,
+          "buildingNumber": "6",
+          "municipality": { "value": "Bratislava - mestská časť Karlova Ves", "code": "SK0104529397", "codelistCode": "CL000025" },
+          "country": { "value": "Slovenská republika", "code": "703", "codelistCode": "CL000086" },
+          "buildingIndex": "7001117288"
+        },
+        "personName": { "familyNames": ["Lachmann"], "prefixes": [ { "value": "Ing.", "code": "01", "codelistCode": "CL000062" } ], "givenNames": ["Gabriel"] }
+      },
+      {
+        "stakeholderType": { "value": "Iný štatutárny orgán", "code": "17", "codelistCode": "CL010113" },
+        "validFrom": "2019-02-20",
+        "validTo": "2020-12-17",
+        "address": {
+          "street": "Belániková",
+          "regNumber": 3574,
+          "buildingNumber": "6",
+          "municipality": { "value": "Bratislava - mestská časť Karlova Ves", "code": "SK0104529397", "codelistCode": "CL000025" },
+          "country": { "value": "Slovenská republika", "code": "703", "codelistCode": "CL000086" },
+          "buildingIndex": "7001117288"
+        },
+        "personName": { "familyNames": ["Lachmann"], "prefixes": [ { "value": "Ing.", "code": "01", "codelistCode": "CL000062" } ], "givenNames": ["Gabriel"] }
+      },
+      {
+        "stakeholderType": { "value": "Iný štatutárny orgán", "code": "17", "codelistCode": "CL010113" },
+        "validFrom": "2021-01-01",
+        "validTo": "2023-04-01",
+        "address": {
+          "street": "Vajnorská",
+          "regNumber": 1306,
+          "buildingNumber": "7",
+          "municipality": { "value": "Bratislava - mestská časť Nové Mesto", "code": "SK0103529346", "codelistCode": "CL000025" },
+          "country": { "value": "Slovenská republika", "code": "703", "codelistCode": "CL000086" },
+          "buildingIndex": "6161474"
+        },
+        "personName": { "familyNames": ["Kulich"], "givenNames": ["Peter"] }
+      },
+      {
+        "stakeholderType": { "value": "Iný štatutárny orgán", "code": "17", "codelistCode": "CL010113" },
+        "validFrom": "2019-02-20",
+        "validTo": "2024-09-09",
+        "address": {
+          "street": "Líščie údolie",
+          "regNumber": 3710,
+          "buildingNumber": "33",
+          "municipality": { "value": "Bratislava - mestská časť Karlova Ves", "code": "SK0104529397", "codelistCode": "CL000025" },
+          "country": { "value": "Slovenská republika", "code": "703", "codelistCode": "CL000086" },
+          "buildingIndex": "7101422174"
+        },
+        "personName": { "familyNames": ["Illek"], "givenNames": ["Ľubor"] }
+      }
+    ],
+    "authorizations": [
+      { "value": "výkonný riaditeľ samostatne", "validFrom": "2021-01-01", "validTo": "2023-04-01" },
+      { "value": "výkonný riaditeľ samostatne", "validFrom": "2023-04-01" },
+      { "value": "predseda Rady samostatne", "validFrom": "2019-02-20", "validTo": "2024-09-09" },
+      { "value": "predseda rady samostatne", "validFrom": "2024-10-28" }
+    ],
+    "sourceRegister": {
+      "value": { "value": "Register občianskych združení", "code": "7", "codelistCode": "CL010112" },
+      "registrationOffices": [ { "value": "MV SR", "validFrom": "2016-01-29" } ],
+      "registrationNumbers": [ { "value": "VVS/1-900/90-48099", "validFrom": "2016-01-29" } ]
+    },
+    "statisticalCodes": {
+      "statCodesActualization": "2020-04-03",
+      "mainActivity": { "value": "Činnosti záujmových organizácií", "code": "94992", "codelistCode": "CL005205" },
+      "esa2010": { "value": "Neziskové inštitúcie slúžiace domácnostiam", "code": "15000", "codelistCode": "CL010010" }
+    },
+    "license": "1. ŠÚ SR ako správca informačného systému RPO uplatňuje na použitie sprístupnených údajov z RPO uvedených v § 7 ods. 2 a § 7a ods. 4 zákona č. 272/2015 Z. z. o registri právnických osôb, podnikateľov a orgánov verejnej moci a o zmene a doplnení niektorých zákonov (ďalej len „zákon o registri právnických osôb“) medzinárodnú verejnú licenciu Creative Commons Attribution License (cc-by) 4.0 (ďalej len „verejná licencia“).\n2. Predmetom verejnej licencie sú sprístupnené údaje z RPO prostredníctvom webového sídla ŠÚ SR v zmysle § 7 ods. 2 a § 7a ods. 4 zákona o registri právnických osôb.\n3. ŠÚ SR udeľuje súhlas na použitie predmetu verejnej licencie a výkon licencovaných práv („licencia“) podľa vyššie citovanej verejnej licencie."
+  },
+  "created_at": "2025-10-03T13:55:49.000000Z",
+  "updated_at": "2025-10-03T13:55:49.000000Z",
+  "actualized_at": "2025-10-03T13:55:49.000000Z"
+}</code></pre>
+<h4>Získanie zmenených právnických osôb</h4>
+<p class="docs-endpoint"><code>GET <%= sync_api_data_rpo2_organizations_url(host: api_host) %></code></p>
+<p>Zmenené záznamy od určeného času je možné získať pomocou <%= link_to 'synchronizačného API', '#sync-api' %>. </p>

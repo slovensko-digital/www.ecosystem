@@ -169,6 +169,34 @@ sk:
               description: Odkaz na verejné obstarávanie
             <<: *timestamp_columns
 
+    rpo2:
+      tables:
+        organizations:
+          description: Právnické osoby
+          long_description_html: <p>Hlavná tabuľka právnických osôb.</p>
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Hodnota zodpovedá identifikátoru v zdroji.
+            data:
+              description: Nezmenená odpoveď zdrojového API
+            actualized_at:
+              description: Čas poslednej aktualizácie
+            <<: *timestamp_columns
+        suborganizations:
+          description: Organizačné zložky
+          columns:
+            id:
+              description: Identifikátor
+              note_html: Interný identifikátor. Nepochádza zo zdroja.  
+            main_organization_id:
+                description: Identifikátor nadradenej právnickej osoby
+            data:
+              description: Nezmenená odpoveď zdrojového API
+            actualized_at:
+              description: Čas poslednej aktualizácie
+            <<: *timestamp_columns
+
     rpo:
       tables:
         esa2010_codes:
