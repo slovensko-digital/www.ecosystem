@@ -194,6 +194,7 @@
       <div class="col-md-5 col-md-offset-1">
         <h3>Register právnických osôb</h3>
         <p class="lead">Databáza právnických osôb, podnikateľov a&nbsp;orgánov verejnej moci. Viac ako 1.4 milióna právnických osôb s&nbsp;kompletnou históriou.</p>
+        <p><small><strong>Upozornenie:</strong> Tento dataset a API sú označené ako <code>deprecated</code>. Nové integrácie smerujte na Register právnických osôb V2.</small></p>
         <p class="btn-row">
           <a href="<%= @dump_urls[:rpo] %>" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i> <strong>rpo.sql.gz</strong> <%= @dump_sizes[:rpo] %></a>
           <%= link_to 'Dokumentácia', open_data_path(anchor: :rpo), class: 'btn btn-default' %>

@@ -28,6 +28,9 @@
         <%= render 'rpo2_api' %>
 
         <h3 id="rpo">Register právnických osôb</h3>
+        <div class="alert alert-warning">
+          <strong>Upozornenie:</strong> API pre RPO je označené ako <code>deprecated</code>. Nové integrácie smerujte na <%= link_to 'RPO V2', '#rpo2' %>. Termín vypnutia RPO oznámime vopred cez oficiálne komunikačné kanály.
+        </div>
         <p>Register právnických osôb je jedným z kľúčových referenčných registrov vo verejnej správe. Obsahuje informácie o právnických osobách z viacerých zdrojových registrov (napr. obchodný register, živnostenský register, register občianskych združení&hellip;)</p>
         <%= render 'rpo_api' %>
 
