@@ -1338,8 +1338,8 @@ sk:
             registration_number:
               description: Registračné číslo
             deleted_at:
-              description: Čas soft zmazania právnickej osoby.
-              note_html: Systémový stĺpec soft delete. Hodnota <code>NULL</code> znamená aktívny záznam.
+              description: Systémový čas zmazania právnickej osoby.
+              note_html: Hodnota <code>NULL</code> znamená aktívny záznam.
             <<: *timestamp_columns
 
     itms:
