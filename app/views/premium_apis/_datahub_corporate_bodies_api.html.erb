@@ -38,6 +38,7 @@
    "updated_at":"2016-10-11T10:22:53.832428Z",
    "established_on":"2004-08-12",
    "terminated_on":null,
+   "deleted_at":null,
    "vatin_paragraph":"§4",
    "registration_office":"Okresný súd Bratislava I",
    "registration_number":"Sro/63270/B",
@@ -73,6 +74,7 @@
 
 <h4>Rozšírenie odpovede o dáta z Registra právnických osôb V2</h4>
 <p>Prémiové dáta umožňujú rozšíriť odpoveď požiadavky o podrobné údaje o prepojených organizáciách z RPO V2 pridaním parametra <code>expand=rpo2_organizations</code>.</p>
+<p>Pri <code>expand=rpo2_organizations</code> sa rozšíria aj <code>rpo2_suborganizations</code>. Tie obsahujú aj <code>main_organization_statutory_bodies</code> (pole môže byť prázdne).</p>
 <p>Podporované sú všetky typy požiadaviek - <code>/search</code>, <code>/:id</code> aj <code>/sync</code>.</p>
 
 <p class="docs-endpoint"><code>GET <%= search_api_datahub_corporate_bodies_url(host: api_host) %>?q=cin:36421928&expand=rpo2_organizations</code></p>
@@ -96,6 +98,7 @@
   "updated_at": "2020-07-11T03:56:22.838819Z",
   "established_on": "2004-08-12",
   "terminated_on": null,
+  "deleted_at": null,
   "vatin_paragraph": "§4",
   "registration_office": "Okresný súd Bratislava I",
   "registration_number": "Sro/63270/B",
@@ -501,6 +504,7 @@
   "updated_at": "2020-07-11T03:56:22.838819Z",
   "established_on": "2004-08-12",
   "terminated_on": null,
+  "deleted_at": null,
   "vatin_paragraph": "§4",
   "registration_office": "Okresný súd Bratislava I",
   "registration_number": "Sro/63270/B",

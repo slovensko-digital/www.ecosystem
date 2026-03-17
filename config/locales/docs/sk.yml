@@ -180,6 +180,7 @@ sk:
               note_html: Hodnota zodpovedá identifikátoru v zdroji.
             data:
               description: Nezmenená odpoveď zdrojového API
+              note_html: Štruktúra JSON je určená zdrojovým API.
             actualized_at:
               description: Čas poslednej aktualizácie
             <<: *timestamp_columns
@@ -191,8 +192,10 @@ sk:
               note_html: Interný identifikátor. Nepochádza zo zdroja.  
             main_organization_id:
                 description: Identifikátor nadradenej právnickej osoby
+                note_html: Referencia na <code>rpo2.organizations.id</code>.
             data:
               description: Nezmenená odpoveď zdrojového API
+              note_html: Štruktúra JSON je určená zdrojovým API.
             actualized_at:
               description: Čas poslednej aktualizácie
             <<: *timestamp_columns
@@ -1315,6 +1318,7 @@ sk:
               description: Číslo domu
             main_corporate_body_id:
               description: Identifikátor nadradenej právnickej osoby
+              note_html: Vyplnené iba pre organizačné zložky, inak <code>NULL</code>.
             formatted_street:
               description: Ulica a číslo
             postal_code:
@@ -1333,6 +1337,9 @@ sk:
               description: Registrátor
             registration_number:
               description: Registračné číslo
+            deleted_at:
+              description: Čas soft zmazania právnickej osoby.
+              note_html: Systémový stĺpec soft delete. Hodnota <code>NULL</code> znamená aktívny záznam.
             <<: *timestamp_columns
 
     itms:
