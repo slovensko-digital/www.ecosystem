@@ -58,9 +58,17 @@
             </tbody>
           </table>
         </div>
-        <p><a href="#priklad1" class="btn btn-default btn-sm" data-toggle="collapse">Zobraziť SQL príkaz</a></p>
-        <div id="priklad1" class="panel-collapse collapse" role="tabpanel">
-      <pre><code class="language-sql">SELECT c.name, EXTRACT(YEAR FROM established_on), COUNT(*)
+          <div>
+            <div class="btn-toolbar" role="toolbar" aria-label="SQL toggles" style="margin-top: 10px;">
+              <div class="btn-group" role="group">
+                <a href="#priklad1" class="btn btn-default btn-sm" data-toggle="collapse" aria-expanded="false" aria-controls="priklad1">Zobraziť SQL príkaz</a>
+              </div>
+              <div class="btn-group" role="group">
+                <a href="#priklad3" class="btn btn-default btn-sm" data-toggle="collapse" aria-expanded="false" aria-controls="priklad3">Zobraziť SQL príkaz - RPO V2</a>
+              </div>
+            </div>
+            <div id="priklad1" class="panel-collapse collapse" role="tabpanel">
+<pre><code class="language-sql">SELECT c.name, EXTRACT(YEAR FROM established_on), COUNT(*)
   -- vyhľadaj hlavné kódy aktivít podľa rokov založenia
   FROM rpo.organizations o
   -- zo všetkých právnických osôb
@@ -69,6 +77,18 @@
   GROUP BY 1, 2 ORDER BY 3 DESC
   -- zoradené od najčastejších
   LIMIT 5</code></pre>
+            </div>
+            <div id="priklad3" class="panel-collapse collapse" role="tabpanel">
+<pre><code class="language-sql">SELECT o.data->'statisticalCodes'->'mainActivity'->>'value' AS name, EXTRACT(YEAR FROM (NULLIF(o.data->>'establishment', ''))::date) AS year, COUNT(*) AS cnt
+  -- vyhľadaj hlavné kódy aktivít podľa rokov založenia (RPO V2)
+  FROM rpo2.organizations o
+  -- zo všetkých právnických osôb (JSON v stĺpci data)
+  WHERE o.data->'statisticalCodes'->'mainActivity'->>'value' IS NOT NULL
+    AND NULLIF(o.data->>'establishment', '') IS NOT NULL
+  GROUP BY 1, 2 ORDER BY cnt DESC
+  -- zoradené od najčastejších
+  LIMIT 5</code></pre>
+            </div>
         </div>
       </div>
       <div class="col-md-6">

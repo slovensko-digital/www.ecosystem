@@ -38,11 +38,18 @@
    "updated_at":"2016-10-11T10:22:53.832428Z",
    "established_on":"2004-08-12",
    "terminated_on":null,
+   "deleted_at":null,
    "vatin_paragraph":"§4",
    "registration_office":"Okresný súd Bratislava I",
    "registration_number":"Sro/63270/B",
    "formatted_street":"Staré Grunty 12",
    "street_number":"12",
+   "rpo2_organizations":[
+      {
+         "id":1049550,
+         "url":"https://datahub.ekosystem.slovensko.digital/api/data/rpo2/organizations/1049550"
+      }
+   ],
    "rpo_organizations":[
       {
          "id":1049550,
@@ -51,8 +58,8 @@
    ],
    "ruz_accounting_entities":[
       {
-         "id":534384,
-         "url":"http://datahub.ekosystem.slovensko.digital/api/data/ruz/accounting_entities/534384"
+         "id":96001,
+         "url":"https://datahub.ekosystem.slovensko.digital/api/data/ruz/accounting_entities/96001"
       }
    ]
 }</code></pre>
@@ -64,6 +71,413 @@
 <h4>Vyhľadanie právnickej osoby</h4>
 <p class="docs-endpoint"><code>GET <%= search_api_datahub_corporate_bodies_url(host: api_host) %>?q=cin:12314</code></p>
 <p>Podporované je vyhľadanie iba podľa IČO <code>cin</code>. Odpoveď obsahuje jednu právnickú osobu. V prípade, že sa právnická osoba podľa zadaného IČO v databáze nenachádza, odpoveď vracia kód <code>404</code></p>
+
+<h4>Rozšírenie odpovede o dáta z Registra právnických osôb V2</h4>
+<p>Prémiové dáta umožňujú rozšíriť odpoveď požiadavky o podrobné údaje o prepojených organizáciách z RPO V2 pridaním parametra <code>expand=rpo2_organizations</code>.</p>
+<p>Pri <code>expand=rpo2_organizations</code> sa rozšíria aj <code>rpo2_suborganizations</code>. Tie obsahujú aj <code>main_organization_statutory_bodies</code> (pole môže byť prázdne).</p>
+<p>Podporované sú všetky typy požiadaviek - <code>/search</code>, <code>/:id</code> aj <code>/sync</code>.</p>
+
+<p class="docs-endpoint"><code>GET <%= search_api_datahub_corporate_bodies_url(host: api_host) %>?q=cin:36421928&expand=rpo2_organizations</code></p>
+
+<h5>Odpoveď</h5>
+<p><%= link_to 'Popis atribútov', premium_data_path(anchor: 'datahub.corporate_bodies'), class: 'btn btn-default btn-sm' %></p>
+<pre class="pre-scrollable"><code class="language-json">{
+  "id": 291974,
+  "cin": 36421928,
+  "tin": 2021869234,
+  "vatin": "SK2021869234",
+  "name": "WebSupport s. r. o.",
+  "formatted_address": "Karadžičova 7608/12, 821 08 Bratislava - mestská časť Ružinov",
+  "street": "Karadžičova",
+  "reg_number": 7608,
+  "building_number": "12",
+  "postal_code": "821 08",
+  "municipality": "Bratislava - mestská časť Ružinov",
+  "country": "Slovenská republika",
+  "created_at": "2016-06-09T10:19:05.128358Z",
+  "updated_at": "2020-07-11T03:56:22.838819Z",
+  "established_on": "2004-08-12",
+  "terminated_on": null,
+  "deleted_at": null,
+  "vatin_paragraph": "§4",
+  "registration_office": "Okresný súd Bratislava I",
+  "registration_number": "Sro/63270/B",
+  "formatted_street": "Karadžičova 7608/12",
+  "street_number": "7608/12",
+  "rpo2_organizations":[
+    {
+      "id": 1049550,
+      "data": {
+        "id": 1049550,
+        "dbModificationDate": "2025-07-07",
+        "identifiers": [
+            { "value": "36421928", "validFrom": "2004-08-12" }
+        ],
+        "fullNames": [
+            { "value": "Websupport, s.r.o.", "validFrom": "2004-08-12", "validTo": "2019-01-31" },
+            { "value": "WebSupport s. r. o.", "validFrom": "2019-02-01", "validTo": "2021-10-05" },
+            { "value": "Websupport s. r. o.", "validFrom": "2021-10-06" }
+        ],
+        "addresses": [
+            {
+              "validFrom": "2019-02-01",
+              "street": "Karadžičova",
+              "regNumber": 0,
+              "buildingNumber": "7608/12",
+              "postalCodes": ["821 08"],
+              "municipality": { "value": "Bratislava - mestská časť Ružinov", "code": "SK0102529320", "codelistCode": "CL000025" },
+              "country": { "value": "Slovenská republika", "code": "703", "codelistCode": "CL000086" }
+            },
+            {
+              "validFrom": "2010-01-14",
+              "validTo": "2019-01-31",
+              "street": "Staré Grunty",
+              "regNumber": 0,
+              "buildingNumber": "12",
+              "postalCodes": ["84104"],
+              "municipality": { "value": "Bratislava" },
+              "country": { "value": "Slovenská republika", "code": "703", "codelistCode": "CL000086" }
+            },
+            {
+              "validFrom": "2004-08-12",
+              "validTo": "2010-01-13",
+              "regNumber": 0,
+              "buildingNumber": "457",
+              "postalCodes": ["02334"],
+              "municipality": { "value": "Kysucký Lieskovec", "code": "SK0314509264", "codelistCode": "CL000025" },
+              "country": { "value": "Slovenská republika", "code": "703", "codelistCode": "CL000086" }
+            }
+        ],
+        "legalForms": [
+            {
+              "value": { "value": "Spoločnosť s ručením obmedzeným", "code": "112", "codelistCode": "CL000056" },
+              "validFrom": "2004-08-12"
+            }
+        ],
+        "establishment": "2004-08-12",
+        "activities": [
+            { "economicActivityDescription": "Kúpa tovaru na účely jeho predaja konečnému spotrebiteľovi (maloobchod) alebo iným prevádzkovateľom živnosti (veľkoobchod)", "validFrom": "2018-02-27" },
+            { "economicActivityDescription": "Počítačové služby a služby súvisiace s počítačovým spracovaním údajov", "validFrom": "2018-02-27" },
+            { "economicActivityDescription": "Výroba počítačových, elektronických a optických výrobkov", "validFrom": "2018-02-27" },
+            { "economicActivityDescription": "Reklamné a marketingové služby, prieskum trhu a verejnej mienky", "validFrom": "2018-02-27" },
+            { "economicActivityDescription": "Prenájom hnuteľných vecí", "validFrom": "2018-02-27" },
+            { "economicActivityDescription": "Administratívne služby", "validFrom": "2018-02-27" },
+            { "economicActivityDescription": "Vydavateľská činnosť, polygrafická výroba a knihárske práce", "validFrom": "2018-02-27" },
+            { "economicActivityDescription": "Sprostredkovateľská činnosť v oblasti obchodu, služieb, výroby", "validFrom": "2018-02-27" },
+            { "economicActivityDescription": "Činnosť podnikateľských, organizačných a ekonomických poradcov", "validFrom": "2018-02-27" },
+            { "economicActivityDescription": "- kúpa tovaru na účely jeho predaja iným prevádzkovateľom živnosti v rozsahu voľných živností", "validFrom": "2004-08-12", "validTo": "2018-02-26" },
+            { "economicActivityDescription": "- kúpa tovaru na júčely jeho predaja konečnému spotrebiteľovi v rozsahu voľných živností", "validFrom": "2004-08-12", "validTo": "2018-02-26" },
+            { "economicActivityDescription": "- vedenie účtovníctva", "validFrom": "2004-08-12", "validTo": "2018-02-26" },
+            { "economicActivityDescription": "- tvorba internetových prezentácií - internetové stránky", "validFrom": "2004-08-12", "validTo": "2018-02-26" },
+            { "economicActivityDescription": "- reklamná a propagačná činnosť", "validFrom": "2004-08-12", "validTo": "2018-02-26" },
+            { "economicActivityDescription": "- prenájom strojov, prístrojov a zariadení", "validFrom": "2004-08-12", "validTo": "2018-02-26" },
+            { "economicActivityDescription": "- kancelárske a sekretárske služby vrátane kopírovacích a rozmnožovacích služieb", "validFrom": "2004-08-12", "validTo": "2018-02-26" },
+            { "economicActivityDescription": "- prenájom motorových vozidiel", "validFrom": "2004-08-12", "validTo": "2018-02-26" },
+            { "economicActivityDescription": "- automatizované spracovanie dát", "validFrom": "2004-08-12", "validTo": "2018-02-26" },
+            { "economicActivityDescription": "- vydávanie periodických a neperiodických publikácií", "validFrom": "2004-08-12", "validTo": "2018-02-26" },
+            { "economicActivityDescription": "- prieskum trhu", "validFrom": "2004-08-12", "validTo": "2018-02-26" },
+            { "economicActivityDescription": "- sprostredkovanie obchodu, služieb a výroby", "validFrom": "2004-08-12", "validTo": "2018-02-26" },
+            { "economicActivityDescription": "- servis mechanických častí výpočtovej techniky", "validFrom": "2004-08-12", "validTo": "2018-02-26" },
+            { "economicActivityDescription": "- podnikateľské poradenstvo v rozsahu voľných živnsotí", "validFrom": "2004-08-12", "validTo": "2018-02-26" },
+            { "economicActivityDescription": "- poradenská služba k technickému vybaveniu počítača (hardware)", "validFrom": "2004-08-12", "validTo": "2018-02-26" },
+            { "economicActivityDescription": "- poradenská služba a dodávanie programového vybavenia počítača (software)", "validFrom": "2004-08-12", "validTo": "2018-02-26" },
+            { "economicActivityDescription": "- spracovanie údajov", "validFrom": "2004-08-12", "validTo": "2018-02-26" },
+            { "economicActivityDescription": "- poskytovanie datových služieb - internetová čitáreň", "validFrom": "2004-08-12", "validTo": "2018-02-26" },
+            { "economicActivityDescription": "- predaj nápojov na priamu konzumáciu", "validFrom": "2004-08-12", "validTo": "2018-02-26" },
+            { "economicActivityDescription": "- služby súvisiace s databázami", "validFrom": "2004-08-12", "validTo": "2018-02-26" },
+            { "economicActivityDescription": "- údržba a oprava technických častí kancelárskych strojov a počítačov", "validFrom": "2004-08-12", "validTo": "2018-02-26" }
+        ],
+        "statutoryBodies": [
+            {
+              "stakeholderType": { "value": "Konateľ", "code": "3", "codelistCode": "CL010113" },
+              "validFrom": "2022-03-22",
+              "validTo": "2022-10-06",
+              "address": { "street": "Grävlingsvägen", "regNumber": 0, "buildingNumber": "59", "postalCodes": ["SE-16756"], "municipality": { "value": "Bromma" }, "country": { "value": "Švédske kráľovstvo", "code": "752", "codelistCode": "CL000086" } },
+              "personName": { "formatedName": "Maria Elisabeth Lustin", "familyNames": ["Lustin"], "givenNames": ["Maria", "Elisabeth"] }
+            },
+            {
+              "stakeholderType": { "value": "Konateľ", "code": "3", "codelistCode": "CL010113" },
+              "validFrom": "2019-03-29",
+              "validTo": "2022-03-29",
+              "address": { "street": "Zvolenská", "regNumber": 0, "buildingNumber": "3", "postalCodes": ["81109"], "municipality": { "value": "Bratislava" }, "country": { "value": "Slovenská republika", "code": "703", "codelistCode": "CL000086" } },
+              "personName": { "formatedName": "Mgr. Ján Cifra", "familyNames": ["Cifra"], "givenNames": ["Ján"] }
+            },
+            {
+              "stakeholderType": { "value": "Konateľ", "code": "3", "codelistCode": "CL010113" },
+              "validFrom": "2019-03-29",
+              "validTo": "2022-03-22",
+              "address": { "street": "Zvolenská", "regNumber": 0, "buildingNumber": "3", "postalCodes": ["81109"], "municipality": { "value": "Bratislava" }, "country": { "value": "Slovenská republika", "code": "703", "codelistCode": "CL000086" } },
+              "personName": { "formatedName": "Mgr. Ján Cifra", "familyNames": ["Cifra"], "givenNames": ["Ján"] }
+            },
+            {
+              "stakeholderType": { "value": "Konateľ", "code": "3", "codelistCode": "CL010113" },
+              "validFrom": "2004-08-12",
+              "validTo": "2019-03-28",
+              "address": { "street": "Štúrova", "regNumber": 0, "buildingNumber": "13/6", "postalCodes": ["81102"], "municipality": { "value": "Bratislava - mestská časť Staré mesto" }, "country": { "value": "Slovenská republika", "code": "703", "codelistCode": "CL000086" } },
+              "personName": { "formatedName": "Michal Truban", "familyNames": ["Truban"], "givenNames": ["Michal"] }
+            },
+            {
+              "stakeholderType": { "value": "Konateľ", "code": "3", "codelistCode": "CL010113" },
+              "validFrom": "2004-08-12",
+              "validTo": "2019-03-29",
+              "address": { "street": "Štúrova", "regNumber": 0, "buildingNumber": "13/6", "postalCodes": ["81102"], "municipality": { "value": "Bratislava - mestská časť Staré mesto" }, "country": { "value": "Slovenská republika", "code": "703", "codelistCode": "CL000086" } },
+              "personName": { "formatedName": "Michal Truban", "familyNames": ["Truban"], "givenNames": ["Michal"] }
+            },
+            {
+              "stakeholderType": { "value": "Konateľ", "code": "3", "codelistCode": "CL010113" },
+              "validFrom": "2004-08-12",
+              "validTo": "2019-03-28",
+              "address": { "regNumber": 0, "buildingNumber": "170", "municipality": { "value": "Dolný Bar", "code": "SK0211501557", "codelistCode": "CL000025" }, "country": { "value": "Slovenská republika", "code": "703", "codelistCode": "CL000086" } },
+              "personName": { "formatedName": "Pavel Stano", "familyNames": ["Stano"], "givenNames": ["Pavel"] }
+            },
+            {
+              "stakeholderType": { "value": "Konateľ", "code": "3", "codelistCode": "CL010113" },
+              "validFrom": "2004-08-12",
+              "validTo": "2019-03-29",
+              "address": { "regNumber": 0, "buildingNumber": "170", "municipality": { "value": "Dolný Bar", "code": "SK0211501557", "codelistCode": "CL000025" }, "country": { "value": "Slovenská republika", "code": "703", "codelistCode": "CL000086" } },
+              "personName": { "formatedName": "Pavel Stano", "familyNames": ["Stano"], "givenNames": ["Pavel"] }
+            },
+            {
+              "stakeholderType": { "value": "Konateľ", "code": "3", "codelistCode": "CL010113" },
+              "validFrom": "2013-04-26",
+              "validTo": "2017-03-06",
+              "address": { "street": "Palárikova", "regNumber": 0, "buildingNumber": "8680/12", "postalCodes": ["08005"], "municipality": { "value": "Prešov", "code": "SK0417524140", "codelistCode": "CL000025" }, "country": { "value": "Slovenská republika", "code": "703", "codelistCode": "CL000086" } },
+              "personName": { "formatedName": "RNDr. Ján Jenča", "familyNames": ["Jenča"], "givenNames": ["Ján"] }
+            },
+            {
+              "stakeholderType": { "value": "Konateľ", "code": "3", "codelistCode": "CL010113" },
+              "validFrom": "2013-04-26",
+              "validTo": "2017-02-23",
+              "address": { "street": "Palárikova", "regNumber": 0, "buildingNumber": "8680/12", "postalCodes": ["08005"], "municipality": { "value": "Prešov", "code": "SK0417524140", "codelistCode": "CL000025" }, "country": { "value": "Slovenská republika", "code": "703", "codelistCode": "CL000086" } },
+              "personName": { "formatedName": "RNDr. Ján Jenča", "familyNames": ["Jenča"], "givenNames": ["Ján"] }
+            },
+            {
+              "stakeholderType": { "value": "Konateľ", "code": "3", "codelistCode": "CL010113" },
+              "validFrom": "2019-03-29",
+              "validTo": "2021-01-25",
+              "address": { "street": "Karlavägen", "regNumber": 0, "buildingNumber": "68", "postalCodes": ["11459"], "municipality": { "value": "Štokholm" }, "country": { "value": "Švédske kráľovstvo", "code": "752", "codelistCode": "CL000086" } },
+              "personName": { "formatedName": "Sara Maria Laurell", "familyNames": ["Laurell"], "givenNames": ["Sara", "Maria"] }
+            },
+            {
+              "stakeholderType": { "value": "Konateľ", "code": "3", "codelistCode": "CL010113" },
+              "validFrom": "2019-03-29",
+              "validTo": "2024-10-23",
+              "address": { "street": "Karlavägen", "regNumber": 0, "buildingNumber": "68", "postalCodes": ["114 59"], "municipality": { "value": "Štokholm" }, "country": { "value": "Švédske kráľovstvo", "code": "752", "codelistCode": "CL000086" } },
+              "personName": { "formatedName": "Sara Maria Laurell", "familyNames": ["Laurell"], "givenNames": ["Sara", "Maria"] }
+            },
+            {
+              "stakeholderType": { "value": "Konateľ", "code": "3", "codelistCode": "CL010113" },
+              "validFrom": "2019-03-29",
+              "validTo": "2024-10-31",
+              "address": { "street": "Karlavägen", "regNumber": 0, "buildingNumber": "68", "postalCodes": ["114 59"], "municipality": { "value": "Štokholm" }, "country": { "value": "Švédske kráľovstvo", "code": "752", "codelistCode": "CL000086" } },
+              "personName": { "formatedName": "Sara Maria Laurell", "familyNames": ["Laurell"], "givenNames": ["Sara", "Maria"] }
+            },
+            {
+              "stakeholderType": { "value": "Konateľ", "code": "3", "codelistCode": "CL010113" },
+              "validFrom": "2024-12-11",
+              "address": { "street": "Noordeindseweg", "regNumber": 0, "buildingNumber": "84-A", "postalCodes": ["2651 CX"], "municipality": { "value": "Berkel en Rodenrijs" }, "country": { "value": "Holandské kráľovstvo", "code": "528", "codelistCode": "CL000086" } },
+              "personName": { "formatedName": "Willem Gerrit Westerhof", "familyNames": ["Westerhof"], "givenNames": ["Willem", "Gerrit"] }
+            },
+            {
+              "stakeholderType": { "value": "Konateľ", "code": "3", "codelistCode": "CL010113" },
+              "validFrom": "2022-10-06",
+              "validTo": "2024-12-30",
+              "address": { "street": "Falkvägen", "regNumber": 0, "buildingNumber": "8", "postalCodes": ["SE-18350"], "municipality": { "value": "Täby" }, "country": { "value": "Švédske kráľovstvo", "code": "752", "codelistCode": "CL000086" } },
+              "personName": { "formatedName": "Daniel Erik Johansson", "familyNames": ["Johansson"], "givenNames": ["Daniel", "Erik"] }
+            },
+            {
+              "stakeholderType": { "value": "Konateľ", "code": "3", "codelistCode": "CL010113" },
+              "validFrom": "2022-10-06",
+              "validTo": "2024-12-31",
+              "address": { "street": "Falkvägen", "regNumber": 0, "buildingNumber": "8", "postalCodes": ["SE-18350"], "municipality": { "value": "Täby" }, "country": { "value": "Švédske kráľovstvo", "code": "752", "codelistCode": "CL000086" } },
+              "personName": { "formatedName": "Daniel Erik Johansson", "familyNames": ["Johansson"], "givenNames": ["Daniel", "Erik"] }
+            },
+            {
+              "stakeholderType": { "value": "Konateľ", "code": "3", "codelistCode": "CL010113" },
+              "validFrom": "2022-03-22",
+              "address": { "street": "Zochová", "regNumber": 0, "buildingNumber": "948/68", "postalCodes": ["026 01"], "municipality": { "value": "Dolný Kubín", "code": "SK0313509540", "codelistCode": "CL000025" }, "country": { "value": "Slovenská republika", "code": "703", "codelistCode": "CL000086" } },
+              "personName": { "formatedName": "Ing. Tomáš Klempai", "familyNames": ["Klempai"], "givenNames": ["Tomáš"] }
+            },
+            {
+              "stakeholderType": { "value": "Konateľ", "code": "3", "codelistCode": "CL010113" },
+              "validFrom": "2024-12-11",
+              "address": { "street": "Mariebergsgatan", "regNumber": 0, "buildingNumber": "30 7 Tr", "postalCodes": ["112 45"], "municipality": { "value": "Štokholm" }, "country": { "value": "Švédske kráľovstvo", "code": "752", "codelistCode": "CL000086" } },
+              "personName": { "formatedName": "Isak Peter Stigsson", "familyNames": ["Stigsson"], "givenNames": ["Isak", "Peter"] }
+            },
+            {
+              "stakeholderType": { "value": "Konateľ", "code": "3", "codelistCode": "CL010113" },
+              "validFrom": "2024-10-10",
+              "validTo": "2024-12-19",
+              "address": { "street": "Churchwood Road", "regNumber": 0, "buildingNumber": "27", "postalCodes": ["M20 6TZ"], "municipality": { "value": "Manchester" }, "country": { "value": "Spojené kráľovstvo Veľkej Británie a Severného Írska", "code": "826", "codelistCode": "CL000086" } },
+              "personName": { "formatedName": "Jennifer Miles", "familyNames": ["Miles"], "givenNames": ["Jennifer"] }
+            },
+            {
+              "stakeholderType": { "value": "Konateľ", "code": "3", "codelistCode": "CL010113" },
+              "validFrom": "2024-10-10",
+              "validTo": "2024-12-11",
+              "address": { "street": "Churchwood Road", "regNumber": 0, "buildingNumber": "27", "postalCodes": ["M20 6TZ"], "municipality": { "value": "Manchester" }, "country": { "value": "Spojené kráľovstvo Veľkej Británie a Severného Írska", "code": "826", "codelistCode": "CL000086" } },
+              "personName": { "formatedName": "Jennifer Miles", "familyNames": ["Miles"], "givenNames": ["Jennifer"] }
+            },
+            {
+              "stakeholderType": { "value": "Konateľ", "code": "3", "codelistCode": "CL010113" },
+              "validFrom": "2022-03-22",
+              "validTo": "2023-01-18",
+              "address": { "street": "Grävlingsvägen", "regNumber": 0, "buildingNumber": "59", "postalCodes": ["SE-16756"], "municipality": { "value": "Bromma" }, "country": { "value": "Švédske kráľovstvo", "code": "752", "codelistCode": "CL000086" } },
+              "personName": { "formatedName": "Maria Elisabeth Lustin", "familyNames": ["Lustin"], "givenNames": ["Maria", "Elisabeth"] }
+            }
+        ],
+        "stakeholders": [
+            {
+              "stakeholderType": { "value": "Spoločník v.o.s. / s.r.o.", "code": "99", "codelistCode": "CL010109" },
+              "validFrom": "2019-03-20",
+              "address": { "validFrom": "2019-03-20", "validTo": "2021-01-25", "street": "Kopparbergsvägen", "regNumber": 0, "buildingNumber": "8 H", "postalCodes": ["SE-722 13"], "municipality": { "value": "Västerås" }, "country": { "value": "Švédske kráľovstvo", "code": "752", "codelistCode": "CL000086" } },
+              "identifier": "Neuvedené",
+              "fullName": "Loopia Aktiebolag",
+              "establishment": "1800-01-01",
+              "validTo": "2021-01-25"
+            },
+            {
+              "stakeholderType": { "value": "Spoločník v.o.s. / s.r.o.", "code": "99", "codelistCode": "CL010109" },
+              "validFrom": "2021-01-26",
+              "address": { "validFrom": "2021-01-26", "street": "Kopparbergsvägen", "regNumber": 0, "buildingNumber": "8 H", "postalCodes": ["SE-722 13"], "municipality": { "value": "Västerås" }, "country": { "value": "Švédske kráľovstvo", "code": "752", "codelistCode": "CL000086" } },
+              "identifier": "Neuvedené",
+              "fullName": "Loopia Aktiebolag",
+              "establishment": "1800-01-01"
+            },
+            {
+              "stakeholderType": { "value": "Spoločník v.o.s. / s.r.o.", "code": "99", "codelistCode": "CL010109" },
+              "validFrom": "2019-03-20",
+              "address": { "validFrom": "2019-03-23", "validTo": "2021-01-25", "street": "Kopparbergsvägen", "regNumber": 0, "buildingNumber": "8", "postalCodes": ["SE-722 13"], "municipality": { "value": "Västerås" }, "country": { "value": "Švédske kráľovstvo", "code": "752", "codelistCode": "CL000086" } },
+              "identifier": "Neuvedené",
+              "fullName": "Loopia Group AB",
+              "establishment": "1800-01-01",
+              "validTo": "2021-01-25"
+            },
+            {
+              "stakeholderType": { "value": "Spoločník v.o.s. / s.r.o.", "code": "99", "codelistCode": "CL010109" },
+              "validFrom": "2021-01-26",
+              "address": { "validFrom": "2021-01-26", "validTo": "2023-01-18", "street": "Kopparbergsvägen", "regNumber": 0, "buildingNumber": "8", "postalCodes": ["SE-722 13"], "municipality": { "value": "Västerås" }, "country": { "value": "Švédske kráľovstvo", "code": "752", "codelistCode": "CL000086" } },
+              "identifier": "Neuvedené",
+              "fullName": "Loopia Group AB",
+              "establishment": "1800-01-01",
+              "validTo": "2023-01-18"
+            },
+            {
+              "stakeholderType": { "value": "Spoločník v.o.s. / s.r.o.", "code": "99", "codelistCode": "CL010109" },
+              "validFrom": "2023-01-19",
+              "address": { "validFrom": "2023-01-19", "street": "Torsgatan", "regNumber": 0, "buildingNumber": "26", "postalCodes": ["SE-11321"], "municipality": { "value": "Štokholm" }, "country": { "value": "Švédske kráľovstvo", "code": "752", "codelistCode": "CL000086" } },
+              "identifier": "Neuvedené",
+              "fullName": "Loopia Group AB",
+              "establishment": "1800-01-01"
+            },
+            {
+              "stakeholderType": { "value": "Spoločník v.o.s. / s.r.o.", "code": "99", "codelistCode": "CL010109" },
+              "validFrom": "2017-01-03",
+              "address": { "street": "Grösslingová", "regNumber": 0, "buildingNumber": "2496/46", "postalCodes": ["81109"], "municipality": { "value": "Bratislava - mestská časť Staré mesto" }, "country": { "value": "Slovenská republika", "code": "703", "codelistCode": "CL000086" } },
+              "personName": { "formatedName": "Mgr. Ivan Štefunko", "familyNames": ["Štefunko"], "givenNames": ["Ivan"] },
+              "validTo": "2019-03-19"
+            },
+            {
+              "stakeholderType": { "value": "Spoločník v.o.s. / s.r.o.", "code": "99", "codelistCode": "CL010109" },
+              "validFrom": "2004-08-12",
+              "address": { "regNumber": 0, "buildingNumber": "457", "municipality": { "value": "Kysucký Lieskovec", "code": "SK0314509264", "codelistCode": "CL000025" }, "country": { "value": "Slovenská republika", "code": "703", "codelistCode": "CL000086" } },
+              "personName": { "formatedName": "Michal Truban", "familyNames": ["Truban"], "givenNames": ["Michal"] },
+              "validTo": "2016-01-28"
+            },
+            {
+              "stakeholderType": { "value": "Spoločník v.o.s. / s.r.o.", "code": "99", "codelistCode": "CL010109" },
+              "validFrom": "2013-05-07",
+              "address": { "validFrom": "2013-05-07", "validTo": "2017-01-02", "street": "Cintorínska", "regNumber": 0, "buildingNumber": "3/B", "postalCodes": ["811 08"], "municipality": { "value": "Bratislava-Staré Mesto" }, "country": { "value": "Slovenská republika", "code": "703", "codelistCode": "CL000086" } },
+              "identifier": "Neuvedené",
+              "fullName": "MONOGRAM Ventures a.s.",
+              "establishment": "1800-01-01",
+              "validTo": "2017-01-02"
+            },
+            {
+              "stakeholderType": { "value": "Spoločník v.o.s. / s.r.o.", "code": "99", "codelistCode": "CL010109" },
+              "validFrom": "2004-08-12",
+              "address": { "regNumber": 0, "buildingNumber": "170", "municipality": { "value": "Dolný Bar", "code": "SK0211501557", "codelistCode": "CL000025" }, "country": { "value": "Slovenská republika", "code": "703", "codelistCode": "CL000086" } },
+              "personName": { "formatedName": "Pavel Stano", "familyNames": ["Stano"], "givenNames": ["Pavel"] },
+              "validTo": "2019-03-19"
+            },
+            {
+              "stakeholderType": { "value": "Spoločník v.o.s. / s.r.o.", "code": "99", "codelistCode": "CL010109" },
+              "validFrom": "2016-01-29",
+              "address": { "validFrom": "2016-01-29", "validTo": "2019-03-19", "street": "Siebenbrunnengasse", "regNumber": 0, "buildingNumber": "44", "postalCodes": ["1050"], "municipality": { "value": "Wien" }, "country": { "value": "Rakúska republika", "code": "040", "codelistCode": "CL000086" } },
+              "identifier": "Neuvedené",
+              "fullName": "Trantor Ventures GmbH",
+              "establishment": "1800-01-01",
+              "validTo": "2019-03-19"
+            }
+        ],
+        "otherLegalFacts": [
+            { "value": "Zápisnica z mimoriadneho valného zhromaždenia zo dňa 12.01.2016.", "validFrom": "2016-01-29" },
+            { "value": "Zápisnica z mimoriadneho valného zhromaždenia zo dňa 06.02.2018.", "validFrom": "2018-02-27" },
+            { "value": "Zápisnica z valného zhromaždenia zo dňa 11.01.2019. Zmena obchodného mena z pôvodného Websupport s. r. o. na nové WebSupport s. r. o.", "validFrom": "2019-02-01" },
+            { "value": "Zápisnica z mimoriadneho valného zhromaždenia konaného dňa 19.02.2019.", "validFrom": "2019-03-19" },
+            { "value": "Zápisnica z riadneho valného zhromaždenia zo dňa 26.04.2013.", "validFrom": "2013-05-07" }
+        ],
+        "authorizations": [
+            { "value": "V mene spoločnosti koná každý z konateľov samostatne. Pri právnych úkonoch vykonaných v písomnej forme pripojí k obchodnému menu spoločnosti svoju funkciu a podpis.", "validFrom": "2004-08-12", "validTo": "2019-03-28" },
+            { "value": "V mene spoločnosti konajú a za spoločnosť podpisujú vždy dvaja konatelia spoločne.", "validFrom": "2019-03-29", "validTo": "2019-11-07" },
+            { "value": "Každý konateľ koná v mene spoločnosti samostatne.", "validFrom": "2019-11-08", "validTo": "2022-03-29" },
+            { "value": "Ak má Spoločnosť jedného konateľa, koná tento v mene Spoločnosti samostatne. Ak má Spoločnosť viacerých konateľov, konajú v mene Spoločnosti vždy aspoň dvaja konatelia spoločne.", "validFrom": "2022-03-30" }
+        ],
+        "equities": [
+            { "validFrom": "2004-08-12", "validTo": "2009-02-11", "value": 200000.00, "currency": { "value": "slovenská koruna", "code": "SKK", "codelistCode": "CL000083" } },
+            { "validFrom": "2009-02-12", "value": 6640.00, "currency": { "value": "euro", "code": "EUR", "codelistCode": "CL000083" } },
+            { "validFrom": "2004-08-12", "validTo": "2007-02-22", "valuePaid": 100000.00, "currency": { "value": "slovenská koruna", "code": "SKK", "codelistCode": "CL000083" } },
+            { "validFrom": "2007-02-23", "validTo": "2009-02-11", "valuePaid": 200000.00, "currency": { "value": "slovenská koruna", "code": "SKK", "codelistCode": "CL000083" } },
+            { "validFrom": "2009-02-12", "valuePaid": 6640.00, "currency": { "value": "euro", "code": "EUR", "codelistCode": "CL000083" } }
+        ],
+        "deposits": [
+            { "validFrom": "2019-03-20", "validTo": "2019-10-15", "fullName": "Loopia Aktiebolag", "amount": 5644.00, "currency": { "value": "euro", "code": "EUR", "codelistCode": "CL000083" } },
+            { "validFrom": "2019-10-16", "validTo": "2021-01-25", "fullName": "Loopia Aktiebolag", "amount": 5644.00, "currency": { "value": "euro", "code": "EUR", "codelistCode": "CL000083" } },
+            { "validFrom": "2021-01-26", "validTo": "2024-10-02", "fullName": "Loopia Aktiebolag", "amount": 5644.00, "currency": { "value": "euro", "code": "EUR", "codelistCode": "CL000083" } },
+            { "validFrom": "2024-10-03", "fullName": "Loopia Aktiebolag", "type": "(peňažný vklad)", "amount": 5644.00, "currency": { "value": "euro", "code": "EUR", "codelistCode": "CL000083" } },
+            { "validFrom": "2019-03-20", "validTo": "2019-10-15", "fullName": "Loopia Group AB", "amount": 996.00, "currency": { "value": "euro", "code": "EUR", "codelistCode": "CL000083" } },
+            { "validFrom": "2019-10-16", "validTo": "2021-01-25", "fullName": "Loopia Group AB", "amount": 996.00, "currency": { "value": "euro", "code": "EUR", "codelistCode": "CL000083" } },
+            { "validFrom": "2021-01-26", "validTo": "2023-01-18", "fullName": "Loopia Group AB", "amount": 996.00, "currency": { "value": "euro", "code": "EUR", "codelistCode": "CL000083" } },
+            { "validFrom": "2023-01-19", "validTo": "2024-10-02", "fullName": "Loopia Group AB", "amount": 996.00, "currency": { "value": "euro", "code": "EUR", "codelistCode": "CL000083" } },
+            { "validFrom": "2024-10-03", "fullName": "Loopia Group AB", "type": "(peňažný vklad)", "amount": 996.00, "currency": { "value": "euro", "code": "EUR", "codelistCode": "CL000083" } },
+            { "validFrom": "2017-01-03", "validTo": "2019-03-18", "personName": { "formatedName": "Mgr. Ivan Štefunko", "familyNames": ["Štefunko"], "givenNames": ["Ivan"] }, "amount": 996.00, "currency": { "value": "euro", "code": "EUR", "codelistCode": "CL000083" } },
+            { "validFrom": "2019-03-19", "validTo": "2019-03-19", "personName": { "formatedName": "Mgr. Ivan Štefunko", "familyNames": ["Štefunko"], "givenNames": ["Ivan"] }, "amount": 996.00, "currency": { "value": "euro", "code": "EUR", "codelistCode": "CL000083" } },
+            { "validFrom": "2004-08-12", "validTo": "2007-02-22", "personName": { "formatedName": "Michal Truban", "familyNames": ["Truban"], "givenNames": ["Michal"] }, "amount": 100000.00, "currency": { "value": "slovenská koruna", "code": "SKK", "codelistCode": "CL000083" } },
+            { "validFrom": "2007-02-23", "validTo": "2009-02-11", "personName": { "formatedName": "Michal Truban", "familyNames": ["Truban"], "givenNames": ["Michal"] }, "amount": 100000.00, "currency": { "value": "slovenská koruna", "code": "SKK", "codelistCode": "CL000083" } },
+            { "validFrom": "2009-02-12", "validTo": "2016-01-28", "personName": { "formatedName": "Michal Truban", "familyNames": ["Truban"], "givenNames": ["Michal"] }, "amount": 3320.00, "currency": { "value": "euro", "code": "EUR", "codelistCode": "CL000083" } },
+            { "validFrom": "2013-05-07", "validTo": "2017-01-02", "fullName": "MONOGRAM Ventures a.s.", "type": "(peňažný vklad)", "amount": 996.00, "currency": { "value": "euro", "code": "EUR", "codelistCode": "CL000083" } },
+            { "validFrom": "2004-08-12", "validTo": "2007-02-22", "personName": { "formatedName": "Pavel Stano", "familyNames": ["Stano"], "givenNames": ["Pavel"] }, "amount": 100000.00, "currency": { "value": "slovenská koruna", "code": "SKK", "codelistCode": "CL000083" } },
+            { "validFrom": "2007-02-23", "validTo": "2009-02-11", "personName": { "formatedName": "Pavel Stano", "familyNames": ["Stano"], "givenNames": ["Pavel"] }, "amount": 100000.00, "currency": { "value": "slovenská koruna", "code": "SKK", "codelistCode": "CL000083" } },
+            { "validFrom": "2009-02-12", "validTo": "2013-05-06", "personName": { "formatedName": "Pavel Stano", "familyNames": ["Stano"], "givenNames": ["Pavel"] }, "amount": 3320.00, "currency": { "value": "euro", "code": "EUR", "codelistCode": "CL000083" } },
+            { "validFrom": "2013-05-07", "validTo": "2019-03-18", "personName": { "formatedName": "Pavel Stano", "familyNames": ["Stano"], "givenNames": ["Pavel"] }, "amount": 2324.00, "currency": { "value": "euro", "code": "EUR", "codelistCode": "CL000083" } },
+            { "validFrom": "2019-03-19", "validTo": "2019-03-19", "personName": { "formatedName": "Pavel Stano", "familyNames": ["Stano"], "givenNames": ["Pavel"] }, "amount": 2324.00, "currency": { "value": "euro", "code": "EUR", "codelistCode": "CL000083" } },
+            { "validFrom": "2016-01-29", "validTo": "2019-03-18", "fullName": "Trantor Ventures GmbH", "amount": 3320.00, "currency": { "value": "euro", "code": "EUR", "codelistCode": "CL000083" } },
+            { "validFrom": "2019-03-19", "validTo": "2019-03-19", "fullName": "Trantor Ventures GmbH", "amount": 3320.00, "currency": { "value": "euro", "code": "EUR", "codelistCode": "CL000083" } }
+        ],
+        "sourceRegister": {
+          "value": { "value": "Obchodný register", "code": "1", "codelistCode": "CL010112" },
+          "registrationOffices": [ { "value": "Mestský súd Bratislava III", "validFrom": "2004-08-12" } ],
+          "registrationNumbers": [ { "value": "Sro/63270/B", "validFrom": "2004-08-12" } ]
+        },
+        "statisticalCodes": {
+          "statCodesActualization": "2021-06-15",
+          "mainActivity": { "value": "Spracovanie dát, poskytovanie serverového priestoru na internete a súvisiace služby", "code": "63110", "codelistCode": "CL005205" },
+          "esa2010": { "value": "Nefinančné korporácie pod zahraničnou kontrolou", "code": "11003", "codelistCode": "CL010010" }
+        },
+        "license": "1. ŠÚ SR ako správca informačného systému RPO uplatňuje na použitie sprístupnených údajov z RPO uvedených v § 7 ods. 2 a § 7a ods. 4 zákona č. 272/2015 Z. z. o registri právnických osôb, podnikateľov a orgánov verejnej moci a o zmene a doplnení niektorých zákonov (ďalej len „zákon o registri právnických osôb“) medzinárodnú verejnú licenciu Creative Commons Attribution License (cc-by) 4.0 (ďalej len „verejná licencia“).\n2. Predmetom verejnej licencie sú sprístupnené údaje z RPO prostredníctvom webového sídla ŠÚ SR v zmysle § 7 ods. 2 a § 7a ods. 4 zákona o registri právnických osôb.\n3. ŠÚ SR udeľuje súhlas na použitie predmetu verejnej licencie a výkon licencovaných práv („licencia“) podľa vyššie citovanej verejnej licencie."
+      },
+      "created_at": "2025-10-03 14:34:00.000000",
+      "updated_at": "2025-10-03 14:34:00.000000",
+      "actualized_at": "2025-10-03 14:34:00.000000"
+    }
+  ],
+  "ruz_accounting_entities": [
+    {
+      "id": 96001,
+      "url": "https://datahub.ekosystem.slovensko.digital/api/data/ruz/accounting_entities/96001"
+    }
+  ]
+}</code></pre>
 
 <h4>Rozšírenie odpovede o dáta z Registra právnických osôb</h4>
 <p>Prémiové dáta umožňujú rozšíriť odpoveď požiadavky o podrobné údaje o prepojených organizáciách z RPO pridaním parametra <code>expand=rpo_organizations</code>.</p>
@@ -90,6 +504,7 @@
   "updated_at": "2020-07-11T03:56:22.838819Z",
   "established_on": "2004-08-12",
   "terminated_on": null,
+  "deleted_at": null,
   "vatin_paragraph": "§4",
   "registration_office": "Okresný súd Bratislava I",
   "registration_number": "Sro/63270/B",

@@ -110,6 +110,10 @@ Rails.application.routes.draw do
         resources :contracts, concerns: :syncable
       end
 
+      namespace :rpo2 do
+        resources :organizations, concerns: :syncable
+      end
+
       namespace :rpo do
         resources :organizations, concerns: :syncable
       end
