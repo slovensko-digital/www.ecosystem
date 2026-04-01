@@ -5,7 +5,7 @@ class Services::GovboxController < ContentController
   before_action :set_up_footer_template
 
   PARAMS = [
-    :legal_subject_name, :cin, :mode, :vatin, :formatted_address,
+    :legal_subject_name, :cin, :mode, :tin, :vatin, :formatted_address,
     :given_name, :family_name, :person_formatted_address,
     :email, :phone, :postal_address, :snail_mail,
     :password, :password_confirmation, :referral_code,
