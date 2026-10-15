@@ -1,6 +1,23 @@
 <div class="container">
   <h1><strong>Poznámky k zmenám funkcionality a štruktúry dát</strong></h1>
   <div class="long-text">
+    <h2 class="anchorable">Zmena k 15. 10. 2026</h2>
+    <h3>Otvorené dáta</h3>
+    <h4>Ukončenie podpory <code>RPO</code> (Register právnických osôb)</h4>
+    <ul>
+      <li>Ukončenie podpory všetkých tabuliek schémy <code>rpo</code> a SQL dumpu <code>rpo.sql.gz</code>. Náhradou je schéma <code>rpo2</code> (Register právnických osôb V2).</li>
+    </ul>
+    <h3>Otvorené API</h3>
+    <h4>Ukončenie podpory endpointov <code>api/data/rpo/organizations/*</code></h4>
+    <ul>
+      <li>Náhradou sú endpointy <code>api/data/rpo2/organizations/*</code>.</li>
+    </ul>
+    <h4>Zmenené endpointy <code>api/datahub/corporate_bodies/*</code></h4>
+    <ul>
+      <li>Ukončenie podpory atribútu <code>rpo_organizations</code>. Náhradou sú atribúty <code>rpo2_organizations</code> a <code>rpo2_suborganizations</code>.</li>
+      <li>Ukončenie podpory nepovinného parametra <code>expand=rpo_organizations</code>. Náhradou je <code>expand=rpo2_organizations</code>.</li>
+    </ul>
+
     <h2 class="anchorable">Zmena k 06. 10. 2025</h2>
     <h3>Otvorené dáta</h3>
     <h4>Pridaná tabuľka <code>rpo2.organizations</code></h4>

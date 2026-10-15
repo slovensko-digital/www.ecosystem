@@ -114,10 +114,6 @@ Rails.application.routes.draw do
         resources :organizations, concerns: :syncable
       end
 
-      namespace :rpo do
-        resources :organizations, concerns: :syncable
-      end
-
       namespace :ruz do
         resources :accounting_entities, concerns: :syncable
       end

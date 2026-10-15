@@ -82,7 +82,6 @@ RSpec.describe 'Pages' do
 
       expect(page).to have_content('Otvorené dáta')
 
-      expect(page).to have_content('rpo.')
       expect(page).to have_content('crz.')
       expect(page).to have_content('ov.')
       expect(page).to have_content('fs.')
