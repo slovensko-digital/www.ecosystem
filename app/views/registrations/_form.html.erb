@@ -24,13 +24,13 @@
   <% end %>
 
   <div class="row">
-    <div class="col-md-5 form-group">
+    <div class="col-md-6 form-group">
       <%= label_tag :cap_email, 'E-mail', class: 'control-label' %>
       <%= email_field_tag :email, values['email'], class: 'form-control input-lg', required: true, id: 'cap_email' %>
       <p class="help-block">Pošleme naň e-mail s odkazom na potvrdenie registrácie a potom prístupové údaje.</p>
     </div>
     <% if domain %>
-      <div class="col-md-5 form-group">
+      <div class="col-md-6 form-group">
         <%= label_tag :cap_domain, 'Doména webu (nepovinné)', class: 'control-label' %>
         <%= text_field_tag :domain, values['domain'], class: 'form-control input-lg', placeholder: 'napríklad www.firma.sk', id: 'cap_domain' %>
         <p class="help-block">Kde použijete Autoform v prehliadači: kľúč bude fungovať iba na tejto doméne. Ak Autoform voláte iba zo servera cez API, doménu nevypĺňajte. Localhost funguje vždy.</p>
@@ -41,11 +41,11 @@
   <h3>Fakturačné údaje</h3>
   <p class="help-block">Začnite písať názov firmy alebo IČO, údaje doplní Autoform z registra. Dajú sa aj prepísať.</p>
   <div class="row">
-    <div class="col-md-7 form-group">
+    <div class="col-md-8 form-group">
       <%= label_tag :cap_company_name, 'Názov firmy', class: 'control-label' %>
       <%= text_field_tag :company_name, values['company_name'], class: 'form-control input-lg', required: true, autocomplete: 'off', data: {'slovensko-digital-autoform': 'name'}, id: 'cap_company_name' %>
     </div>
-    <div class="col-md-3 form-group">
+    <div class="col-md-4 form-group">
       <%= label_tag :cap_ico, 'IČO', class: 'control-label' %>
       <%= text_field_tag :ico, values['ico'], class: 'form-control input-lg', data: {'slovensko-digital-autoform': 'cin'}, id: 'cap_ico' %>
     </div>
@@ -61,7 +61,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-5 form-group">
+    <div class="col-md-6 form-group">
       <%= label_tag :cap_street, 'Ulica a číslo', class: 'control-label' %>
       <%= text_field_tag :street, values['street'], class: 'form-control', required: true, data: {'slovensko-digital-autoform': 'formatted-street'}, id: 'cap_street' %>
     </div>
@@ -69,7 +69,7 @@
       <%= label_tag :cap_postcode, 'PSČ', class: 'control-label' %>
       <%= text_field_tag :postcode, values['postcode'], class: 'form-control', required: true, data: {'slovensko-digital-autoform': 'postal-code'}, id: 'cap_postcode' %>
     </div>
-    <div class="col-md-3 form-group">
+    <div class="col-md-4 form-group">
       <%= label_tag :cap_city, 'Mesto', class: 'control-label' %>
       <%= text_field_tag :city, values['city'], class: 'form-control', required: true, data: {'slovensko-digital-autoform': 'municipality'}, id: 'cap_city' %>
     </div>

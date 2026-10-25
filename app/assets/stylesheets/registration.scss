@@ -1,0 +1,24 @@
+@import 'bootstrap/variables';
+
+// The registration of a service with its billing data (registrations/_form).
+#cap-registration-form {
+  margin-bottom: 1em;
+  padding: 1.5em 2em .5em;
+  background-color: $well-bg;
+  border: 1px solid $well-border;
+  border-radius: $border-radius-base;
+
+  h3 {
+    margin-top: .5em;
+    font-size: $font-size-h4;
+  }
+
+  // The muted gray of Bootstrap is too light on the gray background.
+  .help-block {
+    color: #666;
+  }
+
+  @media (max-width: $screen-xs-max) {
+    padding: 1em 1em .5em;
+  }
+}
