@@ -121,9 +121,9 @@ RSpec.describe 'Registrations through CAP', type: :request do
     get '/sluzby/autoform'
     expect(response.body).not_to include('staging-notice')
 
-    ENV['STAGING_NOTICE'] = 'Registrácie idú do testovacieho CAP.'
+    ENV['STAGING_NOTICE'] = 'Registrácie idú do testovacieho systému.'
     get '/sluzby/autoform'
-    expect(response.body).to include('Toto je testovacie prostredie webu Ekosystému, nie ostrá verzia.', 'Registrácie idú do testovacieho CAP.')
+    expect(response.body).to include('Toto je testovacie prostredie webu Ekosystému, nie ostrá verzia.', 'Registrácie idú do testovacieho systému.')
   ensure
     ENV.delete('STAGING_NOTICE')
   end
