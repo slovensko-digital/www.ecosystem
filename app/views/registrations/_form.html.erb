@@ -87,8 +87,8 @@
     <%= text_field_tag :website, nil, tabindex: -1, autocomplete: 'off', id: 'cap_website' %>
   </div>
 
+  <p class="help-block terms">Údaje vám pošleme e-mailom s odkazom na potvrdenie. Registráciou sa zaväzujete dodržiavať <%= link_to 'podmienky používania služieb Ekosystému', services_terms_path %>.</p>
   <%= button_tag class: 'btn btn-default btn-lg btn-strong' do %>
     <strong>Zaregistrovať</strong>
   <% end %>
-  <p class="help-block">Údaje vám pošleme e-mailom s odkazom na potvrdenie. Registráciou sa zaväzujete dodržiavať <%= link_to 'podmienky používania služieb Ekosystému', services_terms_path %>.</p>
 <% end %>
