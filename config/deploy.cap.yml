@@ -1,0 +1,63 @@
+# Staging of the web with the registrations through CAP (CRM, Admin, Podpora):
+# https://ekosystem.dev.slovensko.digital on the server of the CAP staging
+# (cap.dev.slovensko.digital). The usual staging and production deploy through
+# GitLab, this file is not used there. Secrets: .kamal/secrets.
+#
+#   set -a; . ./.env.kamal; set +a
+#   kamal setup -c config/deploy.cap.yml     # the first time
+#   kamal deploy -c config/deploy.cap.yml
+service: ekosystem
+
+image: sd/ekosystem
+
+servers:
+  web:
+    hosts:
+      - dev.slovensko.digital
+
+proxy:
+  ssl: true
+  host: ekosystem.dev.slovensko.digital
+  app_port: 3000
+  healthcheck:
+    # A static page: no database, Datahub or other service.
+    path: /podmienky-sluzieb
+
+env:
+  clear:
+    RAILS_ENV: production
+    RAILS_SERVE_STATIC_FILES: "true"
+    RAILS_LOG_TO_STDOUT: "true"
+    PORT: 3000
+    APP_HOST: ekosystem.dev.slovensko.digital
+    REDIS_URL: redis://ekosystem-redis:6379
+    # The registrations go to the CAP staging; its e-mails reach only the test group.
+    CAP_URL: https://cap.dev.slovensko.digital
+    AUTOFORM_URL: https://autoform.ekosystem.staging.slovensko.digital
+    GOVBOX_REFERRAL_CODES: ""
+  secret:
+    - SECRET_KEY_BASE
+    - CAP_REGISTRATION_SECRET
+    - AUTOFORM_ACCESS_TOKEN
+
+accessories:
+  # The cache of the pages (config/environments/production.rb).
+  redis:
+    image: redis:7
+    roles:
+      - web
+    cmd: redis-server --maxmemory 64mb --maxmemory-policy allkeys-lru
+
+registry:
+  server: registry.dev.slovensko.digital
+  username:
+    - KAMAL_REGISTRY_USERNAME
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+builder:
+  arch: amd64
+  remote: ssh://kamal@dev.slovensko.digital
+
+ssh:
+  user: kamal

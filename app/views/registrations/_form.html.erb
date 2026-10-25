@@ -1,0 +1,94 @@
+<%# The registration of products (CapRegistrations::PRODUCTS) with the billing
+    data; Autoform fills them in after the client picks the company. %>
+<% result = cap_registration_result(*products) %>
+<% values = (result && result['values']) || {} %>
+<% if result %>
+  <div class="alert <%= result['kind'] == 'error' ? 'alert-danger' : 'alert-success' %>" role="alert"><%= result['message'] %></div>
+  <% if result['kind'] == 'success' %>
+    <script>window.plausible && plausible('Registration', {props: {product: '<%= j CapRegistrations::PRODUCTS[result['product']] %>'}});</script>
+  <% end %>
+<% end %>
+
+<%= form_tag registration_path, id: 'cap-registration-form', autocomplete: 'off', data: {'slovensko-digital-autoform': ENV['AUTOFORM_ACCESS_TOKEN']} do %>
+  <% if products.one? %>
+    <%= hidden_field_tag :product, products.first %>
+  <% else %>
+    <div class="form-group">
+      <label class="control-label">Služba</label><br>
+      <% products.each do |product| %>
+        <label class="radio-inline">
+          <%= radio_button_tag :product, product, (values['product'] || products.first) == product %> <%= CapRegistrations::PRODUCTS[product] %>
+        </label>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-5 form-group">
+      <%= label_tag :cap_email, 'E-mail', class: 'control-label' %>
+      <%= email_field_tag :email, values['email'], class: 'form-control input-lg', required: true, id: 'cap_email' %>
+      <p class="help-block">Pošleme naň e-mail s odkazom na potvrdenie registrácie a potom prístupové údaje.</p>
+    </div>
+    <% if domain %>
+      <div class="col-md-5 form-group">
+        <%= label_tag :cap_domain, 'Doména webu (nepovinné)', class: 'control-label' %>
+        <%= text_field_tag :domain, values['domain'], class: 'form-control input-lg', placeholder: 'napríklad www.firma.sk', id: 'cap_domain' %>
+        <p class="help-block">Kde použijete Autoform v prehliadači: kľúč bude fungovať iba na tejto doméne. Ak Autoform voláte iba zo servera cez API, doménu nevypĺňajte. Localhost funguje vždy.</p>
+      </div>
+    <% end %>
+  </div>
+
+  <h3>Fakturačné údaje</h3>
+  <p class="help-block">Začnite písať názov firmy alebo IČO, údaje doplní Autoform z registra. Dajú sa aj prepísať.</p>
+  <div class="row">
+    <div class="col-md-7 form-group">
+      <%= label_tag :cap_company_name, 'Názov firmy', class: 'control-label' %>
+      <%= text_field_tag :company_name, values['company_name'], class: 'form-control input-lg', required: true, autocomplete: 'off', data: {'slovensko-digital-autoform': 'name'}, id: 'cap_company_name' %>
+    </div>
+    <div class="col-md-3 form-group">
+      <%= label_tag :cap_ico, 'IČO', class: 'control-label' %>
+      <%= text_field_tag :ico, values['ico'], class: 'form-control input-lg', data: {'slovensko-digital-autoform': 'cin'}, id: 'cap_ico' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 form-group">
+      <%= label_tag :cap_dic, 'DIČ', class: 'control-label' %>
+      <%= text_field_tag :dic, values['dic'], class: 'form-control', data: {'slovensko-digital-autoform': 'tin'}, id: 'cap_dic' %>
+    </div>
+    <div class="col-md-3 form-group">
+      <%= label_tag :cap_ic_dph, 'IČ DPH', class: 'control-label' %>
+      <%= text_field_tag :ic_dph, values['ic_dph'], class: 'form-control', placeholder: 'ak ste platiteľ DPH', data: {'slovensko-digital-autoform': 'vatin'}, id: 'cap_ic_dph' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5 form-group">
+      <%= label_tag :cap_street, 'Ulica a číslo', class: 'control-label' %>
+      <%= text_field_tag :street, values['street'], class: 'form-control', required: true, data: {'slovensko-digital-autoform': 'formatted-street'}, id: 'cap_street' %>
+    </div>
+    <div class="col-md-2 form-group">
+      <%= label_tag :cap_postcode, 'PSČ', class: 'control-label' %>
+      <%= text_field_tag :postcode, values['postcode'], class: 'form-control', required: true, data: {'slovensko-digital-autoform': 'postal-code'}, id: 'cap_postcode' %>
+    </div>
+    <div class="col-md-3 form-group">
+      <%= label_tag :cap_city, 'Mesto', class: 'control-label' %>
+      <%= text_field_tag :city, values['city'], class: 'form-control', required: true, data: {'slovensko-digital-autoform': 'municipality'}, id: 'cap_city' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 form-group">
+      <%= label_tag :cap_country, 'Krajina', class: 'control-label' %>
+      <%= text_field_tag :country, values['country'], class: 'form-control', placeholder: 'Slovensko', data: {'slovensko-digital-autoform': 'country'}, id: 'cap_country' %>
+    </div>
+  </div>
+
+  <%# Left empty by people, filled in by bots. %>
+  <div style="position: absolute; left: -10000px;" aria-hidden="true">
+    <%= label_tag :cap_website, 'Web' %>
+    <%= text_field_tag :website, nil, tabindex: -1, autocomplete: 'off', id: 'cap_website' %>
+  </div>
+
+  <%= button_tag class: 'btn btn-default btn-lg btn-strong' do %>
+    <strong>Zaregistrovať</strong>
+  <% end %>
+  <p class="help-block">Údaje vám pošleme e-mailom s odkazom na potvrdenie. Registráciou sa zaväzujete dodržiavať <%= link_to 'podmienky používania služieb Ekosystému', services_terms_path %>.</p>
+<% end %>

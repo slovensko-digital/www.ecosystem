@@ -1,0 +1,22 @@
+<div class="container">
+  <h1><strong>Potvrdenie registrácie</strong></h1>
+
+  <% if @message %>
+    <% alert = { 'error' => 'alert-danger', 'info' => 'alert-info' }.fetch(@kind, 'alert-success') %>
+    <div class="alert <%= alert %>" role="alert"><%= @message %></div>
+    <% if @kind == 'error' %>
+      <p><%= link_to 'Registrácia Autoformu', services_autoform_index_path(anchor: 'registracia') %> · <%= link_to 'Registrácia Datahubu', services_datahub_index_path(anchor: 'registracia') %></p>
+    <% end %>
+  <% elsif @token.present? %>
+    <p class="lead">Potvrďte, že údaje z e-mailu sú správne a službu chcete používať.</p>
+    <%= form_tag confirm_registration_path do %>
+      <%= hidden_field_tag :t, @token %>
+      <p>Potvrdením súhlasíte s <%= link_to 'podmienkami používania služieb Ekosystému', services_terms_path %> a <%= link_to 'podmienkami používania datasetov', datasets_terms_path %>.</p>
+      <%= button_tag class: 'btn btn-default btn-lg btn-strong' do %>
+        <strong>Potvrdzujem registráciu a súhlasím s VOP</strong>
+      <% end %>
+    <% end %>
+  <% else %>
+    <div class="alert alert-danger" role="alert">Odkaz nie je úplný. Otvorte ho prosím celý z e-mailu, alebo sa zaregistrujte znova.</div>
+  <% end %>
+</div>
