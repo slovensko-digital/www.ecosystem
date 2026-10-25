@@ -36,7 +36,7 @@ env:
     AUTOFORM_URL: https://autoform.ekosystem.staging.slovensko.digital
     GOVBOX_REFERRAL_CODES: ""
     # The yellow notice at the top of every page (app/views/layouts/_staging_notice.html.erb).
-    STAGING_NOTICE: Registrácie idú do testovacieho systému a jeho e-maily klientom neodchádzajú.
+    STAGING_NOTICE: Registrácie idú do testovacieho systému a jeho e-maily dostanú iba adresy @slovensko.digital.
   secret:
     - SECRET_KEY_BASE
     - CAP_REGISTRATION_SECRET
