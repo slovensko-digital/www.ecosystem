@@ -117,6 +117,17 @@ RSpec.describe 'Registrations through CAP', type: :request do
     end
   end
 
+  it 'tells a staging from the real web' do
+    get '/sluzby/autoform'
+    expect(response.body).not_to include('staging-notice')
+
+    ENV['STAGING_NOTICE'] = 'Registrácie idú do testovacieho CAP.'
+    get '/sluzby/autoform'
+    expect(response.body).to include('Toto je testovacie prostredie webu Ekosystému, nie ostrá verzia.', 'Registrácie idú do testovacieho CAP.')
+  ensure
+    ENV.delete('STAGING_NOTICE')
+  end
+
   it 'keeps the Google Form without CAP' do
     ENV.delete('CAP_URL')
 

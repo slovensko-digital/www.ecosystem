@@ -35,6 +35,8 @@ env:
     CAP_URL: https://cap.dev.slovensko.digital
     AUTOFORM_URL: https://autoform.ekosystem.staging.slovensko.digital
     GOVBOX_REFERRAL_CODES: ""
+    # The yellow notice at the top of every page (app/views/layouts/_staging_notice.html.erb).
+    STAGING_NOTICE: Registrácie idú do testovacieho CAP a e-maily z neho dostane iba testovacia skupina.
   secret:
     - SECRET_KEY_BASE
     - CAP_REGISTRATION_SECRET
