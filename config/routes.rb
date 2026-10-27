@@ -55,6 +55,12 @@ Rails.application.routes.draw do
     resources :consultations, path: 'konzultacie'
   end
 
+  # Registrations of Autoform and Datahub through CAP (CapRegistrations).
+  resource :registration, path: 'registracia', only: :create do
+    get :confirmation, path: 'potvrdenie'
+    post :confirm, path: 'potvrdenie'
+  end
+
   resource 'open_data', path: 'otvorene-data'
   resource 'open_api', path: 'otvorene-api'
 

@@ -1,7 +1,9 @@
 FROM ruby:2.7.8
 
-# Install packages
-RUN apt-get update && apt-get install -y build-essential nodejs libpq-dev
+# Install packages. Debian 11 (bullseye) of ruby:2.7.8 moved to the archive of
+# Debian, deb.debian.org no longer has its security updates.
+RUN sed -i 's|http://deb.debian.org|http://archive.debian.org|g' /etc/apt/sources.list && \
+    apt-get -o Acquire::Check-Valid-Until=false update && apt-get install -y build-essential nodejs libpq-dev
 
 # Set working directory
 RUN mkdir /app

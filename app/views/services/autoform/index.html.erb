@@ -213,12 +213,16 @@
     </div>
   </section>
 
-  <section>
+  <section id="registracia">
     <h2>Registrácia</h2>
     <p class="lead">Jednoduchá registrácia, <em>prvý mesiac <strong>zadarmo</strong></em>.
       Následne podľa <%= link_to 'cenníka', pricing_path(anchor: 'autoform') %>.
       Na výskumné a dobročinné účely zadarmo.
     </p>
+
+    <% if CapRegistrations.enabled? %>
+      <%= render 'registrations/form', products: %w[AUTOFORM], domain: true %>
+    <% else %>
 
     <div id="autoform-error" style="display: none;">
       <div class="alert alert-danger alert-dismissible" role="alert">
@@ -265,6 +269,7 @@
         <p class="text-muted">Registráciou sa zaväzujete dodržiavať <%= link_to 'podmienky používania služieb Ekosystému', services_terms_path %>.</p>
       </div>
     </div>
+    <% end %>
   </section>
 
   <section id="integracny-manual">
