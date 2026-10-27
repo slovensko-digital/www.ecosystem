@@ -100,11 +100,20 @@ RSpec.describe 'Registrations through CAP', type: :request do
     it 'confirms the registration by the button' do
       stub = stub_request(:post, "#{cap}/s/registrations/confirm")
         .with(headers: { 'x-registration-secret' => 'tajne' }, body: { token: 'token-0123456789abcdefghij' }.to_json)
-        .to_return(status: 200, body: { status: 'activated', email: 'jan@firma.sk' }.to_json)
+        .to_return(status: 200, body: { status: 'activating', email: 'jan@firma.sk' }.to_json)
 
       post '/registracia/potvrdenie', params: { t: 'token-0123456789abcdefghij' }
 
       expect(stub).to have_been_requested
+      expect(response.body).to include('Registrácia je potvrdená. Prístupové údaje vám o pár minút pošleme na jan@firma.sk.')
+    end
+
+    it 'still understands an activation CAP did at once' do
+      stub_request(:post, "#{cap}/s/registrations/confirm")
+        .to_return(status: 200, body: { status: 'activated', email: 'jan@firma.sk' }.to_json)
+
+      post '/registracia/potvrdenie', params: { t: 'token-0123456789abcdefghij' }
+
       expect(response.body).to include('Registrácia je potvrdená. Prístupové údaje sme poslali na jan@firma.sk.')
     end
 

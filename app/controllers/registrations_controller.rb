@@ -72,6 +72,8 @@ class RegistrationsController < ContentController
     return unavailable("POST /s/registrations/confirm returned #{result.status}") unless result.status == 200
 
     case result.body['status']
+    when 'activating'
+      ['success', "Registrácia je potvrdená. Prístupové údaje vám o pár minút pošleme na #{result.body['email'].presence || 'váš e-mail'}."]
     when 'activated'
       ['success', "Registrácia je potvrdená. Prístupové údaje sme poslali na #{result.body['email'].presence || 'váš e-mail'}."]
     when 'pending'
