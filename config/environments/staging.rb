@@ -31,8 +31,9 @@ Rails.application.configure do
   # config.asset_host = "http://assets.example.com"
 
   # Log to STDOUT with the current request id as a default log tag.
+  # Use the default Logger formatter so that PID and timestamp are not suppressed.
   config.log_tags = [ :request_id ]
-  config.logger   = ActiveSupport::TaggedLogging.logger(STDOUT)
+  config.logger   = ActiveSupport::TaggedLogging.logger(STDOUT, formatter: ::Logger::Formatter.new)
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
