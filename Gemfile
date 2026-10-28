@@ -21,7 +21,6 @@ gem 'newrelic_rpm'
 gem 'rollbar'
 
 # Utilities
-gem 'redis-rails'
 gem 'rest-client'
 
 group :development, :test do
