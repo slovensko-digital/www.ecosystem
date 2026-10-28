@@ -18,6 +18,7 @@ class ErrorsController < ContentController
         render status: 422
       end
       format.json { render json: {error_message: 'Change rejected', status: 422}, status: 422 }
+      format.any { head 422 }
     end
   end
 
@@ -28,6 +29,7 @@ class ErrorsController < ContentController
         render status: 500
       end
       format.json { render json: {error_message: 'Something went wrong', status: 500}, status: 500 }
+      format.any { head 500 }
     end
   end
 
