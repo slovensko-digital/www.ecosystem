@@ -9,13 +9,12 @@ gem 'sprockets-rails'
 
 # Styles
 gem 'bootstrap-sass', '3.4.1'
-gem 'sass-rails'
+gem 'dartsass-sprockets'
 
 # Scripts
-gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'uglifier'
+gem 'terser'
 
 # Monitoring
 gem 'newrelic_rpm'
