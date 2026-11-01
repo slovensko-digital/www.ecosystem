@@ -1,6 +1,18 @@
 <div class="container">
   <h1><strong>Poznámky k zmenám funkcionality a štruktúry dát</strong></h1>
   <div class="long-text">
+    <h2 class="anchorable">Zmena k 30. 10. 2026</h2>
+    <h3>Otvorené API</h3>
+    <h4>Zmenený endpoint <code>api/data/crz/contracts/:id</code></h4>
+    <ul>
+      <li>Pridaný atribút <code>crzid: integer, null</code>; dostupný aj v synchronizačnom API.</li>
+    </ul>
+    <h3>Otvorené dáta</h3>
+    <h4>Zmenená tabuľka <code>crz.contracts</code></h4>
+    <ul>
+      <li>Pridaný stĺpec <code>crzid: integer, NULL</code>; staršie záznamy majú <code>NULL</code>.</li>
+    </ul>
+
     <h2 class="anchorable">Zmena k 15. 10. 2026</h2>
     <h3>Otvorené dáta</h3>
     <h4>Ukončenie podpory <code>RPO</code> (Register právnických osôb)</h4>
