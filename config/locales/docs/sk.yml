@@ -167,6 +167,9 @@ sk:
               note_html: Najčastejšie referencia dodatku na zmluvu. Neštruktúrované dáta bez záruk integrity.
             procurement_url:
               description: Odkaz na verejné obstarávanie
+            crzid:
+              description: Identifikátor zmluvy v CRZ
+              note_html: Hodnota zo zdroja. Podľa doteraz pozorovaných exportov sa rovná hodnote stĺpca <code>id</code>. Staršie zmluvy importované pred pridaním stĺpca majú <code>NULL</code>.
             <<: *timestamp_columns
 
     rpo2:
