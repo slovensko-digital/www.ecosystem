@@ -81,7 +81,7 @@ RSpec.describe 'Pages' do
     it 'documents the CRZ crzid change' do
       visit release_notes_path
 
-      expect(page).to have_content('Zmena k 30. 10. 2026')
+      expect(page).to have_content('Zmena k 2. 11. 2026')
       expect(page).to have_content('crzid')
     end
   end
