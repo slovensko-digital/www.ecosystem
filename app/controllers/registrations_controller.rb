@@ -10,6 +10,7 @@ class RegistrationsController < ContentController
   }.freeze
 
   UNAVAILABLE = 'Registráciu sa nepodarilo odoslať. Skúste to prosím o chvíľu znova alebo nám napíšte na ekosystem@slovensko.digital.'.freeze
+  UNKNOWN_COMPANY = 'Firmu s týmto IČO sme v registri nenašli. Skontrolujte prosím IČO alebo nám napíšte na ekosystem@slovensko.digital.'.freeze
 
   before_action :set_confirmation_page, only: [:confirmation, :confirm]
 
@@ -18,7 +19,7 @@ class RegistrationsController < ContentController
     values['product'] = 'AUTOFORM' unless CapRegistrations::PRODUCTS.key?(values['product'])
 
     # A bot fills in every field, also the hidden one.
-    kind, message = params[:website].present? ? ['success', registered_message(values, 'confirmation' => 'MANUAL')] : register(values)
+    kind, message = params[:website].present? ? ['success', registered_message(values)] : register(values)
 
     session[:cap_registration] = { 'product' => values['product'], 'kind' => kind, 'message' => message, 'values' => kind == 'error' ? values : {} }
     redirect_to send(PAGES[values['product']], anchor: 'registracia')
@@ -40,10 +41,13 @@ class RegistrationsController < ContentController
   end
 
   def register(values)
-    result = CapRegistrations.register(values)
+    corporate_body = CapRegistrations.corporate_body(values['ico'])
+    return ['error', UNKNOWN_COMPANY] unless corporate_body
+
+    result = CapRegistrations.register(values, corporate_body)
 
     case result.status
-    when 200 then ['success', registered_message(values, result.body)]
+    when 200 then ['success', registered_message(values)]
     when 422 then ['error', "Registrácia sa nepodarila: #{result.body['error'] || 'neplatné údaje'}. Opravte prosím údaje a skúste znova."]
     else unavailable("POST /s/registrations returned #{result.status}")
     end
@@ -51,19 +55,10 @@ class RegistrationsController < ContentController
     unavailable(e)
   end
 
-  def registered_message(values, body)
-    case body['status']
-    when 'resent'
-      'Registráciu s týmto e-mailom už evidujeme. Poslali sme vám nový e-mail s odkazom na potvrdenie.'
-    when 'duplicate'
-      'Registráciu s týmto e-mailom už evidujeme. Ozveme sa vám e-mailom.'
-    else
-      if body['confirmation'] == 'SENT'
-        "Ďakujeme. Na #{values['email']} sme poslali e-mail s vašimi údajmi a odkazom, ktorým registráciu potvrdíte."
-      else
-        'Ďakujeme, registráciu sme prijali. Údaje skontrolujeme a pošleme vám ich e-mailom na potvrdenie.'
-      end
-    end
+  # The same for a new, a repeated and a known registration: the page must not
+  # tell anyone whose e-mail or company CAP already knows. The rest goes by e-mail.
+  def registered_message(values)
+    "Ďakujeme, registráciu sme prijali. Ďalší postup vám pošleme e-mailom na #{values['email']}."
   end
 
   def confirm_registration(token)

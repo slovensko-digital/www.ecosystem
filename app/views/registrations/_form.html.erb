@@ -1,5 +1,6 @@
-<%# The registration of products (CapRegistrations::PRODUCTS) with the billing
-    data; Autoform fills them in after the client picks the company. %>
+<%# The registration of products (CapRegistrations::PRODUCTS) for a company the
+    client picks by Autoform; the server takes its billing data from the register
+    by IČO. %>
 <% result = cap_registration_result(*products) %>
 <% values = (result && result['values']) || {} %>
 <% if result %>
@@ -39,7 +40,6 @@
   </div>
 
   <h3>Fakturačné údaje</h3>
-  <p class="help-block">Začnite písať názov firmy alebo IČO, údaje doplní Autoform z registra. Dajú sa aj prepísať.</p>
   <div class="row">
     <div class="col-md-8 form-group">
       <%= label_tag :cap_company_name, 'Názov firmy', class: 'control-label' %>
@@ -47,37 +47,7 @@
     </div>
     <div class="col-md-4 form-group">
       <%= label_tag :cap_ico, 'IČO', class: 'control-label' %>
-      <%= text_field_tag :ico, values['ico'], class: 'form-control input-lg', data: {'slovensko-digital-autoform': 'cin'}, id: 'cap_ico' %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-3 form-group">
-      <%= label_tag :cap_dic, 'DIČ', class: 'control-label' %>
-      <%= text_field_tag :dic, values['dic'], class: 'form-control', data: {'slovensko-digital-autoform': 'tin'}, id: 'cap_dic' %>
-    </div>
-    <div class="col-md-3 form-group">
-      <%= label_tag :cap_ic_dph, 'IČ DPH', class: 'control-label' %>
-      <%= text_field_tag :ic_dph, values['ic_dph'], class: 'form-control', placeholder: 'ak ste platiteľ DPH', data: {'slovensko-digital-autoform': 'vatin'}, id: 'cap_ic_dph' %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6 form-group">
-      <%= label_tag :cap_street, 'Ulica a číslo', class: 'control-label' %>
-      <%= text_field_tag :street, values['street'], class: 'form-control', required: true, data: {'slovensko-digital-autoform': 'formatted-street'}, id: 'cap_street' %>
-    </div>
-    <div class="col-md-2 form-group">
-      <%= label_tag :cap_postcode, 'PSČ', class: 'control-label' %>
-      <%= text_field_tag :postcode, values['postcode'], class: 'form-control', required: true, data: {'slovensko-digital-autoform': 'postal-code'}, id: 'cap_postcode' %>
-    </div>
-    <div class="col-md-4 form-group">
-      <%= label_tag :cap_city, 'Mesto', class: 'control-label' %>
-      <%= text_field_tag :city, values['city'], class: 'form-control', required: true, data: {'slovensko-digital-autoform': 'municipality'}, id: 'cap_city' %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-3 form-group">
-      <%= label_tag :cap_country, 'Krajina', class: 'control-label' %>
-      <%= text_field_tag :country, values['country'], class: 'form-control', placeholder: 'Slovensko', data: {'slovensko-digital-autoform': 'country'}, id: 'cap_country' %>
+      <%= text_field_tag :ico, values['ico'], class: 'form-control input-lg', required: true, data: {'slovensko-digital-autoform': 'cin'}, id: 'cap_ico' %>
     </div>
   </div>
 

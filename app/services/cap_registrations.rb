@@ -10,7 +10,7 @@ class CapRegistrations
     'DATAHUB_SQL' => 'Datahub SQL',
   }.freeze
 
-  FIELDS = %w[product email domain company_name ico dic ic_dph street postcode city country].freeze
+  FIELDS = %w[product email domain company_name ico].freeze
 
   Result = Struct.new(:status, :body)
 
@@ -19,19 +19,26 @@ class CapRegistrations
       ENV['CAP_URL'].present? && ENV['CAP_REGISTRATION_SECRET'].present?
     end
 
-    def register(values)
+    # The company of the IČO in the register (Autoform), nil when the register
+    # does not know it. The client gives only the IČO, we have the rest.
+    def corporate_body(ico)
+      response = RestClient::Resource.new("#{ENV.fetch('AUTOFORM_URL')}/api/corporate_bodies/search", timeout: 10).get(params: { q: "cin:#{ico}", private_access_token: ENV.fetch('AUTOFORM_PRIVATE_ACCESS_TOKEN') })
+      JSON.parse(response.body).first
+    end
+
+    def register(values, corporate_body)
       post('/s/registrations',
         product: values['product'],
         email: values['email'],
         domain: values['domain'],
-        companyName: values['company_name'],
-        ico: values['ico'],
-        dic: values['dic'],
-        icDph: values['ic_dph'],
-        street: values['street'],
-        postcode: values['postcode'],
-        city: values['city'],
-        country: values['country'],
+        companyName: corporate_body['name'],
+        ico: corporate_body['cin'],
+        dic: corporate_body['tin'],
+        icDph: corporate_body['vatin'],
+        street: corporate_body['formatted_street'],
+        postcode: corporate_body['postal_code'],
+        city: corporate_body['municipality'],
+        country: corporate_body['country'],
         source: 'WEB_FORM'
       )
     end
