@@ -26,6 +26,5 @@
 
 .env.local
 
-# Gems installed locally and the secrets of the Kamal staging (config/deploy.cap.yml).
+# Gems installed locally.
 /vendor/bundle
-.env.kamal
