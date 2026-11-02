@@ -73,6 +73,16 @@ RSpec.describe 'Pages' do
       expect(page).to have_content('Centrálny register zmlúv')
       expect(page).to have_content('Obchodný vestník')
       expect(page).to have_content('Register účtovných závierok')
+      expect(page).to have_content('crzid')
+    end
+  end
+
+  describe 'release notes' do
+    it 'documents the CRZ crzid change' do
+      visit release_notes_path
+
+      expect(page).to have_content('Zmena k 2. 11. 2026')
+      expect(page).to have_content('crzid')
     end
   end
 
