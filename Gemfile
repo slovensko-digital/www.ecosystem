@@ -1,27 +1,27 @@
 source 'https://rubygems.org'
 
-ruby '2.7.8'
+ruby '4.0.9'
 
-gem 'rails', '~> 5.2.4.4'
-gem 'pg', '~> 0.18'
+gem 'rails', '~> 8.1.4'
+gem 'pg', '~> 1.6'
 gem 'puma'
+gem 'sprockets-rails'
 
 # Styles
 gem 'bootstrap-sass', '3.4.1'
-gem 'sass-rails'
+gem 'dartsass-sprockets'
 
 # Scripts
-gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'uglifier'
+gem 'terser'
 
 # Monitoring
 gem 'newrelic_rpm'
 gem 'rollbar'
 
 # Utilities
-gem 'redis-rails'
+gem 'ostruct' # OpenStruct is a bundled gem since Ruby 4.0
 gem 'rest-client'
 
 group :development, :test do
@@ -29,24 +29,18 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rack-mini-profiler'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 8.0'
 end
 
 group :development do
-  gem 'spring-watcher-listen'
   gem 'web-console'
-end
-
-group :staging, :production do
-  gem 'rails_12factor'
 end
 
 group :test do
   gem 'selenium-webdriver'
-  gem "webdrivers", "= 5.3.0"
   gem 'capybara'
   gem 'launchy'
-  gem 'simplecov', '~> 0.10', '< 0.18'
+  gem 'simplecov'
   gem 'webmock'
 end
 
