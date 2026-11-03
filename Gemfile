@@ -17,7 +17,6 @@ gem 'turbolinks'
 gem 'terser'
 
 # Monitoring
-gem 'newrelic_rpm'
 gem 'rollbar'
 
 # Utilities
