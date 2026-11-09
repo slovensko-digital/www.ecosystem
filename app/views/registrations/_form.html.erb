@@ -28,13 +28,13 @@
     <div class="col-md-6 form-group">
       <%= label_tag :cap_email, 'E-mail', class: 'control-label' %>
       <%= email_field_tag :email, values['email'], class: 'form-control input-lg', required: true, id: 'cap_email' %>
-      <p class="help-block">Pošleme naň e-mail s odkazom na potvrdenie registrácie a potom prístupové údaje.</p>
+      <p class="help-block">Kontaktný e-mail pre prístupové údaje a dokončenie registrácie.</p>
     </div>
     <% if domain %>
       <div class="col-md-6 form-group">
         <%= label_tag :cap_domain, 'Doména webu (nepovinné)', class: 'control-label' %>
         <%= text_field_tag :domain, values['domain'], class: 'form-control input-lg', placeholder: 'napríklad www.firma.sk', id: 'cap_domain' %>
-        <p class="help-block">Kde použijete Autoform v prehliadači: kľúč bude fungovať iba na tejto doméne. Ak Autoform voláte iba zo servera cez API, doménu nevypĺňajte. Localhost funguje vždy.</p>
+        <p class="help-block">Autoform bude obmedzený iba na túto doménu.</p>
       </div>
     <% end %>
   </div>
