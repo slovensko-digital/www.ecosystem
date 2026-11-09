@@ -11,7 +11,9 @@ Ecosystem is user facing web app for [ekosystem.slovensko.digital](https://ekosy
 The registration forms of Autoform and Datahub ask only for the company and its IČO; the server
 takes the billing data from the register through Autoform (`AUTOFORM_URL`,
 `AUTOFORM_PRIVATE_ACCESS_TOKEN`, as GovBox) and sends the registration to CAP (the CRM of the
-ecosystem), which e-mails the client a link to confirm it at `/registracia/potvrdenie`.
+ecosystem), which e-mails the client a link to confirm it at `/registracia/potvrdenie`. A client
+without a Slovak IČO (a person, a foreign company) ticks „Nemám slovenské IČO“ and writes the
+address; CAP leaves such a registration to a human.
 Set `CAP_URL` (e.g. `https://cap.dev.slovensko.digital`) and `CAP_REGISTRATION_SECRET` (the
 `REGISTRATION_SECRET` of CAP); without them the pages keep the Google Forms. The page of the
 link only shows a button, the button confirms the registration (mail scanners open links too).

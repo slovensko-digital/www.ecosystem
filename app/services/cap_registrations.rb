@@ -10,7 +10,7 @@ class CapRegistrations
     'DATAHUB_SQL' => 'Datahub SQL',
   }.freeze
 
-  FIELDS = %w[product email domain company_name ico].freeze
+  FIELDS = %w[product email domain company_name ico without_ico street postcode city country].freeze
 
   Result = Struct.new(:status, :body)
 
@@ -19,18 +19,14 @@ class CapRegistrations
       ENV['CAP_URL'].present? && ENV['CAP_REGISTRATION_SECRET'].present?
     end
 
-    # The company of the IČO in the register (Autoform), nil when the register
-    # does not know it. The client gives only the IČO, we have the rest.
-    def corporate_body(ico)
+    # The billing data of the company of the IČO in the register (Autoform), nil
+    # when the register does not know it. The client gives only the IČO, we have the rest.
+    def billing_by_ico(ico)
       response = RestClient::Resource.new("#{ENV.fetch('AUTOFORM_URL')}/api/corporate_bodies/search", timeout: 10).get(params: { q: "cin:#{ico}", private_access_token: ENV.fetch('AUTOFORM_PRIVATE_ACCESS_TOKEN') })
-      JSON.parse(response.body).first
-    end
+      corporate_body = JSON.parse(response.body).first
+      return unless corporate_body
 
-    def register(values, corporate_body)
-      post('/s/registrations',
-        product: values['product'],
-        email: values['email'],
-        domain: values['domain'],
+      {
         companyName: corporate_body['name'],
         ico: corporate_body['cin'],
         dic: corporate_body['tin'],
@@ -39,8 +35,17 @@ class CapRegistrations
         postcode: corporate_body['postal_code'],
         city: corporate_body['municipality'],
         country: corporate_body['country'],
-        source: 'WEB_FORM'
-      )
+      }
+    end
+
+    # The billing data as written by a client without a Slovak IČO (a person, a
+    # foreign company); CAP leaves such a registration to a human.
+    def billing_as_written(values)
+      { companyName: values['company_name'], street: values['street'], postcode: values['postcode'], city: values['city'], country: values['country'] }
+    end
+
+    def register(values, billing)
+      post('/s/registrations', product: values['product'], email: values['email'], domain: values['domain'], **billing, source: 'WEB_FORM')
     end
 
     def confirm(token)

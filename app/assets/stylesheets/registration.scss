@@ -22,6 +22,15 @@
     margin: 1em 0 1.5em;
   }
 
+  // The IČO and the address take turns (registration_form.js).
+  [hidden] {
+    display: none !important;
+  }
+
+  fieldset {
+    margin-top: 0;
+  }
+
   @media (max-width: $screen-xs-max) {
     padding: 1em;
   }

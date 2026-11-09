@@ -1,8 +1,10 @@
 <%# The registration of products (CapRegistrations::PRODUCTS) for a company the
     client picks by Autoform; the server takes its billing data from the register
-    by IČO. %>
+    by IČO. Without a Slovak IČO the client writes the address instead
+    (registration_form.js). %>
 <% result = cap_registration_result(*products) %>
 <% values = (result && result['values']) || {} %>
+<% without_ico = values['without_ico'] == '1' %>
 <% if result %>
   <div class="alert <%= result['kind'] == 'error' ? 'alert-danger' : 'alert-success' %>" role="alert"><%= result['message'] %></div>
   <% if result['kind'] == 'success' %>
@@ -42,14 +44,37 @@
   <h3>Fakturačné údaje</h3>
   <div class="row">
     <div class="col-md-8 form-group">
-      <%= label_tag :cap_company_name, 'Názov firmy', class: 'control-label' %>
+      <%= label_tag :cap_company_name, without_ico ? 'Meno a priezvisko alebo názov firmy' : 'Názov firmy', class: 'control-label', data: {company: 'Názov firmy', 'without-ico': 'Meno a priezvisko alebo názov firmy'} %>
       <%= text_field_tag :company_name, values['company_name'], class: 'form-control input-lg', required: true, autocomplete: 'off', data: {'slovensko-digital-autoform': 'name'}, id: 'cap_company_name' %>
     </div>
-    <div class="col-md-4 form-group">
+    <%= tag.div class: 'col-md-4 form-group', id: 'cap-registration-ico', hidden: without_ico do %>
       <%= label_tag :cap_ico, 'IČO', class: 'control-label' %>
-      <%= text_field_tag :ico, values['ico'], class: 'form-control input-lg', required: true, data: {'slovensko-digital-autoform': 'cin'}, id: 'cap_ico' %>
-    </div>
+      <%= text_field_tag :ico, values['ico'], class: 'form-control input-lg', required: true, disabled: without_ico, data: {'slovensko-digital-autoform': 'cin'}, id: 'cap_ico' %>
+    <% end %>
   </div>
+  <div class="checkbox">
+    <label><%= check_box_tag :without_ico, '1', without_ico, id: 'cap_without_ico' %> Nemám slovenské IČO (fyzická osoba, zahraničná firma)</label>
+  </div>
+  <%= tag.fieldset id: 'cap-registration-address', disabled: !without_ico, hidden: !without_ico do %>
+    <div class="row">
+      <div class="col-md-5 form-group">
+        <%= label_tag :cap_street, 'Ulica a číslo', class: 'control-label' %>
+        <%= text_field_tag :street, values['street'], class: 'form-control input-lg', required: true, id: 'cap_street' %>
+      </div>
+      <div class="col-md-2 form-group">
+        <%= label_tag :cap_postcode, 'PSČ', class: 'control-label' %>
+        <%= text_field_tag :postcode, values['postcode'], class: 'form-control input-lg', required: true, id: 'cap_postcode' %>
+      </div>
+      <div class="col-md-3 form-group">
+        <%= label_tag :cap_city, 'Mesto', class: 'control-label' %>
+        <%= text_field_tag :city, values['city'], class: 'form-control input-lg', required: true, id: 'cap_city' %>
+      </div>
+      <div class="col-md-2 form-group">
+        <%= label_tag :cap_country, 'Krajina', class: 'control-label' %>
+        <%= text_field_tag :country, values['country'], class: 'form-control input-lg', placeholder: 'Slovensko', id: 'cap_country' %>
+      </div>
+    </div>
+  <% end %>
 
   <%# Left empty by people, filled in by bots. %>
   <div style="position: absolute; left: -10000px;" aria-hidden="true">

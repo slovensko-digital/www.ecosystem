@@ -23,6 +23,9 @@ RSpec.describe 'Registrations through CAP', type: :request do
       country: 'Slovenská republika',
     }
   end
+  let(:written_form) do
+    form.merge(without_ico: '1', company_name: 'Ján Novák', street: 'Hlavná 1', postcode: '811 01', city: 'Bratislava', country: 'Česko')
+  end
 
   around do |example|
     ENV['CAP_URL'] = cap
@@ -47,8 +50,8 @@ RSpec.describe 'Registrations through CAP', type: :request do
     get '/sluzby/autoform'
 
     registration_form = response.body[/<form[^>]*id="cap-registration-form".*?<\/form>/m]
-    expect(registration_form).to include('name="company_name"', 'name="ico"')
-    expect(registration_form).not_to include('name="street"', 'name="dic"', 'Dajú sa aj prepísať')
+    expect(registration_form).to include('name="company_name"', 'name="ico"', 'name="without_ico"')
+    expect(registration_form).not_to include('name="dic"', 'Dajú sa aj prepísať')
     expect(response.body).not_to include('docs.google.com/forms/d/1TpYNJfBQVGt4lmKP')
 
     get '/sluzby/datahub'
@@ -104,7 +107,47 @@ RSpec.describe 'Registrations through CAP', type: :request do
     follow_redirect!
 
     expect(a_request(:post, "#{cap}/s/registrations")).not_to have_been_made
-    expect(response.body).to include('Firmu s týmto IČO sme v registri nenašli', 'ekosystem@slovensko.digital', 'value="36421999"', 'value="Firma s.r.o."')
+    expect(response.body[/<div class="alert[^>]*>(.*?)<\/div>/m, 1]).to include('Firmu s týmto IČO sme v registri nenašli', 'Nemám slovenské IČO')
+    expect(response.body).to include('value="36421999"', 'value="Firma s.r.o."')
+  end
+
+  describe 'without a Slovak IČO' do
+    it 'hides the address until the client says so' do
+      get '/sluzby/autoform'
+
+      address = Nokogiri::HTML(response.body).at('#cap-registration-address')
+      expect(address.css('[name]').map { |field| field['name'] }).to eq(%w[street postcode city country])
+      expect(address.keys).to include('disabled', 'hidden')
+    end
+
+    it 'sends the billing data as written and does not look in the register' do
+      stub_registration(200, status: 'created', confirmation: 'MANUAL')
+
+      post '/registracia', params: written_form
+
+      expect(a_request(:post, "#{cap}/s/registrations").with(
+        body: hash_including('product' => 'AUTOFORM', 'email' => 'jan@firma.sk', 'companyName' => 'Ján Novák', 'street' => 'Hlavná 1', 'postcode' => '811 01', 'city' => 'Bratislava', 'country' => 'Česko', 'source' => 'WEB_FORM')
+      ) { |request| !JSON.parse(request.body).key?('ico') }).to have_been_made
+      expect(a_request(:get, "#{ENV.fetch('AUTOFORM_URL')}/api/corporate_bodies/search").with(query: hash_including({}))).not_to have_been_made
+
+      follow_redirect!
+
+      expect(response.body).to include('Ďakujeme, registráciu sme prijali. Ďalší postup vám pošleme e-mailom na jan@firma.sk.')
+    end
+
+    it 'keeps the address when CAP refuses it' do
+      stub_registration(422, error: 'Chýbajú fakturačné údaje')
+
+      post '/registracia', params: written_form
+      follow_redirect!
+
+      page = Nokogiri::HTML(response.body)
+      expect(page.at('#cap_without_ico')['checked']).to be_present
+      expect(page.at('#cap_ico')['disabled']).to be_present
+      expect(page.at('#cap-registration-address').keys).not_to include('disabled', 'hidden')
+      expect(page.at('#cap-registration-address [name="street"]')['value']).to eq('Hlavná 1')
+      expect(page.at('label[for="cap_company_name"]').text).to eq('Meno a priezvisko alebo názov firmy')
+    end
   end
 
   it 'keeps what the client wrote when CAP refuses it' do

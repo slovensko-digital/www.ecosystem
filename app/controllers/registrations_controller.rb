@@ -10,7 +10,7 @@ class RegistrationsController < ContentController
   }.freeze
 
   UNAVAILABLE = 'Registráciu sa nepodarilo odoslať. Skúste to prosím o chvíľu znova alebo nám napíšte na ekosystem@slovensko.digital.'.freeze
-  UNKNOWN_COMPANY = 'Firmu s týmto IČO sme v registri nenašli. Skontrolujte prosím IČO alebo nám napíšte na ekosystem@slovensko.digital.'.freeze
+  UNKNOWN_COMPANY = 'Firmu s týmto IČO sme v registri nenašli. Skontrolujte prosím IČO. Ak nemáte slovenské IČO, zaškrtnite „Nemám slovenské IČO“ a vyplňte adresu.'.freeze
 
   before_action :set_confirmation_page, only: [:confirmation, :confirm]
 
@@ -41,10 +41,10 @@ class RegistrationsController < ContentController
   end
 
   def register(values)
-    corporate_body = CapRegistrations.corporate_body(values['ico'])
-    return ['error', UNKNOWN_COMPANY] unless corporate_body
+    billing = values['without_ico'] == '1' ? CapRegistrations.billing_as_written(values) : CapRegistrations.billing_by_ico(values['ico'])
+    return ['error', UNKNOWN_COMPANY] unless billing
 
-    result = CapRegistrations.register(values, corporate_body)
+    result = CapRegistrations.register(values, billing)
 
     case result.status
     when 200 then ['success', registered_message(values)]
