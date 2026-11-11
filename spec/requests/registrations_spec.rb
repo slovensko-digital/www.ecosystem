@@ -117,7 +117,8 @@ RSpec.describe 'Registrations through CAP', type: :request do
 
       address = Nokogiri::HTML(response.body).at('#cap-registration-address')
       expect(address.css('[name]').map { |field| field['name'] }).to eq(%w[street postcode city country])
-      expect(address.keys).to include('disabled', 'hidden')
+      expect(address.keys).to include('hidden')
+      expect(address.css('input').map { |field| field['disabled'] }).to all(be_present)
     end
 
     it 'sends the billing data as written and does not look in the register' do
