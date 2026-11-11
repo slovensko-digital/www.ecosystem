@@ -55,23 +55,25 @@
   <div class="checkbox">
     <label><%= check_box_tag :without_ico, '1', without_ico, id: 'cap_without_ico' %> Nemám slovenské IČO (fyzická osoba, zahraničná firma)</label>
   </div>
-  <%= tag.fieldset id: 'cap-registration-address', disabled: !without_ico, hidden: !without_ico do %>
+  <%# disabled on the inputs, not the fieldset: jquery_ujs stops the submit on a blank
+      required input without its own disabled attribute. %>
+  <%= tag.fieldset id: 'cap-registration-address', hidden: !without_ico do %>
     <div class="row">
       <div class="col-md-5 form-group">
         <%= label_tag :cap_street, 'Ulica a číslo', class: 'control-label' %>
-        <%= text_field_tag :street, values['street'], class: 'form-control input-lg', required: true, id: 'cap_street' %>
+        <%= text_field_tag :street, values['street'], class: 'form-control input-lg', required: true, disabled: !without_ico, id: 'cap_street' %>
       </div>
       <div class="col-md-2 form-group">
         <%= label_tag :cap_postcode, 'PSČ', class: 'control-label' %>
-        <%= text_field_tag :postcode, values['postcode'], class: 'form-control input-lg', required: true, id: 'cap_postcode' %>
+        <%= text_field_tag :postcode, values['postcode'], class: 'form-control input-lg', required: true, disabled: !without_ico, id: 'cap_postcode' %>
       </div>
       <div class="col-md-3 form-group">
         <%= label_tag :cap_city, 'Mesto', class: 'control-label' %>
-        <%= text_field_tag :city, values['city'], class: 'form-control input-lg', required: true, id: 'cap_city' %>
+        <%= text_field_tag :city, values['city'], class: 'form-control input-lg', required: true, disabled: !without_ico, id: 'cap_city' %>
       </div>
       <div class="col-md-2 form-group">
         <%= label_tag :cap_country, 'Krajina', class: 'control-label' %>
-        <%= text_field_tag :country, values['country'], class: 'form-control input-lg', placeholder: 'Slovensko', id: 'cap_country' %>
+        <%= text_field_tag :country, values['country'], class: 'form-control input-lg', placeholder: 'Slovensko', disabled: !without_ico, id: 'cap_country' %>
       </div>
     </div>
   <% end %>

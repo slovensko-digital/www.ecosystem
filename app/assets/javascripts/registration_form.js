@@ -10,7 +10,7 @@ $(function () {
         var checked = withoutIco.prop('checked');
 
         form.find('#cap-registration-ico').prop('hidden', checked).find('input').prop('disabled', checked);
-        form.find('#cap-registration-address').prop({hidden: !checked, disabled: !checked});
+        form.find('#cap-registration-address').prop('hidden', !checked).find('input').prop('disabled', !checked);
         nameLabel.text(nameLabel.data(checked ? 'without-ico' : 'company'));
     });
 
