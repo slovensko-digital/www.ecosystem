@@ -7,6 +7,12 @@ gem 'pg', '~> 1.6'
 gem 'puma'
 gem 'sprockets-rails'
 
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', require: false
+
+# Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
+gem 'thruster', require: false
+
 # Styles
 gem 'bootstrap-sass', '3.4.1'
 gem 'dartsass-sprockets'
