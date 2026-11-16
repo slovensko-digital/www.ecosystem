@@ -37,7 +37,7 @@ Rails.application.configure do
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
-  config.log_level = :debug
+  config.log_level = ENV.fetch("LOG_LEVEL", :info)
 
   # Don't log any deprecations.
   config.active_support.report_deprecations = false
