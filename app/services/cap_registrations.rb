@@ -10,7 +10,7 @@ class CapRegistrations
     'DATAHUB_SQL' => 'Datahub SQL',
   }.freeze
 
-  FIELDS = %w[product email domain company_name ico without_ico street postcode city country].freeze
+  FIELDS = %w[product email domain company_name ico without_ico street postcode city country foreign_ico foreign_dic].freeze
 
   Result = Struct.new(:status, :body)
 
@@ -39,9 +39,19 @@ class CapRegistrations
     end
 
     # The billing data as written by a client without a Slovak IČO (a person, a
-    # foreign company); CAP leaves such a registration to a human.
+    # foreign company), with a foreign IČO and DIČ / IČ DPH if any; CAP keeps
+    # them as written and leaves such a registration to a human.
     def billing_as_written(values)
-      { companyName: values['company_name'], street: values['street'], postcode: values['postcode'], city: values['city'], country: values['country'] }
+      {
+        companyName: values['company_name'],
+        ico: values['foreign_ico'].presence,
+        dic: values['foreign_dic'].presence,
+        street: values['street'],
+        postcode: values['postcode'],
+        city: values['city'],
+        country: values['country'],
+        withoutIco: true,
+      }.compact
     end
 
     def register(values, billing)

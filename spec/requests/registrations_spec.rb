@@ -116,7 +116,7 @@ RSpec.describe 'Registrations through CAP', type: :request do
       get '/sluzby/autoform'
 
       address = Nokogiri::HTML(response.body).at('#cap-registration-address')
-      expect(address.css('[name]').map { |field| field['name'] }).to eq(%w[street postcode city country])
+      expect(address.css('[name]').map { |field| field['name'] }).to eq(%w[street postcode city country foreign_ico foreign_dic])
       expect(address.keys).to include('hidden')
       expect(address.css('input').map { |field| field['disabled'] }).to all(be_present)
     end
@@ -127,13 +127,24 @@ RSpec.describe 'Registrations through CAP', type: :request do
       post '/registracia', params: written_form
 
       expect(a_request(:post, "#{cap}/s/registrations").with(
-        body: hash_including('product' => 'AUTOFORM', 'email' => 'jan@firma.sk', 'companyName' => 'Ján Novák', 'street' => 'Hlavná 1', 'postcode' => '811 01', 'city' => 'Bratislava', 'country' => 'Česko', 'source' => 'WEB_FORM')
-      ) { |request| !JSON.parse(request.body).key?('ico') }).to have_been_made
+        body: hash_including('product' => 'AUTOFORM', 'email' => 'jan@firma.sk', 'companyName' => 'Ján Novák', 'street' => 'Hlavná 1', 'postcode' => '811 01', 'city' => 'Bratislava', 'country' => 'Česko', 'withoutIco' => true, 'source' => 'WEB_FORM')
+      ) { |request| !JSON.parse(request.body).key?('ico') && !JSON.parse(request.body).key?('dic') }).to have_been_made
       expect(a_request(:get, "#{ENV.fetch('AUTOFORM_URL')}/api/corporate_bodies/search").with(query: hash_including({}))).not_to have_been_made
 
       follow_redirect!
 
       expect(response.body).to include('Ďakujeme, registráciu sme prijali. Ďalší postup vám pošleme e-mailom na jan@firma.sk.')
+    end
+
+    it 'sends a foreign IČO and DIČ as written' do
+      stub_registration(200, status: 'created', confirmation: 'MANUAL')
+
+      post '/registracia', params: written_form.merge(company_name: 'Firma s.r.o.', foreign_ico: '123 45 678', foreign_dic: 'CZ12345678')
+
+      expect(a_request(:post, "#{cap}/s/registrations").with(
+        body: hash_including('companyName' => 'Firma s.r.o.', 'ico' => '123 45 678', 'dic' => 'CZ12345678', 'country' => 'Česko', 'withoutIco' => true)
+      )).to have_been_made
+      expect(a_request(:get, "#{ENV.fetch('AUTOFORM_URL')}/api/corporate_bodies/search").with(query: hash_including({}))).not_to have_been_made
     end
 
     it 'keeps the address when CAP refuses it' do
@@ -147,6 +158,7 @@ RSpec.describe 'Registrations through CAP', type: :request do
       expect(page.at('#cap_ico')['disabled']).to be_present
       expect(page.at('#cap-registration-address').keys).not_to include('disabled', 'hidden')
       expect(page.at('#cap-registration-address [name="street"]')['value']).to eq('Hlavná 1')
+      expect(page.at('#cap-registration-address [name="foreign_ico"]')['disabled']).to be_nil
       expect(page.at('label[for="cap_company_name"]').text).to eq('Meno a priezvisko alebo názov firmy')
     end
   end

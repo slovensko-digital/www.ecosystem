@@ -76,6 +76,16 @@
         <%= text_field_tag :country, values['country'], class: 'form-control input-lg', placeholder: 'Slovensko', disabled: !without_ico, id: 'cap_country' %>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-5 form-group">
+        <%= label_tag :cap_foreign_ico, 'IČO alebo registračné číslo (nepovinné)', class: 'control-label' %>
+        <%= text_field_tag :foreign_ico, values['foreign_ico'], class: 'form-control input-lg', disabled: !without_ico, id: 'cap_foreign_ico' %>
+      </div>
+      <div class="col-md-4 form-group">
+        <%= label_tag :cap_foreign_dic, 'DIČ / IČ DPH (nepovinné)', class: 'control-label' %>
+        <%= text_field_tag :foreign_dic, values['foreign_dic'], class: 'form-control input-lg', placeholder: 'napr. CZ12345678', disabled: !without_ico, id: 'cap_foreign_dic' %>
+      </div>
+    </div>
   <% end %>
 
   <%# Left empty by people, filled in by bots. %>
