@@ -46,9 +46,10 @@ RSpec.feature 'Registration through CAP', type: :feature do
     fill_in 'cap_street', with: 'Hlavná 1'
     fill_in 'cap_postcode', with: '811 01'
     fill_in 'cap_city', with: 'Bratislava'
+    fill_in 'cap_foreign_dic', with: 'SK1020304050'
     click_on 'Zaregistrovať'
 
     expect(page).to have_content('Ďakujeme, registráciu sme prijali.')
-    expect(stub.with(body: hash_including('product' => 'DATAHUB_API', 'companyName' => 'Ján Novák', 'street' => 'Hlavná 1', 'postcode' => '811 01', 'city' => 'Bratislava'))).to have_been_requested
+    expect(stub.with(body: hash_including('product' => 'DATAHUB_API', 'companyName' => 'Ján Novák', 'street' => 'Hlavná 1', 'postcode' => '811 01', 'city' => 'Bratislava', 'dic' => 'SK1020304050', 'withoutIco' => true))).to have_been_requested
   end
 end

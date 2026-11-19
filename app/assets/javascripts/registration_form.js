@@ -1,5 +1,6 @@
 // The registration without a Slovak IČO (registrations/_form): the client
-// writes the address instead of the IČO and Autoform suggests no companies.
+// writes the address, optionally a foreign IČO and DIČ, instead of the IČO and
+// Autoform suggests no companies.
 $(function () {
     var form = $('#cap-registration-form');
     var withoutIco = form.find('#cap_without_ico');
