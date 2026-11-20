@@ -7,7 +7,7 @@
 # docker run -d -p 5000:5000 -e SECRET_KEY_BASE=<value> -e DATABASE_URL=<value> --name ecosystem ecosystem
 
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version
-ARG RUBY_VERSION=4.0.9
+ARG RUBY_VERSION=4.0.10
 FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
 
 # Rails app lives here
